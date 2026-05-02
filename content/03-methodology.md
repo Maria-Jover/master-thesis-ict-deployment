@@ -384,58 +384,379 @@ per-objective check.
 
 ## 3.B Endpoint reconditioning and mass deployment
 
-Source: handbook chapter 2.22 + `3-Guide/Laptop-Deployment`.
+This part of the chapter describes the second hardware work-stream: how a
+batch of refurbished laptops is taken from incoming-equipment status to
+classroom-ready endpoints with a single, reproducible image. The
+narrative is again ordered as a deployment is ordered in the field, but
+the underlying methodological commitments are the same as those of §3.A:
+written artefacts over recollection, recipes that survive a change of
+operator, and explicit lessons looped back into the handbook.
+
+§3.B owns the laptop as a managed asset (the image, the partitions, the
+user account, the BIOS posture). The network plumbing that the
+deployment briefly needs (the isolated PXE subnet, the deployment
+switch, the DHCP/TFTP/NFS hardware footprint) is owned by §3.A.7. Anything
+beyond first boot — fleet management, identity, application updates,
+remote support — belongs to the companion thesis [Motje, 2026].
 
 ### 3.B.1 The refurbished-hardware case
 
-Economic and environmental argument; sourcing channels (corporate fleet refresh, Labdoo).
+The starting point is the observation that the bottleneck for digital
+inclusion in low-resource sites is rarely *new* hardware. Corporate
+fleet refreshes, NGOs such as **Labdoo**, and local sponsors put
+three- to seven-year-old business laptops back into circulation by the
+container-load; the limiting factor on their reuse is not the silicon
+but the *labour cost of imaging them one by one* and the *cost of a
+support contract for a fleet of mismatched configurations*. The
+methodological response of this work-stream is therefore not "find better
+hardware" but "drive the per-machine provisioning cost as close to zero
+as possible while keeping the resulting fleet uniform enough to support
+remotely".
 
-### 3.B.2 Intake, triage and cataloguing with DeviceHub
+Two sourcing channels were exercised in the deployments documented in
+§4. Labdoo provided nine Lenovo ThinkPads (T460 and X260, Intel i5-6200U,
+8 GB DDR4, mixed 238 GB SSD / 466 GB HDD) wiped and ready to receive a
+new OS. NexTReT contributed three additional laptops and two mini-PC
+servers from a Spanish fleet refresh. Both channels deliver hardware in
+the *same generation class* but with *non-identical disk geometries* —
+which, as §3.B.5 will show, is the single decision driver of the entire
+imaging workflow.
 
-- Bootable diagnostic USB workflow.
-- Asset record fields (CPU, RAM, storage, battery cycles, S/N).
-- Integration of the inventory with the deployment plan (matching disks ↔ image variant).
+The case for refurbished hardware is also environmental. A laptop
+manufactured five years ago and reused for another five years has a
+markedly lower lifecycle carbon footprint per useful year than a
+newly-manufactured equivalent; this argument is developed in §6.
 
-### 3.B.3 Golden-master image — the AUCOOP Linux Mint
+### 3.B.2 Intake, triage and inventory
 
-- Why Mint (recap from §2.5).
-- Customisations: OnlyOffice, familiar launcher icons, removed bloat, generic hostname/user.
-- Pre-capture cleanup checklist.
+Before any laptop receives the golden-master image, it goes through a
+short triage step that produces an inventory record. The fields captured
+per machine are deliberately minimal so the workflow does not become its
+own bottleneck:
+
+| Field | Source | Why |
+|---|---|---|
+| Manufacturer / model / serial | Sticker or `dmidecode -s system-serial-number` | Traceability, warranty |
+| CPU / RAM | `lscpu`, `free -h` | Software-baseline check |
+| Storage device + size | `lsblk -d -o NAME,SIZE,ROTA` | **Drives the imaging plan** |
+| Battery health | `upower -i $(upower -e \| grep BAT)` | Field viability |
+| BIOS posture | Manual: Secure Boot off, USB boot on, network boot on | Pre-deployment requirement |
+| Notes | Free text | Visible defects, dead keys, screen marks |
+
+The inventory is held in the same project repository as the IP plan of
+§3.A.4, in a comma-separated file with one row per machine. The
+deployment script consumes this file when matching disks to image
+variants (§3.B.5). For larger or longer-running operations, a tool such
+as **DeviceHub** can replace the spreadsheet without changing the
+methodology — what matters is that the inventory exists and is
+versioned, not which tool produces it.
+
+The triage step also enforces a one-time **BIOS posture** that every
+target machine must reach before it joins the deployment queue: Secure
+Boot disabled, network boot enabled in the boot order, USB boot enabled
+as a fallback. This posture is why §3.B.7 succeeds at scale; skipping it
+is the single most expensive mistake an inexperienced operator can make
+(see the lessons of §3.B.9).
+
+### 3.B.3 The golden-master image — AUCOOP Linux Mint
+
+The reference operating system installed on every endpoint is **Linux
+Mint 22.3 Cinnamon**, customised for community use. The reasoning is
+documented in `3-Guide/Laptop-Deployment/AUCOOP-image.md` and reduces to
+three observations.
+
+First, the alternative operating systems each fail one constraint that
+matters for this user population. Windows is licensed and runs poorly
+on the target hardware class; Ubuntu's GNOME and Snap-centric desktop is
+unfamiliar to users coming from Windows and increases first-use
+friction; rolling-release distributions impose a maintenance burden that
+the receiving institution cannot absorb. Linux Mint Cinnamon presents a
+Windows-style desktop (start menu in the bottom-left, taskbar with
+launchers, system tray on the bottom-right) on top of an LTS Ubuntu
+base, which keeps user training cost and security-update cadence both
+manageable.
+
+Second, the *customisation* is itself a methodological deliverable, not
+a matter of taste. The AUCOOP image ships with **OnlyOffice** as the
+office suite (chosen for its high fidelity to the Microsoft Office file
+formats teachers already produce), with familiar launcher icons named
+after the closest Microsoft equivalent (Word, Excel, PowerPoint), and
+with the default unused applications removed. The user account
+(`aucoop`, with a documented password) is generic on purpose: the
+endpoint is delivered as a *station* the school can assign to a child or
+a teacher, not as a personal device tied to the contributor who imaged
+it.
+
+Third, the master is captured with a strict pre-capture cleanup
+checklist: `apt clean`, `apt autoremove`, removal of thumbnail caches,
+truncation of `journalctl` logs, removal of the network-manager
+connection history, and a final fill-with-zeros of the free space so
+gzip compression of the captured image is dense. Skipping the cleanup
+inflates the image by a factor of two to three with no functional gain.
 
 ### 3.B.4 Image capture with Clonezilla
 
-- Boot Clonezilla Live, `device-image` / `local_dev` / `savedisk` workflow.
-- Compression and image directory layout.
+The captured artefact is a **Clonezilla image** of the master disk,
+produced from a Clonezilla Live USB booted on the master machine. The
+operative choices are:
 
-### 3.B.5 The partition-resize problem (and fix)
+- `device-image` mode: the source is a block device, the destination is
+  an image directory.
+- `local_dev` repository: an external USB drive or HDD physically
+  separate from the source disk (writing the image to the same disk
+  being read is unsupported and would corrupt the result).
+- `savedisk`: the entire disk is captured, not just the root partition,
+  so the GPT, the EFI system partition, and the root partition are all
+  preserved as a self-contained set.
+- gzip compression at the default level: a typical Linux Mint master
+  with ~12 GB of used data on a 466 GB disk produces a ~4 GB compressed
+  image directory.
 
-The technical core of the chapter:
+The image directory layout is meaningful. It contains one
+`*-ptcl-img.gz` file per partition (e.g.
+`sda1.vfat-ptcl-img.gz`, `sda2.ext4-ptcl-img.gz`), partition-table
+dumps in `parted` and `sgdisk` formats (`sda-pt.parted`,
+`sda-gpt.sgdisk`), a `parts` listing, and a `disk` descriptor. The
+recovery side (§3.B.7) reconstructs the geometry from the dumps before
+restoring the partition data. Treating the image as a *named, versioned
+artefact* with a date-bearing directory name (`aucoop-mint22.3-2026-03`)
+is what makes the per-deployment provenance trail of §4 possible.
 
-- Why ext4 metadata makes naive cross-disk restore fail (`target seek ERROR`).
-- Fix: `e2fsck` → `resize2fs` → `parted resizepart` → recapture with `partclone`.
-- Why `-k1` and `-icds` flags alone are insufficient.
+### 3.B.5 The partition-resize problem (and the fix)
+
+The technical core of this work-stream is a problem that does not appear
+when all target disks are the same size and is unavoidable when they
+are not. It is described here in full because (i) it has cost more
+field-debugging time than any other issue in the deployments documented
+in §4, and (ii) it is the kind of failure that mainstream tutorials skip
+and on-site teams therefore re-discover the hard way.
+
+**The symptom.** A Clonezilla image captured from a 466 GB HDD and
+restored to a 238 GB SSD fails roughly 77 % of the way through with:
+
+```
+target seek ERROR: Invalid argument
+```
+
+**The cause.** Clonezilla preserves the source partition layout in the
+image. When restoring, `partclone` writes data blocks at the same
+offsets at which they appear in the source filesystem. The ext4
+filesystem scatters its metadata — block-group descriptors, inode
+tables, block bitmaps, inode bitmaps — across the *entire* partition,
+not only the populated region. A 466 GB ext4 partition therefore has
+metadata blocks at offsets up to ~466 GB even when the filesystem holds
+only 12 GB of data. When the target partition is smaller than the source
+*partition* (not the source *data*), the seek to the high-offset
+metadata block lands beyond the device boundary and `partclone` aborts.
+
+**Why the obvious flags are not enough.** Two flags from the `ocs-sr`
+manual look as if they should solve this: `-k1` (proportionally resize
+target partitions) and `-icds` (skip the destination-disk-too-small
+check). They do not. `-k1` operates on the partition layout but cannot
+move metadata blocks already laid out at high offsets in the source
+ext4 filesystem; `-icds` only suppresses the up-front check, it does
+not prevent the runtime seek failure.
+
+**The fix.** The partition layout itself must be made physically smaller
+than the smallest target disk, on a copy of the master, before the
+image is recaptured. The four-step procedure is mandatory and
+order-sensitive:
+
+1. `e2fsck -fy /dev/<source>` — force a clean filesystem before
+   resizing. The resize tools refuse to operate on a dirty filesystem.
+2. `resize2fs /dev/<source> 20G` — shrink the **filesystem** to a size
+   chosen to be larger than the actual data (12 GB → 20 GB gives
+   margin) but smaller than the smallest target disk (238 GB).
+3. `parted /dev/<sourcedisk> resizepart <N> 22100MB` — shrink the
+   **partition** to slightly larger than the filesystem, accounting for
+   the partition start offset.
+4. `e2fsck -fy /dev/<source>` again — verify that the filesystem
+   survived the partition shrink.
+
+Then the image is recaptured with `partclone` directly
+(`partclone.vfat` for the EFI system partition,
+`partclone.ext4` for the root partition), and the partition-table dumps
+are regenerated with `parted`, `sgdisk`, `sfdisk`, and `blkid`. The
+result is a smaller image (~3.6 GB compressed) that restores cleanly to
+both 238 GB SSDs and 466 GB HDDs.
+
+The work happens once, off-line, on a workstation in Barcelona, against
+a `qcow2` copy of the master disk attached via `qemu-nbd`; doing it
+on-site against the original master is risky and slow. The recipe in
+`3-Guide/Laptop-Deployment/index.md` codifies the off-line workflow as
+**Phase 3** of the deployment and gates it behind a clearly-marked
+"skip if all disks are the same size" admonition so operators do not
+incur the work for deployments that do not need it.
+
+The order of operations is the part that bites. Shrinking the partition
+*before* the filesystem truncates the filesystem and destroys data; the
+recipe states this in a `!!! warning` box for the same reason as the
+matching warning in `Wireless-Mesh/1-Static-IP-Mesh/`: a single
+sentence at the right place saves a multi-hour recovery later.
 
 ### 3.B.6 PXE server architecture
 
-Three services, one isolated subnet:
+A PXE deployment runs three services on a single host on the isolated
+deployment subnet of §3.A.7:
 
-| Service | Port | Purpose |
-|---|---|---|
-| DHCP (`isc-dhcp-server`) | 67 | IP + boot file pointer |
-| TFTP (`tftpd-hpa`) | 69 | GRUB EFI + kernel + initrd |
-| NFS (`nfs-kernel-server`) | 2049 | Clonezilla rootfs + image repo |
+| Service | Port | Package | Role |
+|---|---|---|---|
+| DHCP | 67 | `isc-dhcp-server` | Issue IP, point client at the boot file |
+| TFTP | 69 | `tftpd-hpa` | Serve GRUB EFI binary, kernel, initrd |
+| NFS | 2049 | `nfs-kernel-server` | Serve the Clonezilla rootfs and the image directory |
 
-GRUB EFI generation with `grub-mknetdir`. The `bootx64.efi` placement.
+The PXE host is itself one of the deployed laptops or a small mini-PC;
+it does not need server-class hardware. In Gochas, one of the
+ThinkPads earmarked for the school was reassigned as PXE host for the
+duration of the imaging session and then re-imaged from the same
+deployment as its last action.
+
+**GRUB EFI generation.** The bootloader served via TFTP is generated by
+`grub-mknetdir --net-directory=/tftpboot/nbi_img --subdir=/grub`, which
+emits `core.efi` plus the GRUB modules and font. The EFI binary is then
+copied as `bootx64.efi` at the TFTP root because that is the filename
+UEFI firmware expects when a DHCP `filename` option is presented for a
+UEFI client (DHCP option 93 architecture `00:07` or `00:09`).
+
+**Two copies of the kernel, on purpose.** The Clonezilla `vmlinuz` and
+`initrd.img` exist in *two* directories: under `/tftpboot/nbi_img/`
+(served via TFTP, fetched by GRUB during boot) and under
+`/tftpboot/clonezilla/` (served via NFS, mounted by the running
+kernel as its root). The duplication is necessary because `tftpd-hpa`
+runs in `--secure` mode, which chroots the TFTP server to its root
+directory and refuses to follow symlinks pointing outside; placing the
+files where each service can actually serve them is simpler and more
+robust than trying to defeat the chroot.
+
+**DHCP scope.** A small `/24` is enough (`10.0.0.0/24` in Gochas), with
+the PXE host on `.1`, a short DHCP range (`.101`–`.120`) for clients,
+and a `next-server` pointer back to `.1`. The architecture-conditional
+`filename` directive is the part that makes the same DHCP scope work
+for both UEFI and legacy-BIOS clients without re-configuration.
 
 ### 3.B.7 Auto-restore script and Secure Boot handling
 
-- Disk auto-detection (`/dev/sda` vs `/dev/nvme0n1`).
-- `ocs-sr` invocation with `-k1 -icds -scr -p reboot`.
-- Why Secure Boot must be disabled (unsigned GRUB binary) — single biggest field-debugging cost.
+Once GRUB loads, the operator should not be asked to make any choices.
+The default GRUB menu entry calls a single `auto-restore.sh` script
+served from the NFS-exported image directory. The script:
+
+1. **Detects the target disk.** Probes `/dev/nvme0n1` then `/dev/sda`
+   then `/dev/vda`, in that order, and selects the first present block
+   device. This is what makes the same image and the same kernel
+   command line work across machines with NVMe SSDs and SATA HDDs
+   without per-machine configuration.
+2. **Invokes `ocs-sr`** with the flags the recipe pins:
+
+   ```
+   ocs-sr -g auto -e1 auto -e2 -r -j2 -icds -k1 -scr -p reboot \
+     restoredisk "$IMAGE_NAME" "$DISK"
+   ```
+
+   The relevant flags are `-k1` (proportional partition resize),
+   `-icds` (skip destination-size check — safe now that the image of
+   §3.B.5 fits), `-scr` (skip restorability check), and `-p reboot`
+   (reboot when done so the operator only has to power-cycle once).
+3. **Reboots into the deployed OS.** The newly-imaged disk is now the
+   first boot device and Linux Mint comes up with the `aucoop` user
+   ready to log in.
+
+**Secure Boot.** The single biggest field-debugging cost across the
+deployments was the silent failure mode of UEFI firmware presented with
+an unsigned `bootx64.efi`: the firmware downloads the binary, *silently*
+discards it, and falls through to the next entry in the boot order
+(typically IPv6 PXE, which times out). There is no error message on
+screen and the only diagnostic clue is the silence itself. The recipe
+gates the entire deployment on a one-time BIOS step (Step 14: disable
+Secure Boot on every target machine before imaging) and the lessons
+list of §3.B.9 elevates this to an inventory-time check in §3.B.2 so
+the failure cannot recur. Secure Boot may be re-enabled after
+deployment if the receiving institution's policy demands it; the
+deployed Linux Mint does support it.
 
 ### 3.B.8 Quality control and user handover
 
-User account verification, first-boot checks, end-user training note.
+The last step before a machine leaves the imaging table is a short
+quality check, performed in the order in which the failures it catches
+typically appear:
+
+1. The machine boots from the local disk to the Linux Mint login
+   screen unaided (no PXE, no USB).
+2. The `aucoop` user logs in with the documented password.
+3. Wi-Fi can associate to the production network of §3.A.5 and reach
+   the internet.
+4. OnlyOffice opens a sample document and renders it correctly.
+5. The hostname matches the inventory record of §3.B.2.
+
+A failed check sends the machine back to the corresponding step (a
+boot failure to §3.B.5, an image-content failure to §3.B.3, a network
+failure to §3.A.5) rather than triggering an ad-hoc fix on the
+individual machine. The discipline is what keeps a fleet of nine or
+twelve laptops actually identical at handover.
+
+Handover to the receiving institution adds a short briefing — how to
+log in, how to reach Wi-Fi, where the printed runbook is, who to
+contact — and a written record that the machine has been delivered.
+End-user training at depth is out of scope for this thesis; what is in
+scope is delivering machines whose default configuration does not
+require that training to be useful.
+
+### 3.B.9 Lessons learned and inputs to the handbook
+
+As in §3.A, the laptop deployments produced a set of lessons that
+landed directly in the handbook. They are listed here because each one
+points to a specific change the next operator should not have to
+re-discover.
+
+**Secure Boot is an inventory-time check, not a debug-time discovery.**
+The hours lost to silent UEFI rejection of an unsigned GRUB binary
+turned this from a recipe footnote into the gating BIOS posture of
+§3.B.2 and a `!!! warning` admonition at the top of the PXE recipe.
+
+**The partition-resize problem deserves its own phase.** The
+`target seek ERROR` failure was the reason `3-Guide/Laptop-Deployment/`
+was reorganised into four explicit phases (prepare, capture, resize,
+deploy) rather than a single linear list of steps. Operators with
+uniform-disk fleets skip Phase 3 entirely; operators with mixed disks
+know exactly which phase to read.
+
+**`tftpd-hpa --secure` does not follow symlinks.** This single
+sentence is now a `!!! warning` in the recipe; without it, an operator
+who tries to keep one canonical copy of the Clonezilla files and
+symlink the rest sees TFTP serve nothing and has no obvious diagnostic.
+
+**Auto-detect the target disk.** Hard-coding `/dev/sda` in the restore
+command works on every ThinkPad with a SATA disk and fails on every
+ThinkPad with an NVMe SSD. The auto-detection script in §3.B.7 was
+written after the first NVMe machine refused to image; it is now the
+default in the recipe.
+
+**Use `-k1 -icds -scr -p reboot` together with a resized image, not
+instead of one.** These flags relax `ocs-sr`'s safety checks but do not
+fix the underlying ext4 layout problem of §3.B.5. The recipe states
+this explicitly so the next operator does not lose a day chasing flag
+combinations that cannot work.
+
+**A simple stack beats DRBL for this fleet size.** A full DRBL
+deployment is overkill for nine or twelve machines and adds a layer of
+debugging that an on-site team cannot afford. The recipe is built on
+plain `isc-dhcp-server` + `tftpd-hpa` + `nfs-kernel-server` +
+Clonezilla Live precisely so that every component can be inspected and
+restarted independently when something misbehaves. DRBL becomes
+attractive at a different fleet size; that is a future-work note in
+§7.
+
+**The image is a versioned artefact.** Naming the image directory
+`aucoop-mint22.3-2026-03` and storing both the `qcow2` master copy and
+the resized image in the project repository is what allows §4 to claim
+that *this specific image* was deployed at *this specific site on this
+specific date*. The companion thesis [Motje, 2026] inherits the same
+naming convention for service-side artefacts.
+
+These lessons feed into the §4 validation against the three lenses
+(coverage: did every target laptop receive the image?; sufficiency: did
+the resulting fleet meet the school's actual usage in the days that
+followed?; adaptation: could a second team in a different site execute
+the same recipe?) and into the per-objective check of §7.
 
 ---
 
