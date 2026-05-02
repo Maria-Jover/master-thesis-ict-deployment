@@ -1,17 +1,24 @@
 # Abstract
 
-> **Constraint:** ≤ 150 words.
-> **Status:** TODO — write after first complete draft.
+This thesis presents the **hardware side** of an integrated effort to
+deploy and document community ICT infrastructure for low-connectivity,
+resource-limited contexts. Conducted jointly with a companion thesis
+on the software and services side [Motje, 2026], the work delivers
+three contributions: a reproducible community wireless network recipe
+based on OpenWrt commodity access points with 802.11s mesh backhaul;
+a refurbished-endpoint pipeline that provisions donated business
+laptops through PXE-booted Clonezilla and a curated Linux Mint
+golden-master image; and an open, web-and-PDF, GitHub-hosted
+**Community-Network-Handbook** consolidating the operational
+knowledge into a living artefact. The three contributions were
+validated through a field deployment at N Mutschuana Primary School,
+Gochas, Namibia, in March 2026: a seven-AP mesh covering the school
+and nine refurbished Lenovo ThinkPads provisioned in approximately
+one hour. Validation is reported through three qualitative lenses —
+*coverage*, *sufficiency*, *adaptation* — and the eleven operational
+lessons produced were committed back into the handbook during the
+deployment itself.
 
-## Outline
-
-The abstract must cover, in order:
-
-1. **Problem.** The digital divide in resource-limited communities; AUCOOP volunteer projects continually re-start from scratch because experiential knowledge is not captured.
-2. **Approach.** Design and execution of an end-to-end ICT deployment recipe — community wireless network on OpenWrt + refurbished-laptop fleet via PXE/Clonezilla — and consolidation of the experience into a versioned, web-and-PDF, GitHub-hosted handbook ("standard AUCOOP").
-3. **Validation.** Real deployment at N Mutschuana Primary School, Gochas (Namibia), March 2026: 7-AP mesh covering the school + 9 refurbished laptops provisioned in ~1 h.
-4. **Outcome.** A reproducible procedure, an open living artefact (the Community Network Handbook), and a documented hand-over for future AUCOOP cohorts.
-
-## Draft (first attempt — replace)
-
-*TBD.*
+**Keywords:** community networks, ICT for development, refurbished
+hardware, OpenWrt, mesh networking, PXE, Clonezilla, knowledge
+management, AUCOOP, Namibia, open documentation, Diátaxis.
