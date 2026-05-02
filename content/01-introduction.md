@@ -5,13 +5,42 @@
 
 ---
 
-## 1.1 Statement of purpose (objectives)
+## 1.1 Statement of purpose: objectives
 
-Three coupled objectives:
+This thesis is presented as one of two coordinated master's theses on the
+same project; the companion thesis [Motje, 2026] covers the **software**
+side (gateway firmware, services, authentication, monitoring, application
+stack), and the present document covers the **hardware** side (the
+network fabric and the endpoint fleet) and the **knowledge artefact**
+that ties both halves together.
 
-1. **Network.** Design and deploy a community wireless network suitable for low-connectivity, resource-limited contexts, using affordable, locally repairable hardware (OpenWrt-supported routers, mesh backhaul, basic boundary services).
-2. **Endpoints.** Build a repeatable pipeline to give a second life to corporate-donated laptops: cataloguing, golden-master image creation, and mass deployment via PXE + Clonezilla.
-3. **Knowledge artefact.** Consolidate both flows into a living, open, GitHub-hosted handbook (web + downloadable PDF) — the "standard AUCOOP" — so that future student cohorts can build *on top of* the work instead of restarting from scratch.
+The five objectives below were formulated jointly with the companion
+thesis. They are common to both documents; what differs between them
+is the dimension of each objective that each author addresses.
+
+1. **To create a living document** that any contributor with basic
+   technical literacy can update, so that the knowledge it contains
+   can grow with the projects that produce it.
+2. **To develop a high-level guide** usable by people with basic
+   technical knowledge — not a reference manual aimed at networking
+   specialists.
+3. **To ensure that the guide is useful** for organisations such as
+   AUCOOP whose volunteers rotate frequently and whose deployments are
+   geographically distributed.
+4. **To validate the guide** by applying it in a real deployment,
+   specifically the Namaqua Kalahari Children Hope project at N
+   Mutschuana Primary School, Gochas, Namibia.
+5. **To centralise**, in a single openly maintained artefact, the
+   knowledge accumulated from previous AUCOOP projects, so that future
+   cohorts inherit it rather than reconstruct it.
+
+The present document covers the **hardware dimension** of these
+objectives: the chapters of the handbook concerned with the wireless
+network fabric (planning, IP addressing, mesh backhaul, antennas,
+power and enclosure) and with the endpoint pipeline (refurbished-laptop
+intake, AUCOOP golden-master image, PXE/Clonezilla mass deployment),
+as well as the validation of those chapters through the network and
+endpoint deployment in Namibia (March 2026).
 
 ## 1.2 Motivation
 
@@ -121,15 +150,61 @@ on rather than start beside.
 
 *Refine numeric targets after field metrics are consolidated.*
 
-## 1.4 Methods and procedures — and prior work this builds upon
+## 1.4 Methods and procedures — relation to prior and concurrent work
 
-This thesis builds upon and contributes back to the **Community-Network-Handbook** (AUCOOP), pinned in `sources/` to branch `dev_mj_thesis` (commit hash recorded in `sources/handbook-mapping.md`).
+This thesis is **methodologically integrated** with two adjacent bodies
+of work and explicitly delimited from a third. Naming each is part of
+the contribution, because the value of the thesis lies as much in
+*what it does not re-do* as in what it adds.
 
-External tooling reused (no novel implementation): OpenWrt, Clonezilla / `partclone`, GRUB, Linux Mint, ISC DHCP, tftpd-hpa, NFS kernel server, DeviceHub (eReuse), Zensical (docs site), MkDocs material theme, GitHub Actions.
+**Prior work — the AUCOOP Community-Network-Handbook.** The handbook
+exists as a public Git repository [AUCOOP, 2026] and predates this
+thesis only marginally; the author has been a co-maintainer since the
+first chapter was committed. The thesis treats the handbook as both
+input and output: input, because much of the network-planning,
+IP-addressing and OpenWrt material was authored before the Namibia
+deployment and was used to plan it; output, because every operational
+lesson from Namibia was committed back into the handbook in real time.
+The handbook is pinned for citation purposes to branch
+`dev_mj_thesis` at commit `a5fc80b` (recorded in
+`sources/handbook-mapping.md`); §3.C describes the artefact in
+detail and §4.4 reports its validation.
 
-The author's contribution is the **integration**, **field validation**, and **knowledge-artefact** layers; co-authorship of multiple handbook chapters is documented per-commit in the handbook git history.
+**Concurrent work — the companion software thesis.** The companion
+thesis [Motje, 2026] covers the services layer (Proxmox virtualisation,
+Nextcloud collaborative platform, RADIUS authentication, captive
+portal, Zabbix monitoring, VPN backhaul, backup procedures). The two
+theses share Chapter 1 introduction, Chapter 2 state of the art, and
+Chapter 3 methodology in their respective formulations; they share the
+Namibia deployment as a common validation site; and they share a
+bibliography backbone (entries marked `[shared]` in §8). They diverge
+in the technical contribution: the present document does not describe
+the services running on top of the network, and the companion thesis
+does not describe the network or the endpoints they run on. Where
+the boundary is operationally fuzzy — DHCP, DNS, basic monitoring —
+this thesis treats those services as boundary infrastructure required
+for the hardware to function and describes only what is necessary for
+that purpose; the deeper services treatment is in [Motje, 2026].
 
-A companion thesis (in parallel) covers the **services layer** (Proxmox, Nextcloud, RADIUS, captive portal, monitoring) — explicitly out of scope here, except for the boundary services strictly required for hardware operation (DHCP, DNS basics, monitoring overview).
+**External tooling reused, not implemented.** The thesis claims no
+novel implementation of the following components, all of which are
+used as published: OpenWrt 24.10.x and the `mac80211` mesh stack;
+Clonezilla and `partclone`; GRUB 2 and `pxelinux`; Linux Mint
+Cinnamon 22.3 as the AUCOOP image base; ISC `dhcpd`; `tftpd-hpa`;
+NFS kernel server; the eReuse / DeviceHub provenance toolchain;
+Zensical and the MkDocs Material theme; GitHub Actions for CI.
+The author's contribution lies in the **integration**, **field
+validation**, **operational distillation**, and **knowledge-artefact**
+layers; co-authorship of individual handbook chapters is recorded
+per-commit in the handbook git history.
+
+**Out of scope.** Custom firmware development, novel routing
+protocols, formal performance modelling of mesh throughput, and
+academic-grade life-cycle assessment of refurbishment are all out of
+scope. The thesis is an integration and validation effort, not a
+research contribution to any one of those sub-fields. §6.7 makes
+the LCA limitation explicit; §7.4 lists the others as future-work
+directions.
 
 ## 1.5 Work plan and Gantt
 
@@ -153,10 +228,93 @@ See [`gantt`](#16-gantt-diagram) below.
 
 *[insert Gantt diagram here]*
 
-## 1.7 Deviations from the initial plan
+## 1.7 Document structure
 
-To be filled retrospectively. Known deviations so far:
+The remainder of this document is organised as follows. **Chapter 2**
+surveys the relevant state of the art across community networks, ICT
+for development, refurbishment, the OpenWrt ecosystem, mass
+deployment of operating systems, and knowledge management in
+volunteer organisations. **Chapter 3** describes the methodology in
+three parts: §3.A the network hardware deployment, §3.B the endpoint
+reconditioning and mass-deployment pipeline, and §3.C the AUCOOP
+Handbook as a knowledge artefact. **Chapter 4** reports the results
+of applying the methodology at N Mutschuana Primary School, Gochas
+(Namibia) in March 2026, with the validation organised through three
+analytical lenses (coverage, sufficiency, adaptation). **Chapter 5**
+presents the budget. **Chapter 6** addresses environmental impact,
+with particular attention to the manufacturing-phase carbon
+dominance that justifies refurbishment. **Chapter 7** draws
+conclusions against each of the five objectives and outlines future
+work. The bibliography (**Chapter 8**) marks shared entries with
+the companion thesis. **Appendix A** documents the online handbook,
+**Appendix B** is the glossary of acronyms, and Appendices C–G
+collect the budget detail (BOM and costs), the deployment field log,
+configuration excerpts, and the data-sheet for the Namibia case.
 
-- **Partition-resize discovery.** Initial plan assumed identical disk sizes; discovered mid-deployment that ext4 metadata layout breaks `partclone` restore on smaller disks. Required adding Phase 3 (resize) to the deployment pipeline.
-- **Secure Boot blocker.** Underestimated; documented as the #1 troubleshooting entry.
-- **Branch fragmentation.** Several handbook chapters lived on long-running PRs not merged into `develop`; created `dev_mj_thesis` branch to consolidate them as the thesis source.
+## 1.8 Deviations from the initial plan
+
+The plan submitted at the start of the project (September 2025) has
+held in its broad outline. The five objectives stated in §1.1, the
+deployment site (Namibia, March 2026), and the division of labour with
+the companion thesis are all unchanged. Six deviations of varying
+magnitude are worth recording explicitly, both for honesty and because
+each one is a data point about the realities of deploying ICT in
+low-connectivity contexts.
+
+**D1 — Partition resize added to the endpoint pipeline.** The
+original plan assumed all donated laptops would have storage at least
+as large as the source machine the AUCOOP image was captured from.
+On intake of the Namibia batch it became apparent that target disks
+ranged from 238 GB (SSD) to 466 GB (HDD), and that `partclone` fails
+with a `target seek ERROR` when restoring an ext4 partition onto a
+smaller disk regardless of whether the data fits. A partition-resize
+phase was added to the pipeline (shrink source `/`, recapture image,
+expand target `/` post-restore), described in §3.B.6 and documented
+as a first-class step in the *Laptop-Deployment* recipe. The episode
+shifted the laptop-chapter timeline by approximately two weeks.
+
+**D2 — Secure Boot blocker.** The plan underestimated the difficulty
+of PXE-booting Lenovo machines with Secure Boot enabled in the
+factory configuration. The blocker is documented as the headline
+troubleshooting entry in the *Laptop-Deployment* recipe and in
+§3.B.4; it had no effect on the project schedule but absorbed
+roughly a day of bench time per machine class until the BIOS
+settings were standardised.
+
+**D3 — Branch fragmentation in the handbook repository.** Several
+handbook chapters lived on long-running pull requests that had not
+been merged into `develop` by the time the thesis write-up began.
+Rather than force premature merges, a thesis-source branch
+`dev_mj_thesis` was created to consolidate the chapters in the
+form actually used during the deployment, and the thesis cites that
+branch and commit hash. The fragmentation is itself a data point
+about volunteer-driven repositories and is reflected in the
+governance discussion of §3.C.
+
+**D4 — Documentation tooling switch (Zensical for MkDocs).** The
+initial repository was scaffolded on MkDocs Material; mid-project the
+project switched to Zensical, which provides a richer admonition
+vocabulary and better PDF export for the same Markdown sources. The
+migration was non-trivial (navigation file format, theme overrides,
+build-pipeline rewrite) but cleaner than continuing with the older
+toolchain. The episode is referenced in §3.C.
+
+**D5 — OpenWrt snapshot regression on Cudy WR3000E.** During lab
+preparation, an OpenWrt snapshot build for the WR3000E presented
+intermittent failures on the 5 GHz radio that the stable 24.10.x
+branch did not exhibit. The decision to pin the deployment to
+24.10.x is recorded in §3.A.4 and in the *Wireless-Mesh* recipe;
+it has the side-effect that the recipe is reproducible only on a
+specific OpenWrt minor version, which is acceptable but adds a
+maintenance dependency.
+
+**D6 — Quantitative validation deferred.** The plan contemplated
+both qualitative validation (coverage, sufficiency, adaptation) and a
+quantitative throughput characterisation of the mesh (per-link
+iperf, per-AP association counts, latency under load). The
+quantitative measurements were partially collected in the field but
+are not consolidated in this document at submission time; §4.6
+flags this as a limitation and §7.4 identifies the corresponding
+future-work item. The validation chapter (§4) consequently leans
+qualitative, in line with what the recipe is actually intended to
+prove.
