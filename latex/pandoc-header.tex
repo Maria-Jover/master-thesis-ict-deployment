@@ -1,0 +1,36 @@
+% Pandoc header for the master-thesis PDF build.
+% Loaded via --include-in-header by latex/build.sh.
+
+% Use DejaVu for broader Unicode coverage (box-drawing, math symbols,
+% subscripts) than Latin Modern provides out of the box. fontspec is
+% loaded by xelatex automatically when --pdf-engine=xelatex.
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}[Scale=0.95]
+\setsansfont{DejaVu Sans}[Scale=0.92]
+\setmonofont{DejaVu Sans Mono}[Scale=0.85]
+
+% Hyperref is loaded by pandoc's default template; we just tweak it via
+% the colorlinks metadata in build.sh, so nothing needed here.
+
+% \autoref{} comes from hyperref, which pandoc's default template loads
+% AFTER this include file, so nothing extra is required here.
+
+% Slightly tighter list spacing.
+\usepackage{enumitem}
+\setlist{itemsep=0.25em,topsep=0.4em}
+
+% Allow long URLs to break.
+\usepackage{xurl}
+
+% Better table rules + allow long tables to span pages cleanly.
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% Code listings: pandoc uses fancyvrb / Highlighting environment by default;
+% nothing extra required here.
+
+% Make captions a touch smaller.
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Avoid the rare overfull-hbox warnings around long inline code.
+\sloppy
