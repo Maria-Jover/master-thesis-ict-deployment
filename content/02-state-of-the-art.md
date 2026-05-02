@@ -1,4 +1,5 @@
 # 2. State of the Art
+<!-- \label{ch:state-of-the-art} -->
 
 This chapter reviews the technological and methodological landscape on
 which the thesis builds. The review is organised by the same four-layer

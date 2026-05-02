@@ -1,4 +1,5 @@
 # 8. Bibliography (working notes)
+<!-- \label{ch:bibliography} -->
 
 > The authoritative file is `latex/bibliography.bib`. This Markdown file
 > collects raw references and editorial notes during writing. Entries

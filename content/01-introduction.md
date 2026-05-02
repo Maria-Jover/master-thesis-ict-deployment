@@ -1,4 +1,4 @@
-# 1. Introduction
+   # 1. Introduction
 
 > Maps to `latex/introduction.tex` (will be split / extended).
 > The template requires this section to clearly state the rationale and contain: (1) Statement of purpose, (2) Requirements & specifications, (3) Methods & procedures (including reuse of prior work), (4) Work plan with Gantt, (5) Deviations from the initial plan.
@@ -6,6 +6,7 @@
 ---
 
 ## 1.1 Statement of purpose: objectives
+<!-- \label{sec:objectives} -->
 
 This thesis is presented as one of two coordinated master's theses on the
 same project; the companion thesis [Motje, 2026] covers the **software**
@@ -43,21 +44,19 @@ as well as the validation of those chapters through the network and
 endpoint deployment in Namibia (March 2026).
 
 ## 1.2 Motivation
+<!-- \label{sec:motivation} -->
 
 The motivation for this thesis comes from two distinct but reinforcing
 sources. The first is *external*: the persistent gap in basic connectivity
-and usable computing equipment in the communities where AUCOOP works. The
-second is *internal*: a recurring failure of knowledge continuity inside
-AUCOOP itself, which has caused the association to re-solve the same
-problems with each new cohort of volunteers. Either of the two would justify
-a thesis on its own; together they explain why the deliverable of this work
-is not a single deployment but a *reusable instrument* — the handbook
-described in §3.C — built and validated through a real field deployment.
+and usable ICT equipment in the communities where AUCOOP, *Associació d'Universitaris per la Cooperació*, can make a difference. The
+second is *internal*: a recurring pain poit for the association where the knowledge continuity was compromised. This has caused the association members to re-solve the similar problems with each new cohort of volunteers. 
+
+Either of the two would justify a thesis on its own; together they explain why the deliverable of this work is not a single deployment but a *reusable instrument* — the handbook described in \autoref{sec:handbook} — built and validated through a real field deployment.
 
 ### 1.2.1 External motivation — connectivity and usable endpoints as preconditions for everything else
 
 Reliable connectivity is no longer a luxury for the communities AUCOOP
-partners with. Schools, health posts, and local administrations increasingly
+partners with we believe is a transformative tool for going beyond and generating new opportunities for individuals. Schools, health posts, community centers, NGO
 depend on online services for curricula, record-keeping, and communication
 with regional authorities. In the contexts AUCOOP has worked in over the
 last decade — rural Senegal, the Namibian Hardap region, and several pilots
@@ -65,12 +64,10 @@ inside Catalonia — the obstacle is rarely a single missing piece. It is the
 combination of three deficits that reinforce each other:
 
 1. **No usable network.** Either there is no infrastructure at all, or there
-   is a single ADSL/4G uplink at one building with no way to reach the
-   classrooms that need it. Commercial mesh kits exist but are priced and
-   warrantied for European homes, not for sites where a replacement part takes
-   six weeks to arrive.
-2. **No usable endpoints.** Even when connectivity is solved, the school
-   often has fewer than five working computers, all aged, often with broken
+   is a single ADSL/4G uplink at one place with no capacity to meet all the needs of the community to reach the
+   classrooms that need it. 
+2. **No usable endpoints.** Even when connectivity is solved, the Community
+   often has few working computers, all aged, often with broken
    storage or pirated operating systems that cannot be patched. New hardware
    is unaffordable; donations of refurbished hardware exist but require
    expertise to receive, image, and deploy at scale.
@@ -81,12 +78,13 @@ combination of three deficits that reinforce each other:
    thirty practical decisions a deployment team faces in an afternoon.
 
 This thesis attacks the first two deficits directly — through the network
-work in §3.A and the endpoint reconditioning pipeline in §3.B — and
-attacks the third deficit by producing the handbook described in §3.C as a
+work in \autoref{sec:methodology-network} and the endpoint reconditioning pipeline in \autoref{sec:methodology-endpoint} — and
+attacks the third deficit by producing the handbook described in \autoref{sec:handbook} as a
 genuine, opinionated, field-tested alternative to the documentation that is
 currently missing.
 
 ### 1.2.2 Internal motivation — knowledge continuity at AUCOOP
+<!-- \label{sec:motivation-internal} -->
 
 [AUCOOP](https://aucoop.upc.edu) is a student volunteer association at UPC.
 Its strength is also its structural weakness: it is staffed by bachelor and
@@ -102,7 +100,7 @@ association, the author has observed the same anti-pattern repeatedly:
 - Those students graduate within twelve months. The institutional memory of
   the project leaves with them.
 - The next cohort, picking up either a follow-up project at the same site or
-  a similar project elsewhere, finds nothing actionable in the shared drive.
+  a similar project elsewhere, finds something in the shared drive. But how to use that in the new project they have upfront? 
   They start from a blank page, rediscover the same OpenWrt mesh quirks, run
   into the same DHCP option, hit the same Clonezilla `partclone target seek
   ERROR`, and pay the same debugging cost the previous cohort already paid.
@@ -121,7 +119,7 @@ that solving it is itself a worthwhile engineering contribution. The
 solution adopted — an open Git repository of Markdown sources that builds
 to a public website *and* a downloadable PDF, governed by lightweight
 contribution rules and assisted by AI-driven authoring tooling — is
-described in §3.C and is demonstrably already in use: this thesis was
+described in \autoref{sec:handbook} and is demonstrably already in use: this thesis was
 written against it, the Namibia 2026 deployment was documented in it, and
 the next AUCOOP student to pick up a project will find a non-empty starting
 point.
@@ -137,38 +135,136 @@ on the way out — to leave behind something that the next person can stand
 on rather than start beside.
 
 ## 1.3 Requirements and specifications
+<!-- \label{sec:requirements} -->
 
-| # | Requirement | Why |
+The handbook — as the deliverable that ties together the network and
+endpoint contributions described in this thesis — has to satisfy
+five requirements that follow from the problem statement of
+\autoref{sec:motivation} and from the objectives of
+\autoref{sec:objectives}. The requirements are common to both this
+thesis and the companion software thesis [Motje, 2026], and are
+reproduced here in the formulation jointly agreed with that work,
+adapted where the hardware-side framing differs.
+
+**R1 — Living and contributor-friendly.** The artefact must be
+*easier to update than to discard*. This rules out the conventional
+NGO-report format — a monolithic PDF authored once by a departing
+volunteer and then frozen — as the primary form of the handbook,
+and points instead to a source-text format under version control
+(Markdown in a public Git repository), with a low barrier to
+contribution: short pull requests, lightweight review, contribution
+rules small enough to read in one sitting. The requirement is the
+direct technical answer to the volunteer-rotation problem of
+\autoref{sec:motivation-internal}: if updating the artefact is more
+expensive than reinventing the knowledge it contains, no rational
+volunteer will update it.
+
+**R2 — Openly accessible.** The handbook must be reachable from the
+field with intermittent connectivity and consultable when there is
+no connectivity at all. Public web hosting alone is therefore
+insufficient; an exportable form (a downloadable full PDF, mirrored
+on the same site) is required so that a volunteer arriving in Gochas
+or in rural Senegal can consult the same material on a laptop that
+last saw a network three weeks ago. The dual-output build pipeline
+(\autoref{sec:handbook} and \autoref{appendix:online-handbook})
+implements this requirement.
+
+**R3 — Pedagogically progressive.** The handbook must serve readers
+ranging from those without prior exposure to community networks
+through to volunteers needing a recipe for a specific task on a
+specific morning. A single linear document cannot serve both
+audiences without alienating one of them. The handbook addresses
+this through two complementary tracks — a narrative *Imaginary Use
+Case* (Chapter 2 of the handbook) that introduces the domain through
+a story, and a topical *Guide* (Chapter 3) organised as recipes —
+maintained in strict 1:1 correspondence so that the same operational
+content is reachable both narratively and topically. The structural
+choice is described in \autoref{sec:handbook-structure}.
+
+**R4 — Free and open-source software (FOSS) where the recipe
+controls the stack.** The recommendations the handbook makes must
+be reproducible without commercial licences and maintainable by
+future cohorts using only freely available tooling. On the
+software the recipe configures — operating systems, network
+firmware, services, documentation toolchain — this requirement is
+strict: OpenWrt rather than vendor firmware, Linux Mint rather than
+Windows, ISC `dhcpd` rather than a commercial appliance, OnlyOffice
+Community rather than a licensed suite. On the hardware the recipe
+*deploys onto*, the requirement is necessarily looser: vendor BIOS
+firmware on Lenovo ThinkPads and the binary radio firmware blobs
+that OpenWrt loads onto Cudy access points are accepted as
+out-of-scope dependencies, because no FOSS alternative exists for
+either at this date and refusing the donation pipeline on those
+grounds would defeat the larger refurbishment goal. The requirement
+is therefore *FOSS for everything we author or configure; vendor
+firmware tolerated where unavoidable, and recorded explicitly in the
+relevant recipe.*
+
+**R5 — Field-validated.** The recommendations the handbook contains
+must be traceable to a real deployment, not invented from
+documentation alone. Every recipe in Chapter 3 of the handbook
+that this thesis covers — wireless mesh, IP addressing, network
+planning, laptop deployment, AUCOOP image — is paired with an entry
+in Chapter 4 of the handbook that describes where it was first
+exercised in the field. The validation strategy is summarised in
+\autoref{sec:results-strategy} and the eleven operational lessons
+that emerged from the Namibia deployment are consolidated in
+\autoref{sec:lessons-consolidated}.
+
+A sixth, more conventional set of hardware-recipe requirements
+applies to the deployments themselves rather than to the handbook
+as artefact:
+
+| # | Hardware-recipe requirement | Why |
 |---|---|---|
-| R1 | Network gear must be supported by OpenWrt | Auditable, no vendor lock-in |
-| R2 | Total per-site BOM ≤ €X (TBD) | Replicable by NGO budgets |
-| R3 | Endpoints must be refurbished, not new | Sustainability + cost |
-| R4 | Mass-deployment time per machine ≤ 10 min | Field viability |
-| R5 | Documentation must build to both web and PDF | Connectivity-poor consumers |
-| R6 | All artefacts public on GitHub | Living, contributable |
-| R7 | Validated by ≥1 real field deployment | Beyond lab proof |
+| H1 | Network gear must be supported by OpenWrt or an equivalent FOSS firmware | Auditability, longevity beyond vendor support window |
+| H2 | Endpoints must be sourced from refurbishment, not new manufacture | \autoref{sec:embedded-carbon-avoided} (carbon) and \autoref{sec:budget-comparison} (cost) |
+| H3 | Mass-deployment time per endpoint must be field-viable (target: tens of minutes per machine when run in parallel) | The deployment window is one school day, not one school week |
+| H4 | The total per-site cash BOM must be raisable from a single small NGO grant | Replicability inside AUCOOP and similar associations (cf. \autoref{sec:budget-funding}) |
 
-*Refine numeric targets after field metrics are consolidated.*
+H1–H4 are operationalised in the recipes; their validation against
+the Namibia deployment is reported in \autoref{sec:results-network}
+and \autoref{sec:results-endpoint}.
 
 ## 1.4 Methods and procedures — relation to prior and concurrent work
+<!-- \label{sec:methods} -->
 
 This thesis is **methodologically integrated** with two adjacent bodies
 of work and explicitly delimited from a third. Naming each is part of
 the contribution, because the value of the thesis lies as much in
 *what it does not re-do* as in what it adds.
 
-**Prior work — the AUCOOP Community-Network-Handbook.** The handbook
-exists as a public Git repository [AUCOOP, 2026] and predates this
-thesis only marginally; the author has been a co-maintainer since the
-first chapter was committed. The thesis treats the handbook as both
-input and output: input, because much of the network-planning,
-IP-addressing and OpenWrt material was authored before the Namibia
-deployment and was used to plan it; output, because every operational
-lesson from Namibia was committed back into the handbook in real time.
-The handbook is pinned for citation purposes to branch
-`dev_mj_thesis` at commit `a5fc80b` (recorded in
-`sources/handbook-mapping.md`); §3.C describes the artefact in
-detail and §4.4 reports its validation.
+**Prior work — the Hahatay deployment in Senegal.** The work
+presented here is, in its origin, a continuation of the deployment
+that an AUCOOP team — including the author — carried out in Hahatay
+(Senegal) over more than three years of sustained engagement.
+Hahatay is one of the insignia projects of the association: a
+multi-site community network built incrementally, without a
+structured guide, in a rural Senegalese context against constraints
+that are recognisably the same as those of the Namibia case
+(intermittent connectivity, refurbished endpoints, volunteer
+rotation between cohorts). The Hahatay deployment is the principal
+source from which the operational knowledge captured in the
+Community-Network-Handbook was distilled. The Namibia deployment
+described in \autoref{ch:results} is therefore not the first
+exercise of the recipes documented in the handbook, but the first
+*field validation of the recipes after they had been written down*:
+the Hahatay engagement produced the knowledge, the handbook
+codified it, and Namibia was the test of whether the codification
+travelled.
+
+**Prior work — the AUCOOP Community-Network-Handbook itself.** The
+handbook exists as a public Git repository [AUCOOP, 2026] and was
+seeded with the Hahatay knowledge described above before this
+thesis began. The thesis treats the handbook as both input and
+output: input, because much of the network-planning, IP-addressing
+and OpenWrt material was authored before the Namibia deployment and
+was used to plan it; output, because every operational lesson from
+Namibia was committed back into the handbook in real time. The
+handbook is pinned for citation purposes to branch `dev_mj_thesis`
+at commit `a5fc80b` (recorded in `sources/handbook-mapping.md`);
+\autoref{sec:handbook} describes the artefact in detail and
+\autoref{sec:results-handbook} reports its validation.
 
 **Concurrent work — the companion software thesis.** The companion
 thesis [Motje, 2026] covers the services layer (Proxmox virtualisation,
@@ -177,22 +273,40 @@ portal, Zabbix monitoring, VPN backhaul, backup procedures). The two
 theses share Chapter 1 introduction, Chapter 2 state of the art, and
 Chapter 3 methodology in their respective formulations; they share the
 Namibia deployment as a common validation site; and they share a
-bibliography backbone (entries marked `[shared]` in §8). They diverge
-in the technical contribution: the present document does not describe
-the services running on top of the network, and the companion thesis
-does not describe the network or the endpoints they run on. Where
-the boundary is operationally fuzzy — DHCP, DNS, basic monitoring —
-this thesis treats those services as boundary infrastructure required
-for the hardware to function and describes only what is necessary for
-that purpose; the deeper services treatment is in [Motje, 2026].
+bibliography backbone (entries marked `[shared]` in \autoref{ch:bibliography}).
+They diverge in the technical contribution: the present document does
+not describe the services running on top of the network, and the
+companion thesis does not describe the network or the endpoints they
+run on. Where the boundary is operationally fuzzy — DHCP, DNS, basic
+monitoring — this thesis treats those services as boundary
+infrastructure required for the hardware to function and describes
+only what is necessary for that purpose; the deeper services
+treatment is in [Motje, 2026].
 
-**External tooling reused, not implemented.** The thesis claims no
-novel implementation of the following components, all of which are
-used as published: OpenWrt 24.10.x and the `mac80211` mesh stack;
-Clonezilla and `partclone`; GRUB 2 and `pxelinux`; Linux Mint
-Cinnamon 22.3 as the AUCOOP image base; ISC `dhcpd`; `tftpd-hpa`;
-NFS kernel server; the eReuse / DeviceHub provenance toolchain;
-Zensical and the MkDocs Material theme; GitHub Actions for CI.
+**External tooling reused, not implemented.** In its execution, this
+work uses extensively the open-source ecosystem developed by the
+wider community-network movement. None of the components below are
+contributions of this thesis; the contribution is the way they are
+**integrated, configured and explained** in the context of small
+community deployments executed by volunteer teams.
+
+- **Network firmware and stack.** OpenWrt 24.10.x as the access-point
+  and gateway operating system; the `mac80211` 802.11s mesh stack;
+  `hostapd`, `wpa_supplicant`, `dnsmasq`, ISC `dhcpd`, `tftpd-hpa`
+  for boundary services.
+- **Endpoint provisioning.** Clonezilla and `partclone` for
+  bit-level imaging and restore; GRUB 2 and `pxelinux` for the PXE
+  boot chain; the NFS kernel server for image distribution.
+- **Endpoint operating system.** Linux Mint Cinnamon 22.3 as the
+  base of the AUCOOP golden-master image; OnlyOffice Community as
+  the bundled productivity suite.
+- **Refurbishment provenance.** The eReuse / DeviceHub toolchain
+  for tracking donated hardware from intake to deployed.
+- **Documentation toolchain.** MkDocs and the Material/Zensical
+  themes for building the handbook to both web and PDF; GitHub
+  Actions for continuous integration; a public GitHub repository
+  for hosting and contribution governance.
+
 The author's contribution lies in the **integration**, **field
 validation**, **operational distillation**, and **knowledge-artefact**
 layers; co-authorship of individual handbook chapters is recorded
@@ -202,11 +316,13 @@ per-commit in the handbook git history.
 protocols, formal performance modelling of mesh throughput, and
 academic-grade life-cycle assessment of refurbishment are all out of
 scope. The thesis is an integration and validation effort, not a
-research contribution to any one of those sub-fields. §6.7 makes
-the LCA limitation explicit; §7.4 lists the others as future-work
+research contribution to any one of those sub-fields.
+\autoref{sec:env-limits} makes the LCA limitation explicit;
+\autoref{sec:future-work} lists the others as future-work
 directions.
 
 ## 1.5 Work plan and Gantt
+<!-- \label{sec:workplan} -->
 
 See [`gantt`](#16-gantt-diagram) below.
 
@@ -229,32 +345,70 @@ See [`gantt`](#16-gantt-diagram) below.
 *[insert Gantt diagram here]*
 
 ## 1.7 Document structure
+<!-- \label{sec:document-structure} -->
 
-The remainder of this document is organised as follows. **Chapter 2**
-surveys the relevant state of the art across community networks, ICT
-for development, refurbishment, the OpenWrt ecosystem, mass
-deployment of operating systems, and knowledge management in
-volunteer organisations. **Chapter 3** describes the methodology in
-three parts: §3.A the network hardware deployment, §3.B the endpoint
-reconditioning and mass-deployment pipeline, and §3.C the AUCOOP
-Handbook as a knowledge artefact. **Chapter 4** reports the results
-of applying the methodology at N Mutschuana Primary School, Gochas
-(Namibia) in March 2026, with the validation organised through three
-analytical lenses (coverage, sufficiency, adaptation). **Chapter 5**
-presents the budget. **Chapter 6** addresses environmental impact,
+The remainder of this document is organised as follows.
+\autoref{ch:state-of-the-art} reviews the state of the art across
+the areas relevant to the work: existing community networks (Guifi.net,
+NYC Mesh, Freifunk, AlterMundi, Rhizomatica), the ICT-for-development
+and refurbishment ecosystem (Labdoo, eReuse, the WEEE regulatory
+frame), the OpenWrt firmware ecosystem and the open-source mass
+deployment toolchain (Clonezilla, PXE), and the literature on
+knowledge management in volunteer organisations (tacit and explicit
+knowledge, working knowledge, communities of practice, the
+volunteer-rotation problem).
+
+\autoref{ch:methodology} describes the methodology in three parts that
+correspond to the three contributions of the thesis:
+\autoref{sec:methodology-network} the network hardware deployment
+organised through a four-functional-layer model (field, site,
+endpoint touchpoint, power and enclosure);
+\autoref{sec:methodology-endpoint} the endpoint reconditioning and
+mass-deployment pipeline (intake, AUCOOP image, PXE/Clonezilla);
+and \autoref{sec:handbook} the AUCOOP Community-Network-Handbook
+itself as a knowledge artefact, including the choice of
+documentation tooling, the Diátaxis-inspired Ch2/Ch3 split, the
+contribution governance, and the AI-assisted authoring workflow.
+
+\autoref{ch:results} reports the results of applying the methodology
+at N Mutschuana Primary School, Gochas (Namibia) in March 2026. The
+validation is organised through three qualitative analytical lenses
+— *coverage*, *sufficiency*, *adaptation* — and the eleven
+operational lessons it produced are consolidated in
+\autoref{sec:lessons-consolidated} together with the handbook
+artefact each one fed back into.
+
+\autoref{ch:budget} presents the budget, distinguishing the cash
+outlay an organisation actually has to raise from the full-project
+cost at indicative engineering rates, and comparing both with the
+commercial-equivalent alternative.
+
+\autoref{ch:environmental-impact} addresses environmental impact,
 with particular attention to the manufacturing-phase carbon
-dominance that justifies refurbishment. **Chapter 7** draws
-conclusions against each of the five objectives and outlines future
-work. The bibliography (**Chapter 8**) marks shared entries with
-the companion thesis. **Appendix A** documents the online handbook,
-**Appendix B** is the glossary of acronyms, and Appendices C–G
-collect the budget detail (BOM and costs), the deployment field log,
-configuration excerpts, and the data-sheet for the Namibia case.
+dominance that justifies the refurbishment requirement, and to the
+limits of the analysis (this thesis does not constitute a formal
+life-cycle assessment).
+
+\autoref{ch:conclusions} draws conclusions against each of the five
+objectives stated in \autoref{sec:objectives}, records the
+limitations honestly alongside the conclusions they qualify, lists
+future-work directions, and documents the hand-over protocol for the
+next AUCOOP cohort.
+
+The bibliography (\autoref{ch:bibliography}) marks shared entries
+with the companion thesis explicitly. \autoref{appendix:online-handbook}
+points to the publicly hosted handbook (URL, build instructions,
+contribution conventions); \autoref{appendix:glossary} is the
+glossary of acronyms; and the remaining appendices collect the
+budget detail (BOM and itemised costs), the deployment field log,
+representative configuration excerpts, and the data-sheet for the
+Namibia case.
 
 ## 1.8 Deviations from the initial plan
+<!-- \label{sec:deviations} -->
 
 The plan submitted at the start of the project (September 2025) has
-held in its broad outline. The five objectives stated in §1.1, the
+held in its broad outline. The five objectives stated in \autoref{sec:objectives}, the
 deployment site (Namibia, March 2026), and the division of labour with
 the companion thesis are all unchanged. Six deviations of varying
 magnitude are worth recording explicitly, both for honesty and because
@@ -269,7 +423,7 @@ ranged from 238 GB (SSD) to 466 GB (HDD), and that `partclone` fails
 with a `target seek ERROR` when restoring an ext4 partition onto a
 smaller disk regardless of whether the data fits. A partition-resize
 phase was added to the pipeline (shrink source `/`, recapture image,
-expand target `/` post-restore), described in §3.B.6 and documented
+expand target `/` post-restore), described in \autoref{sec:methodology-endpoint} and documented
 as a first-class step in the *Laptop-Deployment* recipe. The episode
 shifted the laptop-chapter timeline by approximately two weeks.
 
@@ -277,7 +431,7 @@ shifted the laptop-chapter timeline by approximately two weeks.
 of PXE-booting Lenovo machines with Secure Boot enabled in the
 factory configuration. The blocker is documented as the headline
 troubleshooting entry in the *Laptop-Deployment* recipe and in
-§3.B.4; it had no effect on the project schedule but absorbed
+\autoref{sec:methodology-endpoint}; it had no effect on the project schedule but absorbed
 roughly a day of bench time per machine class until the BIOS
 settings were standardised.
 
@@ -289,7 +443,7 @@ Rather than force premature merges, a thesis-source branch
 form actually used during the deployment, and the thesis cites that
 branch and commit hash. The fragmentation is itself a data point
 about volunteer-driven repositories and is reflected in the
-governance discussion of §3.C.
+governance discussion of \autoref{sec:handbook}.
 
 **D4 — Documentation tooling switch (Zensical for MkDocs).** The
 initial repository was scaffolded on MkDocs Material; mid-project the
@@ -297,13 +451,13 @@ project switched to Zensical, which provides a richer admonition
 vocabulary and better PDF export for the same Markdown sources. The
 migration was non-trivial (navigation file format, theme overrides,
 build-pipeline rewrite) but cleaner than continuing with the older
-toolchain. The episode is referenced in §3.C.
+toolchain. The episode is referenced in \autoref{sec:handbook}.
 
 **D5 — OpenWrt snapshot regression on Cudy WR3000E.** During lab
 preparation, an OpenWrt snapshot build for the WR3000E presented
 intermittent failures on the 5 GHz radio that the stable 24.10.x
 branch did not exhibit. The decision to pin the deployment to
-24.10.x is recorded in §3.A.4 and in the *Wireless-Mesh* recipe;
+24.10.x is recorded in \autoref{sec:methodology-network} and in the *Wireless-Mesh* recipe;
 it has the side-effect that the recipe is reproducible only on a
 specific OpenWrt minor version, which is acceptable but adds a
 maintenance dependency.
@@ -313,8 +467,8 @@ both qualitative validation (coverage, sufficiency, adaptation) and a
 quantitative throughput characterisation of the mesh (per-link
 iperf, per-AP association counts, latency under load). The
 quantitative measurements were partially collected in the field but
-are not consolidated in this document at submission time; §4.6
-flags this as a limitation and §7.4 identifies the corresponding
-future-work item. The validation chapter (§4) consequently leans
+are not consolidated in this document at submission time; \autoref{sec:results-discussion}
+flags this as a limitation and \autoref{sec:future-work} identifies the corresponding
+future-work item. The validation chapter (\autoref{ch:results}) consequently leans
 qualitative, in line with what the recipe is actually intended to
 prove.

@@ -1,4 +1,5 @@
 # 7. Conclusions and Future Work
+<!-- \label{ch:conclusions} -->
 
 This chapter draws conclusions from the work described in the
 preceding chapters. The structure follows the framework adopted in
@@ -190,6 +191,7 @@ present thesis cannot deliver because the handbook is too new.
 ---
 
 ## 7.4 Future work
+<!-- \label{sec:future-work} -->
 
 The future-work items below are grouped by horizon. Each item names
 the limitation or open thread it addresses.

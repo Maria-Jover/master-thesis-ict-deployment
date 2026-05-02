@@ -1,4 +1,5 @@
 # 4. Results
+<!-- \label{ch:results} -->
 
 This chapter validates the methodology of §3 against the field. Section
 §4.1 introduces the validation strategy — a deliberately qualitative
@@ -23,6 +24,7 @@ filled at submission.
 ---
 
 ## 4.1 Validation strategy — three lenses, one site
+<!-- \label{sec:results-strategy} -->
 
 The deployment was carried out at one site (N Mutschuana Primary
 School in Gochas, Namibia, March 2026). A single site cannot support
@@ -86,6 +88,7 @@ study, anchors the rest of the chapter:
 ---
 
 ## 4.2 Network deployment — Gochas
+<!-- \label{sec:results-network} -->
 
 ### 4.2.1 What was done, what was adapted, what was observed
 
@@ -150,6 +153,7 @@ them was *not* in all cases the team that wrote the original step.
 ---
 
 ## 4.3 Endpoint deployment — Gochas
+<!-- \label{sec:results-endpoint} -->
 
 ### 4.3.1 What was done, what was adapted, what was observed
 
@@ -206,6 +210,7 @@ the trip produced. The recipe changes that resulted are listed in
 ---
 
 ## 4.4 Validation of the handbook as a knowledge artefact
+<!-- \label{sec:results-handbook} -->
 
 The handbook itself (§3.C) is the durable deliverable of this thesis;
 its validation is reported on its own terms.
@@ -278,6 +283,7 @@ thesis period and are to be filled at submission from `git shortlog`,
 ---
 
 ## 4.5 Lessons consolidated back into the handbook
+<!-- \label{sec:lessons-consolidated} -->
 
 Each lesson learned in the field that flowed back into the handbook
 as a documented recipe change is listed below. Each entry names the
@@ -351,6 +357,7 @@ form* of the validation strategy of §4.1.
 ---
 
 ## 4.6 Discussion
+<!-- \label{sec:results-discussion} -->
 
 ### 4.6.1 Strengths
 

@@ -1,10 +1,12 @@
 # 3. Methodology / Project Development
+<!-- \label{ch:methodology} -->
 
 > The bulk of the thesis. Three coordinated work-streams: **3.A** the network, **3.B** the endpoints, **3.C** the knowledge artefact. Maps to LaTeX section *Methodology / project development*.
 
 ---
 
 ## 3.A Network hardware deployment
+<!-- \label{sec:methodology-network} -->
 
 This part of the chapter describes the hardware-network work-stream: how the
 physical and link layers of a small community network are designed,
@@ -383,6 +385,7 @@ per-objective check.
 ---
 
 ## 3.B Endpoint reconditioning and mass deployment
+<!-- \label{sec:methodology-endpoint} -->
 
 This part of the chapter describes the second hardware work-stream: how a
 batch of refurbished laptops is taken from incoming-equipment status to
@@ -761,6 +764,7 @@ the same recipe?) and into the per-objective check of §7.
 ---
 
 ## 3.C The AUCOOP Handbook as a knowledge artefact
+<!-- \label{sec:handbook} -->
 
 The two preceding parts of this chapter (§3.A and §3.B) describe *what* was
 deployed in the field. This third part describes *how the deployment knowledge
@@ -803,6 +807,7 @@ model trades convenience (no rich WYSIWYG editor) for longevity (plain text
 under version control survives platform changes and credential losses).
 
 ### 3.C.2 Information architecture
+<!-- \label{sec:handbook-structure} -->
 
 The handbook is organised in four top-level chapters, each with a clear
 epistemic role:

@@ -1,4 +1,5 @@
 # 6. Environmental Impact
+<!-- \label{ch:environmental-impact} -->
 
 The UPC Master Thesis template lists the environmental-impact section as
 optional. It is treated here as essential, because two of the three
@@ -69,6 +70,7 @@ the rate at which it enters the WEEE stream.
 ---
 
 ## 6.2 Embedded carbon avoided in the Namibia deployment
+<!-- \label{sec:embedded-carbon-avoided} -->
 
 Applying the per-unit figures of the previous section to the Namibia
 deployment produces the following first-order estimate.
@@ -248,6 +250,7 @@ it.
 ---
 
 ## 6.7 Limits of this analysis
+<!-- \label{sec:env-limits} -->
 
 This chapter is not a life-cycle assessment. It uses per-unit figures
 from public sources, applies them to a small deployment, and states

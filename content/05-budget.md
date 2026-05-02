@@ -1,4 +1,5 @@
 # 5. Budget
+<!-- \label{ch:budget} -->
 
 This chapter presents the budget of the Namibia 2026 deployment as
 the reference instance of the recipe described in Chapters 3 and 4.
@@ -132,6 +133,7 @@ operation and the project pays only the marginal cost of the
 volume occupied.
 
 ## 5.6 Funding sources
+<!-- \label{sec:budget-funding} -->
 
 The project's cash needs are met from three sources, none of which
 flow through the student authors directly.
@@ -196,6 +198,7 @@ cost-effectiveness benchmarks for ICT-in-education programmes
 reported in the ICT4D literature surveyed in §2.3.
 
 ## 5.9 Comparison with the commercial-equivalent alternative
+<!-- \label{sec:budget-comparison} -->
 
 The point of the budget is partly comparative. A commercial
 alternative — new business-grade laptops, vendor mesh access points,

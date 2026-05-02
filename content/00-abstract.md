@@ -22,3 +22,6 @@ deployment itself.
 **Keywords:** community networks, ICT for development, refurbished
 hardware, OpenWrt, mesh networking, PXE, Clonezilla, knowledge
 management, AUCOOP, Namibia, open documentation, Diátaxis.
+
+## Notes
+I dont like the approach of the abstract, to be reviewed when the document is completed. the way is introduced in Jaume's thesis is a better approach
