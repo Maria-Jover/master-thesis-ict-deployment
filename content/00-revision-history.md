@@ -3,6 +3,7 @@
 | Revision | Date       | Purpose |
 |----------|------------|---------|
 | 0        | 02/05/2026 | Document creation, scaffold, plan agreed |
+| 0.1      | 10/05/2026 | Draft with front matter and build pipeline |
 | 1        | TBD        | First full draft of all sections |
 | 2        | TBD        | Advisor revision round |
 | 3        | TBD        | Final version for submission |

@@ -78,6 +78,8 @@ PANDOC_OPTS=(
   --toc-depth=3
   --number-sections
   --include-in-header="$LATEX/pandoc-header.tex"
+  --include-before-body="$LATEX/cover.tex"
+  --include-before-body="$LATEX/pandoc-frontmatter.tex"
   --pdf-engine=xelatex
 )
 
@@ -85,7 +87,11 @@ echo "==> Generating combined .tex ..."
 pandoc "${PANDOC_OPTS[@]}" --standalone -o "$BUILD/thesis.tex" "$PREP"
 
 echo "==> Generating PDF ..."
-pandoc "${PANDOC_OPTS[@]}" -o "$BUILD/thesis.pdf" "$PREP"
+# Generate .tex, then inject a small file to switch to mainmatter after
+# the TOC/LoF/LoT. Pandoc's location for the TOC is template dependent,
+# but the simplest approach is to generate the PDF directly: include
+# pandoc-mainmatter.tex after the TOC using --include-after-body.
+pandoc "${PANDOC_OPTS[@]}" --include-after-body="$LATEX/pandoc-mainmatter.tex" -o "$BUILD/thesis.pdf" "$PREP"
 
 echo
 echo "Done."
