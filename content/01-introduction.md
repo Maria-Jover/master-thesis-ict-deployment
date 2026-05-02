@@ -15,13 +15,97 @@ Three coupled objectives:
 
 ## 1.2 Motivation
 
-### 1.2.1 External motivation — the digital divide
+The motivation for this thesis comes from two distinct but reinforcing
+sources. The first is *external*: the persistent gap in basic connectivity
+and usable computing equipment in the communities where AUCOOP works. The
+second is *internal*: a recurring failure of knowledge continuity inside
+AUCOOP itself, which has caused the association to re-solve the same
+problems with each new cohort of volunteers. Either of the two would justify
+a thesis on its own; together they explain why the deliverable of this work
+is not a single deployment but a *reusable instrument* — the handbook
+described in §3.C — built and validated through a real field deployment.
 
-Connectivity is a right, not a luxury. AUCOOP's prior work in Senegal and Namibia confirmed two recurring patterns: (a) communities lack reliable connectivity *and* the endpoints to use it; (b) most reference material assumes resources or expertise unavailable on the ground.
+### 1.2.1 External motivation — connectivity and usable endpoints as preconditions for everything else
+
+Reliable connectivity is no longer a luxury for the communities AUCOOP
+partners with. Schools, health posts, and local administrations increasingly
+depend on online services for curricula, record-keeping, and communication
+with regional authorities. In the contexts AUCOOP has worked in over the
+last decade — rural Senegal, the Namibian Hardap region, and several pilots
+inside Catalonia — the obstacle is rarely a single missing piece. It is the
+combination of three deficits that reinforce each other:
+
+1. **No usable network.** Either there is no infrastructure at all, or there
+   is a single ADSL/4G uplink at one building with no way to reach the
+   classrooms that need it. Commercial mesh kits exist but are priced and
+   warrantied for European homes, not for sites where a replacement part takes
+   six weeks to arrive.
+2. **No usable endpoints.** Even when connectivity is solved, the school
+   often has fewer than five working computers, all aged, often with broken
+   storage or pirated operating systems that cannot be patched. New hardware
+   is unaffordable; donations of refurbished hardware exist but require
+   expertise to receive, image, and deploy at scale.
+3. **No usable documentation.** The reference material that does exist
+   assumes a level of bandwidth, budget, and expertise that the field site
+   does not have. Vendor manuals presume current firmware and online
+   activation. Academic papers describe ideal architectures but skip the
+   thirty practical decisions a deployment team faces in an afternoon.
+
+This thesis attacks the first two deficits directly — through the network
+work in §3.A and the endpoint reconditioning pipeline in §3.B — and
+attacks the third deficit by producing the handbook described in §3.C as a
+genuine, opinionated, field-tested alternative to the documentation that is
+currently missing.
 
 ### 1.2.2 Internal motivation — knowledge continuity at AUCOOP
 
-[AUCOOP](https://aucoop.upc.edu) is a UPC volunteer association where students rotate every 1–3 years. For >3 years the author has observed the same anti-pattern: each new cohort restarts projects because know-how lives only in peer conversations and personal notes. There is no living artefact. The thesis fixes this by producing a reviewable, versioned, contributable handbook published in two formats.
+[AUCOOP](https://aucoop.upc.edu) is a student volunteer association at UPC.
+Its strength is also its structural weakness: it is staffed by bachelor and
+master students, who join enthusiastic, contribute for one to three academic
+years, graduate, and leave. Over more than three years inside the
+association, the author has observed the same anti-pattern repeatedly:
+
+- A project ends. Its deliverable — a working network, a configured server,
+  a refurbished classroom — exists physically but its *knowledge* exists
+  only in the heads of the students who built it and in scattered private
+  notes (chat messages, personal Markdown files, hand-drawn diagrams in
+  field notebooks).
+- Those students graduate within twelve months. The institutional memory of
+  the project leaves with them.
+- The next cohort, picking up either a follow-up project at the same site or
+  a similar project elsewhere, finds nothing actionable in the shared drive.
+  They start from a blank page, rediscover the same OpenWrt mesh quirks, run
+  into the same DHCP option, hit the same Clonezilla `partclone target seek
+  ERROR`, and pay the same debugging cost the previous cohort already paid.
+- Three years later, the cycle repeats.
+
+The cause is not laziness; it is the absence of a *living artefact* in which
+contribution is the natural side-effect of doing the work. PDFs in a
+shared drive are not such an artefact: they are written *after* the project,
+by people already mentally checked out, and read by nobody. Internal wikis
+on self-hosted servers are not such an artefact either: they go unmaintained
+the moment the volunteer who set them up leaves, and they are invisible to
+external partners.
+
+The thesis takes the position that this internal problem is solvable, and
+that solving it is itself a worthwhile engineering contribution. The
+solution adopted — an open Git repository of Markdown sources that builds
+to a public website *and* a downloadable PDF, governed by lightweight
+contribution rules and assisted by AI-driven authoring tooling — is
+described in §3.C and is demonstrably already in use: this thesis was
+written against it, the Namibia 2026 deployment was documented in it, and
+the next AUCOOP student to pick up a project will find a non-empty starting
+point.
+
+### 1.2.3 Personal motivation
+
+A note on personal motivation, kept short. The author has been involved
+with AUCOOP since the bachelor years and has been on the receiving end of
+both deficits described above: arriving at a project with no documentation
+and leaving a project knowing the documentation she wrote would probably
+not be read. This thesis is the deliberate attempt to break that pattern
+on the way out — to leave behind something that the next person can stand
+on rather than start beside.
 
 ## 1.3 Requirements and specifications
 
