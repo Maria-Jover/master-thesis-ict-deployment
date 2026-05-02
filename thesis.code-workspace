@@ -1,0 +1,40 @@
+{
+  "folders": [
+    { "path": ".", "name": "Master Thesis" },
+    { "path": "../../Community-Network-Handbook", "name": "Community-Network-Handbook (source)" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "latex/**/*.aux": true,
+      "latex/**/*.log": true,
+      "latex/**/*.out": true,
+      "latex/**/*.toc": true,
+      "latex/**/*.bbl": true,
+      "latex/**/*.blg": true,
+      "latex/**/*.lof": true,
+      "latex/**/*.lol": true,
+      "latex/**/*.lot": true
+    },
+    "editor.wordWrap": "on",
+    "editor.rulers": [100],
+    "[markdown]": {
+      "editor.quickSuggestions": { "comments": "on", "strings": "on", "other": "on" }
+    },
+    "markdownlint.config": {
+      "MD013": false,
+      "MD033": false,
+      "MD041": false
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "DavidAnson.vscode-markdownlint",
+      "valentjn.vscode-ltex",
+      "bierner.markdown-mermaid",
+      "yzhang.markdown-all-in-one",
+      "James-Yu.latex-workshop",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  }
+}

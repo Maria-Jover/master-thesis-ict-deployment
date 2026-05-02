@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "DavidAnson.vscode-markdownlint",
+    "valentjn.vscode-ltex",
+    "bierner.markdown-mermaid",
+    "yzhang.markdown-all-in-one",
+    "James-Yu.latex-workshop",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

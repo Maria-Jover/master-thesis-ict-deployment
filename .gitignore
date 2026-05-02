@@ -1,0 +1,23 @@
+# LaTeX intermediate files
+latex/**/*.aux
+latex/**/*.log
+latex/**/*.out
+latex/**/*.toc
+latex/**/*.bbl
+latex/**/*.blg
+latex/**/*.lof
+latex/**/*.lol
+latex/**/*.lot
+latex/**/*.fls
+latex/**/*.fdb_latexmk
+latex/**/*.synctex.gz
+latex/**/*.pdf
+
+# Editor
+.vscode/*.log
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db

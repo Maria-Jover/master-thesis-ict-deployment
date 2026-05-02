@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    "latex/**/*.aux": true,
+    "latex/**/*.log": true,
+    "latex/**/*.out": true,
+    "latex/**/*.toc": true,
+    "latex/**/*.bbl": true,
+    "latex/**/*.blg": true
+  },
+  "editor.wordWrap": "on",
+  "editor.rulers": [100],
+  "cSpell.words": [
+    "AUCOOP", "OpenWrt", "Clonezilla", "PXE", "TFTP", "DRBL", "ETSETB",
+    "MASTEAM", "Labdoo", "eReuse", "DeviceHub", "Cudy", "NanoPi",
+    "ThinkPad", "ProBook", "Mutschuana", "Gochas", "Namibia",
+    "Tarancón", "Giménez", "Antón", "MET", "OnlyOffice"
+  ]
+}
