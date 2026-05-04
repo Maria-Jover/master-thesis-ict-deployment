@@ -1,10 +1,5 @@
 # 1. Introduction
 
-> Maps to `latex/introduction.tex` (will be split / extended).
-> The template requires this section to clearly state the rationale and contain: (1) Statement of purpose, (2) Requirements & specifications, (3) Methods & procedures (including reuse of prior work), (4) Work plan with Gantt, (5) Deviations from the initial plan.
-
----
-
 ## 1.1 Statement of purpose: objectives
 <!-- \label{sec:objectives} -->
 
@@ -233,7 +228,7 @@ artefact:
 |---|---|---|
 | H1 | Network gear must be supported by OpenWrt or an equivalent FOSS firmware | Auditability, longevity beyond vendor support window |
 | H2 | Endpoints must be sourced from refurbishment, not new manufacture | \autoref{sec:embedded-carbon-avoided} (carbon) and \autoref{sec:budget-comparison} (cost) |
-| H3 | Mass-deployment time per endpoint must be field-viable (target: tens of minutes per machine when run in parallel) | The deployment window is one school day, not one school week |
+| H3 | Mass-deployment time per endpoint must be field-viable  | The deployment window is one-two work days |
 | H4 | The total per-site cash BOM must be raisable from a single small NGO grant | Replicability inside AUCOOP and similar associations (cf. \autoref{sec:budget-funding}) |
 
 H1–H4 are operationalised in the recipes; their validation against the
@@ -272,11 +267,7 @@ began. The thesis treats the handbook as both input and output:
 input, because much of the network-planning, IP-addressing, and
 OpenWrt material was authored before the Namibia deployment and was
 used to plan it; output, because every operational lesson from
-Namibia was committed back into the handbook in real time. For
-citation purposes, the handbook is pinned to branch `dev_mj_thesis`
-at commit `a5fc80b` (recorded in `sources/handbook-mapping.md`).
-\autoref{sec:handbook} describes the artefact in detail, and
-\autoref{sec:results-handbook} reports its validation.
+Namibia was committed back into the handbook in real time.
 
 **Concurrent work — the companion software thesis.** The companion
 thesis [Motje, 2026] covers the services layer (Proxmox
@@ -384,9 +375,9 @@ tooling, the Diátaxis-inspired Ch2/Ch3 split, the contribution
 governance, and the AI-assisted authoring workflow.
 
 \autoref{ch:results} reports the results of applying the methodology
-at N Mutschuana Primary School, Gochas (Namibia), in March 2026. The
+at N Mutschuana Primary School, Gochas (Namibia), in March - April 2026. The
 validation is organised through three qualitative analytical lenses
-— *coverage*, *sufficiency*, *adaptation* — and the eleven
+— *coverage*, *sufficiency*, *adaptation* — and the
 operational lessons it produced are consolidated in
 \autoref{sec:lessons-consolidated}, together with the handbook
 artefact each one fed back into.

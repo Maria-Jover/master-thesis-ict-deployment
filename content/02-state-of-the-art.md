@@ -21,8 +21,7 @@ in both volumes.
 
 ## 2.1 The digital divide and community networks
 
-The ITU's annual *Measuring digital development* reports document an
-internet-use gap that, as of the most recent figures, leaves roughly a
+The ITU's annual *Measuring digital development* reports document that as of the most recent figures, leaves roughly a
 third of the world's population offline, with the gap concentrated in
 rural and low-income areas of low- and middle-income countries [ITU].
 The classical analysis distinguishes a *first-level* divide
@@ -30,7 +29,7 @@ The classical analysis distinguishes a *first-level* divide
 a *third-level* divide (the unequal benefits derived from being
 online) [van Dijk, 2020].
 
-The deployments documented in this thesis sit predominantly at the
+The deployment documented in this thesis sit predominantly at the
 first and second level: a primary school and a children's house in
 Gochas had neither classroom Wi-Fi nor connectivity until March 2026.
 To address the second level, seminars were conducted and user guides
@@ -78,12 +77,12 @@ Technology for Development* [Heeks, 2017] is the canonical textbook;
 Toyama's *Geek Heresy* [Toyama, 2015] is the canonical critique of
 the field's tendency to over-attribute outcomes to technology. The
 synthesis useful for this thesis is Toyama's *amplification thesis*:
-technology amplifies the human and institutional intent already
-present at a site, rather than substituting for it. The corollary is
+**technology amplifies the human and institutional intent already
+present at a site**, rather than substituting for it. The corollary is
 that a deployment without a local champion (the school director, the
 NGO partner, the teacher who actually opens the laptop) does not
 survive the team's departure. The methodology of §3 is built around
-this corollary: every recipe identifies the role responsible for the
+this statement: every recipe identifies the role responsible for the
 artefact it produces, and the handbook's contribution model (§3.C.5)
 explicitly accommodates contributors who are not the original team.
 
@@ -114,9 +113,7 @@ Linux distribution for embedded networking devices. OpenWrt's
 contribution to the field is structural: it decouples the firmware
 from the manufacturer and exposes a full Linux userspace on
 consumer-grade routers, which makes the *same* recipe (§3.A.5) work
-across hardware generations and vendors. The OpenWrt Table of
-Hardware [OpenWrt] is the practical filter used in §3.A.3 when
-selecting a candidate router.
+across hardware generations and vendors.
 
 Three wireless mesh protocols dominate the practitioner literature:
 
@@ -211,7 +208,7 @@ The endpoint OS choice of §3.B.3 selects from a well-documented field:
 | Debian + lightweight DE | Maximally stable | Heavier setup burden for a non-expert team |
 
 Linux Mint Cinnamon is the choice justified in §3.B.3 and in the
-handbook's `AUCOOP-image.md` subchapter: it combines a Windows-style
+handbook's AUCOOP-image subchapter: it combines a Windows-style
 desktop, an Ubuntu LTS base (security maintenance handled upstream),
 and acceptable performance on the Lenovo T460 / X260 hardware class.
 **OnlyOffice** is selected as the office suite because it produces
