@@ -36,7 +36,9 @@ the ranking of cost categories is robust to that uncertainty.
 | Wall-mounting hardware, conduit, ties | (TBD) | — | ~50 |
 | **Subtotal — Network hardware** |  |  | **~958** |
 
-The figures above describe what was procured for the deployment;
+Table: Network hardware bill of materials — Namibia 2026 deployment
+
+These prices cover what was procured for the deployment;
 they do not include the spare AP and the spare PoE injector kept on
 the bench in Barcelona, both of which were existing AUCOOP stock.
 The Cudy WR3000E is the single most numerous item and is therefore
@@ -58,7 +60,9 @@ side of it.
 | Cleaning, thermal paste, screws | (TBD) | — | ~25 |
 | **Subtotal — Endpoint hardware** |  |  | **~460** |
 
-The headline is the zero in the first row: the nine endpoints
+Table: Endpoint hardware bill of materials — refurbishment costs only (donated machines at €0)
+
+The zero in the first row: the nine endpoints
 themselves were donated through Labdoo and NexTReT and entered the
 project at no cash cost. The €460 of cash spend on the endpoint
 side is therefore entirely *refurbishment* spend — the parts and
@@ -102,7 +106,9 @@ investment legible.
 | AUCOOP volunteer hours (intake, logistics) | ~80 | 20 | ~1 600 |
 | **Subtotal — Engineering effort** |  |  | **~42 400** |
 
-Two observations on this table. First, the engineering line is by a
+Table: Engineering effort at indicative hourly rates
+
+Two observations follow. First, the engineering line is by a
 very large margin the dominant cost block, dwarfing the network and
 endpoint hardware combined; this matches the framing of
 §2.1, which describes community networks as trading capital for human expertise. Second, the engineering effort is split across
@@ -113,16 +119,7 @@ share.
 
 ## 5.5 Travel and logistics (Namibia field deployment)
 
-| Item | Cost (€) |
-|---|---:|
-| Return flight Barcelona ↔ Windhoek (×2 students) | ~2 400 |
-| Domestic transport Windhoek ↔ Gochas (4×4 hire, fuel) | ~600 |
-| Lodging at Gochas (10 nights, ×2) | ~500 |
-| Per-diem (food, water, local consumables) | ~400 |
-| Travel insurance (×2) | ~120 |
-| Equipment shipping (Foundawtion container share) | ~200 |
-| Vaccinations and visa | ~180 |
-| **Subtotal — Travel and logistics** | **~4 400** |
+[TBC]
 
 The flights alone account for more than half of this block and are
 also the single largest contributor to the project's transport
@@ -174,7 +171,9 @@ the economic dimension of §6.4.
 | **TOTAL — full project** | **~48 218** |
 | **TOTAL — cash only (excludes engineering)** | **~5 818** |
 
-The two totals tell different stories. The full-project figure of
+Table: Total project budget — full cost and cash-only breakdown
+
+The full-project figure of
 ~48 k€ reflects the true societal cost of the deployment if every
 hour of student and advisor time were paid at indicative rates; this
 is the figure that makes the project comparable to a commercial
@@ -219,7 +218,9 @@ deployment as follows.
 | Travel and logistics | ~4 400 € | ~4 400 € (unchanged) |
 | **Total cash** | **~5 820 €** | **~20 400 €** |
 
-The commercial alternative is approximately **3.5× more expensive
+Table: Cost comparison — open recipe vs commercial-equivalent deployment
+
+The commercial-equivalent alternative is **3.5× more expensive
 in cash terms** and carries an additional environmental cost in
 manufacturing-phase emissions (quantified in §6.2.1). The
 community-recipe approach trades that cash and that footprint for
