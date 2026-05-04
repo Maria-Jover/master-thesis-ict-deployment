@@ -1,17 +1,7 @@
 # 6. Environmental Impact
 <!-- \label{ch:environmental-impact} -->
 
-The UPC Master Thesis template lists the environmental-impact section as
-optional. It is treated here as essential, because two of the three
-contributions of this work — the refurbished-laptop fleet and the
-emphasis on commodity, repairable network hardware — are environmental
-choices before they are technical or economic ones. This chapter makes
-the environmental argument explicit, separates what can be quantified
-from what can only be reasoned about qualitatively, and connects the
-deployment to the broader regulatory and policy context already
-introduced in §2.2.
-
-The chapter is deliberately conservative. The deployment described in
+The deployment described in
 this thesis is small: nine refurbished laptops, seven access points,
 one gateway, one switch. Headline figures expressed in tonnes of CO₂
 avoided are easy to write and difficult to defend at this scale, so the
