@@ -91,7 +91,6 @@ PANDOC_OPTS=(
   --metadata=toc-title:"Contents"
   --toc
   --toc-depth=3
-  --number-sections
   --include-in-header="$LATEX/pandoc-header.tex"
   --include-before-body="$LATEX/cover.tex"
   --include-before-body="$LATEX/pandoc-frontmatter.tex"

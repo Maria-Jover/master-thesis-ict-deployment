@@ -47,3 +47,7 @@
 % Suppress pandoc's auto-generated title page; our custom cover.tex
 % (injected via --include-before-body) is the only cover we want.
 \renewcommand{\maketitle}{}
+
+% Suppress LaTeX's automatic section numbering entirely — all numbers
+% are already written into the heading text in the Markdown sources.
+\setcounter{secnumdepth}{-1}
