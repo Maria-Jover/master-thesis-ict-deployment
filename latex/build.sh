@@ -57,6 +57,21 @@ for f in "${ORDERED[@]}"; do
 done
 
 # ---------------------------------------------------------------------------
+# 1b. Mark frontmatter chapter headings as unnumbered so they appear in the
+#     TOC without a chapter number. Pandoc honours the {.unnumbered} class
+#     on ATX headings and emits \chapter*{} + \addcontentsline{}.
+# ---------------------------------------------------------------------------
+sed -i -E \
+  -e 's/^(# Abstract)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Dedication)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Acknowledgements)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Cover Page)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Revision History)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# [0-9]+\. Bibliography.*)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# [0-9]+\. Appendices?)[[:space:]]*$/\1 {.unnumbered}/' \
+  "$PREP"
+
+# ---------------------------------------------------------------------------
 # 2. Pandoc -> combined LaTeX source (for inspection / future hand-tuning).
 # ---------------------------------------------------------------------------
 PANDOC_OPTS=(

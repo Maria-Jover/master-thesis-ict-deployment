@@ -1,16 +1,6 @@
-% Frontmatter control for pandoc-generated document. We use report/book
-% conventions: \frontmatter makes pages unnumbered or numbered with roman
-% numerals; \mainmatter resets to arabic numbering. We put cover and
-% front pages in the frontmatter.
+% Frontmatter control for pandoc-generated document.
+% We use arabic page numbers throughout (no roman frontmatter).
 \clearpage
-% Emulate frontmatter for report documentclass: use roman page numbers
-\pagenumbering{roman}
+\pagenumbering{arabic}
 
 % Cover is already included before this file.
-
-% Dedication / acknowledgements / revision history will be inserted by
-% the combined markdown (they are first files in the combined source).
-
-\clearpage
-% After generating the TOC and lists, switch to main numbering.
-% Pandoc will insert the TOC and LoF/LoT by default in the body.

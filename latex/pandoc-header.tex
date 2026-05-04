@@ -43,3 +43,7 @@
 
 % Avoid the rare overfull-hbox warnings around long inline code.
 \sloppy
+
+% Suppress pandoc's auto-generated title page; our custom cover.tex
+% (injected via --include-before-body) is the only cover we want.
+\renewcommand{\maketitle}{}
