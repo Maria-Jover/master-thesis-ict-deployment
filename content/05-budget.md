@@ -41,7 +41,7 @@ they do not include the spare AP and the spare PoE injector kept on
 the bench in Barcelona, both of which were existing AUCOOP stock.
 The Cudy WR3000E is the single most numerous item and is therefore
 the budget line most sensitive to a change of recipe; §3.A.4
-documents the rationale for that choice and §6.2 the environmental
+documents the rationale for that choice and §6.2.1 the environmental
 side of it.
 
 ## 5.2 Endpoint hardware
@@ -127,7 +127,8 @@ share.
 
 The flights alone account for more than half of this block and are
 also the single largest contributor to the project's transport
-carbon footprint (§6.7). The container share for equipment shipping
+carbon footprint, which §6.7 flags as a non-netted item in the
+environmental analysis. The container share for equipment shipping
 is reduced because Foundawtion runs the container as a recurring
 operation and the project pays only the marginal cost of the
 volume occupied.
@@ -157,7 +158,10 @@ The grant covers approximately 100 % of the cash spend recorded in
 §§5.1, 5.2 and 5.5 (~6 000 € against the 5 600 € grant, with a
 ~400 € overshoot absorbed by AUCOOP's own funds). The engineering
 effort of §5.4 is explicitly not funded; it is contributed in
-exchange for the academic credit of the two theses.
+exchange for the academic credit of the two theses. The
+sustainability reading of this funding mix — small cash outlay
+leveraged through donations and volunteer effort — is treated as
+the economic dimension of §6.4.
 
 ## 5.7 Total
 
@@ -218,7 +222,7 @@ deployment as follows.
 
 The commercial alternative is approximately **3.5× more expensive
 in cash terms** and carries an additional environmental cost in
-manufacturing-phase emissions (quantified in §6.2). The
+manufacturing-phase emissions (quantified in §6.2.1). The
 community-recipe approach trades that cash and that footprint for
 volunteer engineering effort and for the operational dependency on
 the handbook of §3.C — a dependency that the validation chapter

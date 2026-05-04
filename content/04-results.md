@@ -420,6 +420,7 @@ form* of the validation strategy of §4.1.
   is left as an explicit open question for §7.
 
 The next chapter (§5) develops the cost and budget side of the same
-deployment in detail; §6 develops the environmental impact; §7
+deployment in detail; §6 develops the sustainability case along
+environmental, social-and-governance, and economic dimensions; §7
 returns to the per-objective check and the future-work directions
 implied by the limits above.

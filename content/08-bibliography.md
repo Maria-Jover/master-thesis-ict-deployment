@@ -63,6 +63,35 @@ and core network protocols. Where a reference is shared, it is marked
 
 ## Refurbishment and circular economy
 
+- **[Roura et al., 2026]** Roura, M., Navarro, L., Meseguer, R., and
+  Giménez, S. *A life-cycle-assessment-based calculation criterion
+  for refurbished ICT in digital-inclusion programmes.* Cleaner
+  Production Letters, 2026. DOI:
+  [10.1016/j.clpl.2025.100123](https://doi.org/10.1016/j.clpl.2025.100123).
+  *Primary framework reference for §6: three-indicator
+  sustainability framing (GHG emissions, ICT access hours,
+  technician labour hours), per-hour-of-service functional unit,
+  APOS allocation, donor-side triage rule.*
+- Roura, M. et al. *CORA — Computer Reuse Allocation dataset.* UPC
+  CORA repository, 2024. DOI:
+  [10.34810/data1735](https://doi.org/10.34810/data1735).
+  *Underlying dataset for the eReuse / Roura et al. work; cited
+  in §6.7 for the programmatic-scale refurbishment accounting that
+  this thesis does not reproduce.*
+- André, H., Ljunggren Söderman, M., and Nordelöf, A. *Resource and
+  environmental impacts of using second-hand laptop computers: A case
+  study of commercial reuse.* Waste Management, vol. 88, 2019,
+  pp. 268–279. *Cited in §6.2.1 for GWP100 reductions through reuse.*
+- Hischier, R. and Böni, H. W. *Combining environmental and
+  economic factors to evaluate the reuse of electrical and electronic
+  equipment — a Swiss case study.* Resources, Conservation and
+  Recycling, vol. 166, 2021, 105307. *Cited in §6.2.1 alongside
+  André et al. for the reuse-LCA evidence base.*
+- Our World in Data. *Carbon intensity of electricity generation,
+  by country.* 2025.
+  <https://ourworldindata.org/grapher/carbon-intensity-electricity>.
+  *Cited in §6.2.3 for the Namibian / regional grid-intensity
+  values used in the operational-emissions estimate.*
 - Labdoo project. <https://www.labdoo.org/>
 - eReuse / DeviceHub. <https://ereuse.org/>
 - WEEE Directive 2012/19/EU. *Waste Electrical and Electronic

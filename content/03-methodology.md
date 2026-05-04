@@ -425,10 +425,16 @@ the *same generation class* but with *non-identical disk geometries* —
 which, as §3.B.5 will show, is the single decision driver of the entire
 imaging workflow.
 
-The case for refurbished hardware is also environmental. A laptop
-manufactured five years ago and reused for another five years has a
-markedly lower lifecycle carbon footprint per useful year than a
-newly-manufactured equivalent; this argument is developed in §6.
+The case for refurbished hardware is also a sustainability one along
+all three dimensions. Environmentally, a laptop manufactured five
+years ago and reused for another five years has a markedly lower
+lifecycle carbon footprint per useful year than a newly-manufactured
+equivalent. Socially, the donation pipeline channels institutional
+fleet refreshes into ICT access for sites that could not otherwise
+afford it. Economically, the refurbishment-spend per donated unit is
+a small fraction of the secondary-market value mobilised. The
+argument is developed in §6, which adopts the three-indicator framing
+of [Roura et al., 2026] and applies it to the deployment.
 
 ### 3.B.2 Intake, triage and inventory
 

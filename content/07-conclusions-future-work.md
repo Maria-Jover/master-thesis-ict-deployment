@@ -114,7 +114,22 @@ explicitly (§3.A.5, §3.A.7), and the budget chapter quantifies what
 it is worth (§5.9: ~3.5× cash multiple over the commercial
 alternative). Sufficiency is the property that makes the recipe
 travel; over-specification is the property that prevents it from
-being adopted.
+being adopted. It is also a sustainability property along all three
+dimensions (§6.5): every component not deployed is manufacturing
+carbon not incurred, cash not raised, and operational burden not
+placed on the partner organisation.
+
+**Sustainability is the integrating frame, not an add-on chapter.**
+The three contributions of the thesis are sustainability choices
+before they are technical ones: refurbishment defers
+manufacturing-phase emissions (§6.2), the open handbook engineers
+knowledge continuity into a volunteer association (§6.3), and the
+donation-leveraged budget makes the recipe replicable on a small
+NGO grant (§6.4). The three-dimension reading proposed by
+[Roura et al., 2026] for refurbished-ICT digital-inclusion
+programmes maps cleanly onto the AUCOOP case and gives the work an
+analytical vocabulary that an environment-only chapter could not
+have provided.
 
 **The hardware/software split with the companion thesis is itself
 methodological evidence.** Two students working on overlapping
@@ -174,11 +189,16 @@ documents what to do with the donations; it does not document how
 to bootstrap the donation pipeline itself. That work is upstream
 of this thesis and is owned by AUCOOP at the organisational level.
 
-**Environmental analysis is below LCA grade.** Chapter 6 uses
-per-unit figures from public sources, applies them to the deployment,
-and reports the result as an order-of-magnitude check. A defensible
-life-cycle assessment would net transport, refurbishment-process
-energy, and end-of-life processing; this thesis does not.
+**Sustainability analysis is below the device-level scenario LCA
+standard.** Chapter 6 uses per-unit figures from public sources,
+applies them to the deployment, and reports the result as an
+order-of-magnitude check across environmental, social and economic
+dimensions. A defensible study along the device-level scenario LCA
+lines set by [Roura et al., 2026] would net transport,
+refurbishment-process energy, end-of-life processing, and would
+allocate manufacturing emissions across successive users via a
+Power-On-Hours-based rule; it would also instrument supervised ICT
+access hours and technician labour hours rather than estimate them.
 The omission is documented in §6.7.
 
 **External adoption of the handbook is not yet measured.** The
@@ -243,10 +263,19 @@ fleet, reducing the operational burden on the partner organisation.
 
 ### Long-term
 
-**A defensible life-cycle assessment of the recipe.** Addresses
-the LCA-grade limitation of §6.7. Likely a separate thesis or a
-collaboration with the eReuse project rather than a chapter
-extension.
+**A defensible sustainability assessment of the recipe.** Addresses
+the LCA-grade limitation of §6.7. The natural shape is a
+device-level scenario LCA along [Roura et al., 2026] lines —
+APOS allocation, Power-On-Hours-based attribution across successive
+users, per-hour-of-service functional unit — extended with the
+social (instrumented ICT access hours) and economic (technician /
+volunteer hours, donor-pipeline cash multiplier) indicators that
+the same study proposes. The NMPS deployment is precisely the
+low-income, community-scale empirical case that paper identifies
+as under-represented in the existing data, and would benefit from
+being written up as a contribution to that literature. Likely a
+separate thesis or a collaboration with the eReuse project rather
+than a chapter extension.
 
 **Federation with adjacent community-network movements.** Guifi.net,
 AlterMundi, Freifunk and Rhizomatica all maintain documentation

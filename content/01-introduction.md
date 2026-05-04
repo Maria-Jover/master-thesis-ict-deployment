@@ -53,7 +53,12 @@ Either of the two would justify a thesis on its own. Together they
 explain why the deliverable of this work is not a single deployment
 but a *reusable instrument* — the handbook described in
 \autoref{sec:handbook} — built and validated through a real field
-deployment.
+deployment. The framing is deliberately a *sustainability* one along
+three dimensions — environmental, social and governance, and
+economic — developed in \autoref{ch:sustainability}: refurbishment
+defers manufacturing-phase carbon, the open handbook engineers
+knowledge continuity into a volunteer association, and the cash
+budget is small enough to be raised from a single NGO grant.
 
 ### 1.2.1 External motivation — connectivity and usable endpoints as preconditions for everything else
 
@@ -321,7 +326,10 @@ protocols, formal performance modelling of mesh throughput, and
 academic-grade life-cycle assessment of refurbishment are all out of
 scope. The thesis is an integration and validation effort, not a
 research contribution to any of those sub-fields.
-\autoref{sec:env-limits} makes the LCA limitation explicit;
+\autoref{sec:sustainability-limits} makes the LCA limitation explicit
+in the broader sustainability context — environmental, social and
+economic indicators are reported as order-of-magnitude estimates,
+not as a formal LCA along the lines of [Roura et al., 2026];
 \autoref{sec:future-work} lists the others as future-work directions.
 
 ## 1.5 Work plan and Gantt
@@ -387,11 +395,15 @@ outlay an organisation actually has to raise from the full project
 cost at indicative engineering rates, and comparing both with the
 commercial-equivalent alternative.
 
-\autoref{ch:environmental-impact} addresses environmental impact,
-with particular attention to the manufacturing-phase carbon dominance
-that justifies the refurbishment requirement, and to the limits of
-the analysis (this thesis does not constitute a formal life-cycle
-assessment).
+\autoref{ch:sustainability} addresses sustainability along three
+dimensions — environmental (manufacturing-phase carbon dominance and
+the avoided-production argument that justifies the refurbishment
+requirement), social and governance (digital inclusion delivered and
+knowledge continuity engineered into the handbook), and economic
+(cash budget vs full-cost accounting and the donation-pipeline
+leverage) — adopting the indicator framing of [Roura et al., 2026]
+and recording explicitly the limits of the analysis (this thesis
+does not constitute a formal life-cycle assessment).
 
 \autoref{ch:conclusions} draws conclusions against each of the five
 objectives stated in \autoref{sec:objectives}, records the
