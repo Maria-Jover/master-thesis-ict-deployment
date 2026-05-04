@@ -28,6 +28,17 @@ mkdir -p "$BUILD"
 PREP="$BUILD/_combined.md"
 : > "$PREP"
 
+# Inject List of Figures and List of Tables immediately after the TOC.
+# Pandoc places \tableofcontents from the template before the body; these
+# raw-LaTeX lines land as the very first thing in the body, i.e. right
+# after the TOC.
+cat >> "$PREP" << 'HEREDOC'
+\listoffigures
+\listoftables
+\clearpage
+
+HEREDOC
+
 # Order matters: abstract first, then numbered chapters.
 ORDERED=(
   "00-abstract.md"

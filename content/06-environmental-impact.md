@@ -131,12 +131,16 @@ written as a hard constraint rather than a preference.
 
 Applied to the Namibia deployment, the per-unit figure scales as:
 
-| Stream | Units | Embodied CO₂eq/unit | Avoided new production |
-|---|---:|---:|---:|
-| Refurbished laptops (Lenovo T460 / X260) | 9 | ~250 kg | **~2.25 t** |
-| Cudy WR3000E access points | 7 | (not published) | not estimated |
-| NanoPi R6S gateway | 1 | (not published) | not estimated |
-| TP-Link PoE switch | 1 | (not published) | not estimated |
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.8cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{3.0cm}}
+\toprule
+Stream & Units & Embodied CO\textsubscript{2}eq/unit & Avoided new production \\
+\midrule
+Refurbished laptops (Lenovo T460 / X260) & 9 & \textasciitilde250 kg & \textbf{\textasciitilde2.25 t} \\
+Cudy WR3000E access points & 7 & (not published) & not estimated \\
+NanoPi R6S gateway & 1 & (not published) & not estimated \\
+TP-Link PoE switch & 1 & (not published) & not estimated \\
+\bottomrule
+\end{tabularx}
 
 The 2.25-tonne figure should be read narrowly. It is the
 manufacturing footprint of nine equivalent new laptops that did not
@@ -219,13 +223,17 @@ calculable. The estimates below assume the school operates the
 network during teaching hours and powers the laptops down outside
 those hours.
 
-| Device | Units | Power (avg) | Hours/day | kWh/year |
-|---|---:|---:|---:|---:|
-| Cudy WR3000E AP | 7 | ~5 W | 12 | ~153 |
-| NanoPi R6S gateway | 1 | ~4 W | 24 | ~35 |
-| TP-Link PoE switch | 1 | ~15 W (with 7 PoE loads) | 12 | ~66 |
-| Refurbished laptops in use | 9 | ~25 W | 4 | ~329 |
-| **Total** | | | | **~583 kWh/year** |
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.0cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{2.0cm}}
+\toprule
+Device & Units & Power (avg) & Hours/day & kWh/year \\
+\midrule
+Cudy WR3000E AP & 7 & \textasciitilde5 W & 12 & \textasciitilde153 \\
+NanoPi R6S gateway & 1 & \textasciitilde4 W & 24 & \textasciitilde35 \\
+TP-Link PoE switch & 1 & \textasciitilde15 W (with 7 PoE loads) & 12 & \textasciitilde66 \\
+Refurbished laptops in use & 9 & \textasciitilde25 W & 4 & \textasciitilde329 \\
+\textbf{Total} & & & & \textbf{\textasciitilde583 kWh/year} \\
+\bottomrule
+\end{tabularx}
 
 At the European grid intensity of ~250 g CO₂eq/kWh the operational
 footprint is roughly **150 kg CO₂eq per year**. The Namibian grid
@@ -511,15 +519,19 @@ SDG-alignment statements are easy to over-claim and are written
 here narrowly, restricted to mechanisms that are concretely
 instantiated in the work described in §3 and §4.
 
-| SDG | Mechanism in this work |
-|---|---|
-| **4 — Quality Education** | Connectivity and endpoints delivered to a primary school in a low-connectivity context (§4.2, §4.3). |
-| **8 — Decent Work and Economic Growth** | Volunteer engineering hours channelled into a regenerative knowledge artefact rather than a single-project report (§6.4.2); donor-pipeline labour quantified (§5.4). |
-| **9 — Industry, Innovation & Infrastructure** | A reproducible community-network recipe published as an open handbook (§3.C, §4.4). |
-| **10 — Reduced Inequalities** | The deployment targets a school with limited prior ICT access; the open handbook lowers the barrier for similar sites to follow (§3.C, §6.3.1). |
-| **12 — Responsible Consumption & Production** | Endpoint requirement H2 (refurbishment over new), commodity network hardware, sufficiency bias in design (§6.2, §6.5). |
-| **13 — Climate Action** | Embedded-carbon avoidance through refurbishment and lifetime extension (§6.2.1, §6.2.2). |
-| **17 — Partnerships for the Goals** | The deployment is the product of a partnership chain — UPC CCD, AUCOOP, Foundawtion, Labdoo, NexTReT, the local school authority — that the handbook documents and makes legible to future partners (§4.4, §6.3.3). |
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.8cm}X}
+\toprule
+SDG & Mechanism in this work \\
+\midrule
+\textbf{4 --- Quality Education} & Connectivity and endpoints delivered to a primary school in a low-connectivity context (§4.2, §4.3). \\[4pt]
+\textbf{8 --- Decent Work and Economic Growth} & Volunteer engineering hours channelled into a knowledge artefact rather than a single-project report (§6.4.2); donor-pipeline labour quantified (§5.4). \\[4pt]
+\textbf{9 --- Industry, Innovation \& Infrastructure} & A reproducible community-network recipe published as an open handbook (§3.C, §4.4). \\[4pt]
+\textbf{10 --- Reduced Inequalities} & The deployment targets a school with limited prior ICT access; the open handbook lowers the barrier for similar sites to follow (§3.C, §6.3.1). \\[4pt]
+\textbf{12 --- Responsible Consumption \& Production} & Endpoint requirement H2 (refurbishment over new), commodity network hardware, sufficiency bias in design (§6.2, §6.5). \\[4pt]
+\textbf{13 --- Climate Action} & Embedded-carbon avoidance through refurbishment and lifetime extension (§6.2.1, §6.2.2). \\[4pt]
+\textbf{17 --- Partnerships for the Goals} & The deployment is the product of a partnership chain --- UPC CCD, AUCOOP, Foundawtion, Labdoo, NexTReT, the local school authority --- that the handbook documents and makes legible to future partners (§4.4, §6.3.3). \\
+\bottomrule
+\end{tabularx}
 
 The list is shorter than is conventional in SDG-alignment
 exercises; goals that the deployment does not concretely address
