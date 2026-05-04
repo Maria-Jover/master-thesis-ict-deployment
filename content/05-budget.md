@@ -64,7 +64,7 @@ project at no cash cost. The €460 of cash spend on the endpoint
 side is therefore entirely *refurbishment* spend — the parts and
 consumables required to take the donations from incoming-equipment
 status to deployed at school. The ratio of refurbishment cost to
-donated value is the operationally relevant figure: at a notional
+donated value is the figure that matters: at a notional
 secondary-market price of €150 per refurbished T460, the nine
 machines represent roughly €1 350 of asset value mobilised at €460
 of cash, a leverage of ~3:1.
@@ -104,9 +104,8 @@ investment legible.
 
 Two observations on this table. First, the engineering line is by a
 very large margin the dominant cost block, dwarfing the network and
-endpoint hardware combined; this is consistent with the framing of
-§2.1, which characterises community networks as substituting capital
-for human expertise. Second, the engineering effort is split across
+endpoint hardware combined; this matches the framing of
+§2.1, which describes community networks as trading capital for human expertise. Second, the engineering effort is split across
 two theses; the figure double-counts the advisor hours that were
 spent on shared meetings. A pessimistic single-thesis attribution
 would be roughly half of the figure above plus the full advisor

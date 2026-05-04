@@ -26,8 +26,8 @@ dimension of each objective that each author addresses.
    specifically, the Namaqua Kalahari Children Hope project at
    N Mutschuana Primary School, Gochas, Namibia.
 5. **Centralise**, in a single openly maintained artefact, the
-   knowledge accumulated from previous AUCOOP projects, so that future
-   cohorts inherit it rather than reconstruct it.
+   knowledge built up over previous AUCOOP projects, so that future
+   cohorts inherit it rather than start over.
 
 The present document covers the **hardware dimension** of these
 objectives: the chapters of the handbook that deal with the wireless
@@ -102,8 +102,8 @@ alternative to the documentation that is currently missing.
 UPC. Its strength is also its structural weakness: it is staffed by
 bachelor and master students, who join enthusiastic, contribute for
 one to three academic years, graduate, and leave. Over more than three
-years inside the association, the author has observed the same
-anti-pattern repeatedly:
+years inside the association, the author has watched the same
+pattern play out again and again:
 
 - A project ends. Its deliverable — a working network, a configured
   server, a refurbished classroom — exists physically, but its
@@ -236,15 +236,15 @@ artefact:
 | H3 | Mass-deployment time per endpoint must be field-viable  | The deployment window is one-two work days |
 | H4 | The total per-site cash BOM must be raisable from a single small NGO grant | Replicability inside AUCOOP and similar associations (cf. \autoref{sec:budget-funding}) |
 
-H1–H4 are operationalised in the recipes; their validation against the
+H1–H4 are realised in the recipes; their validation against the
 Namibia deployment is reported in \autoref{sec:results-network} and
 \autoref{sec:results-endpoint}.
 
 ## 1.4 Methods and procedures — relation to prior and concurrent work
 <!-- \label{sec:methods} -->
 
-This thesis is **methodologically integrated** with two adjacent
-bodies of work, and explicitly delimited from a third. Naming each is
+This thesis is **methodologically tied** to two adjacent
+bodies of work, and explicitly set apart from a third. Naming each is
 part of the contribution, because the value of the thesis lies as
 much in *what it does not re-do* as in what it adds.
 

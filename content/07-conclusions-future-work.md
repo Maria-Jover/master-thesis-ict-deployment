@@ -70,7 +70,7 @@ quantitative performance contract; a quantitative complement is
 listed in §7.4.
 
 **Objective 5 — To centralise**, in a single openly maintained
-artefact, the knowledge accumulated from previous AUCOOP projects, so
+artefact, the knowledge built up over previous AUCOOP projects, so
 that future cohorts inherit it rather than reconstruct it. *Met for
 the chapters this thesis covers; partially met for the association
 as a whole.* The hardware chapters of the handbook now consolidate
@@ -193,11 +193,11 @@ of this thesis and is owned by AUCOOP at the organisational level.
 standard.** Chapter 6 uses per-unit figures from public sources,
 applies them to the deployment, and reports the result as an
 order-of-magnitude check across environmental, social and economic
-dimensions. A defensible study along the device-level scenario LCA
+dimensions. A proper study along the device-level scenario LCA
 lines set by [Roura et al., 2026] would net transport,
 refurbishment-process energy, end-of-life processing, and would
 allocate manufacturing emissions across successive users via a
-Power-On-Hours-based rule; it would also instrument supervised ICT
+Power-On-Hours-based rule; it would also measure supervised ICT
 access hours and technician labour hours rather than estimate them.
 The omission is documented in §6.7.
 
@@ -251,7 +251,7 @@ is unwritten and is the natural next chapter on the hardware side.
 
 **Translation of the handbook.** English is the working language
 of the current chapters; French, Spanish and Portuguese versions
-would substantially expand the partner organisations that can use
+would much expand the partner organisations that can use
 the handbook directly. The build pipeline already supports
 multi-language MkDocs and the work is incremental.
 
@@ -263,12 +263,12 @@ fleet, reducing the operational burden on the partner organisation.
 
 ### Long-term
 
-**A defensible sustainability assessment of the recipe.** Addresses
+**A proper sustainability assessment of the recipe.** Addresses
 the LCA-grade limitation of §6.7. The natural shape is a
 device-level scenario LCA along [Roura et al., 2026] lines —
 APOS allocation, Power-On-Hours-based attribution across successive
 users, per-hour-of-service functional unit — extended with the
-social (instrumented ICT access hours) and economic (technician /
+social (measured ICT access hours) and economic (technician /
 volunteer hours, donor-pipeline cash multiplier) indicators that
 the same study proposes. The NMPS deployment is precisely the
 low-income, community-scale empirical case that paper identifies
