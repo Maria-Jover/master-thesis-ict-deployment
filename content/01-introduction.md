@@ -26,8 +26,8 @@ dimension of each objective that each author addresses.
    specifically, the Namaqua Kalahari Children Hope project at
    N Mutschuana Primary School, Gochas, Namibia.
 5. **Centralise**, in a single openly maintained artefact, the
-   knowledge accumulated from previous AUCOOP projects, so that future
-   cohorts inherit it rather than reconstruct it.
+   knowledge built up over previous AUCOOP projects, so that future
+   cohorts inherit it rather than start over.
 
 The present document covers the **hardware dimension** of these
 objectives: the chapters of the handbook that deal with the wireless
@@ -53,7 +53,12 @@ Either of the two would justify a thesis on its own. Together they
 explain why the deliverable of this work is not a single deployment
 but a *reusable instrument* — the handbook described in
 \autoref{sec:handbook} — built and validated through a real field
-deployment.
+deployment. The framing is deliberately a *sustainability* one along
+three dimensions — environmental, social and governance, and
+economic — developed in \autoref{ch:sustainability}: refurbishment
+defers manufacturing-phase carbon, the open handbook engineers
+knowledge continuity into a volunteer association, and the cash
+budget is small enough to be raised from a single NGO grant.
 
 ### 1.2.1 External motivation — connectivity and usable endpoints as preconditions for everything else
 
@@ -97,8 +102,8 @@ alternative to the documentation that is currently missing.
 UPC. Its strength is also its structural weakness: it is staffed by
 bachelor and master students, who join enthusiastic, contribute for
 one to three academic years, graduate, and leave. Over more than three
-years inside the association, the author has observed the same
-anti-pattern repeatedly:
+years inside the association, the author has watched the same
+pattern play out again and again:
 
 - A project ends. Its deliverable — a working network, a configured
   server, a refurbished classroom — exists physically, but its
@@ -231,15 +236,15 @@ artefact:
 | H3 | Mass-deployment time per endpoint must be field-viable  | The deployment window is one-two work days |
 | H4 | The total per-site cash BOM must be raisable from a single small NGO grant | Replicability inside AUCOOP and similar associations (cf. \autoref{sec:budget-funding}) |
 
-H1–H4 are operationalised in the recipes; their validation against the
+H1–H4 are realised in the recipes; their validation against the
 Namibia deployment is reported in \autoref{sec:results-network} and
 \autoref{sec:results-endpoint}.
 
 ## 1.4 Methods and procedures — relation to prior and concurrent work
 <!-- \label{sec:methods} -->
 
-This thesis is **methodologically integrated** with two adjacent
-bodies of work, and explicitly delimited from a third. Naming each is
+This thesis is **methodologically tied** to two adjacent
+bodies of work, and explicitly set apart from a third. Naming each is
 part of the contribution, because the value of the thesis lies as
 much in *what it does not re-do* as in what it adds.
 
@@ -321,7 +326,10 @@ protocols, formal performance modelling of mesh throughput, and
 academic-grade life-cycle assessment of refurbishment are all out of
 scope. The thesis is an integration and validation effort, not a
 research contribution to any of those sub-fields.
-\autoref{sec:env-limits} makes the LCA limitation explicit;
+\autoref{sec:sustainability-limits} makes the LCA limitation explicit
+in the broader sustainability context — environmental, social and
+economic indicators are reported as order-of-magnitude estimates,
+not as a formal LCA along the lines of [Roura et al., 2026];
 \autoref{sec:future-work} lists the others as future-work directions.
 
 ## 1.5 Work plan and Gantt
@@ -387,11 +395,15 @@ outlay an organisation actually has to raise from the full project
 cost at indicative engineering rates, and comparing both with the
 commercial-equivalent alternative.
 
-\autoref{ch:environmental-impact} addresses environmental impact,
-with particular attention to the manufacturing-phase carbon dominance
-that justifies the refurbishment requirement, and to the limits of
-the analysis (this thesis does not constitute a formal life-cycle
-assessment).
+\autoref{ch:sustainability} addresses sustainability along three
+dimensions — environmental (manufacturing-phase carbon dominance and
+the avoided-production argument that justifies the refurbishment
+requirement), social and governance (digital inclusion delivered and
+knowledge continuity engineered into the handbook), and economic
+(cash budget vs full-cost accounting and the donation-pipeline
+leverage) — adopting the indicator framing of [Roura et al., 2026]
+and recording explicitly the limits of the analysis (this thesis
+does not constitute a formal life-cycle assessment).
 
 \autoref{ch:conclusions} draws conclusions against each of the five
 objectives stated in \autoref{sec:objectives}, records the

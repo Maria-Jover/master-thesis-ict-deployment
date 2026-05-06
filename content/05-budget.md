@@ -36,12 +36,14 @@ the ranking of cost categories is robust to that uncertainty.
 | Wall-mounting hardware, conduit, ties | (TBD) | — | ~50 |
 | **Subtotal — Network hardware** |  |  | **~958** |
 
-The figures above describe what was procured for the deployment;
+Table: Network hardware bill of materials — Namibia 2026 deployment
+
+These prices cover what was procured for the deployment;
 they do not include the spare AP and the spare PoE injector kept on
 the bench in Barcelona, both of which were existing AUCOOP stock.
 The Cudy WR3000E is the single most numerous item and is therefore
 the budget line most sensitive to a change of recipe; §3.A.4
-documents the rationale for that choice and §6.2 the environmental
+documents the rationale for that choice and §6.2.1 the environmental
 side of it.
 
 ## 5.2 Endpoint hardware
@@ -58,13 +60,15 @@ side of it.
 | Cleaning, thermal paste, screws | (TBD) | — | ~25 |
 | **Subtotal — Endpoint hardware** |  |  | **~460** |
 
-The headline is the zero in the first row: the nine endpoints
+Table: Endpoint hardware bill of materials — refurbishment costs only (donated machines at €0)
+
+The zero in the first row: the nine endpoints
 themselves were donated through Labdoo and NexTReT and entered the
 project at no cash cost. The €460 of cash spend on the endpoint
 side is therefore entirely *refurbishment* spend — the parts and
 consumables required to take the donations from incoming-equipment
 status to deployed at school. The ratio of refurbishment cost to
-donated value is the operationally relevant figure: at a notional
+donated value is the figure that matters: at a notional
 secondary-market price of €150 per refurbished T460, the nine
 machines represent roughly €1 350 of asset value mobilised at €460
 of cash, a leverage of ~3:1.
@@ -102,11 +106,12 @@ investment legible.
 | AUCOOP volunteer hours (intake, logistics) | ~80 | 20 | ~1 600 |
 | **Subtotal — Engineering effort** |  |  | **~42 400** |
 
-Two observations on this table. First, the engineering line is by a
+Table: Engineering effort at indicative hourly rates
+
+Two observations follow. First, the engineering line is by a
 very large margin the dominant cost block, dwarfing the network and
-endpoint hardware combined; this is consistent with the framing of
-§2.1, which characterises community networks as substituting capital
-for human expertise. Second, the engineering effort is split across
+endpoint hardware combined; this matches the framing of
+§2.1, which describes community networks as trading capital for human expertise. Second, the engineering effort is split across
 two theses; the figure double-counts the advisor hours that were
 spent on shared meetings. A pessimistic single-thesis attribution
 would be roughly half of the figure above plus the full advisor
@@ -114,20 +119,12 @@ share.
 
 ## 5.5 Travel and logistics (Namibia field deployment)
 
-| Item | Cost (€) |
-|---|---:|
-| Return flight Barcelona ↔ Windhoek (×2 students) | ~2 400 |
-| Domestic transport Windhoek ↔ Gochas (4×4 hire, fuel) | ~600 |
-| Lodging at Gochas (10 nights, ×2) | ~500 |
-| Per-diem (food, water, local consumables) | ~400 |
-| Travel insurance (×2) | ~120 |
-| Equipment shipping (Foundawtion container share) | ~200 |
-| Vaccinations and visa | ~180 |
-| **Subtotal — Travel and logistics** | **~4 400** |
+[TBC]
 
 The flights alone account for more than half of this block and are
 also the single largest contributor to the project's transport
-carbon footprint (§6.7). The container share for equipment shipping
+carbon footprint, which §6.7 flags as a non-netted item in the
+environmental analysis. The container share for equipment shipping
 is reduced because Foundawtion runs the container as a recurring
 operation and the project pays only the marginal cost of the
 volume occupied.
@@ -157,7 +154,10 @@ The grant covers approximately 100 % of the cash spend recorded in
 §§5.1, 5.2 and 5.5 (~6 000 € against the 5 600 € grant, with a
 ~400 € overshoot absorbed by AUCOOP's own funds). The engineering
 effort of §5.4 is explicitly not funded; it is contributed in
-exchange for the academic credit of the two theses.
+exchange for the academic credit of the two theses. The
+sustainability reading of this funding mix — small cash outlay
+leveraged through donations and volunteer effort — is treated as
+the economic dimension of §6.4.
 
 ## 5.7 Total
 
@@ -171,7 +171,9 @@ exchange for the academic credit of the two theses.
 | **TOTAL — full project** | **~48 218** |
 | **TOTAL — cash only (excludes engineering)** | **~5 818** |
 
-The two totals tell different stories. The full-project figure of
+Table: Total project budget — full cost and cash-only breakdown
+
+The full-project figure of
 ~48 k€ reflects the true societal cost of the deployment if every
 hour of student and advisor time were paid at indicative rates; this
 is the figure that makes the project comparable to a commercial
@@ -216,9 +218,11 @@ deployment as follows.
 | Travel and logistics | ~4 400 € | ~4 400 € (unchanged) |
 | **Total cash** | **~5 820 €** | **~20 400 €** |
 
-The commercial alternative is approximately **3.5× more expensive
+Table: Cost comparison — open recipe vs commercial-equivalent deployment
+
+The commercial-equivalent alternative is **3.5× more expensive
 in cash terms** and carries an additional environmental cost in
-manufacturing-phase emissions (quantified in §6.2). The
+manufacturing-phase emissions (quantified in §6.2.1). The
 community-recipe approach trades that cash and that footprint for
 volunteer engineering effort and for the operational dependency on
 the handbook of §3.C — a dependency that the validation chapter

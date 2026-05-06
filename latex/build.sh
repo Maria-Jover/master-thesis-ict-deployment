@@ -28,6 +28,17 @@ mkdir -p "$BUILD"
 PREP="$BUILD/_combined.md"
 : > "$PREP"
 
+# Inject List of Figures and List of Tables immediately after the TOC.
+# Pandoc places \tableofcontents from the template before the body; these
+# raw-LaTeX lines land as the very first thing in the body, i.e. right
+# after the TOC.
+cat >> "$PREP" << 'HEREDOC'
+\listoffigures
+\listoftables
+\clearpage
+
+HEREDOC
+
 # Order matters: abstract first, then numbered chapters.
 ORDERED=(
   "00-abstract.md"
@@ -57,6 +68,21 @@ for f in "${ORDERED[@]}"; do
 done
 
 # ---------------------------------------------------------------------------
+# 1b. Mark frontmatter chapter headings as unnumbered so they appear in the
+#     TOC without a chapter number. Pandoc honours the {.unnumbered} class
+#     on ATX headings and emits \chapter*{} + \addcontentsline{}.
+# ---------------------------------------------------------------------------
+sed -i -E \
+  -e 's/^(# Abstract)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Dedication)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Acknowledgements)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Cover Page)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# Revision History)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# [0-9]+\. Bibliography.*)[[:space:]]*$/\1 {.unnumbered}/' \
+  -e 's/^(# [0-9]+\. Appendices?)[[:space:]]*$/\1 {.unnumbered}/' \
+  "$PREP"
+
+# ---------------------------------------------------------------------------
 # 2. Pandoc -> combined LaTeX source (for inspection / future hand-tuning).
 # ---------------------------------------------------------------------------
 PANDOC_OPTS=(
@@ -76,7 +102,6 @@ PANDOC_OPTS=(
   --metadata=toc-title:"Contents"
   --toc
   --toc-depth=3
-  --number-sections
   --include-in-header="$LATEX/pandoc-header.tex"
   --include-before-body="$LATEX/cover.tex"
   --include-before-body="$LATEX/pandoc-frontmatter.tex"

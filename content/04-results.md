@@ -53,13 +53,13 @@ small-deployment write-ups — of inflating a single-site case study
 into a quantitative claim it cannot support. Where quantitative
 evidence is available (e.g., counts of laptops processed, time-to-
 deploy, signal-strength readings), it is reported alongside the
-qualitative judgement, not in lieu of it.
+qualitative judgement, not instead of it.
 
 The validation material is presented in two **What was done /
 Adaptation / Observations** tables — one for the network work-stream
 (§4.2.1), one for the endpoints (§4.3.1) — which match in structure
 the equivalent tables in [Motje, 2026]. The shared format is intended
-to make the SW/HW boundary visible to a tribunal reading both
+to make the SW/HW boundary visible to an examining committee reading both
 volumes.
 
 ### Site context recap
@@ -199,7 +199,7 @@ ADSL uplink rather than the endpoints themselves.
 
 ### 4.3.5 Adaptation outcome
 
-The endpoint recipe was substantially executed by team members who
+The endpoint recipe was largely run by team members who
 were *not* its original author; the partition-resize problem in
 particular surfaced because the operator on the day was working from
 the written recipe rather than from the author's recollection. This
@@ -420,6 +420,7 @@ form* of the validation strategy of §4.1.
   is left as an explicit open question for §7.
 
 The next chapter (§5) develops the cost and budget side of the same
-deployment in detail; §6 develops the environmental impact; §7
+deployment in detail; §6 develops the sustainability case along
+environmental, social-and-governance, and economic dimensions; §7
 returns to the per-objective check and the future-work directions
 implied by the limits above.

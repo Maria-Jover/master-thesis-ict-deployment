@@ -34,6 +34,8 @@
 % Better table rules + allow long tables to span pages cleanly.
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{tabularx}   % fixed-width tables with auto-wrapping X columns
+\usepackage{array}      % extended column specs (p, m, b, >{...})
 
 % Code listings: pandoc uses fancyvrb / Highlighting environment by default;
 % nothing extra required here.
@@ -43,3 +45,11 @@
 
 % Avoid the rare overfull-hbox warnings around long inline code.
 \sloppy
+
+% Suppress pandoc's auto-generated title page; our custom cover.tex
+% (injected via --include-before-body) is the only cover we want.
+\renewcommand{\maketitle}{}
+
+% Suppress LaTeX's automatic section numbering entirely — all numbers
+% are already written into the heading text in the Markdown sources.
+\setcounter{secnumdepth}{-1}

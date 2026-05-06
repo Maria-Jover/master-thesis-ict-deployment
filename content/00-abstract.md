@@ -17,11 +17,15 @@ and nine refurbished Lenovo ThinkPads provisioned in approximately
 one hour. Validation is reported through three qualitative lenses —
 *coverage*, *sufficiency*, *adaptation* — and the eleven operational
 lessons produced were committed back into the handbook during the
-deployment itself.
+deployment itself. The work is framed as a *sustainability*
+contribution along three dimensions — environmental (manufacturing
+carbon avoided through refurbishment), social and governance (digital
+inclusion delivered, knowledge continuity engineered into the
+handbook) and economic (cash budget raisable from a single small NGO
+grant, donation pipeline leveraged ~3:1) — adopting the
+three-indicator framing recently proposed for refurbished-ICT
+digital-inclusion programmes [Roura et al., 2026].
 
 **Keywords:** community networks, ICT for development, refurbished
-hardware, OpenWrt, mesh networking, PXE, Clonezilla, knowledge
-management, AUCOOP, Namibia, open documentation, Diátaxis.
-
-## Notes
-I dont like the approach of the abstract, to be reviewed when the document is completed. the way is introduced in Jaume's thesis is a better approach
+hardware, sustainability, OpenWrt, mesh networking, PXE, Clonezilla,
+knowledge management, AUCOOP, Namibia, open documentation, Diátaxis.
