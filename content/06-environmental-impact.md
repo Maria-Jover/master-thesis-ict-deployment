@@ -131,6 +131,8 @@ written as a hard constraint rather than a preference.
 
 Applied to the Namibia deployment, the per-unit figure scales as:
 
+\begin{table}[htbp]
+\caption{Avoided new-production emissions by hardware stream — Namibia 2026 deployment}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.8cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{3.0cm}}
 \toprule
 Stream & Units & Embodied CO\textsubscript{2}eq/unit & Avoided new production \\
@@ -141,6 +143,7 @@ NanoPi R6S gateway & 1 & (not published) & not estimated \\
 TP-Link PoE switch & 1 & (not published) & not estimated \\
 \bottomrule
 \end{tabularx}
+\end{table}
 
 The 2.25-tonne figure should be read narrowly. It is the
 manufacturing footprint of nine equivalent new laptops that did not
@@ -223,6 +226,8 @@ calculable. The estimates below assume the school operates the
 network during teaching hours and powers the laptops down outside
 those hours.
 
+\begin{table}[htbp]
+\caption{Estimated annual operational energy consumption — Namibia deployment}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.0cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{2.0cm}}
 \toprule
 Device & Units & Power (avg) & Hours/day & kWh/year \\
@@ -234,6 +239,7 @@ Refurbished laptops in use & 9 & \textasciitilde25 W & 4 & \textasciitilde329 \\
 \textbf{Total} & & & & \textbf{\textasciitilde583 kWh/year} \\
 \bottomrule
 \end{tabularx}
+\end{table}
 
 At the European grid intensity of ~250 g CO₂eq/kWh the operational
 footprint is roughly **150 kg CO₂eq per year**. The Namibian grid
@@ -519,6 +525,8 @@ SDG-alignment statements are easy to over-claim and are written
 here narrowly, restricted to mechanisms that are concretely
 instantiated in the work described in §3 and §4.
 
+\begin{table}[htbp]
+\caption{SDG alignment — mechanisms concretely instantiated in this work}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.8cm}X}
 \toprule
 SDG & Mechanism in this work \\
@@ -532,6 +540,7 @@ SDG & Mechanism in this work \\
 \textbf{17 --- Partnerships for the Goals} & The deployment is the product of a partnership chain --- UPC CCD, AUCOOP, Foundawtion, Labdoo, NexTReT, the local school authority --- that the handbook documents and makes legible to future partners (§4.4, §6.3.3). \\
 \bottomrule
 \end{tabularx}
+\end{table}
 
 The list is shorter than is conventional in SDG-alignment
 exercises; goals that the deployment does not concretely address

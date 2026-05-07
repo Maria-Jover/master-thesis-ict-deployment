@@ -41,6 +41,8 @@ matching family of recipes in the handbook.
 | **Endpoint touchpoint** | The network-side of laptop/desktop provisioning | `3-Guide/Laptop-Deployment/` (network parts only) | Isolated PXE subnet, deployment switch, on-site DHCP/TFTP/NFS |
 | **Power & enclosure** | Mains, UPS, surge protection, mounting, cabling, labelling | `3-Guide/Power-and-UPS/` | UPS sizing, cable management, panel labelling |
 
+Table: Four-layer network hardware model and corresponding handbook sections
+
 The endpoint-touchpoint layer is intentionally split from the *endpoint*
 work-stream described in §3.B. Section §3.B owns the laptop as a managed
 asset (image, partitions, user account); §3.A only owns the network plumbing
@@ -452,6 +454,8 @@ own bottleneck:
 | BIOS posture | Manual: Secure Boot off, USB boot on, network boot on | Pre-deployment requirement |
 | Notes | Free text | Visible defects, dead keys, screen marks |
 
+Table: Endpoint intake inventory fields
+
 The inventory is held in the same project repository as the IP plan of
 §3.A.4, in a comma-separated file with one row per machine. The
 deployment script consumes this file when matching disks to image
@@ -613,6 +617,8 @@ deployment subnet of §3.A.7:
 | DHCP | 67 | `isc-dhcp-server` | Issue IP, point client at the boot file |
 | TFTP | 69 | `tftpd-hpa` | Serve GRUB EFI binary, kernel, initrd |
 | NFS | 2049 | `nfs-kernel-server` | Serve the Clonezilla rootfs and the image directory |
+
+Table: PXE server services, ports, and packages
 
 The PXE host is itself one of the deployed laptops or a small mini-PC;
 it does not need server-class hardware. In Gochas, one of the
@@ -825,6 +831,8 @@ epistemic role:
 | `3-Guide` | Step-by-step recipes; one folder per technology | Instructional, imperative |
 | `4-Real-Use-Cases` | Concrete deployments (Namibia, …) used as case studies | Reporting |
 
+Table: Handbook chapter structure, role, and authoring voice
+
 The defining design rule is the **1-to-1 mapping between Chapter 2 and Chapter
 3**: every story section in Chapter 2 must have a matching recipe in Chapter 3,
 and vice versa, with explicit cross-links in both directions. The intent is
@@ -934,6 +942,8 @@ editor:
 | `@structure` | Refactor folder structures and synchronise `mkdocs.yml` nav | Read–write |
 | `@diagrams` | Author or improve Mermaid diagrams | Read–write |
 | `@consistency` | Audit cross-cutting invariants (Ch2↔Ch3 mapping, broken links, missing TODOs) | Read-only |
+
+Table: AI-assisted authoring agents and their roles in the handbook workflow
 
 The `@writer` agent is the most-used. Its rule of operation is informative:
 it must read the relevant rule file *before* editing, present a compact plan,

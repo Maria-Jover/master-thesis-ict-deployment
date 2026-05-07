@@ -168,8 +168,7 @@ of coverage, sufficiency and adaptation (§4.6.1). Quantitative
 characterisation of the deployed network — per-link iperf, per-AP
 association counts, latency under load, longitudinal uptime — was
 partially measured in the field but is not consolidated in this
-document at submission time (Deviation D6 in §1.8). The
-quantitative complement is listed in §7.4.
+document at submission time. The quantitative complement is listed in §7.4.
 
 **Engineering effort excluded from the cash budget.** The €5.8 k
 cash figure of §5.7 is the figure an organisation actually has to
@@ -238,7 +237,7 @@ sequence would close it (§3.B.9).
 ### Medium-term
 
 **Quantitative network characterisation.** Captures the partial
-field measurements of Deviation D6 into a longitudinal monitoring
+field measurements into a longitudinal monitoring
 deployment. Combine with a Zabbix/Grafana stack from the companion
 thesis [Motje, 2026] to publish per-deployment uptime, throughput
 and association-count dashboards that feed back into the recipe.
