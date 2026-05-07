@@ -105,7 +105,7 @@ study, anchors the rest of the chapter:
 | Power and enclosure (§3.A.8) | Wall-mount above head height; surge-protected outlets where available; UPS-class load planning. | The recurring multi-hour power cuts at the site (and the 20:00 grid-tower shutdown) shifted the goal from ride-through to graceful shutdown — see §4.5. | **Sufficiency:** the deployment survives a sudden cut without data loss; longer outages are accepted as out-of-scope. |
 | Boundary services (§3.A.9) | `dnsmasq` on the gateway for DHCP+DNS forwarding; LuCI status pages for monitoring overview. | None. | **Sufficiency:** met the minimum to make the network usable; full monitoring is owned by [Motje, 2026]. |
 
-### 4.2.2 Coverage outcome
+Table: Network deployment steps at N Mutschuana Primary School — validation against coverage, sufficiency, and adaptation lenses
 
 Before the deployment, the school had two government-supplied ADSL
 routers: ADSL Router 1 in the principal's office area, broadcasting a
@@ -167,7 +167,7 @@ them was *not* in all cases the team that wrote the original step.
 | Auto-restore + Secure Boot (§3.B.7) | `auto-restore.sh` with `/dev/nvme0n1` → `/dev/sda` → `/dev/vda` probing; `ocs-sr -k1 -icds -scr -p reboot`. Secure Boot disabled per machine before PXE attempt. | The Secure-Boot silent-fail was the single largest field-debugging cost of the trip; resolution is now an inventory-time check. | **Sufficiency:** auto-detect handled the SATA/NVMe mix without per-machine intervention. **Adaptation:** the recipe gained Step 14 (Disable Secure Boot) and a Troubleshooting entry. |
 | Quality control + handover (§3.B.8) | Per-machine boot-from-disk check, login as `aucoop`, Wi-Fi association, OnlyOffice render, hostname match. | None. | **Coverage:** every machine passed. **Adaptation:** the QC checklist itself was a deployment-time codification that landed in the recipe. |
 
-### 4.3.2 Endpoint deployment metrics
+Table: Endpoint deployment steps at N Mutschuana Primary School — validation against coverage, sufficiency, and adaptation lenses
 
 | Metric | Value |
 |---|---|
@@ -182,7 +182,7 @@ them was *not* in all cases the team that wrote the original step.
 | Failures during PXE phase | All resolved; root causes captured in §4.5 |
 | Secure-Boot silent-fail incidents before BIOS audit | Multiple on Day 4; zero after the inventory-time check was introduced |
 
-### 4.3.3 Coverage outcome
+Table: Endpoint deployment metrics — Gochas, March 2026
 
 All twelve endpoints intended for deployment received the AUCOOP image
 and were handed over to the school in working condition. No machine
@@ -258,6 +258,8 @@ thesis period and are to be filled at submission from `git shortlog`,
 | Distinct contributors active during the period | **(TBD)** |
 | Stars / watchers at submission | **(TBD)** |
 | Tagged releases of the PDF | **(TBD)** |
+
+Table: Handbook repository activity metrics during the thesis period
 
 ### 4.4.4 The Coverage / Sufficiency / Adaptation lenses, applied to the handbook
 

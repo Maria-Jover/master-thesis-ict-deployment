@@ -241,12 +241,10 @@ there was no way to distinguish V1 from V2 units before opening the
 box. With less than three weeks to the departure date, the entire
 access-point selection had to be reconsidered. The Cudy WR3000E
 AX3000 was identified as a supported alternative with comparable
-spec, and seven units were sourced and lab-validated in time for
-the field deployment. The episode is the reason the *Wireless-Mesh*
+spec. The episode is the reason the *Wireless-Mesh*
 recipe (\autoref{sec:methodology-network}) leads with the warning to
 cross-check board revision against the OpenWrt Table of Hardware
-before purchasing, and it is why §3.A.4 documents the WR3000E
-specifically rather than a generic "Cudy mesh AP."
+before purchasing.
 
 **D2 — Endpoint software scope expanded: AUCOOP image and PXE
 pipeline added.** The original plan assumed the donated laptops
@@ -254,14 +252,11 @@ would be deployed with the Labdoo image already installed — a
 standard Ubuntu-based system that Labdoo ships on all its devices.
 During pre-deployment user consultation it became clear that the
 Labdoo image was too unfamiliar for the teaching staff and students
-at the school: the desktop environment, application set, and
-language defaults did not match what they had previously used.
+at the school: the desktop environment, application set did not match what they had previously used.
 Rather than deploy a system the users would not be comfortable with,
-the project developed the AUCOOP image from scratch — a customised
-Linux Mint Cinnamon build with a curated application set, Namibian
-locale defaults, and offline-first content — together with the PXE
-network-boot pipeline that allows nine laptops to be imaged in
-parallel from a single server without USB sticks. Neither the image
+the project developed the AUCOOP image together with the PXE
+network-boot pipeline that allows laptops to be imaged in
+parallel from a single server connected through ethernet. Neither the image
 nor the PXE infrastructure was in the original scope; both are now
 first-class outputs of the thesis, described in
 \autoref{sec:methodology-endpoint} and documented in the
@@ -274,14 +269,7 @@ When the team arrived in March 2026, the children's home did not yet
 have an internet connection — the government provider had not yet
 sent a technician to install the ADSL line. Deploying a local
 network without an uplink was possible but would have left the site
-with a system the staff could not put into service without further
-help. The decision taken on the ground was not to abandon the site
-but to leave it ready: the mesh access points were pre-configured,
+with a system the staff could not put into service. The decision taken on the ground was to leave it ready: the mesh access points were pre-configured,
 labelled, and packaged together with step-by-step setup instructions
 written for non-technical staff, so that the network can be brought
-up by the site staff on the day the ADSL line is activated, without
-requiring another visit from the deployment team. The instructions
-were left with both the school staff and the Foundawtion local
-partner. This outcome is reflected in the validation chapter
-(\autoref{ch:results}), where the children's home appears as a
-partial deployment rather than a completed one.
+up by the site staff on the day the ADSL line is activated.
