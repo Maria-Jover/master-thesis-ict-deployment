@@ -620,6 +620,10 @@ deployment subnet of §3.A.7:
 
 Table: PXE server services, ports, and packages
 
+![Figure 3.1 — PXE network boot sequence](../assets/images/diagrams/fig3-1-pxe-boot-sequence.png)
+
+*Figure 3.1 — PXE network boot sequence. The client exchanges DHCP to obtain an IP and the boot-file location, then fetches the GRUB EFI binary and configuration via TFTP, and finally mounts the Clonezilla live environment from the NFS/HTTP server. Solid arrows = requests; dashed arrows = responses.*
+
 The PXE host is itself one of the deployed laptops or a small mini-PC;
 it does not need server-class hardware. In Gochas, one of the
 ThinkPads earmarked for the school was reassigned as PXE host for the
