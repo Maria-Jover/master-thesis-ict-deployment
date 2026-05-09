@@ -11,7 +11,13 @@ The companion thesis [Motje, 2026] covers the software-services state of the art
 
 The ITU's annual *Measuring digital development* reports document that roughly a third of the world's population remains offline, with the gap concentrated in rural and low-income areas of low- and middle-income countries [ITU]. The classical analysis distinguishes a *first-level* divide (infrastructure access), a *second-level* divide (skills and use), and a *third-level* divide (unequal benefits derived from being online) [van Dijk, 2020].
 
-![Percentage of population using the internet, by country (ITU)](../assets/images/diagrams/fig2-1-itu-internet-users.png)
+```{=latex}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/diagrams/fig2-1-itu-internet-users.png}
+\caption*{\textit{Figure 2.1 — Percentage of population using the internet, by country. Source: ITU \textit{Measuring Digital Development}, most recent edition.}}
+\end{figure}
+```
 
 
 Two structural responses have emerged where commercial ISPs do not find it profitable to serve sparsely-populated or low-income areas. The first is *public* infrastructure: state- or municipality-led broadband programmes with mixed track records. The second, more relevant to this work, is the **community network**: infrastructure built, operated, and governed by the community it serves. Belli's edited volume *Community Networks: the Internet by the People, for the People* [Belli, 2017] surveys the model across continents, and APC's *Local Access Networks* report [APC] documents the regulatory and economic conditions under which it succeeds.
