@@ -1,0 +1,342 @@
+\hypertarget{budget}{%
+\section{5. Budget}\label{budget}}
+
+This chapter presents the budget of the Namibia 2026 deployment as the
+reference instance of the recipe described in Chapters 3 and 4. The
+budget is structured in five blocks --- network hardware, endpoint
+hardware, software, engineering effort, and travel and logistics ---
+followed by a discussion of funding sources, a per-beneficiary
+breakdown, and a comparison with the cost of the equivalent
+new-equipment, commercial-deployment alternative.
+
+Two notes apply to every figure that follows. First, all prices are
+expressed in \textbf{euros (€) including VAT} unless stated otherwise.
+Second, several entries are marked \textbf{(TBD: confirm against
+receipts)}; these are the items for which the field log contains the
+canonical figure but which had not been consolidated into the project
+ledger at the time of submission. The estimates given are based on the
+public list price at the time of purchase (October 2025 to February
+2026) and the figures recorded in the AUCOOP project tracker; they are
+within \textasciitilde10 \% of the receipted values and the ranking of
+cost categories is robust to that uncertainty.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{network-hardware}{%
+\subsection{5.1 Network hardware}\label{network-hardware}}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule\noalign{}
+Item & Unit cost (€) & Qty & Subtotal (€) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Cudy WR3000E mesh-capable AP & \textasciitilde55 & 7 &
+\textasciitilde385 \\
+NanoPi R6S gateway (8 GB) & \textasciitilde110 & 1 &
+\textasciitilde110 \\
+TP-Link 8-port Gigabit PoE switch & \textasciitilde95 & 1 &
+\textasciitilde95 \\
+Cat-6 patch cables and connectors & \textasciitilde3 & 30 &
+\textasciitilde90 \\
+Outdoor-rated Ethernet (per metre) & \textasciitilde1.20 & 50 &
+\textasciitilde60 \\
+24 V / 12 V PoE injectors and splitters & \textasciitilde12 & 4 &
+\textasciitilde48 \\
+Lithium UPS (small, for gateway + switch) & \textasciitilde120 & 1 &
+\textasciitilde120 \\
+Wall-mounting hardware, conduit, ties & (TBD) & --- &
+\textasciitilde50 \\
+\textbf{Subtotal --- Network hardware} & & &
+\textbf{\textasciitilde958} \\
+\end{longtable}
+
+The figures above describe what was procured for the deployment; they do
+not include the spare AP and the spare PoE injector kept on the bench in
+Barcelona, both of which were existing AUCOOP stock. The Cudy WR3000E is
+the single most numerous item and is therefore the budget line most
+sensitive to a change of recipe; §3.A.4 documents the rationale for that
+choice and §6.2 the environmental side of it.
+
+\hypertarget{endpoint-hardware}{%
+\subsection{5.2 Endpoint hardware}\label{endpoint-hardware}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unit cost (€)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Qty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Subtotal (€)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Refurbished Lenovo ThinkPad T460 / X260 & 0 (donated) & 9 & 0 \\
+Replacement RAM (8 GB DDR4 modules) & \textasciitilde25 & 4 &
+\textasciitilde100 \\
+Replacement SSDs (240 GB) & \textasciitilde30 & 3 & \textasciitilde90 \\
+Replacement batteries (genuine / refurbished) & \textasciitilde45 & 2 &
+\textasciitilde90 \\
+Replacement palmrests / keyboards & (TBD) & 1--2 & \textasciitilde70 \\
+External USB-A sticks (16 GB, for AUCOOP-image and PXE seed) &
+\textasciitilde6 & 5 & \textasciitilde30 \\
+External USB SSD (500 GB, image staging) & \textasciitilde55 & 1 &
+\textasciitilde55 \\
+Cleaning, thermal paste, screws & (TBD) & --- & \textasciitilde25 \\
+\textbf{Subtotal --- Endpoint hardware} & & &
+\textbf{\textasciitilde460} \\
+\end{longtable}
+
+The headline is the zero in the first row: the nine endpoints themselves
+were donated through Labdoo and NexTReT and entered the project at no
+cash cost. The €460 of cash spend on the endpoint side is therefore
+entirely \emph{refurbishment} spend --- the parts and consumables
+required to take the donations from incoming-equipment status to
+deployed at school. The ratio of refurbishment cost to donated value is
+the operationally relevant figure: at a notional secondary-market price
+of €150 per refurbished T460, the nine machines represent roughly €1 350
+of asset value mobilised at €460 of cash, a leverage of
+\textasciitilde3:1.
+
+\hypertarget{software}{%
+\subsection{5.3 Software}\label{software}}
+
+All software used in the deployment is free and open source: OpenWrt,
+Linux Mint Cinnamon, ISC \texttt{dhcpd}, \texttt{tftpd-hpa}, NFS, GRUB,
+\texttt{pxelinux}, Clonezilla, \texttt{partclone}, OnlyOffice (community
+edition), Zensical, MkDocs Material, GitHub Actions on a public
+repository.
+
+\textbf{Subtotal --- Software: €0.}
+
+The zero is itself part of the recipe. Section 3.B.5 (AUCOOP image),
+§3.A.4 (OpenWrt) and §3.C (handbook tooling) all rely on software whose
+licensing imposes no per-unit cost and whose source is auditable. The
+economic implication is that the recipe's cash cost scales with hardware
+quantity only; the software cost of deploying a second school is the
+same as the first, namely zero.
+
+\hypertarget{engineering-effort}{%
+\subsection{5.4 Engineering effort}\label{engineering-effort}}
+
+The thesis budget accounts for engineering effort using indicative
+hourly rates rather than market rates; the real cost is borne by the
+university (advisor time) and by the student (own time). The table is
+included for completeness and to make the implicit investment legible.
+
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule\noalign{}
+Role & Hours & Rate (€/h) & Subtotal (€) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Student engineer (M. Jover, this thesis) & \textasciitilde720 & 25 &
+\textasciitilde18 000 \\
+Student engineer (J. Motje, companion thesis) & \textasciitilde720 & 25
+& \textasciitilde18 000 \\
+Advisor (E. Vidal) & \textasciitilde60 & 60 & \textasciitilde3 600 \\
+Co-advisor (S. Giménez) & \textasciitilde30 & 40 & \textasciitilde1
+200 \\
+AUCOOP volunteer hours (intake, logistics) & \textasciitilde80 & 20 &
+\textasciitilde1 600 \\
+\textbf{Subtotal --- Engineering effort} & & & \textbf{\textasciitilde42
+400} \\
+\end{longtable}
+
+Two observations on this table. First, the engineering line is by a very
+large margin the dominant cost block, dwarfing the network and endpoint
+hardware combined; this is consistent with the framing of §2.1, which
+characterises community networks as substituting capital for human
+expertise. Second, the engineering effort is split across two theses;
+the figure double-counts the advisor hours that were spent on shared
+meetings. A pessimistic single-thesis attribution would be roughly half
+of the figure above plus the full advisor share.
+
+\hypertarget{travel-and-logistics-namibia-field-deployment}{%
+\subsection{5.5 Travel and logistics (Namibia field
+deployment)}\label{travel-and-logistics-namibia-field-deployment}}
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Item & Cost (€) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Return flight Barcelona ↔ Windhoek (×2 students) & \textasciitilde2
+400 \\
+Domestic transport Windhoek ↔ Gochas (4×4 hire, fuel) &
+\textasciitilde600 \\
+Lodging at Gochas (10 nights, ×2) & \textasciitilde500 \\
+Per-diem (food, water, local consumables) & \textasciitilde400 \\
+Travel insurance (×2) & \textasciitilde120 \\
+Equipment shipping (Foundawtion container share) & \textasciitilde200 \\
+Vaccinations and visa & \textasciitilde180 \\
+\textbf{Subtotal --- Travel and logistics} & \textbf{\textasciitilde4
+400} \\
+\end{longtable}
+
+The flights alone account for more than half of this block and are also
+the single largest contributor to the project's transport carbon
+footprint (§6.7). The container share for equipment shipping is reduced
+because Foundawtion runs the container as a recurring operation and the
+project pays only the marginal cost of the volume occupied.
+
+\hypertarget{funding-sources}{%
+\subsection{5.6 Funding sources}\label{funding-sources}}
+
+The project's cash needs are met from three sources, none of which flow
+through the student authors directly.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{UPC CCD (Centre de Cooperació per al Desenvolupament)}:
+  \textbf{5 600 €} competitive grant covering travel, network hardware
+  procurement, and refurbishment consumables. The grant is the largest
+  single source and is the reason the recipe is reproducible inside UPC:
+  subsequent cohorts can apply for the same grant under the same call.
+\item
+  \textbf{Labdoo}: nine laptops in kind (T460 and X260 generation),
+  delivered already provenanced through the Labdoo tracking system. No
+  cash flow, \textasciitilde€1 350 of asset value.
+\item
+  \textbf{NexTReT}: three laptops in kind plus two mini-PC servers used
+  for the services thesis; \textasciitilde€500 of asset value
+  attributable to the hardware-side scope.
+\item
+  \textbf{AUCOOP}: coordination, intake-and-staging space at the UPC
+  Campus Nord, and the volunteer hours costed in §5.4. No cash flow.
+\end{itemize}
+
+The grant covers approximately 100 \% of the cash spend recorded in
+§§5.1, 5.2 and 5.5 (\textasciitilde6 000 € against the 5 600 € grant,
+with a \textasciitilde400 € overshoot absorbed by AUCOOP's own funds).
+The engineering effort of §5.4 is explicitly not funded; it is
+contributed in exchange for the academic credit of the two theses.
+
+\hypertarget{total}{%
+\subsection{5.7 Total}\label{total}}
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Block & € \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Network hardware (§5.1) & \textasciitilde958 \\
+Endpoint hardware (§5.2) & \textasciitilde460 \\
+Software (§5.3) & 0 \\
+Engineering effort (§5.4) & \textasciitilde42 400 \\
+Travel and logistics (§5.5) & \textasciitilde4 400 \\
+\textbf{TOTAL --- full project} & \textbf{\textasciitilde48 218} \\
+\textbf{TOTAL --- cash only (excludes engineering)} &
+\textbf{\textasciitilde5 818} \\
+\end{longtable}
+
+The two totals tell different stories. The full-project figure of
+\textasciitilde48 k€ reflects the true societal cost of the deployment
+if every hour of student and advisor time were paid at indicative rates;
+this is the figure that makes the project comparable to a commercial
+deployment. The cash-only figure of \textasciitilde5.8 k€ is what an
+organisation with access to a similar volunteer pool actually has to
+raise; this is the figure that makes the recipe replicable inside AUCOOP
+and similar associations, and it is the one against which §5.9 compares
+the commercial alternative.
+
+\hypertarget{cost-per-beneficiary}{%
+\subsection{5.8 Cost per beneficiary}\label{cost-per-beneficiary}}
+
+The N Mutschuana Primary School serves approximately \textbf{300
+students}. Distributed evenly:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Full-project cost per student}: \textasciitilde48 218 ÷ 300 ≈
+  \textbf{161 € / student}.
+\item
+  \textbf{Cash cost per student}: \textasciitilde5 818 ÷ 300 ≈
+  \textbf{19 € / student}.
+\item
+  \textbf{Cash cost per student per year of service} (assuming a
+  conservative 5-year service life): \textasciitilde{}\textbf{4 € /
+  student / year}.
+\end{itemize}
+
+The €4-per-student-per-year figure is the one that lands. It includes a
+connected wireless network covering the school and a fleet of nine
+endpoints, and it is well within the range of cost-effectiveness
+benchmarks for ICT-in-education programmes reported in the ICT4D
+literature surveyed in §2.3.
+
+\hypertarget{comparison-with-the-commercial-equivalent-alternative}{%
+\subsection{5.9 Comparison with the commercial-equivalent
+alternative}\label{comparison-with-the-commercial-equivalent-alternative}}
+
+The point of the budget is partly comparative. A commercial alternative
+--- new business-grade laptops, vendor mesh access points, contracted
+installer, three-year support --- would price the same deployment as
+follows.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2727}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3636}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3636}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Block
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Refurbished + open recipe
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Commercial-equivalent
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Network hardware & \textasciitilde960 € & \textasciitilde3 500 € (Aruba
+Instant On / equivalent) \\
+Endpoints & \textasciitilde460 € (parts) & \textasciitilde7 200 € (9 ×
+\textasciitilde800 € new business laptops) \\
+Software / licensing & 0 € & \textasciitilde1 000 € (Windows +
+productivity, 9 seats) \\
+Installation labour & (volunteer) & \textasciitilde2 500 € (contractor,
+5 days × 2 people) \\
+3-year support contract & (community) & \textasciitilde1 800 € \\
+\textbf{Cash subtotal} & \textbf{\textasciitilde1 420 €} &
+\textbf{\textasciitilde16 000 €} \\
+Travel and logistics & \textasciitilde4 400 € & \textasciitilde4 400 €
+(unchanged) \\
+\textbf{Total cash} & \textbf{\textasciitilde5 820 €} &
+\textbf{\textasciitilde20 400 €} \\
+\end{longtable}
+
+The commercial alternative is approximately \textbf{3.5× more expensive
+in cash terms} and carries an additional environmental cost in
+manufacturing-phase emissions (quantified in §6.2). The community-recipe
+approach trades that cash and that footprint for volunteer engineering
+effort and for the operational dependency on the handbook of §3.C --- a
+dependency that the validation chapter (§4.4) shows the handbook is now
+mature enough to carry.
+
+The comparison should not be over-read. A commercial deployment buys
+things the community recipe does not: a single-throat-to-choke support
+contract, an SLA, vendor liability, and faster mean-time-to- repair on
+hardware failures. Whether those properties are worth the 3.5× premium
+depends on the deploying organisation's risk profile; for AUCOOP and its
+partner sites, the trade-off has historically favoured the recipe
+described in this thesis, and this budget makes the magnitude of that
+trade-off explicit.

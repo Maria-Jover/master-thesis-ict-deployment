@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 740" width="820" height="740" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13">
+
+  <!-- Background -->
+  <rect width="820" height="740" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a1a">Figure 2.5 — PXE Network Boot Sequence</text>
+
+  <!-- ─── Actor boxes ─── -->
+  <!-- Client -->
+  <rect x="40" y="50" width="140" height="46" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="110" y="69" text-anchor="middle" font-weight="bold" fill="#1e40af">Client</text>
+  <text x="110" y="87" text-anchor="middle" font-size="11" fill="#1e40af">(endpoint)</text>
+
+  <!-- DHCP Server -->
+  <rect x="220" y="50" width="140" height="46" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="290" y="69" text-anchor="middle" font-weight="bold" fill="#15803d">DHCP Server</text>
+  <text x="290" y="87" text-anchor="middle" font-size="11" fill="#15803d">(gateway)</text>
+
+  <!-- TFTP Server -->
+  <rect x="400" y="50" width="140" height="46" rx="6" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="470" y="69" text-anchor="middle" font-weight="bold" fill="#92400e">TFTP Server</text>
+  <text x="470" y="87" text-anchor="middle" font-size="11" fill="#92400e">(gateway)</text>
+
+  <!-- Deployment Server -->
+  <rect x="590" y="50" width="190" height="46" rx="6" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+  <text x="685" y="69" text-anchor="middle" font-weight="bold" fill="#9d174d">Deployment Server</text>
+  <text x="685" y="87" text-anchor="middle" font-size="11" fill="#9d174d">(NFS / HTTP)</text>
+
+  <!-- ─── Lifelines ─── -->
+  <line x1="110" y1="96" x2="110" y2="715" stroke="#3b82f6" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="290" y1="96" x2="290" y2="715" stroke="#16a34a" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="470" y1="96" x2="470" y2="715" stroke="#ca8a04" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="685" y1="96" x2="685" y2="715" stroke="#db2777" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <!-- ─── Step labels (left margin) ─── -->
+  <!-- helper: steps at y=130, 165, 200, 235, 275, 315, 355, 395, 435, 490, 540, 590, 650 -->
+
+  <!-- ① DHCPDISCOVER -->
+  <text x="25" y="128" text-anchor="middle" font-size="11" fill="#6b7280">①</text>
+  <line x1="110" y1="133" x2="282" y2="133" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="196" y="125" text-anchor="middle" font-size="11" fill="#374151">DHCPDISCOVER (PXE opt 60)</text>
+
+  <!-- ② DHCPOFFER -->
+  <text x="25" y="163" text-anchor="middle" font-size="11" fill="#6b7280">②</text>
+  <line x1="282" y1="168" x2="118" y2="168" stroke="#374151" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="196" y="160" text-anchor="middle" font-size="11" fill="#374151">DHCPOFFER (IP, next-server, file)</text>
+
+  <!-- ③ DHCPREQUEST -->
+  <text x="25" y="198" text-anchor="middle" font-size="11" fill="#6b7280">③</text>
+  <line x1="110" y1="203" x2="282" y2="203" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="196" y="195" text-anchor="middle" font-size="11" fill="#374151">DHCPREQUEST</text>
+
+  <!-- ④ DHCPACK -->
+  <text x="25" y="228" text-anchor="middle" font-size="11" fill="#6b7280">④</text>
+  <line x1="282" y1="233" x2="118" y2="233" stroke="#374151" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="196" y="225" text-anchor="middle" font-size="11" fill="#374151">DHCPACK (lease confirmed)</text>
+
+  <!-- divider -->
+  <line x1="60" y1="248" x2="760" y2="248" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,4"/>
+
+  <!-- ⑤ TFTP grubx64.efi request -->
+  <text x="25" y="268" text-anchor="middle" font-size="11" fill="#6b7280">⑤</text>
+  <line x1="110" y1="273" x2="462" y2="273" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="286" y="265" text-anchor="middle" font-size="11" fill="#374151">TFTP RRQ — grubx64.efi</text>
+
+  <!-- ⑥ TFTP grubx64.efi response -->
+  <text x="25" y="298" text-anchor="middle" font-size="11" fill="#6b7280">⑥</text>
+  <line x1="462" y1="303" x2="118" y2="303" stroke="#374151" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="286" y="295" text-anchor="middle" font-size="11" fill="#374151">grubx64.efi (GRUB EFI binary)</text>
+
+  <!-- divider -->
+  <line x1="60" y1="318" x2="760" y2="318" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,4"/>
+
+  <!-- ⑦ TFTP grub.cfg request -->
+  <text x="25" y="338" text-anchor="middle" font-size="11" fill="#6b7280">⑦</text>
+  <line x1="110" y1="343" x2="462" y2="343" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="286" y="335" text-anchor="middle" font-size="11" fill="#374151">TFTP RRQ — grub.cfg</text>
+
+  <!-- ⑧ TFTP grub.cfg response -->
+  <text x="25" y="363" text-anchor="middle" font-size="11" fill="#6b7280">⑧</text>
+  <line x1="462" y1="368" x2="118" y2="368" stroke="#374151" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="286" y="360" text-anchor="middle" font-size="11" fill="#374151">grub.cfg (boot menu)</text>
+
+  <!-- divider -->
+  <line x1="60" y1="383" x2="760" y2="383" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,4"/>
+
+  <!-- ⑨ TFTP kernel+initrd request -->
+  <text x="25" y="403" text-anchor="middle" font-size="11" fill="#6b7280">⑨</text>
+  <line x1="110" y1="408" x2="462" y2="408" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="286" y="400" text-anchor="middle" font-size="11" fill="#374151">TFTP RRQ — vmlinuz + initrd.img</text>
+
+  <!-- ⑩ TFTP kernel+initrd response -->
+  <text x="25" y="428" text-anchor="middle" font-size="11" fill="#6b7280">⑩</text>
+  <line x1="462" y1="433" x2="118" y2="433" stroke="#374151" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="286" y="425" text-anchor="middle" font-size="11" fill="#374151">kernel + initrd transferred</text>
+
+  <!-- Note box: kernel boots in RAM -->
+  <rect x="42" y="448" width="196" height="42" rx="5" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="140" y="464" text-anchor="middle" font-size="11" fill="#1e40af">Kernel boots in RAM;</text>
+  <text x="140" y="480" text-anchor="middle" font-size="11" fill="#1e40af">mounts root over NFS/HTTP</text>
+
+  <!-- divider -->
+  <line x1="60" y1="500" x2="760" y2="500" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,4"/>
+
+  <!-- ⑪ Mount deployment root -->
+  <text x="25" y="523" text-anchor="middle" font-size="11" fill="#6b7280">⑪</text>
+  <line x1="110" y1="528" x2="677" y2="528" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="393" y="520" text-anchor="middle" font-size="11" fill="#374151">Mount deployment root (NFS or HTTP)</text>
+
+  <!-- ⑫ Clonezilla live env -->
+  <text x="25" y="553" text-anchor="middle" font-size="11" fill="#6b7280">⑫</text>
+  <line x1="677" y1="558" x2="118" y2="558" stroke="#374151" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="393" y="550" text-anchor="middle" font-size="11" fill="#374151">Clonezilla live environment served</text>
+
+  <!-- Note box: Clonezilla restores image -->
+  <rect x="42" y="573" width="196" height="54" rx="5" fill="#fdf4ff" stroke="#d8b4fe" stroke-width="1.2"/>
+  <text x="140" y="591" text-anchor="middle" font-size="11" fill="#6b21a8">Clonezilla starts;</text>
+  <text x="140" y="607" text-anchor="middle" font-size="11" fill="#6b21a8">restores AUCOOP image</text>
+  <text x="140" y="623" text-anchor="middle" font-size="11" fill="#6b21a8">to local disk</text>
+
+  <!-- ─── Legend ─── -->
+  <rect x="580" y="620" width="210" height="68" rx="5" fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+  <text x="685" y="638" text-anchor="middle" font-size="11" font-weight="bold" fill="#374151">Legend</text>
+  <line x1="596" y1="652" x2="636" y2="652" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="648" y="656" font-size="11" fill="#374151">Request</text>
+  <line x1="596" y1="674" x2="636" y2="674" stroke="#374151" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="648" y="678" font-size="11" fill="#374151">Response</text>
+
+  <!-- ─── Arrow marker ─── -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#374151"/>
+    </marker>
+  </defs>
+
+</svg>

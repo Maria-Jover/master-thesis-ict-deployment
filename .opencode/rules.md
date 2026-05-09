@@ -19,6 +19,6 @@ Be sure to read through the full /content folder to understand the context of ea
 ## Commits and Pull Requests
 1. No direct commit to MAIN
 
-2. Create brief summary for each commit you make describing the chantes done.
+2. Create brief summary for each commit you make describing the chantes done. When a commit is done run the script to generate the lates and PDF in /build
 
 3. Create a description of the changes done when creating a pull request.

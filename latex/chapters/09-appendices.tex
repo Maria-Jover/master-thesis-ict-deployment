@@ -1,0 +1,317 @@
+\hypertarget{appendices}{%
+\section{9. Appendices}\label{appendices}}
+
+\begin{quote}
+Optional per the template; included here because the volume of
+configuration data and the centrality of the handbook make them useful
+to the reader.
+\end{quote}
+
+The order of appendices follows their importance to the reader. Appendix
+A documents the handbook itself --- the durable, externally-hosted
+artefact that this thesis writes \emph{about} --- and is intentionally
+placed first. Appendix B is a glossary of acronyms used throughout the
+thesis. Appendices C through G hold the configuration data, inventories,
+diagrams, and governance material that supports the main text. Where the
+same artefact is also documented in the companion thesis {[}Motje,
+2026{]}, a cross-reference is given instead of a verbatim copy.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{appendix-a-the-online-handbook}{%
+\subsection{Appendix A --- The online
+Handbook}\label{appendix-a-the-online-handbook}}
+
+The most important deliverable of this thesis is not contained in this
+PDF. It is the \textbf{AUCOOP Community Network Handbook}, an online,
+versioned, openly-licensed handbook hosted on GitHub and continuously
+maintained by the AUCOOP association.
+
+\hypertarget{a.1-where-to-find-it}{%
+\subsubsection{A.1 Where to find it}\label{a.1-where-to-find-it}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Web (canonical, evolving):} the latest version of the handbook
+  is published as a static website built from the \texttt{main} branch
+  of the source repository. The site is the recommended entry point for
+  readers who want to browse, search, or follow internal cross-links.
+\item
+  \textbf{PDF (offline, expedition copy):} a self-contained PDF is
+  published as a release artefact alongside each tagged version of the
+  handbook, intended for download before travelling to a site with
+  limited or unreliable connectivity (see §3.C.4).
+\item
+  \textbf{Source repository:}
+  \url{https://github.com/aucoop/Community-Network-Handbook}
+\item
+  \textbf{Thesis-pinned snapshot:} the handbook content described in §3
+  corresponds to branch \texttt{dev\_mj\_thesis} at commit
+  \texttt{a5fc80b26368fe6cf1475994a12cc8f1967b84f0}, which collects the
+  four feature branches merged for the purpose of this thesis (see
+  Appendix E).
+\end{itemize}
+
+\hypertarget{a.2-structure-recap}{%
+\subsubsection{A.2 Structure recap}\label{a.2-structure-recap}}
+
+The handbook is organised in four top-level chapters with a strict
+1-to-1 mapping between Chapter 2 (the imaginary use-case story) and
+Chapter 3 (the recipe guide):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Chapter 1 --- Introduction.} Editorial purpose, audience, and
+  how to read the handbook.
+\item
+  \textbf{Chapter 2 --- Imaginary Use Case.} A fictional community
+  network told as a story, with one section per challenge, in narrative
+  second-person voice with italic question titles.
+\item
+  \textbf{Chapter 3 --- Guide.} Step-by-step recipes, one folder per
+  technology (\texttt{Network-Planning}, \texttt{IP-Addressing},
+  \texttt{Wireless-Mesh}, \texttt{Antennas}, \texttt{Power-and-UPS},
+  \texttt{Laptop-Deployment}, \ldots).
+\item
+  \textbf{Chapter 4 --- Real Use Cases.} Concrete deployments used as
+  case studies (Namibia 2026 is the first such entry).
+\end{itemize}
+
+The structural rules and information architecture are described in
+detail in §3.C.2. Rule files governing voice, structure, and navigation
+conventions are reproduced in Appendix G.
+
+\hypertarget{a.3-contributing}{%
+\subsubsection{A.3 Contributing}\label{a.3-contributing}}
+
+The handbook accepts contributions from anyone via the standard GitHub
+pull-request workflow. New contributors are expected to read the
+contributing guide and the four \texttt{.opencode/rules/*.md} files (see
+Appendix G) before editing. The lightweight governance contract is
+described in §3.C.6.
+
+\hypertarget{a.4-how-to-cite-the-handbook}{%
+\subsubsection{A.4 How to cite the
+handbook}\label{a.4-how-to-cite-the-handbook}}
+
+When citing the handbook, please cite the \textbf{specific commit or
+release tag} consulted, not the moving \texttt{main} branch, so that the
+reference remains reproducible:
+
+\begin{quote}
+AUCOOP. \emph{Community Network Handbook}. Version
+\texttt{dev\_mj\_thesis\ @\ a5fc80b}.
+\url{https://github.com/aucoop/Community-Network-Handbook}. Accessed
+YYYY-MM-DD.
+\end{quote}
+
+The handbook should also be cited in conjunction with this thesis and
+its companion {[}Motje, 2026{]}, since the three artefacts together
+constitute the full record of the project.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{appendix-b-glossary-of-acronyms}{%
+\subsection{Appendix B --- Glossary of
+acronyms}\label{appendix-b-glossary-of-acronyms}}
+
+The glossary lists acronyms and abbreviations used in the main text. In
+the LaTeX build it is generated by the \texttt{acro} package; this
+Markdown appendix is the editorial source.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Acronym
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Expansion
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ADSL & Asymmetric Digital Subscriber Line \\
+AP & Access Point \\
+AUCOOP & Associació Universitària per la Cooperació (UPC student
+association) \\
+BIOS & Basic Input/Output System \\
+BOM & Bill of Materials \\
+CCD & Centre de Cooperació per al Desenvolupament (UPC development
+cooperation centre) \\
+CSV & Comma-Separated Values \\
+dBm & decibel-milliwatt \\
+DFS & Dynamic Frequency Selection \\
+DHCP & Dynamic Host Configuration Protocol \\
+DNS & Domain Name System \\
+DRBL & Diskless Remote Boot in Linux \\
+EFI & Extensible Firmware Interface \\
+ESP & EFI System Partition \\
+ESSID & Extended Service Set Identifier \\
+ext4 & Fourth Extended Filesystem \\
+GPT & GUID Partition Table \\
+GRUB & GRand Unified Bootloader \\
+HDD & Hard Disk Drive \\
+ICT & Information and Communication Technology \\
+IP & Internet Protocol \\
+IPAM & IP Address Management \\
+ISP & Internet Service Provider \\
+LAN & Local Area Network \\
+LEO & Low Earth Orbit \\
+LTS & Long-Term Support \\
+LuCI & OpenWrt web user interface \\
+MAC & Media Access Control \\
+MET & Master in Telecommunications Engineering \\
+NFS & Network File System \\
+NGO & Non-Governmental Organisation \\
+NUT & Network UPS Tools \\
+NVMe & Non-Volatile Memory Express \\
+OS & Operating System \\
+PoE & Power over Ethernet \\
+PtP & Point-to-Point \\
+PXE & Preboot eXecution Environment \\
+RFC & Request for Comments \\
+SAE & Simultaneous Authentication of Equals (WPA3) \\
+SSD & Solid-State Drive \\
+TFTP & Trivial File Transfer Protocol \\
+UEFI & Unified Extensible Firmware Interface \\
+UPC & Universitat Politècnica de Catalunya \\
+UPS & Uninterruptible Power Supply \\
+VPN & Virtual Private Network \\
+WAN & Wide Area Network \\
+WEEE & Waste Electrical and Electronic Equipment \\
+WPA2 / WPA3 & Wi-Fi Protected Access (versions 2 and 3) \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{appendix-c-bill-of-materials}{%
+\subsection{Appendix C --- Bill of
+materials}\label{appendix-c-bill-of-materials}}
+
+Detailed BOM for the deployments described in §4: manufacturer part
+numbers, suppliers, prices at time of purchase, and equivalent
+substitutions noted where the part is not locally available.
+
+To be filled at §4 / §5 writing time from the project purchasing record.
+
+\hypertarget{appendix-d-pxe-server-configuration-files}{%
+\subsection{Appendix D --- PXE server configuration
+files}\label{appendix-d-pxe-server-configuration-files}}
+
+Verbatim copies of the configuration files referenced in §3.B:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{/etc/dhcp/dhcpd.conf}
+\item
+  \texttt{/etc/default/isc-dhcp-server}
+\item
+  \texttt{/etc/default/tftpd-hpa}
+\item
+  \texttt{/etc/exports}
+\item
+  \texttt{/tftpboot/nbi\_img/grub/grub.cfg}
+\item
+  \texttt{/home/partimag/auto-restore.sh}
+\end{itemize}
+
+Source of truth: \texttt{3-Guide/Laptop-Deployment/index.md} in the
+handbook repository.
+
+\hypertarget{appendix-e-repository-branch-and-commit-map}{%
+\subsection{Appendix E --- Repository branch and commit
+map}\label{appendix-e-repository-branch-and-commit-map}}
+
+Snapshot of the handbook's git state at thesis submission time:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Pinned branch:} \texttt{dev\_mj\_thesis}
+\item
+  \textbf{Pinned commit:}
+  \texttt{a5fc80b26368fe6cf1475994a12cc8f1967b84f0}
+\item
+  \textbf{Base branch:} \texttt{develop}
+\item
+  \textbf{Merged feature branches} (in merge order):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{docs/laptop-deployment}
+  \item
+    \texttt{WIP-docs/ip}
+  \item
+    \texttt{docs/planning}
+  \item
+    \texttt{fix/open-points}
+  \end{itemize}
+\item
+  \textbf{Per-chapter authorship table} extracted from
+  \texttt{git\ shortlog} at the pinned commit (to be inserted at
+  submission time).
+\end{itemize}
+
+The Namibia case study in \texttt{docs/4-Real-Use-Cases/4.1-Namibia/}
+was unified from the wireless-network and laptop-deployment narratives
+during the merge of \texttt{fix/open-points}.
+
+\hypertarget{appendix-f-network-and-deployment-diagrams-namibia}{%
+\subsection{Appendix F --- Network and deployment diagrams
+(Namibia)}\label{appendix-f-network-and-deployment-diagrams-namibia}}
+
+\begin{itemize}
+\tightlist
+\item
+  Pre-deployment topology of N Mutschuana Primary School
+\item
+  Post-deployment topology with mesh routers and IP plan annotations
+\item
+  IP addressing plan visualisation
+\item
+  PXE deployment subnet diagram
+\end{itemize}
+
+Source: \texttt{4-Real-Use-Cases/4.1-Namibia/images/} and
+\texttt{3-Guide/Laptop-Deployment/images/} in the handbook repository.
+
+\hypertarget{appendix-g-handbook-governance-materials}{%
+\subsection{Appendix G --- Handbook governance
+materials}\label{appendix-g-handbook-governance-materials}}
+
+Reproduced verbatim from the pinned commit of the handbook repository so
+the reader of this thesis can audit the conventions described in §3.C
+without leaving the document:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{AGENTS.md} --- repository-level OpenCode rules and build
+  commands.
+\item
+  \texttt{.opencode/rules/general.md} --- general handbook conventions.
+\item
+  \texttt{.opencode/rules/chapter2-story.md} --- narrative voice for
+  Chapter 2.
+\item
+  \texttt{.opencode/rules/chapter3-guide.md} --- recipe structure for
+  Chapter 3.
+\item
+  \texttt{.opencode/rules/mkdocs-nav.md} --- navigation-manifest
+  invariants.
+\item
+  \texttt{.opencode/agents/\{writer,reviewer,structure,diagrams,consistency\}.md}
+  --- subagent definitions.
+\item
+  \texttt{.opencode/commands/\{new-section,review-chapter,add-diagram,audit,guide-from-steps\}.md}
+  --- custom command definitions.
+\end{itemize}
+
+These materials are the AUCOOP-specific implementation of the governance
+contract of §3.C.6.
