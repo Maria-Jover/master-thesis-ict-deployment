@@ -22,3 +22,10 @@ Be sure to read through the full /content folder to understand the context of ea
 2. Create brief summary for each commit you make describing the chantes done. When a commit is done run the script to generate the lates and PDF in /build
 
 3. Create a description of the changes done when creating a pull request.
+
+## Images and tables
+when a new image or table is created be sure to create the reference for the index of figures and tables.
+
+where it adds value to the explanation you may add place holder of images/tables. You may ask the user if the image on a specific place is a good fit for confirmation.
+
+For chapter 3 methodology feel free to find images that relate to the explenation in project /home/mj/Community-Network-Handbook that is the output of the thesis. 

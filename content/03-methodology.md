@@ -1,9 +1,6 @@
 # 3. Methodology / Project Development
 <!-- \label{ch:methodology} -->
 
-> The bulk of the thesis. Three coordinated work-streams: **3.A** the network, **3.B** the endpoints, **3.C** the knowledge artefact. Maps to LaTeX section *Methodology / project development*.
-
----
 
 ## 3.A Network hardware deployment
 <!-- \label{sec:methodology-network} -->
@@ -12,59 +9,75 @@ This part of the chapter describes the hardware-network work-stream: how the
 physical and link layers of a small community network are designed,
 specified, and brought up in a low-resource site. The narrative is
 deliberately ordered as a deployment would be ordered in the field, but it
-is grouped under a four-layer model — *field*, *site*, *endpoint
+is grouped under a three-layer model —  *site*, *endpoint
 touchpoint*, *power and enclosure* — borrowed from the functional layering
-proposed in the companion thesis [Motje, 2026]. Adopting the same layer
-vocabulary on the hardware side and on the software/services side keeps the
-two theses, and the handbook that backs them, internally coherent: every
-recipe in `docs/3-Guide/` of the handbook can be located in exactly one
-layer, and every artefact named below has a one-to-one counterpart in the
-handbook.
+proposed in the companion thesis [Motje, 2026]. Every section named below has a one-to-one counterpart in the
+handbook with its respective user journey story and its field ready deployment guide.
 
-The material is also organised around three validation lenses that recur in
-§4: **coverage** (does the layer reach where it needs to reach?),
+The material is also organised around three validation lenses: **coverage** (does the layer reach where it needs to reach?),
 **sufficiency** (does it carry the expected load with margin?), and
 **adaptation** (does the recipe survive being executed by a different team
-in a different site?). Where a design choice trades one lens against
-another, the trade-off is named explicitly.
+in a different site?).
 
-### 3.A.1 The four-layer model
+### 3.A.1 How the Community Network Handbook is read
 
-The hardware deployment is decomposed into four functional layers. Each
+Before walking the layers, the reader needs to know how the delivered
+handbook is organised, because every section of §3.A maps onto a specific
+pair of handbook entries and the table that follows is unintelligible
+without that map.
+
+The handbook runs two parallel streams for every technical topic. The
+**imaginary use case** stream tells the story of a fictional community
+network as it grows from "there is no internet here" to a fully serviced
+site, one user-visible problem per section, in a narrative second-person
+voice. It answers *why* a piece of infrastructure is needed and *what*
+it has to do, deliberately staying away from commands and configuration.
+The **guide** stream is the opposite register: an imperative, step-by-step
+recipe with pinned versions, exact CLI invocations, and known pitfalls.
+It answers *how* to build the thing the story argued for.
+
+The two streams are linked one-to-one: every story section points to the
+guide that implements it, and every guide opens with a back-link to the
+story that motivates it. A reader new to the domain enters through the
+story and crosses over to the guide when they want to act; a reader
+mid-deployment enters through the guide and crosses back to the story
+when they need the rationale behind a non-obvious choice. The table in
+§3.A.2 follows the same convention: for each layer it lists the matching
+imaginary-use-case sections and the matching guide sections side by
+side, so the reader can see at a glance which story and which recipe in
+the handbook each part of this chapter is grounded in.
+
+### 3.A.2 The three-layer model
+
+The hardware deployment is decomposed into three functional layers. Each
 layer owns a small set of decisions, a recommended bill of materials, and a
 matching family of recipes in the handbook.
 
-| Layer | Owns | Handbook section | Examples of artefacts |
-|---|---|---|---|
-| **Field** | Inter-building radio links, long-distance bridges, outdoor antennas | `3-Guide/Antennas/` | Point-to-point Ubiquiti links, line-of-sight surveys |
-| **Site** | Indoor coverage, mesh backbone, IP plan, switching, boundary L3/L4 services | `3-Guide/Network-Planning/`, `IP-Addressing/`, `Wireless-Mesh/` | OpenWrt routers, 802.11s mesh, DHCP/DNS on the gateway |
-| **Endpoint touchpoint** | The network-side of laptop/desktop provisioning | `3-Guide/Laptop-Deployment/` (network parts only) | Isolated PXE subnet, deployment switch, on-site DHCP/TFTP/NFS |
-| **Power & enclosure** | Mains, UPS, surge protection, mounting, cabling, labelling | `3-Guide/Power-and-UPS/` | UPS sizing, cable management, panel labelling |
+| Layer | Owns | Handbook — Imaginary use case | Handbook — Guide | Examples of artefacts |
+|---|---|---|---|---|
+| **Site** | Indoor coverage, nearby building links, mesh backbone, IP plan, switching, boundary L3/L4 services | *"There's no internet here!"*[^h-story-router], *"The WiFi doesn't reach the kitchen!"*[^h-story-coverage] | Network Planning[^h-guide-netplan], IP Addressing[^h-guide-ip], Wireless Mesh Networks[^h-guide-mesh] | OpenWrt routers, 802.11s mesh, DHCP/DNS on the gateway |
+| **Endpoint touchpoint** | The network-side of laptop/desktop provisioning | *"We have the network — now we need computers for the people"*[^h-story-laptop] | Mass Laptop Deployment with PXE and Clonezilla[^h-guide-laptop] (network parts only) | Isolated PXE subnet, deployment switch, on-site DHCP/TFTP/NFS |
+| **Power & enclosure** | Mains, UPS, surge protection, mounting, cabling, labelling | *"The power went out and everything died"*[^h-story-power] | Power and UPS[^h-guide-power] | UPS sizing, cable management, panel labelling |
 
-Table: Four-layer network hardware model and corresponding handbook sections
+Table: Three-layer network hardware model with the matching imaginary-use-case and guide sections of the handbook
 
-The endpoint-touchpoint layer is intentionally split from the *endpoint*
-work-stream described in §3.B. Section §3.B owns the laptop as a managed
-asset (image, partitions, user account); §3.A only owns the network plumbing
-that is required during a mass deployment. The split mirrors the SW/HW
-split between this thesis and the companion thesis: a deployment is a
-single event, but the underlying responsibilities can be assigned cleanly.
+[^h-story-router]: <https://aucoop.github.io/Community-Network-Handbook/2-Imaginary-Use-Case/2.1-The-First-Router/>
+[^h-story-coverage]: <https://aucoop.github.io/Community-Network-Handbook/2-Imaginary-Use-Case/2.2-Expanding-Coverage/>
+[^h-story-laptop]: <https://aucoop.github.io/Community-Network-Handbook/2-Imaginary-Use-Case/2.22-Equipping-the-community/>
+[^h-story-power]: <https://aucoop.github.io/Community-Network-Handbook/2-Imaginary-Use-Case/2.15-Power/>
+[^h-guide-netplan]: <https://aucoop.github.io/Community-Network-Handbook/3-Guide/Network-Planning/>
+[^h-guide-ip]: <https://aucoop.github.io/Community-Network-Handbook/3-Guide/IP-Addressing/>
+[^h-guide-mesh]: <https://aucoop.github.io/Community-Network-Handbook/3-Guide/Wireless-Mesh/>
+[^h-guide-laptop]: <https://aucoop.github.io/Community-Network-Handbook/3-Guide/Laptop-Deployment/>
+[^h-guide-power]: <https://aucoop.github.io/Community-Network-Handbook/3-Guide/Power-and-UPS/>
+[^h-guide-antennas]: <https://aucoop.github.io/Community-Network-Handbook/3-Guide/Antennas/>
+[^h-guide-aucoop-image]: <https://aucoop.github.io/Community-Network-Handbook/3-Guide/Laptop-Deployment/AUCOOP-image/>
 
-The remainder of §3.A walks through these four layers in the order in which
-they are typically commissioned: a *site assessment* that constrains all
-later choices (§3.A.2), the **site layer** itself (§3.A.3 to §3.A.5), the
-**field layer** (§3.A.6), the **endpoint touchpoint** (§3.A.7), the
-**power and enclosure layer** (§3.A.8), and the **boundary services** that
-are kept in scope (§3.A.9). The part closes with the cross-cutting
-practices that experience showed are not optional (§3.A.10) and the
-explicit lessons-to-handbook flow that motivated the recipes
-(§3.A.11).
+### 3.A.3 Site and internet assessment
 
-### 3.A.2 Site and internet assessment
-
-No layer can be designed without first characterising the site. The method
-codified in `3-Guide/Network-Planning/` has three phases, each with a
-corresponding deliverable:
+No layer can be designed without first characterising the site. The
+method codified in the **Network Planning** guide[^h-guide-netplan] has
+three phases, each with a corresponding deliverable:
 
 1. **Internet assessment.** What ISP options exist, what speed and latency
    the existing uplink actually delivers, and whether a different
@@ -82,18 +95,18 @@ corresponding deliverable:
    at different times of day, and an annotated site map (overhead imagery
    plus on-site sketch) marking entry point, target rooms, obstacles,
    distances, and power outlets. This map is the single most important
-   artefact produced before any equipment is purchased.
+   artefact produced before any equipment is deployed.
 3. **Expansion planning.** A decision tree (Ethernet + APs vs mesh vs
    point-to-point antennas) driven by *building topology, cabling
    feasibility, and inter-building distance*, not by personal preference.
 
 The methodological commitment is that the site survey produces a written
-record, not a recollection. Every later decision in §3.A.3 to §3.A.8 cites
+record, not a recollection. Every later decision in §3.A.4 to §3.A.8 cites
 this record. This is the first concrete answer to the *knowledge
 volatility* problem named in §1.2: the site assessment of one team becomes
 the starting context of the next.
 
-### 3.A.3 Hardware selection at the site layer
+### 3.A.4 Hardware selection at the site layer
 
 The bill of materials for the site layer is constrained by four criteria,
 applied in order:
@@ -109,8 +122,7 @@ applied in order:
 3. **Power flexibility.** 12 V / USB-C devices integrate with a small UPS
    without a per-router AC brick.
 4. **Footprint.** A consumer plastic enclosure that mounts on a wall with
-   two screws is preferred over a 19" rack device for primary-school
-   environments.
+   two screws is preferred so the installation can be clean and simple.
 
 The default pick that satisfies all four criteria at the time of writing is
 the **Cudy WR3000E** (Wi-Fi 6, dual-band, OpenWrt-supported, ~45 €/unit,
@@ -128,12 +140,11 @@ build that broke 5 GHz on the WR3000E; the recipe in
 versions of OpenWrt and `wpad-mesh-wolfssl` and cautions the reader that
 "newer is not necessarily better".
 
-### 3.A.4 IP addressing plan
+### 3.A.5 IP addressing plan
 
 The IP plan is the most under-valued artefact of a small network, and the
-one whose absence costs the most when something breaks. The handbook
-recipe `3-Guide/IP-Addressing/index.md` codifies four methodological
-commitments:
+one whose absence costs the most when something breaks. The **IP
+Addressing** guide[^h-guide-ip] codifies four methodological commitments:
 
 - **Use a non-default `/24`** (the deployments documented here use
   `192.168.70.0/24`). Default ranges (`192.168.1.0/24`, `192.168.0.0/24`)
@@ -152,23 +163,16 @@ commitments:
   and is updated *at the moment of provisioning*, not afterwards.
 - **Prefer DHCP reservations over hand-coded static IPs** wherever the
   device supports DHCP-client mode. This is the substance of the second
-  iteration of the mesh setup (§3.A.5): static IPs survive only as long
+  iteration of the mesh setup (§3.A.6): static IPs survive only as long
   as the team that wrote them is around, while a DHCP table on the
   gateway is self-documenting and survives turnover.
 
-The IP-conflict episode of Day 8 in Gochas, in which a newly added router
-silently misrouted traffic until a missing static-route entry was found,
-is the empirical justification for these commitments. It cost roughly an
-hour of debugging for what was a five-minute fix once the problem was
-named — the handbook recipe explicitly calls this out under
-"Common Mistakes" so that the next operator skips the hour.
 
-### 3.A.5 Wireless mesh design at the site layer
+### 3.A.6 Wireless mesh design at the site layer
 
 Indoor coverage of a multi-room or multi-building site without trenching
 cable is met with an IEEE 802.11s mesh on OpenWrt. The handbook codifies
-the design as **two iterations** that are meant to be done in sequence,
-not chosen between (`3-Guide/Wireless-Mesh/index.md`):
+the design as **two iterations** that are meant to be done in sequence:
 
 - **Iteration 1 — static-IP mesh.** Each satellite router gets a unique
   static LAN IP, its DHCP server is disabled, the default `wpad-basic-*`
@@ -196,42 +200,31 @@ the final state.
 
 The radio design splits the two bands by role:
 
-- **5 GHz** carries the mesh backhaul on a fixed channel (typically 44),
+- **5 GHz** carries the mesh backhaul on a fixed channel,
   20 MHz or 40 MHz wide, in 802.11s mode with WPA3-SAE encryption.
-  Narrower channels penetrate walls better at the cost of throughput; in
-  small primary-school deployments the throughput ceiling is set by the
-  uplink, not the backhaul, so 20 MHz is the safe default.
+  Narrower channels penetrate walls better and pick up less neighbour
+  interference, at the cost of raw throughput; in small community
+  deployments the throughput ceiling is set by the uplink and not by the
+  backhaul, so 20 MHz is the safe default.
 - **2.4 GHz** carries the client access point on a non-overlapping channel
   (1, 6, or 11) with WPA2-PSK by default, escalating to WPA2/WPA3 mixed
   mode only after the client device population is known. The Gochas
-  deployment hit a WPA3-only incompatibility on a single laptop on Day 6
-  and was reconfigured to mixed mode within minutes; the handbook now
-  recommends mixed mode by default for any site with unknown client
-  hardware.
+  deployment was first brought up in WPA3-only mode and several older
+  client devices failed to associate. The access points were then
+  reconfigured to WPA2/WPA3 mixed mode and every client connected
+  successfully. The handbook now recommends mixed mode by default for any
+  site with unknown client hardware.
 
-### 3.A.6 Field-layer point-to-point links
-
-When two buildings are more than ~50 m apart or separated by structures
-that block 2.4/5 GHz, the mesh stops being adequate and a dedicated
-point-to-point (PtP) link at the field layer takes over. The handbook
-section `3-Guide/Antennas/` is currently a stub and is one of the
-deliberate WIP markers acknowledged in §1.4. The methodological intent,
-already fixed, is:
-
-- Use Ubiquiti airMAX or LiteBeam-class equipment (or equivalent) chosen
-  by Ubiquiti Design Center / LinkPlanner against a real terrain profile
-  rather than a rule of thumb.
-- Conduct an explicit line-of-sight visibility test before mounting,
-  including Fresnel-zone clearance.
-- Mount, align, and link-test in two passes — coarse alignment from the
-  signal-strength meter, fine alignment from the throughput test.
-- Document the link as a pair of devices with their own subnet entries in
-  the IP plan of §3.A.4.
-
-The Gochas deployment did not exercise this layer (the school's buildings
-are within mesh range), so the recipe is documented from the network
-planning context and from the literature rather than from a fresh field
-event. This honest framing is part of the validation discussion of §4.
+Long-distance point-to-point antenna links between separate buildings
+were *not* exercised in the Gochas deployment — the school's buildings
+sit within mesh range — so the antenna work that the handbook plans
+(`3-Guide/Antennas/`, currently a WIP stub acknowledged in §1.4) is
+left out of the three-layer model and out of this chapter. When a future
+deployment needs it, the recipe will live as an extension of the **site**
+layer rather than as a separate fourth layer (the **Antennas — Point-to-Point
+Links** stub[^h-guide-antennas] in the handbook is the placeholder for
+that future work); the validation discussion in §4 returns to this
+honest scoping choice.
 
 ### 3.A.7 Endpoint touchpoint — the deployment subnet
 
@@ -241,8 +234,7 @@ the Clonezilla rootfs and the disk image. From the §3.A perspective, this
 network has three hardware requirements:
 
 1. A **gigabit unmanaged switch** with one port per target machine plus
-   one port for the PXE server. Nine ThinkPads in Gochas were served by a
-   single 16-port switch.
+   one port for the PXE server. For the field tested deployment we used two eight port gigabit switches.
 2. **Strict isolation from the production LAN** during the imaging
    window. The deployment subnet runs its own DHCP server (the PXE
    server's `isc-dhcp-server`) which would conflict with the gateway's
@@ -258,7 +250,7 @@ The corresponding services (DHCP scope, TFTP root, NFS export) belong to
 ### 3.A.8 Power and enclosure
 
 Power is the failure mode that no software can mitigate. The site
-assessment of §3.A.2 records a load inventory for each candidate
+assessment of §3.A.3 records a load inventory for each candidate
 deployment site:
 
 - Mesh router: ~5 W steady, ~10 W peak (per node).
@@ -270,8 +262,7 @@ At a small site (one gateway, one switch, four to seven mesh nodes), the
 total steady draw is in the 50–100 W range, which puts a 600–800 VA
 consumer UPS in the right size class for ~30 min of bridging during short
 outages and, more importantly, for graceful shutdown on longer outages.
-The recurring power cuts in Gochas (sometimes lasting days, with the
-town's communication tower turning off at 20:00 by design) confirmed that
+The recurring power cuts in Gochas (sometimes lasting days) confirmed that
 *riding through* outages is not a realistic goal at this site class; the
 realistic goal is *graceful shutdown and clean restart*, which the chosen
 sizing supports. The companion thesis [Motje, 2026] develops the
@@ -281,12 +272,12 @@ on the network devices themselves (OpenWrt's flash layout makes this
 trivially true on the router side; the gateway PC is the device that
 needs the UPS).
 
-Enclosure and mounting are mundane and decisive. The convention adopted
-in the handbook recipe (currently a stub at `3-Guide/Power-and-UPS/`) is:
-mount above head height to clear furniture and people; choose locations
-with a power outlet within ~2 m to avoid extension-cord chains; label
-every cable on both ends with a printed tag bearing the device hostname;
-photograph the panel after every change.
+Enclosure and mounting are simple and decisive. The convention adopted
+in the **Power and UPS** guide[^h-guide-power] (currently a stub) is:
+mount above head height to clear furniture and people; choose, when
+possible, locations with a power outlet within ~2 m to avoid
+extension-cord chains; label every cable on both ends with a tag bearing
+the device hostname; photograph the panel after every change.
 
 ### 3.A.9 Boundary services kept in scope
 
@@ -295,7 +286,7 @@ which the network is not usable. Three services qualify:
 
 - **DHCP on the gateway.** A single `dnsmasq` instance (the OpenWrt
   default) serving the production scope, with static leases for every
-  infrastructure device named in §3.A.4. The SW/HW boundary is drawn
+  infrastructure device named in §3.A.5. The SW/HW boundary is drawn
   here: configuration of `dnsmasq` on the gateway is in scope; richer
   DHCP servers, DHCP relays across VLANs, and IPAM tooling are in
   [Motje, 2026].
@@ -333,56 +324,12 @@ high:
   Ethernet cables of common lengths). The kit lives at the site, not
   in Barcelona.
 - **Pin firmware and package versions** in the recipe and verify them
-  during bring-up. The "newer is not necessarily better" rule of §3.A.3
+  during bring-up. The "newer is not necessarily better" rule of §3.A.4
   applies here too.
 
 These practices are mundane on purpose. Their value is exactly that they
 do not require the operator to remember anything in the moment.
 
-### 3.A.11 Lessons learned and inputs to the handbook
-
-The hardware-network deployments described in §4 produced a set of
-lessons that landed directly as recipes, admonitions, or cross-references
-in the handbook. Naming them here makes the §3 → handbook → §4 loop
-explicit.
-
-**The IP plan is a deliverable, not a side-effect.** The Day-8 conflict
-episode in Gochas is the reason `3-Guide/IP-Addressing/index.md` opens
-with a "why a non-default range matters" section and why every router
-recipe asks the reader to update the spreadsheet *at the moment of
-provisioning*.
-
-**Mesh setup is two iterations, not one.** The decision to split the
-mesh recipe into a static-IP first pass and a DHCP-based second pass
-came directly from the observation that operators who tried to go to
-the DHCP-based design first lost time on link-formation failures that
-were not in fact caused by DHCP. The two recipes
-(`Wireless-Mesh/1-Static-IP-Mesh/`, `Wireless-Mesh/2-DHCP-Mesh/`) are
-the codification of that lesson.
-
-**Pin the OpenWrt and `wpad-mesh` versions.** The `Used Versions` table
-at the top of the static-IP-mesh recipe exists because two days of early
-bring-up were lost to a snapshot regression. Future operators are warned
-that they may need to roll back if a fresh snapshot misbehaves, and they
-are pointed to the issue tracker.
-
-**Mixed-mode WPA2/WPA3 by default until clients are known.** The Day-6
-WPA3-only incompatibility is named in the recipe under "Wireless
-Security" so the next deployment does not repeat it.
-
-**Power planning is for graceful shutdown, not ride-through.** The
-recurring outages in Gochas reframed the UPS goal and that reframing is
-now embedded in the (still stub) `3-Guide/Power-and-UPS/` section. The
-handover to [Motje, 2026] for NUT integration is explicit.
-
-**The site survey is a versioned artefact.** The methodological
-commitment that "every later decision cites this record" is inherited
-from §3.A.2 and is repeated as a rule in `Network-Planning/index.md`.
-A site survey kept only in someone's head does not count.
-
-These lessons are revisited in §4 against the three validation lenses
-(coverage, sufficiency, adaptation) and in §7 as part of the
-per-objective check.
 
 ---
 
@@ -391,7 +338,7 @@ per-objective check.
 
 This part of the chapter describes the second hardware work-stream: how a
 batch of refurbished laptops is taken from incoming-equipment status to
-classroom-ready endpoints with a single, reproducible image. The
+community-ready endpoints with a single, reproducible image. The
 narrative is again ordered as a deployment is ordered in the field, but
 the underlying methodological commitments are the same as those of §3.A:
 written artefacts over recollection, recipes that survive a change of
@@ -400,35 +347,34 @@ operator, and explicit lessons looped back into the handbook.
 §3.B owns the laptop as a managed asset (the image, the partitions, the
 user account, the BIOS posture). The network plumbing that the
 deployment briefly needs (the isolated PXE subnet, the deployment
-switch, the DHCP/TFTP/NFS hardware footprint) is owned by §3.A.7. Anything
-beyond first boot — fleet management, identity, application updates,
-remote support — belongs to the companion thesis [Motje, 2026].
+switch, the DHCP/TFTP/NFS hardware footprint) is owned by §3.A.7.
 
 ### 3.B.1 The refurbished-hardware case
 
 The starting point is the observation that the bottleneck for digital
-inclusion in low-resource sites is rarely *new* hardware. Corporate
-fleet refreshes, NGOs such as **Labdoo**, and local sponsors put
-three- to seven-year-old business laptops back into circulation by the
-container-load; the limiting factor on their reuse is not the silicon
-but the *labour cost of imaging them one by one* and the *cost of a
-support contract for a fleet of mismatched configurations*. The
-methodological response of this work-stream is therefore not "find better
-hardware" but "drive the per-machine provisioning cost as close to zero
-as possible while keeping the resulting fleet uniform enough to support
-remotely".
+inclusion in low-resource sites is rarely the availability of *new*
+hardware. Corporate fleet refreshes, NGOs such as **Labdoo**, and local
+sponsors put three- to seven-year-old business laptops back into
+circulation. The limiting factors on their reuse are three: the *cost of
+shipping the machines to the site*, the *labour cost of imaging them
+into a usable state*, and the *cost of supporting a fleet of mismatched
+configurations once it is deployed*. The methodological response of this
+work-stream is therefore not "find better hardware" but "drive the
+per-machine provisioning cost as close to zero as possible, and keep the
+resulting fleet uniform enough that the volunteering team can both carry
+it to the community and support it remotely afterwards".
 
 Two sourcing channels were exercised in the deployments documented in
 §4. Labdoo provided nine Lenovo ThinkPads (T460 and X260, Intel i5-6200U,
 8 GB DDR4, mixed 238 GB SSD / 466 GB HDD) wiped and ready to receive a
 new OS. NexTReT contributed three additional laptops and two mini-PC
-servers from a Spanish fleet refresh. Both channels deliver hardware in
-the *same generation class* but with *non-identical disk geometries* —
-which, as §3.B.5 will show, is the single decision driver of the entire
-imaging workflow.
+servers from a Spanish fleet refresh. The twelve laptops were allocated
+to two sites at handover: nine to the school and three to the children's
+house. Both channels deliver hardware in the *same generation class* but
+with *non-identical disk geometries* — which, as §3.B.5 will show, is
+the single decision driver of the entire imaging workflow.
 
-The case for refurbished hardware is also a sustainability one along
-all three dimensions. Environmentally, a laptop manufactured five
+The case for refurbished hardware is also a sustainability one along three dimensions. Environmentally, a laptop manufactured five
 years ago and reused for another five years has a markedly lower
 lifecycle carbon footprint per useful year than a newly-manufactured
 equivalent. Socially, the donation pipeline channels institutional
@@ -457,7 +403,7 @@ own bottleneck:
 Table: Endpoint intake inventory fields
 
 The inventory is held in the same project repository as the IP plan of
-§3.A.4, in a comma-separated file with one row per machine. The
+§3.A.5, in a comma-separated file with one row per machine. The
 deployment script consumes this file when matching disks to image
 variants (§3.B.5). For larger or longer-running operations, a tool such
 as **DeviceHub** can replace the spreadsheet without changing the
@@ -475,8 +421,8 @@ is the single most expensive mistake an inexperienced operator can make
 
 The reference operating system installed on every endpoint is **Linux
 Mint 22.3 Cinnamon**, customised for community use. The reasoning is
-documented in `3-Guide/Laptop-Deployment/AUCOOP-image.md` and reduces to
-three observations.
+documented in the **AUCOOP Linux Deployment Image** page[^h-guide-aucoop-image]
+of the handbook and reduces to two observations.
 
 First, the alternative operating systems each fail one constraint that
 matters for this user population. Windows is licensed and runs poorly
@@ -492,7 +438,7 @@ manageable.
 Second, the *customisation* is itself a methodological deliverable, not
 a matter of taste. The AUCOOP image ships with **OnlyOffice** as the
 office suite (chosen for its high fidelity to the Microsoft Office file
-formats teachers already produce), with familiar launcher icons named
+formats users already produce), with familiar launcher icons named
 after the closest Microsoft equivalent (Word, Excel, PowerPoint), and
 with the default unused applications removed. The user account
 (`aucoop`, with a documented password) is generic on purpose: the
@@ -500,12 +446,6 @@ endpoint is delivered as a *station* the school can assign to a child or
 a teacher, not as a personal device tied to the contributor who imaged
 it.
 
-Third, the master is captured with a strict pre-capture cleanup
-checklist: `apt clean`, `apt autoremove`, removal of thumbnail caches,
-truncation of `journalctl` logs, removal of the network-manager
-connection history, and a final fill-with-zeros of the free space so
-gzip compression of the captured image is dense. Skipping the cleanup
-inflates the image by a factor of two to three with no functional gain.
 
 ### 3.B.4 Image capture with Clonezilla
 
@@ -541,8 +481,8 @@ The technical core of this work-stream is a problem that does not appear
 when all target disks are the same size and is unavoidable when they
 are not. It is described here in full because (i) it has cost more
 field-debugging time than any other issue in the deployments documented
-in §4, and (ii) it is the kind of failure that mainstream tutorials skip
-and on-site teams therefore re-discover the hard way.
+in §4, (ii) it is the kind of failure that mainstream tutorials skip
+and on-site teams therefore re-discover the hard way, (iii) and for a fleet of hardware coming from different partners/sources it can be expected that the disks are different.
 
 **The symptom.** A Clonezilla image captured from a 466 GB HDD and
 restored to a 238 GB SSD fails roughly 77 % of the way through with:
@@ -562,15 +502,7 @@ only 12 GB of data. When the target partition is smaller than the source
 *partition* (not the source *data*), the seek to the high-offset
 metadata block lands beyond the device boundary and `partclone` aborts.
 
-**Why the obvious flags are not enough.** Two flags from the `ocs-sr`
-manual look as if they should solve this: `-k1` (proportionally resize
-target partitions) and `-icds` (skip the destination-disk-too-small
-check). They do not. `-k1` operates on the partition layout but cannot
-move metadata blocks already laid out at high offsets in the source
-ext4 filesystem; `-icds` only suppresses the up-front check, it does
-not prevent the runtime seek failure.
-
-**The fix.** The partition layout itself must be made physically smaller
+ The partition layout itself must be made physically smaller
 than the smallest target disk, on a copy of the master, before the
 image is recaptured. The four-step procedure is mandatory and
 order-sensitive:
@@ -593,18 +525,15 @@ are regenerated with `parted`, `sgdisk`, `sfdisk`, and `blkid`. The
 result is a smaller image (~3.6 GB compressed) that restores cleanly to
 both 238 GB SSDs and 466 GB HDDs.
 
-The work happens once, off-line, on a workstation in Barcelona, against
-a `qcow2` copy of the master disk attached via `qemu-nbd`; doing it
-on-site against the original master is risky and slow. The recipe in
-`3-Guide/Laptop-Deployment/index.md` codifies the off-line workflow as
-**Phase 3** of the deployment and gates it behind a clearly-marked
+The work happens once, off-line. The **Mass Laptop Deployment with PXE
+and Clonezilla** guide[^h-guide-laptop] codifies the off-line workflow
+as **Phase 3** of the deployment and gates it behind a clearly-marked
 "skip if all disks are the same size" admonition so operators do not
 incur the work for deployments that do not need it.
 
 The order of operations is the part that bites. Shrinking the partition
 *before* the filesystem truncates the filesystem and destroys data; the
-recipe states this in a `!!! warning` box for the same reason as the
-matching warning in `Wireless-Mesh/1-Static-IP-Mesh/`: a single
+recipe states this in a `!!! warning` box: a single
 sentence at the right place saves a multi-hour recovery later.
 
 ### 3.B.6 PXE server architecture
@@ -620,38 +549,18 @@ deployment subnet of §3.A.7:
 
 Table: PXE server services, ports, and packages
 
-![Figure 3.1 — PXE network boot sequence](../assets/images/diagrams/fig3-1-pxe-boot-sequence.png)
-
-*Figure 3.1 — PXE network boot sequence. The client exchanges DHCP to obtain an IP and the boot-file location, then fetches the GRUB EFI binary and configuration via TFTP, and finally mounts the Clonezilla live environment from the NFS/HTTP server. Solid arrows = requests; dashed arrows = responses.*
-
+```{=latex}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{assets/images/diagrams/fig3-1-pxe-boot-sequence.png}
+\caption*{\textit{Figure 3.1 — PXE network boot sequence. The client exchanges DHCP to obtain an IP and the boot-file location, then fetches the GRUB EFI binary and configuration via TFTP, and finally mounts the Clonezilla live environment from the NFS server.}}
+\end{figure}
+```
 The PXE host is itself one of the deployed laptops or a small mini-PC;
 it does not need server-class hardware. In Gochas, one of the
 ThinkPads earmarked for the school was reassigned as PXE host for the
-duration of the imaging session and then re-imaged from the same
-deployment as its last action.
+duration of the imaging session.
 
-**GRUB EFI generation.** The bootloader served via TFTP is generated by
-`grub-mknetdir --net-directory=/tftpboot/nbi_img --subdir=/grub`, which
-emits `core.efi` plus the GRUB modules and font. The EFI binary is then
-copied as `bootx64.efi` at the TFTP root because that is the filename
-UEFI firmware expects when a DHCP `filename` option is presented for a
-UEFI client (DHCP option 93 architecture `00:07` or `00:09`).
-
-**Two copies of the kernel, on purpose.** The Clonezilla `vmlinuz` and
-`initrd.img` exist in *two* directories: under `/tftpboot/nbi_img/`
-(served via TFTP, fetched by GRUB during boot) and under
-`/tftpboot/clonezilla/` (served via NFS, mounted by the running
-kernel as its root). The duplication is necessary because `tftpd-hpa`
-runs in `--secure` mode, which chroots the TFTP server to its root
-directory and refuses to follow symlinks pointing outside; placing the
-files where each service can actually serve them is simpler and more
-robust than trying to defeat the chroot.
-
-**DHCP scope.** A small `/24` is enough (`10.0.0.0/24` in Gochas), with
-the PXE host on `.1`, a short DHCP range (`.101`–`.120`) for clients,
-and a `next-server` pointer back to `.1`. The architecture-conditional
-`filename` directive is the part that makes the same DHCP scope work
-for both UEFI and legacy-BIOS clients without re-configuration.
 
 ### 3.B.7 Auto-restore script and Secure Boot handling
 
@@ -701,81 +610,22 @@ typically appear:
 1. The machine boots from the local disk to the Linux Mint login
    screen unaided (no PXE, no USB).
 2. The `aucoop` user logs in with the documented password.
-3. Wi-Fi can associate to the production network of §3.A.5 and reach
+3. Wi-Fi can associate to the production network of §3.A.6 and reach
    the internet.
 4. OnlyOffice opens a sample document and renders it correctly.
 5. The hostname matches the inventory record of §3.B.2.
 
-A failed check sends the machine back to the corresponding step (a
-boot failure to §3.B.5, an image-content failure to §3.B.3, a network
-failure to §3.A.5) rather than triggering an ad-hoc fix on the
+A failed check sends the machine back to the corresponding step rather than triggering an ad-hoc fix on the
 individual machine. The discipline is what keeps a fleet of nine or
 twelve laptops actually identical at handover.
 
 Handover to the receiving institution adds a short briefing — how to
 log in, how to reach Wi-Fi, where the printed runbook is, who to
 contact — and a written record that the machine has been delivered.
-End-user training at depth is out of scope for this thesis; what is in
-scope is delivering machines whose default configuration does not
-require that training to be useful.
+End-user training is delivered at handover and its scope is fixed in
+advance for each project; deeper training programmes are out of scope
+for this thesis.
 
-### 3.B.9 Lessons learned and inputs to the handbook
-
-As in §3.A, the laptop deployments produced a set of lessons that
-landed directly in the handbook. They are listed here because each one
-points to a specific change the next operator should not have to
-re-discover.
-
-**Secure Boot is an inventory-time check, not a debug-time discovery.**
-The hours lost to silent UEFI rejection of an unsigned GRUB binary
-turned this from a recipe footnote into the gating BIOS posture of
-§3.B.2 and a `!!! warning` admonition at the top of the PXE recipe.
-
-**The partition-resize problem deserves its own phase.** The
-`target seek ERROR` failure was the reason `3-Guide/Laptop-Deployment/`
-was reorganised into four explicit phases (prepare, capture, resize,
-deploy) rather than a single linear list of steps. Operators with
-uniform-disk fleets skip Phase 3 entirely; operators with mixed disks
-know exactly which phase to read.
-
-**`tftpd-hpa --secure` does not follow symlinks.** This single
-sentence is now a `!!! warning` in the recipe; without it, an operator
-who tries to keep one canonical copy of the Clonezilla files and
-symlink the rest sees TFTP serve nothing and has no obvious diagnostic.
-
-**Auto-detect the target disk.** Hard-coding `/dev/sda` in the restore
-command works on every ThinkPad with a SATA disk and fails on every
-ThinkPad with an NVMe SSD. The auto-detection script in §3.B.7 was
-written after the first NVMe machine refused to image; it is now the
-default in the recipe.
-
-**Use `-k1 -icds -scr -p reboot` together with a resized image, not
-instead of one.** These flags relax `ocs-sr`'s safety checks but do not
-fix the underlying ext4 layout problem of §3.B.5. The recipe states
-this explicitly so the next operator does not lose a day chasing flag
-combinations that cannot work.
-
-**A simple stack beats DRBL for this fleet size.** A full DRBL
-deployment is overkill for nine or twelve machines and adds a layer of
-debugging that an on-site team cannot afford. The recipe is built on
-plain `isc-dhcp-server` + `tftpd-hpa` + `nfs-kernel-server` +
-Clonezilla Live precisely so that every component can be inspected and
-restarted independently when something misbehaves. DRBL becomes
-attractive at a different fleet size; that is a future-work note in
-§7.
-
-**The image is a versioned artefact.** Naming the image directory
-`aucoop-mint22.3-2026-03` and storing both the `qcow2` master copy and
-the resized image in the project repository is what allows §4 to claim
-that *this specific image* was deployed at *this specific site on this
-specific date*. The companion thesis [Motje, 2026] inherits the same
-naming convention for service-side artefacts.
-
-These lessons feed into the §4 validation against the three lenses
-(coverage: did every target laptop receive the image?; sufficiency: did
-the resulting fleet meet the school's actual usage in the days that
-followed?; adaptation: could a second team in a different site execute
-the same recipe?) and into the per-objective check of §7.
 
 ---
 
@@ -794,16 +644,14 @@ The handbook is hosted at <https://github.com/aucoop/Community-Network-Handbook>
 and published as a static website plus a downloadable PDF. The thesis writes
 *about* the handbook; the handbook itself is the durable deliverable.
 
-### 3.C.1 Why a living handbook
+### 3.C.1 Why a living handbook in GitHub
 
 §1.2 framed the problem of *knowledge volatility* in a volunteer association.
 AUCOOP runs on bachelor and master students who join, contribute for one or two
-academic years, graduate, and leave. Every project — Namibia 2024, Namibia
-2026, the local pilots in Barcelona — produced internal documents (PDFs,
+academic years, graduate, and leave. Every project produces internal documents (PDFs,
 slide decks, hand-written field notes) that ended up in shared drives that
 nobody opens once the contributors are gone. The next team rediscovers the
-same DHCP option, the same OpenWrt mesh quirk, the same Clonezilla
-`partclone target seek ERROR`, and pays the same debugging tax.
+same issues and pays the same debugging tax.
 
 A living handbook reverses this dynamic by making three structural commitments:
 
@@ -822,6 +670,10 @@ workspace, a wiki on a self-hosted server that nobody patches — the chosen
 model trades convenience (no rich WYSIWYG editor) for longevity (plain text
 under version control survives platform changes and credential losses).
 
+![Figure 3.2 — Landing page of the Community Network Handbook](assets/images/diagrams/community_network_webpage.png)
+
+*Figure 3.2 — Landing page of the Community Network Handbook as published at aucoop.github.io/Community-Network-Handbook. The site exposes the four top-level chapters described in Section 3.C.2 and the downloadable PDF release.*
+
 ### 3.C.2 Information architecture
 <!-- \label{sec:handbook-structure} -->
 
@@ -831,38 +683,21 @@ epistemic role:
 | Chapter | Role | Voice |
 |---|---|---|
 | `1-Introduction` | Why the handbook exists, who it is for | Editorial |
-| `2-Imaginary-Use-Case` | A fictional community network, told as a story; one section per challenge | Narrative, second-person, italic question titles |
-| `3-Guide` | Step-by-step recipes; one folder per technology | Instructional, imperative |
-| `4-Real-Use-Cases` | Concrete deployments (Namibia, …) used as case studies | Reporting |
+| `2-Imaginary-Use-Case` | A fictional community network, told as a story; one section per challenge, explaining *why* each challenge appears and *what* it means for the deployment | Narrative, second-person |
+| `3-Guide` | Step-by-step recipes; covers *how* to solve the challenges presented in chapter 2 | Instructional |
+| `4-Real-Use-Cases` | Concrete deployments documented used as case studies | Reporting |
 
 Table: Handbook chapter structure, role, and authoring voice
 
 The defining design rule is the **1-to-1 mapping between Chapter 2 and Chapter
 3**: every story section in Chapter 2 must have a matching recipe in Chapter 3,
-and vice versa, with explicit cross-links in both directions. The intent is
-twofold. A reader who is *learning the domain* enters through the story and
+and vice versa, with explicit cross-links in both directions.
+
+A reader who is *learning the domain* enters through the story and
 follows the link to the recipe when they want to act. A reader who is
 *executing a deployment* enters through the recipe and follows the link to the
 story when they need to understand the trade-offs. Neither audience is
-penalised. The constraint is enforced at review time and is mechanical enough
-that it can be audited (see §3.C.5).
-
-Inside a section folder, content is co-located with its images:
-
-```
-docs/3-Guide/Laptop-Deployment/
-├── index.md
-├── AUCOOP-image.md
-└── images/
-    ├── pxe-architecture.webp
-    └── clonezilla-savedisk.webp
-```
-
-Image filenames are prefixed with the owning section (`Cudy-WR3000E-luci.webp`,
-`2.1-router-front-panel.webp`) so that a file moved or renamed without its
-section is immediately recognisable as orphaned. All raster images use WebP at
-quality 85, chosen as the smallest format that still renders well in the PDF
-build.
+penalised.
 
 ### 3.C.3 Toolchain
 
@@ -870,29 +705,14 @@ The handbook is built with **Zensical**, a static-site generator that consumes
 Markdown plus a `mkdocs.yml` navigation manifest and produces both the website
 and the PDF. The relevant configuration choices are:
 
-- **Theme.** Material for MkDocs in `navigation.sections` mode, with
-  light/dark/system palette toggles. The teal accent matches the AUCOOP
-  branding.
-- **Markdown extensions.** `pymdownx.superfences` (with a Mermaid custom
-  fence), `admonition`, `pymdownx.details`, `pymdownx.highlight`,
-  `pymdownx.tabbed`, `pymdownx.arithmatex`, `attr_list`, `tables`,
-  `md_in_html`. These cover the four expressive needs of a deployment guide:
+- **Theme.** light/dark/system palette toggles.
+- **Markdown extensions.** These cover the four expressive needs of a deployment guide:
   diagrams, side notes, code with line numbers, and tabular data.
-- **Diagram pipeline.** Mermaid is rendered client-side from fenced code
-  blocks, which keeps diagrams in plain text inside the source repository and
-  reviewable in pull requests. PlantUML is available for the rarer cases that
-  need it, served by `build_plantuml` against the public PlantUML server.
 - **PDF target.** The repository's release pipeline produces a single
   `Community-Network-Handbook.pdf` artefact; the website surfaces it through
   the `extra.book_download_url` setting. Both outputs are generated from the
   same Markdown source, so there is no risk of the printable copy and the web
   copy drifting apart.
-
-The build commands are deliberately wrapped: contributors run `zensical serve`
-for local preview and `zensical build` for production, never `mkdocs` directly.
-Documenting this in the project's `AGENTS.md` removes a common source of
-confusion when a new contributor's local environment behaves differently from
-CI.
 
 ### 3.C.4 Dual output — web and PDF
 
@@ -911,9 +731,7 @@ serves two distinct usage modes:
 
 Pinning the PDF to a release tag means a field team can reference *the exact
 version of the handbook they took with them* months later, even if the website
-has moved on. This addresses a classic reproducibility problem in deployment
-documentation: the recipe that worked in March may have been silently rewritten
-by July.
+has moved on. 
 
 ### 3.C.5 Contribution model and AI-assisted authoring
 
@@ -928,14 +746,17 @@ useful change in their first week. Three mechanisms make this work.
 they are version-controlled Markdown files under `.opencode/rules/`. Four
 files cover, respectively, the general project rules (`general.md`), the
 narrative voice required for Chapter 2 stories (`chapter2-story.md`), the
-imperative structure required for Chapter 3 recipes (`chapter3-guide.md`), and
-the navigation-manifest invariants for `mkdocs.yml` (`mkdocs-nav.md`). A new
-contributor is told to read these once; a reviewer who finds a violation
-points to the exact rule. The rules also encode operational details that are
-easy to forget — the placeholder image workflow, the WIP admonition format,
-the file-naming conventions for sections and images.
+imperative structure required for Chapter 3 recipes (`chapter3-guide.md`),
+and the navigation-manifest invariants for `mkdocs.yml` (`mkdocs-nav.md`).
 
-**OpenCode subagents.** The repository ships with five project subagents
+A new contributor is told to read these once. The rules are detailed
+enough that they will not always be remembered; rather than turn
+that into a barrier to contribution, the workflow lets a contributor
+draft a section in their own voice and then ask one of the project
+agents (described below) to bring the draft into conformance with the
+rules before review.
+
+The repository was designed with **five subagents**
 defined in `.opencode/agents/` that can be invoked from any OpenCode-compatible
 editor:
 
@@ -975,7 +796,7 @@ voice and structure intact. The cost of consistency is paid by tooling, not
 by reviewer fatigue.
 
 It should be stated openly that AI assistance is part of the workflow.
-The handbook is not generated by AI — every page is reviewed and approved by
+The handbook is not generated by AI — every page is drafted, reviewed and approved by
 a human contributor — but the mechanical conformance work (filling templates,
 synchronising the nav, regenerating tables, applying tone rules) is delegated
 to subagents. This is itself a contribution: it documents a viable model for
@@ -985,33 +806,18 @@ nor a stable maintainer pool.
 ### 3.C.6 Governance for continuity
 
 Tooling alone does not guarantee survival. The handbook also needs an
-explicit governance contract. The following elements are proposed and are in
-force on the `dev_mj_thesis` branch at the time of writing:
+explicit governance contract.
 
 - **Maintainer rotation.** At any time the handbook has at least one
   *maintainer* (currently the AUCOOP project lead) and at least one *active
-  contributor* whose thesis depends on the project. The active contributor is
-  expected to take over maintainer duties at the end of their thesis if no
-  successor has joined. A short hand-over document accompanies each
-  transition.
+  contributor*. 
 - **Definition of Done for a chapter.** A chapter is considered "done for
   this iteration" when (i) every section has at least one paragraph of body
   text, (ii) the Ch2↔Ch3 cross-links exist in both directions, (iii) all
   images are real (no placeholders), (iv) `/audit` reports zero structural
   errors, and (v) `zensical build` succeeds without warnings.
-- **Picking up an open chapter.** A new contributor opens the chapter folder,
-  reads its `index.md`, runs `/audit` to see the outstanding TODOs and WIP
-  markers, and chooses one. The combination of `!!! info "Work in Progress"`
-  admonitions and `<!-- TODO: ... -->` comments is dual on purpose: the first
-  is visible to readers of the rendered site and signals that they should not
-  rely on the section yet; the second is invisible to readers but `grep`-able
-  by contributors.
 
-This governance is light by design. Heavier processes — RFC documents,
-formal release schedules, CODEOWNERS — would not survive the next volunteer
-rotation. The chosen mechanisms degrade gracefully: even if the rules and
-agents fall out of use for a semester, the resulting damage is limited to
-inconsistent voice, not a broken build or a corrupted history.
+This governance is light by design. Heavier processes would not survive the next volunteer rotation. 
 
 ### 3.C.7 What this contributes beyond the deployment
 
@@ -1023,6 +829,4 @@ team can act on*. The thesis treats this instrument with the same rigour as
 the network and endpoint work: as a designed system with explicit
 requirements (continuity, dual output, low contributor onboarding cost),
 explicit components (rule files, subagents, custom commands, governance
-contract), and a measurable acceptance criterion (the four merged branches
-of `dev_mj_thesis`, which collectively land a complete first version of the
-hardware-network and laptop-deployment material).
+contract), and a measurable acceptance criterion, which collectively land a complete first version of the first Community Network Handbook of AUCOOP Association.
