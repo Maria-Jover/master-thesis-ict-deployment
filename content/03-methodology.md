@@ -673,7 +673,7 @@ under version control survives platform changes and credential losses).
 ```{=latex}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{assets/images/diagrams/fig3-1-pxe-boot-sequence.png}
+\includegraphics[width=1\textwidth]{assets/images/diagrams/community_network_webpage.png}
 \caption*{\textit{Figure 3.2 — Landing page of the Community Network Handbook}}
 \end{figure}
 ```
