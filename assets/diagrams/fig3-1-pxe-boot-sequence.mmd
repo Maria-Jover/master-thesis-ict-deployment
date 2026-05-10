@@ -1,0 +1,27 @@
+sequenceDiagram
+    autonumber
+    participant C as Client<br/>(endpoint)
+    participant D as DHCP Server<br/>(gateway)
+    participant T as TFTP Server<br/>(gateway)
+    participant N as NFS / HTTP Server<br/>(deployment server)
+
+    C->>D: DHCPDISCOVER (PXE option 60)
+    D-->>C: DHCPOFFER (IP, next-server, filename)
+    C->>D: DHCPREQUEST
+    D-->>C: DHCPACK (lease confirmed)
+
+    C->>T: TFTP RRQ — grubx64.efi
+    T-->>C: grubx64.efi (GRUB EFI binary)
+
+    C->>T: TFTP RRQ — grub.cfg
+    T-->>C: grub.cfg (boot menu)
+
+    C->>T: TFTP RRQ — vmlinuz + initrd.img
+    T-->>C: kernel + initrd
+
+    Note over C: Kernel boots in RAM<br/>mounts root over NFS / HTTP
+
+    C->>N: Mount deployment root (NFS or HTTP)
+    N-->>C: Clonezilla live environment
+
+    Note over C: Clonezilla starts<br/>restores AUCOOP image<br/>to local disk

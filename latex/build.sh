@@ -87,6 +87,7 @@ sed -i -E \
 # ---------------------------------------------------------------------------
 PANDOC_OPTS=(
   --from=markdown+raw_tex+pipe_tables+backtick_code_blocks+fenced_code_attributes+yaml_metadata_block
+  --resource-path="$BUILD:$ROOT"
   --top-level-division=chapter
   --metadata=title:"ICT Network Deployment in Low Connectivity and Resource-Limited Contexts"
   --metadata=subtitle:"A reproducible, open field guide built with the AUCOOP association"
