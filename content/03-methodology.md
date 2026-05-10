@@ -505,15 +505,7 @@ only 12 GB of data. When the target partition is smaller than the source
 *partition* (not the source *data*), the seek to the high-offset
 metadata block lands beyond the device boundary and `partclone` aborts.
 
-**Why the obvious flags are not enough.** Two flags from the `ocs-sr`
-manual look as if they should solve this: `-k1` (proportionally resize
-target partitions) and `-icds` (skip the destination-disk-too-small
-check). They do not. `-k1` operates on the partition layout but cannot
-move metadata blocks already laid out at high offsets in the source
-ext4 filesystem; `-icds` only suppresses the up-front check, it does
-not prevent the runtime seek failure.
-
-**The fix.** The partition layout itself must be made physically smaller
+ The partition layout itself must be made physically smaller
 than the smallest target disk, on a copy of the master, before the
 image is recaptured. The four-step procedure is mandatory and
 order-sensitive:
@@ -560,10 +552,13 @@ deployment subnet of §3.A.7:
 
 Table: PXE server services, ports, and packages
 
-![Figure 3.1 — PXE network boot sequence](assets/images/diagrams/fig3-1-pxe-boot-sequence.png)
-
-*Figure 3.1 — PXE network boot sequence. The client exchanges DHCP to obtain an IP and the boot-file location, then fetches the GRUB EFI binary and configuration via TFTP, and finally mounts the Clonezilla live environment from the NFS server. Solid arrows = requests; dashed arrows = responses.*
-
+```{=latex}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{assets/images/diagrams/fig3-1-pxe-boot-sequence.png}
+\caption*{\textit{Figure 3.1 — PXE network boot sequence. The client exchanges DHCP to obtain an IP and the boot-file location, then fetches the GRUB EFI binary and configuration via TFTP, and finally mounts the Clonezilla live environment from the NFS server.}}
+\end{figure}
+```
 The PXE host is itself one of the deployed laptops or a small mini-PC;
 it does not need server-class hardware. In Gochas, one of the
 ThinkPads earmarked for the school was reassigned as PXE host for the
@@ -825,11 +820,7 @@ explicit governance contract.
   images are real (no placeholders), (iv) `/audit` reports zero structural
   errors, and (v) `zensical build` succeeds without warnings.
 
-This governance is light by design. Heavier processes — RFC documents,
-formal release schedules, CODEOWNERS — would not survive the next volunteer
-rotation. The chosen mechanisms degrade gracefully: even if the rules and
-agents fall out of use for a semester, the resulting damage is limited to
-inconsistent voice, not a broken build or a corrupted history.
+This governance is light by design. Heavier processes would not survive the next volunteer rotation. 
 
 ### 3.C.7 What this contributes beyond the deployment
 
