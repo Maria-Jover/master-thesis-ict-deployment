@@ -670,9 +670,13 @@ workspace, a wiki on a self-hosted server that nobody patches — the chosen
 model trades convenience (no rich WYSIWYG editor) for longevity (plain text
 under version control survives platform changes and credential losses).
 
-![Figure 3.2 — Landing page of the Community Network Handbook](assets/images/diagrams/community_network_webpage.png)
-
-*Figure 3.2 — Landing page of the Community Network Handbook as published at aucoop.github.io/Community-Network-Handbook. The site exposes the four top-level chapters described in Section 3.C.2 and the downloadable PDF release.*
+```{=latex}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{assets/images/diagrams/fig3-1-pxe-boot-sequence.png}
+\caption*{\textit{Figure 3.2 — Landing page of the Community Network Handbook}}
+\end{figure}
+```
 
 ### 3.C.2 Information architecture
 <!-- \label{sec:handbook-structure} -->
