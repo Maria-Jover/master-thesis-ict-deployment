@@ -110,14 +110,43 @@ PANDOC_OPTS=(
 )
 
 echo "==> Generating combined .tex ..."
-pandoc "${PANDOC_OPTS[@]}" --standalone -o "$BUILD/thesis.tex" "$PREP"
+# Run pandoc but capture stderr so we can provide a small diagnostic
+# when a YAML parse exception occurs (common with stray '---' markers).
+run_pandoc() {
+  local outfile="$1"; shift
+  local stderrfile
+  stderrfile="$(mktemp)" || stderrfile="/tmp/pandoc-stderr.$$"
+  if ! pandoc "${PANDOC_OPTS[@]}" "$@" -o "$outfile" 2>"$stderrfile"; then
+    # Check for YAML parse errors and show the offending region from the
+    # combined markdown to make debugging faster.
+    if grep -q "YAML parse exception at line" "$stderrfile"; then
+      echo
+      echo "Pandoc reported a YAML parse error. Diagnostic excerpt from $PREP:" >&2
+      # Extract the line number from the pandoc error message.
+      lineno=$(grep -oP "YAML parse exception at line \K[0-9]+" "$stderrfile" || true)
+      if [[ -n "$lineno" ]]; then
+        start=$(( lineno > 8 ? lineno - 8 : 1 ))
+        end=$(( lineno + 8 ))
+        echo "-- showing $PREP lines $start..$end --" >&2
+        nl -ba "$PREP" | sed -n "${start},${end}p" >&2
+      else
+        echo "(could not extract line number from pandoc output)" >&2
+      fi
+    fi
+    cat "$stderrfile" >&2
+    rm -f "$stderrfile" || true
+    return 2
+  fi
+  rm -f "$stderrfile" || true
+  return 0
+}
+
+run_pandoc "$BUILD/thesis.tex" --standalone "$PREP"
 
 echo "==> Generating PDF ..."
-# Generate .tex, then inject a small file to switch to mainmatter after
-# the TOC/LoF/LoT. Pandoc's location for the TOC is template dependent,
-# but the simplest approach is to generate the PDF directly: include
-# pandoc-mainmatter.tex after the TOC using --include-after-body.
-pandoc "${PANDOC_OPTS[@]}" --include-after-body="$LATEX/pandoc-mainmatter.tex" -o "$BUILD/thesis.pdf" "$PREP"
+# Generate the PDF including the mainmatter injection. Reuse the
+# diagnostic wrapper to show context on failure.
+run_pandoc "$BUILD/thesis.pdf" --include-after-body="$LATEX/pandoc-mainmatter.tex" "$PREP"
 
 echo
 echo "Done."
