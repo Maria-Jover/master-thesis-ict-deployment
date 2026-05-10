@@ -86,7 +86,7 @@ sed -i -E \
 # 2. Pandoc -> combined LaTeX source (for inspection / future hand-tuning).
 # ---------------------------------------------------------------------------
 PANDOC_OPTS=(
-  --from=markdown-yaml_metadata_block+raw_tex+pipe_tables+backtick_code_blocks+fenced_code_attributes
+  --from=markdown+raw_tex+pipe_tables+backtick_code_blocks+fenced_code_attributes+yaml_metadata_block
   --resource-path="$BUILD:$ROOT"
   --top-level-division=chapter
   --metadata=title:"ICT Network Deployment in Low Connectivity and Resource-Limited Contexts"
