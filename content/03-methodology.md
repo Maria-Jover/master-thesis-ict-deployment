@@ -335,6 +335,7 @@ do not require the operator to remember anything in the moment.
 
 
 ---
+
 ## 3.B Endpoint reconditioning and mass deployment
 <!-- \label{sec:methodology-endpoint} -->
 
