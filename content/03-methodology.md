@@ -1,9 +1,6 @@
 # 3. Methodology / Project Development
 <!-- \label{ch:methodology} -->
 
-> The bulk of the thesis. Three coordinated work-streams: **3.A** the network, **3.B** the endpoints, **3.C** the knowledge artefact. Maps to LaTeX section *Methodology / project development*.
-
----
 
 ## 3.A Network hardware deployment
 <!-- \label{sec:methodology-network} -->
