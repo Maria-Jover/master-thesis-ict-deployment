@@ -1,0 +1,14 @@
+flowchart LR
+    A["Field episode\n(debugging cost > minutes)"] --> B["Root cause identified\non site"]
+    B --> C{"Type of fix"}
+    C --> D["New admonition\nor warning block"]
+    C --> E["New troubleshooting row"]
+    C --> F["New section\nor phase"]
+    D --> G["Handbook recipe updated\n(PR merged)"]
+    E --> G
+    F --> G
+    G --> H["Next operator\nhits same site,\ndifferent team"]
+    H --> I["Recipe used\ndirectly from handbook"]
+    I --> J{"Does it work?"}
+    J -- "Yes" --> K["Validation signal:\nadaptation confirmed"]
+    J -- "No" --> A

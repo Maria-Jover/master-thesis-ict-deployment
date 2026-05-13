@@ -144,7 +144,7 @@ flow through the student authors directly.
 
 The grant covers approximately 85 % of the cash spend recorded in
 §§5.1, 5.2 and 5.5 (~6 547 € against the 5 600 € grant, with a
-~947 € overshoot absorbed by AUCOOP's own funds). The engineering
+~947 € overshoot absorbed by the spare budget of another AUCOOP project). The engineering
 effort of §5.4 is explicitly not funded; it is contributed in
 exchange for the academic credit of the two theses. The
 sustainability reading of this funding mix — small cash outlay
@@ -178,14 +178,14 @@ the commercial alternative.
 ## 5.8 Cost per beneficiary
 
 The N Mutschuana Primary School serves approximately **300 students**.
-Distributed evenly:
+Distributed evenly and the Children Home 60 kids:
 
-- **Full-project cost per student**: ~49 347 ÷ 300 ≈ **164 € / student**.
-- **Cash cost per student**: ~6 547 ÷ 300 ≈ **22 € / student**.
-- **Cash cost per student per year of service** (assuming a
-  conservative 5-year service life): ~**4.4 € / student / year**.
+- **Full-project cost per student**: ~49 347 ÷ 360 ≈ **137,07 € / beneficiary**.
+- **Cash cost per beneficiary**: ~6 547 ÷ 360 ≈ **18,19 € / beneficiary**.
+- **Cash cost per beneficiary per year of service** (assuming a
+  conservative 5-year service life): ~**3.63 € / beneficiary / year**.
 
-The €4.4-per-student-per-year figure is the one that lands. It
+The €3.63-per-student-per-year figure is the one that lands. It
 includes a connected wireless network covering the school and a
 fleet of nine endpoints, and it is well within the range of
 cost-effectiveness benchmarks for ICT-in-education programmes
@@ -205,7 +205,7 @@ deployment as follows.
 | Endpoints | ~460 € (parts) | ~7 200 € (9 × ~800 € new business laptops) |
 | Software / licensing | 0 € | ~1 000 € (Windows + productivity, 9 seats) |
 | Installation labour | (volunteer) | ~2 500 € (contractor, 5 days × 2 people) |
-| 3-year support contract | (community) | ~1 800 € |
+| 3-year support contract | (volunteer - community) | ~1 800 € |
 | **Cash subtotal** | **~1 420 €** | **~16 000 €** |
 | Travel and logistics | 5 577 € | ~5 577 € (unchanged) |
 | **Total cash** | **~6 535 €** | **~21 577 €** |
@@ -221,8 +221,7 @@ the handbook of §3.C — a dependency that the validation chapter
 (§4.4) shows the handbook is now mature enough to carry.
 
 The comparison should not be over-read. A commercial deployment
-buys things the community recipe does not: a single-throat-to-choke
-support contract, an SLA, vendor liability, and faster mean-time-to-
+buys things the community recipe does not: available support as per contract, an SLA, vendor liability, and faster mean-time-to-
 repair on hardware failures. Whether those properties are worth the
 3.5× premium depends on the deploying organisation's risk profile;
 for AUCOOP and its partner sites, the trade-off has historically
