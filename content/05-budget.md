@@ -49,7 +49,7 @@ side of it.
 ## 5.2 Endpoint hardware
 
 | Item | Unit cost (€) | Qty | Subtotal (€) |
-|---|---:|---:|---:|
+|:------------------------------------------------------|----------:|----:|-----------:|
 | Refurbished Lenovo ThinkPad T460 / X260 | 0 (donated) | 9 | 0 |
 | Replacement RAM (8 GB DDR4 modules) | ~25 | 4 | ~100 |
 | Replacement SSDs (240 GB) | ~30 | 3 | ~90 |
