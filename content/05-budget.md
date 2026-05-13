@@ -9,16 +9,10 @@ followed by a discussion of funding sources, a per-beneficiary
 breakdown, and a comparison with the cost of the equivalent
 new-equipment, commercial-deployment alternative.
 
-Two notes apply to every figure that follows. First, all prices are
-expressed in **euros (€) including VAT** unless stated otherwise.
-Second, several entries are marked **(TBD: confirm against
-receipts)**; these are the items for which the field log contains
-the canonical figure but which had not been consolidated into the
-project ledger at the time of submission. The estimates given are
+The numbers given are
 based on the public list price at the time of purchase (October
 2025 to February 2026) and the figures recorded in the AUCOOP
-project tracker; they are within ~10 % of the receipted values and
-the ranking of cost categories is robust to that uncertainty.
+project tracker
 
 ---
 
@@ -51,27 +45,17 @@ side of it.
 | Item | Unit cost (€) | Qty | Subtotal (€) |
 |:------------------------------------------------------|----------:|----:|-----------:|
 | Refurbished Lenovo ThinkPad T460 / X260 | 0 (donated) | 9 | 0 |
-| Replacement RAM (8 GB DDR4 modules) | ~25 | 4 | ~100 |
-| Replacement SSDs (240 GB) | ~30 | 3 | ~90 |
-| Replacement batteries (genuine / refurbished) | ~45 | 2 | ~90 |
-| Replacement palmrests / keyboards | (TBD) | 1–2 | ~70 |
-| External USB-A sticks (16 GB, for AUCOOP-image and PXE seed) | ~6 | 5 | ~30 |
-| External USB SSD (500 GB, image staging) | ~55 | 1 | ~55 |
-| Cleaning, thermal paste, screws | (TBD) | — | ~25 |
-| **Subtotal — Endpoint hardware** |  |  | **~460** |
+| External USB-A sticks (16 GB, for AUCOOP-image and PXE seed) | ~6 | 2 | ~12 |
+| **Subtotal — Endpoint hardware** |  |  | **~12** |
 
 Table: Endpoint hardware bill of materials — refurbishment costs only (donated machines at €0)
 
-The zero in the first row: the nine endpoints
-themselves were donated through Labdoo and NexTReT and entered the
-project at no cash cost. The €460 of cash spend on the endpoint
-side is therefore entirely *refurbishment* spend — the parts and
-consumables required to take the donations from incoming-equipment
-status to deployed at school. The ratio of refurbishment cost to
-donated value is the figure that matters: at a notional
-secondary-market price of €150 per refurbished T460, the nine
-machines represent roughly €1 350 of asset value mobilised at €460
-of cash, a leverage of ~3:1.
+The nine endpoints were donated through Labdoo and NexTReT and entered the
+project at no cash cost. No repairs or part replacements were required; all
+machines were deployed as received. The only endpoint-side cash spend was two
+USB sticks used for imaging and PXE seeding. At a notional secondary-market
+price of ~€150 per refurbished T460, the nine machines represent roughly
+€1 350 of asset value mobilised at negligible cost.
 
 ## 5.3 Software
 
