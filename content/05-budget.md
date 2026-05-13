@@ -27,7 +27,7 @@ project tracker
 | Outdoor-rated Ethernet (per metre) | ~1.20 | 50 | ~60 |
 | 24 V / 12 V PoE injectors and splitters | ~12 | 4 | ~48 |
 | Lithium UPS (small, for gateway + switch) | ~120 | 1 | ~120 |
-| Wall-mounting hardware, conduit, ties | (TBD) | — | ~50 |
+| Wall-mounting hardware, conduit, ties | — | — | ~50 |
 | **Subtotal — Network hardware** |  |  | **~958** |
 
 Table: Network hardware bill of materials — Namibia 2026 deployment
@@ -103,15 +103,10 @@ share.
 
 ## 5.5 Travel and logistics (Namibia field deployment)
 
-[TBC]
-
 The flights alone account for more than half of this block and are
 also the single largest contributor to the project's transport
 carbon footprint, which §6.7 flags as a non-netted item in the
-environmental analysis. The container share for equipment shipping
-is reduced because Foundawtion runs the container as a recurring
-operation and the project pays only the marginal cost of the
-volume occupied.
+environmental analysis.
 
 ## 5.6 Funding sources
 <!-- \label{sec:budget-funding} -->
