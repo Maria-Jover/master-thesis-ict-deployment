@@ -51,9 +51,7 @@ side of it.
 Table: Endpoint hardware bill of materials — refurbishment costs only (donated machines at €0)
 
 The nine endpoints were donated through Labdoo and NexTReT and entered the
-project at no cash cost. No repairs or part replacements were required; all
-machines were deployed as received. The only endpoint-side cash spend was two
-USB sticks used for imaging and PXE seeding. At a notional secondary-market
+project at no cash cost. No repairs or part replacements were required. USB sticks used for imaging and PXE seeding. At a notional secondary-market
 price of ~€150 per refurbished T460, the nine machines represent roughly
 €1 350 of asset value mobilised at negligible cost.
 
@@ -77,18 +75,16 @@ deploying a second school is the same as the first, namely zero.
 
 The thesis budget accounts for engineering effort using indicative
 hourly rates rather than market rates; the real cost is borne by
-the university (advisor time) and by the student (own time). The
-table is included for completeness and to make the implicit
-investment legible.
+the university (advisor time) and by the student (own time).
 
 | Role | Hours | Rate (€/h) | Subtotal (€) |
 |---|---:|---:|---:|
 | Student engineer (M. Jover, this thesis) | ~720 | 25 | ~18 000 |
 | Student engineer (J. Motje, companion thesis) | ~720 | 25 | ~18 000 |
-| Advisor (E. Vidal) | ~60 | 60 | ~3 600 |
-| Co-advisor (S. Giménez) | ~30 | 40 | ~1 200 |
+| Advisor (E. Vidal) | ~20 | 60 | ~1 200 |
+| Co-advisor (S. Giménez) | ~100 | 40 | ~4 000 |
 | AUCOOP volunteer hours (intake, logistics) | ~80 | 20 | ~1 600 |
-| **Subtotal — Engineering effort** |  |  | **~42 400** |
+| **Subtotal — Engineering effort** |  |  | **~42 800** |
 
 Table: Engineering effort at indicative hourly rates
 
@@ -97,9 +93,7 @@ very large margin the dominant cost block, dwarfing the network and
 endpoint hardware combined; this matches the framing of
 §2.1, which describes community networks as trading capital for human expertise. Second, the engineering effort is split across
 two theses; the figure double-counts the advisor hours that were
-spent on shared meetings. A pessimistic single-thesis attribution
-would be roughly half of the figure above plus the full advisor
-share.
+spent on shared meetings. The Co-advisor, supported also on the deployment of the network in Namibia.
 
 ## 5.5 Travel and logistics (Namibia field deployment)
 
@@ -164,9 +158,9 @@ the economic dimension of §6.4.
 | Network hardware (§5.1) | ~958 |
 | Endpoint hardware (§5.2) | ~460 |
 | Software (§5.3) | 0 |
-| Engineering effort (§5.4) | ~42 400 |
+| Engineering effort (§5.4) | ~42 800 |
 | Travel and logistics (§5.5) | 5 577 |
-| **TOTAL — full project** | **~48 947** |
+| **TOTAL — full project** | **~49 347** |
 | **TOTAL — cash only (excludes engineering)** | **~6 535** |
 
 Table: Total project budget — full cost and cash-only breakdown
