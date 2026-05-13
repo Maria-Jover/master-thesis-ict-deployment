@@ -103,6 +103,25 @@ share.
 
 ## 5.5 Travel and logistics (Namibia field deployment)
 
+Three engineers travelled to Namibia for a 15-working-day deployment.
+NAD figures converted at **1 € = 18.68 NAD**.
+
+| Item | € |
+|:-------------------------------------------------------------|----------:|
+| Flights — 3 people, BCN–WDH return | 2 904.81 |
+| Car rental — Barcelona airport (equipment transport) | 788.83 |
+| Fuel — Gochas round trip (NAD 420.15) | 22.50 |
+| Fuel — Windhoek airport (NAD 561.58) | 30.07 |
+| SIM cards — Jaume & Maria (NAD 620) | 33.20 |
+| SIM card — Sergio (NAD 290) | 15.53 |
+| Mobile data / internet (NAD 100) | 5.35 |
+| Accommodation — Stoneys Lodge, Gochas (NAD 27 160) | 1 454.22 |
+| Additional meals — Stoneys (NAD 1 215) | 65.05 |
+| Working-capital allowances — 3 × NAD 1 600 | 257.01 |
+| **Subtotal — Travel and logistics** | **5 576.57** |
+
+Table: Travel and logistics — Namibia 2026 field deployment
+
 The flights alone account for more than half of this block and are
 also the single largest contributor to the project's transport
 carbon footprint, which §6.7 flags as a non-netted item in the
@@ -146,9 +165,9 @@ the economic dimension of §6.4.
 | Endpoint hardware (§5.2) | ~460 |
 | Software (§5.3) | 0 |
 | Engineering effort (§5.4) | ~42 400 |
-| Travel and logistics (§5.5) | ~4 400 |
-| **TOTAL — full project** | **~48 218** |
-| **TOTAL — cash only (excludes engineering)** | **~5 818** |
+| Travel and logistics (§5.5) | 5 577 |
+| **TOTAL — full project** | **~48 947** |
+| **TOTAL — cash only (excludes engineering)** | **~6 535** |
 
 Table: Total project budget — full cost and cash-only breakdown
 
@@ -194,8 +213,8 @@ deployment as follows.
 | Installation labour | (volunteer) | ~2 500 € (contractor, 5 days × 2 people) |
 | 3-year support contract | (community) | ~1 800 € |
 | **Cash subtotal** | **~1 420 €** | **~16 000 €** |
-| Travel and logistics | ~4 400 € | ~4 400 € (unchanged) |
-| **Total cash** | **~5 820 €** | **~20 400 €** |
+| Travel and logistics | 5 577 € | ~5 577 € (unchanged) |
+| **Total cash** | **~6 535 €** | **~21 577 €** |
 
 Table: Cost comparison — open recipe vs commercial-equivalent deployment
 
