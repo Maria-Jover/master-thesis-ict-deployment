@@ -142,9 +142,9 @@ flow through the student authors directly.
 - **AUCOOP**: coordination, intake-and-staging space at the UPC
   Campus Nord, and the volunteer hours costed in §5.4. No cash flow.
 
-The grant covers approximately 100 % of the cash spend recorded in
-§§5.1, 5.2 and 5.5 (~6 000 € against the 5 600 € grant, with a
-~400 € overshoot absorbed by AUCOOP's own funds). The engineering
+The grant covers approximately 85 % of the cash spend recorded in
+§§5.1, 5.2 and 5.5 (~6 547 € against the 5 600 € grant, with a
+~947 € overshoot absorbed by AUCOOP's own funds). The engineering
 effort of §5.4 is explicitly not funded; it is contributed in
 exchange for the academic credit of the two theses. The
 sustainability reading of this funding mix — small cash outlay
@@ -180,12 +180,12 @@ the commercial alternative.
 The N Mutschuana Primary School serves approximately **300 students**.
 Distributed evenly:
 
-- **Full-project cost per student**: ~48 218 ÷ 300 ≈ **161 € / student**.
-- **Cash cost per student**: ~5 818 ÷ 300 ≈ **19 € / student**.
+- **Full-project cost per student**: ~49 347 ÷ 300 ≈ **164 € / student**.
+- **Cash cost per student**: ~6 547 ÷ 300 ≈ **22 € / student**.
 - **Cash cost per student per year of service** (assuming a
-  conservative 5-year service life): ~**4 € / student / year**.
+  conservative 5-year service life): ~**4.4 € / student / year**.
 
-The €4-per-student-per-year figure is the one that lands. It
+The €4.4-per-student-per-year figure is the one that lands. It
 includes a connected wireless network covering the school and a
 fleet of nine endpoints, and it is well within the range of
 cost-effectiveness benchmarks for ICT-in-education programmes
