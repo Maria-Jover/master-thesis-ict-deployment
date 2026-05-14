@@ -19,6 +19,7 @@ landed as recipe amendments. Section §4.6 discusses limits.
 ## 4.1 Site context and validation strategy
 <!-- \label{sec:results-strategy} -->
 
+
 The single deployment site is **N Mutschuana Primary School** in Gochas,
 Hardap Region, Namibia — a 300-pupil primary school in a remote Kalahari
 Desert town of fewer than 2,000 inhabitants. The map below places Gochas in

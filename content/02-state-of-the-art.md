@@ -79,7 +79,7 @@ For the imaging step itself, the main practitioner options are:
 The endpoint OS choice of §3.B.3 selects from a well-documented field:
 
 | Distribution | Strengths | Weaknesses for this context |
-|---|---|---|
+|---|------|------|
 | Ubuntu | Largest software ecosystem; LTS cadence | GNOME desktop unfamiliar to Windows users; Snap-centric |
 | **Linux Mint Cinnamon** | Windows-style desktop, Ubuntu-LTS base, lightweight | Slightly heavier than Lubuntu/antiX |
 | Lubuntu | Very lightweight (LXQt) | Less polished UI |
@@ -94,14 +94,14 @@ Linux Mint Cinnamon is the choice justified in §3.B.3: it combines a Windows-st
 
 The most original contribution of this thesis (§3.C) sits in a literature that is younger and less consolidated than the technical sections above.
 
-**Docs-as-code.** The practice of treating documentation as version-controlled source — written in plain text, reviewed as pull requests, built by CI — is documented as an engineering discipline by Gentle's *Docs Like Code* [Gentle, 2022] and by widely-cited corporate handbooks: the **GitLab Handbook** [GitLab], and the **ArchWiki** contributing guidelines. The model is mature enough that its conventions (Markdown source, PR-based review) are no longer controversial. What remains debatable is *how thick* the editorial process should be. Section §3.C.5 adopts a deliberately thin process, scaled to the contributor pool of a student association.
+**Docs-as-code.** The practice of treating documentation as version-controlled source — written in plain text, reviewed as pull requests, built by CI — is documented as an engineering discipline in *Docs Like Code* [Gentle, 2022] and by widely-cited corporate handbooks: the **GitLab Handbook** [GitLab], and the **ArchWiki**. The model is mature enough that its conventions (Markdown source, PR-based review) are no longer controversial. What remains debatable is *how thick* the editorial process should be. Section §3.C.5 adopts a deliberately thin process, scaled to the contributor pool of a student association.
 
-**The Diátaxis framework** [diataxis.fr] organises documentation into four modes — tutorials, how-to guides, reference, explanation — each serving a distinct user need. The Ch2 (story) ↔ Ch3 (recipe) split of the AUCOOP handbook (§3.C.2) is a simplification of Diátaxis to two complementary modes that cover the two most-needed user journeys: *learning the domain* (Ch2 stories) and *executing a task* (Ch3 recipes).
+**The [Diátaxis](diataxis.fr) framework** organises documentation into four modes — tutorials, how-to guides, reference, explanation — each serving a distinct user need. The Ch2 (story) ↔ Ch3 (recipe) split of the AUCOOP handbook (§3.C.2) is a simplification of Diátaxis to two complementary modes that cover the two most-needed user journeys: *learning the domain* (Ch2 stories) and *executing a task* (Ch3 recipes).
 
 ```{=latex}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.75\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/diagrams/fig2-2-diataxis-framework.png}
+\includegraphics[width=0.7\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/diagrams/fig2-2-diataxis-framework.png}
 \caption*{\textit{Figure 2.2 — The Diátaxis documentation framework (tutorials / how-to guides / reference / explanation). The AUCOOP handbook's Ch2 (stories) maps to the explanation quadrant; Ch3 (recipes) maps to how-to guides. Source: diataxis.fr.}}
 \end{figure}
 ```
@@ -109,7 +109,7 @@ The most original contribution of this thesis (§3.C) sits in a literature that 
 
 **Static-site generators with dual web/PDF output.** The toolchain choice of §3.C.3 (Zensical, building on Material for MkDocs) sits in a field where MkDocs, Hugo, and Docusaurus are the dominant alternatives. The key differentiator for a low-connectivity context is the ability to produce a *single, self-contained PDF* alongside the website without dual-maintaining the source. Section §3.C.4 elevates this dual-output property from a nice-to-have to a methodological requirement.
 
-**Contribution models for volunteer associations.** The literature on open-source contribution (Mozilla's documentation, Apache's mentor model, the GitLab handbook) assumes a contributor pool that is either professional or stable. The volunteer-association case — contributors who join for one or two academic years — is closer to the literature on volunteer organisations in non-IT contexts [Cuskelly et al., 2006] than to mainstream open-source literature. The handbook's *rule files + subagents + custom commands* model (§3.C.5) is, to this author's knowledge, the first concrete instantiation of an AI-assisted contribution workflow targeted at this case.
+**Contribution models for volunteer associations.** The literature on open-source contribution (Mozilla's documentation, Apache's mentor model, the GitLab handbook) assumes a contributor pool that is either professional or stable. The volunteer-association case — contributors who join for one or two academic years — is closer to the literature on volunteer organisations in non-IT contexts than to mainstream open-source literature. The handbook's *rule files + subagents + custom commands* model (§3.C.5) is, to this author's knowledge, the first concrete instantiation of an AI-assisted contribution workflow targeted at this case.
 
 ## 2.6 The gap addressed by this thesis
 
@@ -117,7 +117,6 @@ The literature surveyed above is strong within each individual area but fragment
 
 - A community-network literature that is policy-rich and recipe-poor (§2.1).
 - An OpenWrt and Wi-Fi mesh body of documentation that is excellent at the per-device level but does not address the full site-deployment workflow (§2.2).
-- A PXE/Clonezilla body of documentation that covers individual steps but does not address known failure modes such as the partition-resize problem of §3.B.5 (§2.3).
 - A Linux distribution landscape with no clear guidance for low-resource, volunteer-run deployments targeting Windows-trained users (§2.4).
 - A docs-as-code literature that does not address volunteer-cohort handover at the scale of a student association (§2.5).
 

@@ -29,10 +29,9 @@ without that map.
 The handbook runs two parallel streams for every technical topic. The
 **imaginary use case** stream tells the story of a fictional community
 network as it grows from "there is no internet here" to a fully serviced
-site, one user-visible problem per section, in a narrative second-person
-voice. It answers *why* a piece of infrastructure is needed and *what*
+site, one user-visible problem per section. It answers *why* a piece of infrastructure is needed and *what*
 it has to do, deliberately staying away from commands and configuration.
-The **guide** stream is the opposite register: an imperative, step-by-step
+The **guide** stream is the opposite register: a step-by-step
 recipe with pinned versions, exact CLI invocations, and known pitfalls.
 It answers *how* to build the thing the story argued for.
 
@@ -54,7 +53,7 @@ layer owns a small set of decisions, a recommended bill of materials, and a
 matching family of recipes in the handbook.
 
 | Layer | Owns | Handbook — Imaginary use case | Handbook — Guide | Examples of artefacts |
-|---|---|---|---|---|
+|---|-----|-----|----|---|
 | **Site** | Indoor coverage, nearby building links, mesh backbone, IP plan, switching, boundary L3/L4 services | *"There's no internet here!"*[^h-story-router], *"The WiFi doesn't reach the kitchen!"*[^h-story-coverage] | Network Planning[^h-guide-netplan], IP Addressing[^h-guide-ip], Wireless Mesh Networks[^h-guide-mesh] | OpenWrt routers, 802.11s mesh, DHCP/DNS on the gateway |
 | **Endpoint touchpoint** | The network-side of laptop/desktop provisioning | *"We have the network — now we need computers for the people"*[^h-story-laptop] | Mass Laptop Deployment with PXE and Clonezilla[^h-guide-laptop] (network parts only) | Isolated PXE subnet, deployment switch, on-site DHCP/TFTP/NFS |
 | **Power & enclosure** | Mains, UPS, surge protection, mounting, cabling, labelling | *"The power went out and everything died"*[^h-story-power] | Power and UPS[^h-guide-power] | UPS sizing, cable management, panel labelling |
@@ -83,7 +82,7 @@ three phases, each with a corresponding deliverable:
    the existing uplink actually delivers, and whether a different
    technology (fibre, cable, ADSL, 4G/5G, LEO satellite) is reachable at
    reasonable cost. The deliverable is a comparison table scored against
-   the eight criteria in `1-Internet-Assessment.md` (download/upload,
+   the eight criteria in the guide (download/upload,
    data cap, reliability, latency, local support, contract length, budget
    fit, expected user load). The Namibia deployment inherited a
    government-supplied ADSL link and skipped the change-of-provider
@@ -112,7 +111,7 @@ The bill of materials for the site layer is constrained by four criteria,
 applied in order:
 
 1. **OpenWrt support** with mesh-capable Wi-Fi packages. The router must be
-   on the OpenWrt Table of Hardware with a current snapshot or release,
+   on the OpenWrt Table of Hardware[^h-OpenWRT-compatible-devices] with a current snapshot or release,
    and it must have enough flash and RAM to host `wpad-mesh-wolfssl`
    alongside the default LuCI stack (in practice ≥ 16 MB flash, ≥ 128 MB
    RAM, dual-band radios).
@@ -124,6 +123,8 @@ applied in order:
 4. **Footprint.** A consumer plastic enclosure that mounts on a wall with
    two screws is preferred so the installation can be clean and simple.
 
+[^h-OpenWRT-compatible-devices]: <https://openwrt.org/supported_devices>
+
 The default pick that satisfies all four criteria at the time of writing is
 the **Cudy WR3000E** (Wi-Fi 6, dual-band, OpenWrt-supported, ~45 €/unit,
 12 V input). For deployments that need a more capable gateway with two
@@ -132,13 +133,14 @@ the **NanoPi R-series** is the chosen alternative; it is the same family
 that the companion thesis uses for service hosting [Motje, 2026], which
 keeps the on-site hardware vocabulary uniform across the two work-streams.
 
-A pitfall worth naming: a router that *technically* supports OpenWrt at
+An issue found worth mentioning: a router that *technically* supports OpenWrt at
 release N may be impractical if the snapshot images regress on the model's
 specific Wi-Fi driver. Two days were lost in early bring-up to a snapshot
-build that broke 5 GHz on the WR3000E; the recipe in
-`Wireless-Mesh/1-Static-IP-Mesh/index.md` therefore pins the tested
+build that broke 5 GHz on the WR3000E[^h-OpenWRT-compatible-versions]; the recipe in therefore pins the tested
 versions of OpenWrt and `wpad-mesh-wolfssl` and cautions the reader that
 "newer is not necessarily better".
+
+[^h-OpenWRT-compatible-versions]:<https://aucoop.github.io/Community-Network-Handbook/3-Guide/Flash-OpenWrt/Cudy-WR3000E/>
 
 ### 3.A.5 IP addressing plan
 
@@ -146,11 +148,10 @@ The IP plan is the most under-valued artefact of a small network, and the
 one whose absence costs the most when something breaks. The **IP
 Addressing** guide[^h-guide-ip] codifies four methodological commitments:
 
-- **Use a non-default `/24`** (the deployments documented here use
-  `192.168.70.0/24`). Default ranges (`192.168.1.0/24`, `192.168.0.0/24`)
+- **Use something different than the default 192.168.1.0/24**  Default ranges `192.168.1.0/24`
   collide the moment a second consumer router is plugged in for tests, or
   a contractor's device with the same default range is brought to site.
-  RFC 1918 leaves an enormous private space; using it removes a recurring
+  RFC 1918 [Rekhter et al., 1996] leaves an enormous private space; using it removes a recurring
   source of accidental conflicts.
 - **Reserve the low part of the range for infrastructure** (`.1` for the
   gateway, `.2`–`.20` for routers and APs, `.21`–`.99` for fixed servers
@@ -167,7 +168,15 @@ Addressing** guide[^h-guide-ip] codifies four methodological commitments:
   as the team that wrote them is around, while a DHCP table on the
   gateway is self-documenting and survives turnover.
 
-
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.65\textwidth]{assets/images/diagrams/fig3-ip-plan.png}
+  \caption{IP addressing plan for the Gochas deployment — infrastructure
+    devices occupy the low range (\texttt{.1}–\texttt{.99}); DHCP client
+    pool starts at \texttt{.100}. The chosen subnet (\texttt{192.168.70.0/24})
+    avoids the consumer-router default \texttt{192.168.1.0/24}}
+  \label{fig:ip-plan}
+\end{figure}
 ### 3.A.6 Wireless mesh design at the site layer
 
 Indoor coverage of a multi-room or multi-building site without trenching
@@ -193,10 +202,7 @@ the design as **two iterations** that are meant to be done in sequence:
 
 The methodological choice of *layering* the iterations rather than
 presenting them as alternatives is itself a deliberate didactic device:
-new operators learn the system by building it incrementally, and they
-acquire diagnostic intuition (what fails when DHCP is misconfigured vs
-when the mesh ID is mistyped) that they would not acquire by copy-pasting
-the final state.
+new operators learn the system by building it incrementally.
 
 The radio design splits the two bands by role:
 
@@ -217,14 +223,10 @@ The radio design splits the two bands by role:
 
 Long-distance point-to-point antenna links between separate buildings
 were *not* exercised in the Gochas deployment — the school's buildings
-sit within mesh range — so the antenna work that the handbook plans
-(`3-Guide/Antennas/`, currently a WIP stub acknowledged in §1.4) is
+sit within mesh range — so the antennas[^h-guide-antennas] work that the handbook plans, currently a WIP stub acknowledged in §1.4 is
 left out of the three-layer model and out of this chapter. When a future
 deployment needs it, the recipe will live as an extension of the **site**
-layer rather than as a separate fourth layer (the **Antennas — Point-to-Point
-Links** stub[^h-guide-antennas] in the handbook is the placeholder for
-that future work); the validation discussion in §4 returns to this
-honest scoping choice.
+layer.
 
 ### 3.A.7 Endpoint touchpoint — the deployment subnet
 
@@ -246,6 +248,15 @@ network has three hardware requirements:
 
 The corresponding services (DHCP scope, TFTP root, NFS export) belong to
 §3.B; their hardware substrate belongs here.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\textwidth]{assets/images/diagrams/fig3-pxe-server-network.png}
+  \caption{Hardware layout of the PXE deployment subnet. The imaging
+    server connects to the unmanaged switch via Ethernet; client laptops
+    boot from the network over the same switch.}
+  \label{fig:pxe-server-network}
+\end{figure}
 
 ### 3.A.8 Power and enclosure
 
@@ -353,7 +364,7 @@ switch, the DHCP/TFTP/NFS hardware footprint) is owned by §3.A.7.
 
 The starting point is the observation that the bottleneck for digital
 inclusion in low-resource sites is rarely the availability of *new*
-hardware. Corporate fleet refreshes, NGOs such as **Labdoo**, and local
+hardware. Corporate fleet refreshes, NGOs such as **[Labdoo](https://www.labdoo.org/en/)**, and local
 sponsors put three- to seven-year-old business laptops back into
 circulation. The limiting factors on their reuse are three: the *cost of
 shipping the machines to the site*, the *labour cost of imaging them
@@ -367,7 +378,7 @@ it to the community and support it remotely afterwards".
 Two sourcing channels were exercised in the deployments documented in
 §4. Labdoo provided nine Lenovo ThinkPads (T460 and X260, Intel i5-6200U,
 8 GB DDR4, mixed 238 GB SSD / 466 GB HDD) wiped and ready to receive a
-new OS. NexTReT contributed three additional laptops and two mini-PC
+new OS. [NexTReT](https://nextret.net/) contributed three additional laptops and two mini-PC
 servers from a Spanish fleet refresh. The twelve laptops were allocated
 to two sites at handover: nine to the school and three to the children's
 house. Both channels deliver hardware in the *same generation class* but
@@ -392,7 +403,7 @@ per machine are deliberately minimal so the workflow does not become its
 own bottleneck:
 
 | Field | Source | Why |
-|---|---|---|
+|---|------|-----|
 | Manufacturer / model / serial | Sticker or `dmidecode -s system-serial-number` | Traceability, warranty |
 | CPU / RAM | `lscpu`, `free -h` | Software-baseline check |
 | Storage device + size | `lsblk -d -o NAME,SIZE,ROTA` | **Drives the imaging plan** |
@@ -406,7 +417,7 @@ The inventory is held in the same project repository as the IP plan of
 §3.A.5, in a comma-separated file with one row per machine. The
 deployment script consumes this file when matching disks to image
 variants (§3.B.5). For larger or longer-running operations, a tool such
-as **DeviceHub** can replace the spreadsheet without changing the
+as [DeviceHub](https://github.com/ereuse/devicehub-django) can replace the spreadsheet without changing the
 methodology — what matters is that the inventory exists and is
 versioned, not which tool produces it.
 
@@ -423,7 +434,6 @@ The reference operating system installed on every endpoint is **Linux
 Mint 22.3 Cinnamon**, customised for community use. The reasoning is
 documented in the **AUCOOP Linux Deployment Image** page[^h-guide-aucoop-image]
 of the handbook and reduces to two observations.
-
 First, the alternative operating systems each fail one constraint that
 matters for this user population. Windows is licensed and runs poorly
 on the target hardware class; Ubuntu's GNOME and Snap-centric desktop is
@@ -436,7 +446,7 @@ base, which keeps user training cost and security-update cadence both
 manageable.
 
 Second, the *customisation* is itself a methodological deliverable, not
-a matter of taste. The AUCOOP image ships with **OnlyOffice** as the
+a matter of taste. The AUCOOP image ships with **[OnlyOffice](https://www.onlyoffice.com/es)** as the
 office suite (chosen for its high fidelity to the Microsoft Office file
 formats users already produce), with familiar launcher icons named
 after the closest Microsoft equivalent (Word, Excel, PowerPoint), and
@@ -446,6 +456,16 @@ endpoint is delivered as a *station* the school can assign to a child or
 a teacher, not as a personal device tied to the contributor who imaged
 it.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{assets/images/photos/fig3-aucoop-mint-homescreen.png}
+  \caption{AUCOOP golden-master desktop (Linux Mint Cinnamon 22.3). The
+    layout mirrors a Windows-style environment — taskbar, start menu, and
+    system tray — to minimise retraining for users familiar with Windows.
+    OnlyOffice launchers are pinned to the taskbar; the default account is
+    the generic \texttt{aucoop} user.}
+  \label{fig:aucoop-mint-homescreen}
+\end{figure}
 
 ### 3.B.4 Image capture with Clonezilla
 
@@ -504,26 +524,7 @@ metadata block lands beyond the device boundary and `partclone` aborts.
 
  The partition layout itself must be made physically smaller
 than the smallest target disk, on a copy of the master, before the
-image is recaptured. The four-step procedure is mandatory and
-order-sensitive:
-
-1. `e2fsck -fy /dev/<source>` — force a clean filesystem before
-   resizing. The resize tools refuse to operate on a dirty filesystem.
-2. `resize2fs /dev/<source> 20G` — shrink the **filesystem** to a size
-   chosen to be larger than the actual data (12 GB → 20 GB gives
-   margin) but smaller than the smallest target disk (238 GB).
-3. `parted /dev/<sourcedisk> resizepart <N> 22100MB` — shrink the
-   **partition** to slightly larger than the filesystem, accounting for
-   the partition start offset.
-4. `e2fsck -fy /dev/<source>` again — verify that the filesystem
-   survived the partition shrink.
-
-Then the image is recaptured with `partclone` directly
-(`partclone.vfat` for the EFI system partition,
-`partclone.ext4` for the root partition), and the partition-table dumps
-are regenerated with `parted`, `sgdisk`, `sfdisk`, and `blkid`. The
-result is a smaller image (~3.6 GB compressed) that restores cleanly to
-both 238 GB SSDs and 466 GB HDDs.
+image is recaptured. 
 
 The work happens once, off-line. The **Mass Laptop Deployment with PXE
 and Clonezilla** guide[^h-guide-laptop] codifies the off-line workflow
@@ -665,10 +666,6 @@ A living handbook reverses this dynamic by making three structural commitments:
    workflow** (Git + Markdown + pull request), so corrections from the field
    are cheap to land.
 
-Compared with the realistic alternatives — a Google Drive folder, a Notion
-workspace, a wiki on a self-hosted server that nobody patches — the chosen
-model trades convenience (no rich WYSIWYG editor) for longevity (plain text
-under version control survives platform changes and credential losses).
 
 ```{=latex}
 \begin{figure}[h!]
@@ -685,7 +682,7 @@ The handbook is organised in four top-level chapters, each with a clear
 epistemic role:
 
 | Chapter | Role | Voice |
-|---|---|---|
+|---|----------|---|
 | `1-Introduction` | Why the handbook exists, who it is for | Editorial |
 | `2-Imaginary-Use-Case` | A fictional community network, told as a story; one section per challenge, explaining *why* each challenge appears and *what* it means for the deployment | Narrative, second-person |
 | `3-Guide` | Step-by-step recipes; covers *how* to solve the challenges presented in chapter 2 | Instructional |
@@ -765,7 +762,7 @@ defined in `.opencode/agents/` that can be invoked from any OpenCode-compatible
 editor:
 
 | Agent | Role | Mode |
-|---|---|---|
+|---|---------|---|
 | `@writer` | Create or expand sections; runs against the rule files; can edit and shell out | Read–write |
 | `@reviewer` | Quality review of an existing section against the rules | Read-only |
 | `@structure` | Refactor folder structures and synchronise `mkdocs.yml` nav | Read–write |

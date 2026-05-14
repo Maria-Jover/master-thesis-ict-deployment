@@ -7,14 +7,12 @@ on the software and services side [Motje, 2026], the work delivers
 three contributions: a reproducible community wireless network recipe
 based on OpenWrt commodity access points with 802.11s mesh backhaul;
 a refurbished-endpoint pipeline that provisions donated business
-laptops through PXE-booted Clonezilla and a curated Linux Mint
-golden-master image; and an open, web-and-PDF, GitHub-hosted
+laptops through PXE-booted Clonezilla; and an open, web-and-PDF, GitHub-hosted
 **Community-Network-Handbook** consolidating the operational
 knowledge into a living artefact. The three contributions were
 validated through a field deployment at N Mutschuana Primary School,
 Gochas, Namibia, in March 2026: a seven-AP mesh covering the school
-and nine refurbished Lenovo ThinkPads provisioned in approximately
-one hour. Validation is reported through three qualitative lenses —
+and nine refurbished Lenovo ThinkPads. Validation is reported through three qualitative lenses —
 *coverage*, *sufficiency*, *adaptation* — and the eleven operational
 lessons produced were committed back into the handbook during the
 deployment itself. The work is framed as a *sustainability*
