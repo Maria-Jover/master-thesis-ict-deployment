@@ -205,20 +205,26 @@ See [`gantt`](#16-gantt-diagram) below.
 ### Phases
 
 | Phase | Description | Period |
-|---|-----------|-----|
+|--|-------------|-----|
 | P1 | Bootstrap handbook repository, conventions, CI | Sep 2025 – Oct 2025 |
 | P2 | Network chapters (planning, IP, mesh, antennas, power) | Oct 2025 – Jan 2026 |
 | P3 | Laptop chapters (refurbishment, AUCOOP image, PXE/Clonezilla) | Jan 2026 – Mar 2026 |
-| P4 | Field deployment — Namibia (Gochas) | Mar 2026 |
+| P4 | Field deployment — Namibia (Gochas) | 20 Mar - 14 Apr 2026 |
 | P5 | Real-use case write-up + handbook consolidation | Mar 2026 – Apr 2026 |
 | P6 | Thesis write-up | Apr 2026 – May 2026 |
 | P7 | Defence preparation | May 2026 |
 
 Table: Project work plan phases (P1–P7)
 
-> Source: `plan/gantt.md`. Render via `latex/gantt_diagrama.tex` (template uses `pgfgantt`).
 
-*[insert Gantt diagram here]*
+\begin{figure}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \input{latex/gantt_diagrama.tex}%
+  }
+  \caption{Project phases and schedule (Sep 2025 – May 2026)}
+  \label{fig:gantt}
+\end{figure}
 
 
 
