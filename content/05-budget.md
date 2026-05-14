@@ -9,16 +9,10 @@ followed by a discussion of funding sources, a per-beneficiary
 breakdown, and a comparison with the cost of the equivalent
 new-equipment, commercial-deployment alternative.
 
-Two notes apply to every figure that follows. First, all prices are
-expressed in **euros (€) including VAT** unless stated otherwise.
-Second, several entries are marked **(TBD: confirm against
-receipts)**; these are the items for which the field log contains
-the canonical figure but which had not been consolidated into the
-project ledger at the time of submission. The estimates given are
+The numbers given are
 based on the public list price at the time of purchase (October
 2025 to February 2026) and the figures recorded in the AUCOOP
-project tracker; they are within ~10 % of the receipted values and
-the ranking of cost categories is robust to that uncertainty.
+project tracker
 
 ---
 
@@ -33,7 +27,7 @@ the ranking of cost categories is robust to that uncertainty.
 | Outdoor-rated Ethernet (per metre) | ~1.20 | 50 | ~60 |
 | 24 V / 12 V PoE injectors and splitters | ~12 | 4 | ~48 |
 | Lithium UPS (small, for gateway + switch) | ~120 | 1 | ~120 |
-| Wall-mounting hardware, conduit, ties | (TBD) | — | ~50 |
+| Wall-mounting hardware, conduit, ties | — | — | ~50 |
 | **Subtotal — Network hardware** |  |  | **~958** |
 
 Table: Network hardware bill of materials — Namibia 2026 deployment
@@ -49,29 +43,17 @@ side of it.
 ## 5.2 Endpoint hardware
 
 | Item | Unit cost (€) | Qty | Subtotal (€) |
-|---|---:|---:|---:|
+|:------------------------------------------------------|----------:|----:|-----------:|
 | Refurbished Lenovo ThinkPad T460 / X260 | 0 (donated) | 9 | 0 |
-| Replacement RAM (8 GB DDR4 modules) | ~25 | 4 | ~100 |
-| Replacement SSDs (240 GB) | ~30 | 3 | ~90 |
-| Replacement batteries (genuine / refurbished) | ~45 | 2 | ~90 |
-| Replacement palmrests / keyboards | (TBD) | 1–2 | ~70 |
-| External USB-A sticks (16 GB, for AUCOOP-image and PXE seed) | ~6 | 5 | ~30 |
-| External USB SSD (500 GB, image staging) | ~55 | 1 | ~55 |
-| Cleaning, thermal paste, screws | (TBD) | — | ~25 |
-| **Subtotal — Endpoint hardware** |  |  | **~460** |
+| External USB-A sticks (16 GB, for AUCOOP-image and PXE seed) | ~6 | 2 | ~12 |
+| **Subtotal — Endpoint hardware** |  |  | **~12** |
 
 Table: Endpoint hardware bill of materials — refurbishment costs only (donated machines at €0)
 
-The zero in the first row: the nine endpoints
-themselves were donated through Labdoo and NexTReT and entered the
-project at no cash cost. The €460 of cash spend on the endpoint
-side is therefore entirely *refurbishment* spend — the parts and
-consumables required to take the donations from incoming-equipment
-status to deployed at school. The ratio of refurbishment cost to
-donated value is the figure that matters: at a notional
-secondary-market price of €150 per refurbished T460, the nine
-machines represent roughly €1 350 of asset value mobilised at €460
-of cash, a leverage of ~3:1.
+The nine endpoints were donated through Labdoo and NexTReT and entered the
+project at no cash cost. No repairs or part replacements were required. USB sticks used for imaging and PXE seeding. At a notional secondary-market
+price of ~€150 per refurbished T460, the nine machines represent roughly
+€1 350 of asset value mobilised at negligible cost.
 
 ## 5.3 Software
 
@@ -93,18 +75,16 @@ deploying a second school is the same as the first, namely zero.
 
 The thesis budget accounts for engineering effort using indicative
 hourly rates rather than market rates; the real cost is borne by
-the university (advisor time) and by the student (own time). The
-table is included for completeness and to make the implicit
-investment legible.
+the university (advisor time) and by the student (own time).
 
 | Role | Hours | Rate (€/h) | Subtotal (€) |
 |---|---:|---:|---:|
 | Student engineer (M. Jover, this thesis) | ~720 | 25 | ~18 000 |
 | Student engineer (J. Motje, companion thesis) | ~720 | 25 | ~18 000 |
-| Advisor (E. Vidal) | ~60 | 60 | ~3 600 |
-| Co-advisor (S. Giménez) | ~30 | 40 | ~1 200 |
+| Advisor (E. Vidal) | ~20 | 60 | ~1 200 |
+| Co-advisor (S. Giménez) | ~100 | 40 | ~4 000 |
 | AUCOOP volunteer hours (intake, logistics) | ~80 | 20 | ~1 600 |
-| **Subtotal — Engineering effort** |  |  | **~42 400** |
+| **Subtotal — Engineering effort** |  |  | **~42 800** |
 
 Table: Engineering effort at indicative hourly rates
 
@@ -113,21 +93,33 @@ very large margin the dominant cost block, dwarfing the network and
 endpoint hardware combined; this matches the framing of
 §2.1, which describes community networks as trading capital for human expertise. Second, the engineering effort is split across
 two theses; the figure double-counts the advisor hours that were
-spent on shared meetings. A pessimistic single-thesis attribution
-would be roughly half of the figure above plus the full advisor
-share.
+spent on shared meetings. The Co-advisor, supported also on the deployment of the network in Namibia.
 
 ## 5.5 Travel and logistics (Namibia field deployment)
 
-[TBC]
+Three engineers travelled to Namibia for a 15-working-day deployment.
+NAD figures converted at **1 € = 18.68 NAD**.
+
+| Item | € |
+|:-------------------------------------------------------------|----------:|
+| Flights — 3 people, BCN–WDH return | 2 904.81 |
+| Car rental — Barcelona airport (equipment transport) | 788.83 |
+| Fuel — Gochas round trip (NAD 420.15) | 22.50 |
+| Fuel — Windhoek airport (NAD 561.58) | 30.07 |
+| SIM cards — Jaume & Maria (NAD 620) | 33.20 |
+| SIM card — Sergio (NAD 290) | 15.53 |
+| Mobile data / internet (NAD 100) | 5.35 |
+| Accommodation — Stoneys Lodge, Gochas (NAD 27 160) | 1 454.22 |
+| Additional meals — Stoneys (NAD 1 215) | 65.05 |
+| Working-capital allowances — 3 × NAD 1 600 | 257.01 |
+| **Subtotal — Travel and logistics** | **5 576.57** |
+
+Table: Travel and logistics — Namibia 2026 field deployment
 
 The flights alone account for more than half of this block and are
 also the single largest contributor to the project's transport
 carbon footprint, which §6.7 flags as a non-netted item in the
-environmental analysis. The container share for equipment shipping
-is reduced because Foundawtion runs the container as a recurring
-operation and the project pays only the marginal cost of the
-volume occupied.
+environmental analysis.
 
 ## 5.6 Funding sources
 <!-- \label{sec:budget-funding} -->
@@ -150,9 +142,9 @@ flow through the student authors directly.
 - **AUCOOP**: coordination, intake-and-staging space at the UPC
   Campus Nord, and the volunteer hours costed in §5.4. No cash flow.
 
-The grant covers approximately 100 % of the cash spend recorded in
-§§5.1, 5.2 and 5.5 (~6 000 € against the 5 600 € grant, with a
-~400 € overshoot absorbed by AUCOOP's own funds). The engineering
+The grant covers approximately 85 % of the cash spend recorded in
+§§5.1, 5.2 and 5.5 (~6 547 € against the 5 600 € grant, with a
+~947 € overshoot absorbed by the spare budget of another AUCOOP project). The engineering
 effort of §5.4 is explicitly not funded; it is contributed in
 exchange for the academic credit of the two theses. The
 sustainability reading of this funding mix — small cash outlay
@@ -166,10 +158,10 @@ the economic dimension of §6.4.
 | Network hardware (§5.1) | ~958 |
 | Endpoint hardware (§5.2) | ~460 |
 | Software (§5.3) | 0 |
-| Engineering effort (§5.4) | ~42 400 |
-| Travel and logistics (§5.5) | ~4 400 |
-| **TOTAL — full project** | **~48 218** |
-| **TOTAL — cash only (excludes engineering)** | **~5 818** |
+| Engineering effort (§5.4) | ~42 800 |
+| Travel and logistics (§5.5) | 5 577 |
+| **TOTAL — full project** | **~49 347** |
+| **TOTAL — cash only (excludes engineering)** | **~6 535** |
 
 Table: Total project budget — full cost and cash-only breakdown
 
@@ -186,14 +178,14 @@ the commercial alternative.
 ## 5.8 Cost per beneficiary
 
 The N Mutschuana Primary School serves approximately **300 students**.
-Distributed evenly:
+Distributed evenly and the Children Home 60 kids:
 
-- **Full-project cost per student**: ~48 218 ÷ 300 ≈ **161 € / student**.
-- **Cash cost per student**: ~5 818 ÷ 300 ≈ **19 € / student**.
-- **Cash cost per student per year of service** (assuming a
-  conservative 5-year service life): ~**4 € / student / year**.
+- **Full-project cost per student**: ~49 347 ÷ 360 ≈ **137,07 € / beneficiary**.
+- **Cash cost per beneficiary**: ~6 547 ÷ 360 ≈ **18,19 € / beneficiary**.
+- **Cash cost per beneficiary per year of service** (assuming a
+  conservative 5-year service life): ~**3.63 € / beneficiary / year**.
 
-The €4-per-student-per-year figure is the one that lands. It
+The €3.63-per-student-per-year figure is the one that lands. It
 includes a connected wireless network covering the school and a
 fleet of nine endpoints, and it is well within the range of
 cost-effectiveness benchmarks for ICT-in-education programmes
@@ -213,10 +205,10 @@ deployment as follows.
 | Endpoints | ~460 € (parts) | ~7 200 € (9 × ~800 € new business laptops) |
 | Software / licensing | 0 € | ~1 000 € (Windows + productivity, 9 seats) |
 | Installation labour | (volunteer) | ~2 500 € (contractor, 5 days × 2 people) |
-| 3-year support contract | (community) | ~1 800 € |
+| 3-year support contract | (volunteer - community) | ~1 800 € |
 | **Cash subtotal** | **~1 420 €** | **~16 000 €** |
-| Travel and logistics | ~4 400 € | ~4 400 € (unchanged) |
-| **Total cash** | **~5 820 €** | **~20 400 €** |
+| Travel and logistics | 5 577 € | ~5 577 € (unchanged) |
+| **Total cash** | **~6 535 €** | **~21 577 €** |
 
 Table: Cost comparison — open recipe vs commercial-equivalent deployment
 
@@ -229,8 +221,7 @@ the handbook of §3.C — a dependency that the validation chapter
 (§4.4) shows the handbook is now mature enough to carry.
 
 The comparison should not be over-read. A commercial deployment
-buys things the community recipe does not: a single-throat-to-choke
-support contract, an SLA, vendor liability, and faster mean-time-to-
+buys things the community recipe does not: available support as per contract, an SLA, vendor liability, and faster mean-time-to-
 repair on hardware failures. Whether those properties are worth the
 3.5× premium depends on the deploying organisation's risk profile;
 for AUCOOP and its partner sites, the trade-off has historically

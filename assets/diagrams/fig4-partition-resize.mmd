@@ -1,0 +1,35 @@
+block-beta
+  columns 3
+
+  block:source["Source disk — 466 GB HDD"]:1
+    columns 1
+    efi1["EFI (512 MB)"]
+    root1["ext4 root\n466 GB partition\n~12 GB used\nMetadata at end of partition"]
+  end
+
+  space
+
+  block:target["Target disk — 238 GB SSD"]:1
+    columns 1
+    efi2["EFI (512 MB)"]
+    root2["ext4 root\n238 GB partition\nRestore → FAIL\n(seek beyond device)"]
+  end
+
+  block:resized["Resized image — deployable"]:1
+    columns 1
+    efi3["EFI (512 MB)"]
+    root3["ext4 root\n20 GB partition\n~12 GB used\nMetadata < 20 GB"]
+    free3["Free space\nexpanded by\nClonezilla -k1"]
+  end
+
+  space
+
+  block:target2["Any target disk ≥ 22 GB"]:1
+    columns 1
+    efi4["EFI (512 MB)"]
+    root4["ext4 root\nrestored at 20 GB\nexpanded to fill disk"]
+    free4[""]
+  end
+
+  source --> target2
+  resized --> target2
