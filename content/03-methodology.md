@@ -29,10 +29,9 @@ without that map.
 The handbook runs two parallel streams for every technical topic. The
 **imaginary use case** stream tells the story of a fictional community
 network as it grows from "there is no internet here" to a fully serviced
-site, one user-visible problem per section, in a narrative second-person
-voice. It answers *why* a piece of infrastructure is needed and *what*
+site, one user-visible problem per section. It answers *why* a piece of infrastructure is needed and *what*
 it has to do, deliberately staying away from commands and configuration.
-The **guide** stream is the opposite register: an imperative, step-by-step
+The **guide** stream is the opposite register: a step-by-step
 recipe with pinned versions, exact CLI invocations, and known pitfalls.
 It answers *how* to build the thing the story argued for.
 
@@ -54,7 +53,7 @@ layer owns a small set of decisions, a recommended bill of materials, and a
 matching family of recipes in the handbook.
 
 | Layer | Owns | Handbook — Imaginary use case | Handbook — Guide | Examples of artefacts |
-|---|---|---|---|---|
+|---|-----|-----|----|---|
 | **Site** | Indoor coverage, nearby building links, mesh backbone, IP plan, switching, boundary L3/L4 services | *"There's no internet here!"*[^h-story-router], *"The WiFi doesn't reach the kitchen!"*[^h-story-coverage] | Network Planning[^h-guide-netplan], IP Addressing[^h-guide-ip], Wireless Mesh Networks[^h-guide-mesh] | OpenWrt routers, 802.11s mesh, DHCP/DNS on the gateway |
 | **Endpoint touchpoint** | The network-side of laptop/desktop provisioning | *"We have the network — now we need computers for the people"*[^h-story-laptop] | Mass Laptop Deployment with PXE and Clonezilla[^h-guide-laptop] (network parts only) | Isolated PXE subnet, deployment switch, on-site DHCP/TFTP/NFS |
 | **Power & enclosure** | Mains, UPS, surge protection, mounting, cabling, labelling | *"The power went out and everything died"*[^h-story-power] | Power and UPS[^h-guide-power] | UPS sizing, cable management, panel labelling |
@@ -83,7 +82,7 @@ three phases, each with a corresponding deliverable:
    the existing uplink actually delivers, and whether a different
    technology (fibre, cable, ADSL, 4G/5G, LEO satellite) is reachable at
    reasonable cost. The deliverable is a comparison table scored against
-   the eight criteria in `1-Internet-Assessment.md` (download/upload,
+   the eight criteria in the guide (download/upload,
    data cap, reliability, latency, local support, contract length, budget
    fit, expected user load). The Namibia deployment inherited a
    government-supplied ADSL link and skipped the change-of-provider
@@ -112,7 +111,7 @@ The bill of materials for the site layer is constrained by four criteria,
 applied in order:
 
 1. **OpenWrt support** with mesh-capable Wi-Fi packages. The router must be
-   on the OpenWrt Table of Hardware with a current snapshot or release,
+   on the OpenWrt Table of Hardware[^h-OpenWRT-compatible-devices] with a current snapshot or release,
    and it must have enough flash and RAM to host `wpad-mesh-wolfssl`
    alongside the default LuCI stack (in practice ≥ 16 MB flash, ≥ 128 MB
    RAM, dual-band radios).
@@ -124,6 +123,8 @@ applied in order:
 4. **Footprint.** A consumer plastic enclosure that mounts on a wall with
    two screws is preferred so the installation can be clean and simple.
 
+[^h-OpenWRT-compatible-devices]: <https://openwrt.org/supported_devices>
+
 The default pick that satisfies all four criteria at the time of writing is
 the **Cudy WR3000E** (Wi-Fi 6, dual-band, OpenWrt-supported, ~45 €/unit,
 12 V input). For deployments that need a more capable gateway with two
@@ -132,22 +133,21 @@ the **NanoPi R-series** is the chosen alternative; it is the same family
 that the companion thesis uses for service hosting [Motje, 2026], which
 keeps the on-site hardware vocabulary uniform across the two work-streams.
 
-A pitfall worth naming: a router that *technically* supports OpenWrt at
+An issue found worth mentioning: a router that *technically* supports OpenWrt at
 release N may be impractical if the snapshot images regress on the model's
 specific Wi-Fi driver. Two days were lost in early bring-up to a snapshot
-build that broke 5 GHz on the WR3000E; the recipe in
-`Wireless-Mesh/1-Static-IP-Mesh/index.md` therefore pins the tested
+build that broke 5 GHz on the WR3000E[^h-OpenWRT-compatible-versions]; the recipe in therefore pins the tested
 versions of OpenWrt and `wpad-mesh-wolfssl` and cautions the reader that
 "newer is not necessarily better".
 
+[^h-OpenWRT-compatible-versions]:<https://aucoop.github.io/Community-Network-Handbook/3-Guide/Flash-OpenWrt/Cudy-WR3000E/>
 ### 3.A.5 IP addressing plan
 
 The IP plan is the most under-valued artefact of a small network, and the
 one whose absence costs the most when something breaks. The **IP
 Addressing** guide[^h-guide-ip] codifies four methodological commitments:
 
-- **Use a non-default `/24`** (the deployments documented here use
-  `192.168.70.0/24`). Default ranges (`192.168.1.0/24`, `192.168.0.0/24`)
+- **Use something different than the default 192.168.1.0/24**  Default ranges `192.168.1.0/24`
   collide the moment a second consumer router is plugged in for tests, or
   a contractor's device with the same default range is brought to site.
   RFC 1918 leaves an enormous private space; using it removes a recurring
