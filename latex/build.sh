@@ -83,6 +83,81 @@ sed -i -E \
   "$PREP"
 
 # ---------------------------------------------------------------------------
+# 1c. Convert any WebP images referenced in the combined markdown into PNG
+# copies under $BUILD and rewrite references to .png. xelatex/xdvipdfmx does
+# not support WebP reliably, so we produce PNG fallbacks inside the build dir
+# and point the markdown at them.
+# ---------------------------------------------------------------------------
+if grep -qE "\.webp" "$PREP"; then
+  echo "==> Converting .webp images to .png for LaTeX compatibility..."
+  # Collect WebP paths referenced either in Markdown (...) or LaTeX {...}
+  mapfile -t webps < <( (
+      grep -oP '(?<=\()([^\)]+?\.webp)(?=\))' "$PREP" || true
+    ) ; (
+      grep -oP '(?<=\{)([^\}]+?\.webp)(?=\})' "$PREP" || true
+    ) | sort -u )
+
+  for p in "${webps[@]:-}"; do
+    # Normalize source path and destination path under $BUILD
+    if [[ "$p" = /* ]]; then
+      src="$p"
+      rel="${p#$ROOT/}"
+    else
+      src="$ROOT/$p"
+      rel="$p"
+    fi
+    dst="$BUILD/${rel%.webp}.png"
+    if [[ ! -f "$src" ]]; then
+      echo "WARNING: referenced image not found: $src" >&2
+      continue
+    fi
+    mkdir -p "$(dirname "$dst")"
+    if command -v convert >/dev/null 2>&1; then
+      convert "$src" "$dst"
+    elif command -v magick >/dev/null 2>&1; then
+      magick "$src" "$dst"
+    else
+      # Fallback: try Python Pillow-based conversion. This will work if
+      # Pillow is installed and built with WebP support.
+      if python3 -c "import PIL, PIL.Image" >/dev/null 2>&1; then
+        # pass src/dst as args to the inline Python converter
+        python3 - "$src" "$dst" <<'PYCONV'
+from PIL import Image
+import sys
+src = sys.argv[1]
+dst = sys.argv[2]
+img = Image.open(src)
+img.convert('RGBA').save(dst, 'PNG')
+PYCONV
+      else
+        echo "WARNING: ImageMagick 'convert' or 'magick' and Python Pillow not available; cannot convert $src" >&2
+        continue
+      fi
+    fi
+  done
+
+  # Rewrite references in the combined markdown to use .png
+  sed -i -E 's/\.webp/\.png/g' "$PREP"
+  # If any image references are absolute (starting with the repo root), make
+  # them relative so pandoc can resolve them via the build resource path.
+  sed -i -E "s@${ROOT}/@@g" "$PREP"
+  # For each converted WebP, rewrite only its references to point into the
+  # build/ directory where the converted PNG lives. Do not rewrite other
+  # existing PNG references (leave them pointing at assets/ so pandoc can
+  # resolve them normally).
+  for p in "${webps[@]:-}"; do
+    # compute relative reference as it appears in the markdown
+    rel="$p"
+    rel_no_root="${rel#$ROOT/}"
+    md_orig_ref="${rel_no_root%.webp}.png"
+    md_new_ref="build/${rel_no_root%.webp}.png"
+    # Replace occurrences of the PNG path resulting from the earlier .webp->.png
+    # substitution with the build-prefixed path for this image only.
+    sed -i -E "s@${md_orig_ref//@/\\@}@${md_new_ref//@/\\@}@g" "$PREP"
+  done
+fi
+
+# ---------------------------------------------------------------------------
 # 2. Pandoc -> combined LaTeX source (for inspection / future hand-tuning).
 # ---------------------------------------------------------------------------
 PANDOC_OPTS=(
