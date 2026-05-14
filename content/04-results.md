@@ -70,7 +70,7 @@ study, anchors the rest of the chapter:
 - **Site.** N Mutschuana Primary School, Gochas, Hardap Region,
   Namibia. 300+ pupils, separated catchment areas (the central town
   and "the Location"), part of a community served by the Namaqua
-  Kalahari Children's Home.
+  Kalahari Children's Hope.
 - **Initial situation.** Two old government-supplied ADSL routers,
   one of them not connected to the ISP at all and the other with
   classroom-scale coverage gaps; no IP plan; no documentation; no

@@ -53,7 +53,7 @@ partners with: it is a transformative tool that creates new
 opportunities for individuals. Schools, health posts, community
 centres, and NGOs increasingly depend on online services for
 curricula, record-keeping, and communication with regional
-authorities. In the contexts AUCOOP brings students together to deploy ready to use projects. Over a decade there have been +40 projects in +15 countries between Europe, America, Africa and Asia. The obstacle all those communities found was never a single piece, normally it was the combination of three deficits that reinforced each other.
+authorities. In the contexts AUCOOP brings students together to deploy ready to use projects. Over 20 years there have been +50 projects in +15 countries between Europe, America, Africa and Asia. The obstacle all those communities found was never a single piece, normally it was the combination of three deficits that reinforced each other.
 
 1. **No usable network.** Either there is no infrastructure at all,
    or there is a single ADSL/4G uplink at one location, with no
@@ -66,7 +66,7 @@ authorities. In the contexts AUCOOP brings students together to deploy ready to 
    field site does not have. Vendor manuals presume current firmware
    and online activation.
 
-This thesis attacks the first two deficits directly — through the
+This thesis tackles the first two deficits directly — through the
 network work in \autoref{sec:methodology-network} and the endpoint
 reconditioning pipeline in \autoref{sec:methodology-endpoint}. It
 attacks the third deficit by producing the handbook described in
@@ -174,8 +174,8 @@ applies to the deployments themselves rather than to the handbook as
 artefact:
 
 | # | Hardware-recipe requirement | Why |
-|---|---|---|
-| H1 | Network gear must be supported by OpenWrt or an equivalent FOSS firmware | Auditability, longevity beyond vendor support window |
+|--|---------|---------|
+| H1 | Network equipment must be supported by OpenWrt or an equivalent FOSS firmware | Auditability, longevity beyond vendor support window |
 | H2 | Endpoints must be sourced from refurbishment, not new manufacture | \autoref{sec:embedded-carbon-avoided} (carbon) and \autoref{sec:budget-comparison} (cost) |
 | H3 | Mass-deployment time per endpoint must be field-viable  | The deployment window is one-two work days |
 | H4 | The total per-site cash BOM must be raisable from a single small NGO grant | Replicability inside AUCOOP and similar associations (cf. \autoref{sec:budget-funding}) |
@@ -187,7 +187,7 @@ Table: Hardware-recipe requirements (H1–H4)
 <!-- \label{sec:methods} -->
 
 
-**Prior work — the Hahatay deployment in Senegal and other AUCOOP Projects.** The work
+**Prior work — the [Hahatay](https://hahatay.network/es/) deployment in Senegal and other AUCOOP Projects.** The work
 presented here is, takes as its origin, the documetation created by an AUCOOP team — including the author — carried out in Hahatay
 (Senegal) over more than three years of sustained engagement. Hahatay
 is one of the flagship projects of the association: a multi-site
@@ -205,7 +205,7 @@ See [`gantt`](#16-gantt-diagram) below.
 ### Phases
 
 | Phase | Description | Period |
-|---|---|---|
+|---|-----------|-----|
 | P1 | Bootstrap handbook repository, conventions, CI | Sep 2025 – Oct 2025 |
 | P2 | Network chapters (planning, IP, mesh, antennas, power) | Oct 2025 – Jan 2026 |
 | P3 | Laptop chapters (refurbishment, AUCOOP image, PXE/Clonezilla) | Jan 2026 – Mar 2026 |
@@ -237,7 +237,7 @@ which had established OpenWrt community support at the time of
 planning. Between procurement and deployment Cudy released a V2
 board revision under the same product name and code with different
 internal hardware; the new board was not supported by OpenWrt, and
-there was no way to distinguish V1 from V2 units before opening the
+there was no way to distinguish V1 from V2 units before reveiving the
 box. With less than three weeks to the departure date, the entire
 access-point selection had to be reconsidered. The Cudy WR3000E
 AX3000 was identified as a supported alternative with comparable
@@ -267,9 +267,7 @@ The project was scoped to cover two sites: N Mutschuana Primary
 School and a children's home that was inaugurated in January 2026.
 When the team arrived in March 2026, the children's home did not yet
 have an internet connection — the government provider had not yet
-sent a technician to install the ADSL line. Deploying a local
-network without an uplink was possible but would have left the site
-with a system the staff could not put into service. The decision taken on the ground was to leave it ready: the mesh access points were pre-configured,
+sent a technician to install the ADSL line. The decision taken on the ground was to leave it ready: the mesh access points were pre-configured,
 labelled, and packaged together with step-by-step setup instructions
 written for non-technical staff, so that the network can be brought
 up by the site staff on the day the ADSL line is activated.
