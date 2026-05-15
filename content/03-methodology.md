@@ -22,7 +22,7 @@ in a different site?).
 ### 3.A.1 How the Community Network Handbook is read
 
 Before walking the layers, the reader needs to know how the delivered
-handbook is organised, because every section of §3.A maps onto a specific
+handbook is organised, because every section of §3.A (network methodology) maps onto a specific
 pair of handbook entries and the table that follows is unintelligible
 without that map.
 
@@ -41,7 +41,7 @@ story that motivates it. A reader new to the domain enters through the
 story and crosses over to the guide when they want to act; a reader
 mid-deployment enters through the guide and crosses back to the story
 when they need the rationale behind a non-obvious choice. The table in
-§3.A.2 follows the same convention: for each layer it lists the matching
+§3.A.2 (three-layer model) follows the same convention: for each layer it lists the matching
 imaginary-use-case sections and the matching guide sections side by
 side, so the reader can see at a glance which story and which recipe in
 the handbook each part of this chapter is grounded in.
@@ -53,10 +53,10 @@ layer owns a small set of decisions, a recommended bill of materials, and a
 matching family of recipes in the handbook.
 
 | Layer | Owns | Handbook — Imaginary use case | Handbook — Guide | Examples of artefacts |
-|---|-----|-----|----|---|
-| **Site** | Indoor coverage, nearby building links, mesh backbone, IP plan, switching, boundary L3/L4 services | *"There's no internet here!"*[^h-story-router], *"The WiFi doesn't reach the kitchen!"*[^h-story-coverage] | Network Planning[^h-guide-netplan], IP Addressing[^h-guide-ip], Wireless Mesh Networks[^h-guide-mesh] | OpenWrt routers, 802.11s mesh, DHCP/DNS on the gateway |
-| **Endpoint touchpoint** | The network-side of laptop/desktop provisioning | *"We have the network — now we need computers for the people"*[^h-story-laptop] | Mass Laptop Deployment with PXE and Clonezilla[^h-guide-laptop] (network parts only) | Isolated PXE subnet, deployment switch, on-site DHCP/TFTP/NFS |
-| **Power & enclosure** | Mains, UPS, surge protection, mounting, cabling, labelling | *"The power went out and everything died"*[^h-story-power] | Power and UPS[^h-guide-power] | UPS sizing, cable management, panel labelling |
+|---|-----|-----|----|------|
+| **Site** | Indoor coverage, nearby building links, mesh backbone, IP plan, switching, boundary L3/L4 services | *"There's no internet here!"*[^h-story-router], *"The WiFi doesn't reach the kitchen!"*[^h-story-coverage] | Network Planning[^h-guide-netplan], IP Addressing[^h-guide-ip], Wireless Mesh Networks[^h-guide-mesh] | OpenWrt routers, 802.11s mesh, Dynamic Host Configuration Protocol (DHCP) / Domain Name System (DNS) on the gateway |
+| **Endpoint touchpoint** | The network-side of laptop/desktop provisioning | *"We have the network — now we need computers for the people"*[^h-story-laptop] | Mass Laptop Deployment with PXE and Clonezilla[^h-guide-laptop] (network parts only) | Isolated PXE subnet, deployment switch, on-site DHCP / Trivial File Transfer Protocol (TFTP) / Network File System (NFS) |
+| **Power & enclosure** | Mains, Uninterruptible Power Supply (UPS), surge protection, mounting, cabling, labelling | *"The power went out and everything died"*[^h-story-power] | Power and UPS[^h-guide-power] | UPS sizing, cable management, panel labelling |
 
 Table: Three-layer network hardware model with the matching imaginary-use-case and guide sections of the handbook
 
@@ -80,7 +80,7 @@ three phases, each with a corresponding deliverable:
 
 1. **Internet assessment.** What ISP options exist, what speed and latency
    the existing uplink actually delivers, and whether a different
-   technology (fibre, cable, ADSL, 4G/5G, LEO satellite) is reachable at
+   technology (fibre, cable, ADSL, 4G/5G, Low Earth Orbit (LEO) satellite) is reachable at
    reasonable cost. The deliverable is a comparison table scored against
    the eight criteria in the guide (download/upload,
    data cap, reliability, latency, local support, contract length, budget
@@ -100,9 +100,9 @@ three phases, each with a corresponding deliverable:
    feasibility, and inter-building distance*, not by personal preference.
 
 The methodological commitment is that the site survey produces a written
-record, not a recollection. Every later decision in §3.A.4 to §3.A.8 cites
+record, not a recollection. Every later decision in §3.A.4 (hardware selection) to §3.A.8 (power and enclosure) cites
 this record. This is the first concrete answer to the *knowledge
-volatility* problem named in §1.2: the site assessment of one team becomes
+volatility* problem named in §1.2 (motivation): the site assessment of one team becomes
 the starting context of the next.
 
 ### 3.A.4 Hardware selection at the site layer
@@ -128,7 +128,7 @@ applied in order:
 The default pick that satisfies all four criteria at the time of writing is
 the **Cudy WR3000E** (Wi-Fi 6, dual-band, OpenWrt-supported, ~45 €/unit,
 12 V input). For deployments that need a more capable gateway with two
-Ethernet interfaces, USB 3.0, and headroom for VPN and on-router services,
+Ethernet interfaces, USB 3.0, and headroom for Virtual Private Network (VPN) and on-router services,
 the **NanoPi R-series** is the chosen alternative; it is the same family
 that the companion thesis uses for service hosting [Motje, 2026], which
 keeps the on-site hardware vocabulary uniform across the two work-streams.
@@ -136,7 +136,7 @@ keeps the on-site hardware vocabulary uniform across the two work-streams.
 An issue found worth mentioning: a router that *technically* supports OpenWrt at
 release N may be impractical if the snapshot images regress on the model's
 specific Wi-Fi driver. Two days were lost in early bring-up to a snapshot
-build that broke 5 GHz on the WR3000E[^h-OpenWRT-compatible-versions]; the recipe in therefore pins the tested
+build that broke 5 GHz on the WR3000E[^h-OpenWRT-compatible-versions]; the recipe therefore pins the tested
 versions of OpenWrt and `wpad-mesh-wolfssl` and cautions the reader that
 "newer is not necessarily better".
 
@@ -148,7 +148,7 @@ The IP plan is the most under-valued artefact of a small network, and the
 one whose absence costs the most when something breaks. The **IP
 Addressing** guide[^h-guide-ip] codifies four methodological commitments:
 
-- **Use something different than the default 192.168.1.0/24**  Default ranges `192.168.1.0/24`
+- **Use something different than the default 192.168.1.0/24.** Default ranges `192.168.1.0/24`
   collide the moment a second consumer router is plugged in for tests, or
   a contractor's device with the same default range is brought to site.
   RFC 1918 [Rekhter et al., 1996] leaves an enormous private space; using it removes a recurring
@@ -159,12 +159,12 @@ Addressing** guide[^h-guide-ip] codifies four methodological commitments:
   (`.100`–`.200`). The split is arbitrary but stable, and a single glance
   at an IP tells the operator what kind of device they are dealing with.
 - **Document the plan in a versioned spreadsheet** with one row per device:
-  hostname, role, location, MAC, IP, allocation method (static / DHCP
+  hostname, role, location, Media Access Control (MAC) address, IP, allocation method (static / DHCP
   reservation / DHCP pool). The spreadsheet lives in the project repository
   and is updated *at the moment of provisioning*, not afterwards.
 - **Prefer DHCP reservations over hand-coded static IPs** wherever the
   device supports DHCP-client mode. This is the substance of the second
-  iteration of the mesh setup (§3.A.6): static IPs survive only as long
+  iteration of the mesh setup (§3.A.6, wireless mesh design): static IPs survive only as long
   as the team that wrote them is around, while a DHCP table on the
   gateway is self-documenting and survives turnover.
 
@@ -189,7 +189,7 @@ the design as **two iterations** that are meant to be done in sequence:
   backhaul is brought up alongside a shared 2.4 GHz access point. This is
   the simplest configuration that confirms the mesh links form, that
   satellites bridge correctly, and that clients roam between APs sharing
-  the same ESSID, encryption, and key. Iteration 1 is the recommended
+  the same Extended Service Set Identifier (ESSID), encryption, and key. Iteration 1 is the recommended
   starting point for *every* deployment because it isolates the
   link-formation problem from the IP-management problem.
 - **Iteration 2 — DHCP-based mesh.** Once the mesh is stable, each
@@ -207,13 +207,13 @@ new operators learn the system by building it incrementally.
 The radio design splits the two bands by role:
 
 - **5 GHz** carries the mesh backhaul on a fixed channel,
-  20 MHz or 40 MHz wide, in 802.11s mode with WPA3-SAE encryption.
+  20 MHz or 40 MHz wide, in 802.11s mode with Wi-Fi Protected Access 3 — Simultaneous Authentication of Equals (WPA3-SAE) encryption.
   Narrower channels penetrate walls better and pick up less neighbour
   interference, at the cost of raw throughput; in small community
   deployments the throughput ceiling is set by the uplink and not by the
   backhaul, so 20 MHz is the safe default.
 - **2.4 GHz** carries the client access point on a non-overlapping channel
-  (1, 6, or 11) with WPA2-PSK by default, escalating to WPA2/WPA3 mixed
+  (1, 6, or 11) with WPA2 — Pre-Shared Key (WPA2-PSK) by default, escalating to WPA2/WPA3 mixed
   mode only after the client device population is known. The Gochas
   deployment was first brought up in WPA3-only mode and several older
   client devices failed to associate. The access points were then
@@ -223,20 +223,20 @@ The radio design splits the two bands by role:
 
 Long-distance point-to-point antenna links between separate buildings
 were *not* exercised in the Gochas deployment — the school's buildings
-sit within mesh range — so the antennas[^h-guide-antennas] work that the handbook plans, currently a WIP stub acknowledged in §1.4 is
+sit within mesh range — so the antennas[^h-guide-antennas] work that the handbook plans, currently a Work-In-Progress (WIP) stub, is
 left out of the three-layer model and out of this chapter. When a future
 deployment needs it, the recipe will live as an extension of the **site**
 layer.
 
 ### 3.A.7 Endpoint touchpoint — the deployment subnet
 
-A laptop mass-deployment (§3.B) requires its own short-lived network: an
+A laptop mass-deployment (§3.B, endpoint methodology) requires its own short-lived network: an
 isolated Ethernet segment carrying DHCP, TFTP, and NFS for PXE boot, plus
-the Clonezilla rootfs and the disk image. From the §3.A perspective, this
+the Clonezilla rootfs and the disk image. From the §3.A (network methodology) perspective, this
 network has three hardware requirements:
 
 1. A **gigabit unmanaged switch** with one port per target machine plus
-   one port for the PXE server. For the field tested deployment we used two eight port gigabit switches.
+   one port for the PXE server. For the field-tested deployment we used two eight-port gigabit switches.
 2. **Strict isolation from the production LAN** during the imaging
    window. The deployment subnet runs its own DHCP server (the PXE
    server's `isc-dhcp-server`) which would conflict with the gateway's
@@ -247,7 +247,7 @@ network has three hardware requirements:
    the two networks.
 
 The corresponding services (DHCP scope, TFTP root, NFS export) belong to
-§3.B; their hardware substrate belongs here.
+§3.B (endpoint methodology); their hardware substrate belongs here.
 
 \begin{figure}[ht]
   \centering
@@ -261,11 +261,11 @@ The corresponding services (DHCP scope, TFTP root, NFS export) belong to
 ### 3.A.8 Power and enclosure
 
 Power is the failure mode that no software can mitigate. The site
-assessment of §3.A.3 records a load inventory for each candidate
+assessment of §3.A.3 (site assessment) records a load inventory for each candidate
 deployment site:
 
 - Mesh router: ~5 W steady, ~10 W peak (per node).
-- PoE switch (if used): ~10–20 W plus per-port PoE budget.
+- Power over Ethernet (PoE) switch (if used): ~10–20 W plus per-port PoE budget.
 - Mini-PC / NanoPi gateway: ~5–15 W steady.
 - Optional UPS standby loss: ~5 W.
 
@@ -277,7 +277,7 @@ The recurring power cuts in Gochas (sometimes lasting days) confirmed that
 *riding through* outages is not a realistic goal at this site class; the
 realistic goal is *graceful shutdown and clean restart*, which the chosen
 sizing supports. The companion thesis [Motje, 2026] develops the
-graceful-shutdown integration on the services side via NUT; §3.A only
+graceful-shutdown integration on the services side via Network UPS Tools (NUT); §3.A (network methodology) only
 guarantees that the hardware can survive a sudden cut without data loss
 on the network devices themselves (OpenWrt's flash layout makes this
 trivially true on the router side; the gateway PC is the device that
@@ -297,9 +297,9 @@ which the network is not usable. Three services qualify:
 
 - **DHCP on the gateway.** A single `dnsmasq` instance (the OpenWrt
   default) serving the production scope, with static leases for every
-  infrastructure device named in §3.A.5. The SW/HW boundary is drawn
+  infrastructure device named in §3.A.5 (IP addressing plan). The Software/Hardware (SW/HW) boundary is drawn
   here: configuration of `dnsmasq` on the gateway is in scope; richer
-  DHCP servers, DHCP relays across VLANs, and IPAM tooling are in
+  DHCP servers, DHCP relays across Virtual Local Area Networks (VLANs), and IP Address Management (IPAM) tooling are in
   [Motje, 2026].
 - **DNS forwarding on the gateway.** Again `dnsmasq` in its forwarder
   role, with the gateway's own DNS servers (typically `1.1.1.1` and
@@ -310,7 +310,7 @@ which the network is not usable. Three services qualify:
   alive": LuCI's built-in `Status → Wireless` and `Status → Routes`,
   plus ping-based checks scriptable from the gateway. Full Zabbix
   agentful monitoring is software work and is owned by [Motje, 2026]; the
-  hardware-side commitment is to expose the SNMP and ping endpoints that
+  hardware-side commitment is to expose the Simple Network Management Protocol (SNMP) and ping endpoints that
   the monitoring stack consumes.
 
 This boundary is drawn explicitly so that no aspect of the deployment
@@ -335,7 +335,7 @@ high:
   Ethernet cables of common lengths). The kit lives at the site, not
   in Barcelona.
 - **Pin firmware and package versions** in the recipe and verify them
-  during bring-up. The "newer is not necessarily better" rule of §3.A.4
+  during bring-up. The "newer is not necessarily better" rule of §3.A.4 (hardware selection)
   applies here too.
 
 These practices are mundane on purpose. Their value is exactly that they
@@ -351,14 +351,14 @@ This part of the chapter describes the second hardware work-stream: how a
 batch of refurbished laptops is taken from incoming-equipment status to
 community-ready endpoints with a single, reproducible image. The
 narrative is again ordered as a deployment is ordered in the field, but
-the underlying methodological commitments are the same as those of §3.A:
+the underlying methodological commitments are the same as those of §3.A (network methodology):
 written artefacts over recollection, recipes that survive a change of
 operator, and explicit lessons looped back into the handbook.
 
-§3.B owns the laptop as a managed asset (the image, the partitions, the
+§3.B (endpoint methodology) owns the laptop as a managed asset (the image, the partitions, the
 user account, the BIOS posture). The network plumbing that the
 deployment briefly needs (the isolated PXE subnet, the deployment
-switch, the DHCP/TFTP/NFS hardware footprint) is owned by §3.A.7.
+switch, the DHCP/TFTP/NFS hardware footprint) is owned by §3.A.7 (endpoint touchpoint).
 
 ### 3.B.1 The refurbished-hardware case
 
@@ -376,23 +376,23 @@ resulting fleet uniform enough that the volunteering team can both carry
 it to the community and support it remotely afterwards".
 
 Two sourcing channels were exercised in the deployments documented in
-§4. Labdoo provided nine Lenovo ThinkPads (T460 and X260, Intel i5-6200U,
+Chapter 4 (results). Labdoo provided nine Lenovo ThinkPads (T460 and X260, Intel i5-6200U,
 8 GB DDR4, mixed 238 GB SSD / 466 GB HDD) wiped and ready to receive a
 new OS. [NexTReT](https://nextret.net/) contributed three additional laptops and two mini-PC
 servers from a Spanish fleet refresh. The twelve laptops were allocated
 to two sites at handover: nine to the school and three to the children's
 house. Both channels deliver hardware in the *same generation class* but
-with *non-identical disk geometries* — which, as §3.B.5 will show, is
+with *non-identical disk geometries* — which, as §3.B.5 (partition-resize problem) will show, is
 the single decision driver of the entire imaging workflow.
 
 The case for refurbished hardware is also a sustainability one along three dimensions. Environmentally, a laptop manufactured five
 years ago and reused for another five years has a markedly lower
 lifecycle carbon footprint per useful year than a newly-manufactured
 equivalent. Socially, the donation pipeline channels institutional
-fleet refreshes into ICT access for sites that could not otherwise
+fleet refreshes into Information and Communication Technology (ICT) access for sites that could not otherwise
 afford it. Economically, the refurbishment-spend per donated unit is
 a small fraction of the secondary-market value mobilised. The
-argument is developed in §6, which adopts the three-indicator framing
+argument is developed in Chapter 6 (environmental impact), which adopts the three-indicator framing
 of [Roura et al., 2026] and applies it to the deployment.
 
 ### 3.B.2 Intake, triage and inventory
@@ -414,9 +414,9 @@ own bottleneck:
 Table: Endpoint intake inventory fields
 
 The inventory is held in the same project repository as the IP plan of
-§3.A.5, in a comma-separated file with one row per machine. The
+§3.A.5 (IP addressing plan), in a comma-separated file with one row per machine. The
 deployment script consumes this file when matching disks to image
-variants (§3.B.5). For larger or longer-running operations, a tool such
+variants (§3.B.5, partition-resize problem). For larger or longer-running operations, a tool such
 as [DeviceHub](https://github.com/ereuse/devicehub-django) can replace the spreadsheet without changing the
 methodology — what matters is that the inventory exists and is
 versioned, not which tool produces it.
@@ -424,9 +424,9 @@ versioned, not which tool produces it.
 The triage step also enforces a one-time **BIOS posture** that every
 target machine must reach before it joins the deployment queue: Secure
 Boot disabled, network boot enabled in the boot order, USB boot enabled
-as a fallback. This posture is why §3.B.7 succeeds at scale; skipping it
+as a fallback. This posture is why §3.B.7 (auto-restore script) succeeds at scale; skipping it
 is the single most expensive mistake an inexperienced operator can make
-(see the lessons of §3.B.9).
+(see the lessons of §4.6, lessons consolidated back into the handbook).
 
 ### 3.B.3 The golden-master image — AUCOOP Linux Mint
 
@@ -490,10 +490,10 @@ The image directory layout is meaningful. It contains one
 `sda1.vfat-ptcl-img.gz`, `sda2.ext4-ptcl-img.gz`), partition-table
 dumps in `parted` and `sgdisk` formats (`sda-pt.parted`,
 `sda-gpt.sgdisk`), a `parts` listing, and a `disk` descriptor. The
-recovery side (§3.B.7) reconstructs the geometry from the dumps before
+recovery side (§3.B.7, auto-restore script) reconstructs the geometry from the dumps before
 restoring the partition data. Treating the image as a *named, versioned
 artefact* with a date-bearing directory name (`aucoop-mint22.3-2026-03`)
-is what makes the per-deployment provenance trail of §4 possible.
+is what makes the per-deployment provenance trail of Chapter 4 (results) possible.
 
 ### 3.B.5 The partition-resize problem (and the fix)
 
@@ -501,8 +501,8 @@ The technical core of this work-stream is a problem that does not appear
 when all target disks are the same size and is unavoidable when they
 are not. It is described here in full because (i) it has cost more
 field-debugging time than any other issue in the deployments documented
-in §4, (ii) it is the kind of failure that mainstream tutorials skip
-and on-site teams therefore re-discover the hard way, (iii) and for a fleet of hardware coming from different partners/sources it can be expected that the disks are different.
+in Chapter 4 (results), (ii) it is the kind of failure that mainstream tutorials skip
+and on-site teams therefore re-discover the hard way, and (iii) for a fleet of hardware coming from different partners/sources it can be expected that the disks are different.
 
 **The symptom.** A Clonezilla image captured from a 466 GB HDD and
 restored to a 238 GB SSD fails roughly 77 % of the way through with:
@@ -540,7 +540,7 @@ sentence at the right place saves a multi-hour recovery later.
 ### 3.B.6 PXE server architecture
 
 A PXE deployment runs three services on a single host on the isolated
-deployment subnet of §3.A.7:
+deployment subnet of §3.A.7 (endpoint touchpoint):
 
 | Service | Port | Package | Role |
 |---|---|---|---|
@@ -554,7 +554,7 @@ Table: PXE server services, ports, and packages
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/images/diagrams/fig3-1-pxe-boot-sequence.png}
-\caption*{\textit{Figure 3.1 — PXE network boot sequence. The client exchanges DHCP to obtain an IP and the boot-file location, then fetches the GRUB EFI binary and configuration via TFTP, and finally mounts the Clonezilla live environment from the NFS server.}}
+\caption{PXE network boot sequence. The client exchanges DHCP to obtain an IP and the boot-file location, then fetches the GRUB EFI binary and configuration via TFTP, and finally mounts the Clonezilla live environment from the NFS server.}
 \end{figure}
 ```
 The PXE host is itself one of the deployed laptops or a small mini-PC;
@@ -583,7 +583,7 @@ served from the NFS-exported image directory. The script:
 
    The relevant flags are `-k1` (proportional partition resize),
    `-icds` (skip destination-size check — safe now that the image of
-   §3.B.5 fits), `-scr` (skip restorability check), and `-p reboot`
+   §3.B.5 (partition-resize problem) fits), `-scr` (skip restorability check), and `-p reboot`
    (reboot when done so the operator only has to power-cycle once).
 3. **Reboots into the deployed OS.** The newly-imaged disk is now the
    first boot device and Linux Mint comes up with the `aucoop` user
@@ -597,7 +597,7 @@ discards it, and falls through to the next entry in the boot order
 screen and the only diagnostic clue is the silence itself. The recipe
 gates the entire deployment on a one-time BIOS step (Step 14: disable
 Secure Boot on every target machine before imaging) and the lessons
-list of §3.B.9 elevates this to an inventory-time check in §3.B.2 so
+list consolidated in §4.6 (lessons back into the handbook) elevates this to an inventory-time check in §3.B.2 (intake and triage) so
 the failure cannot recur. Secure Boot may be re-enabled after
 deployment if the receiving institution's policy demands it; the
 deployed Linux Mint does support it.
@@ -611,10 +611,10 @@ typically appear:
 1. The machine boots from the local disk to the Linux Mint login
    screen unaided (no PXE, no USB).
 2. The `aucoop` user logs in with the documented password.
-3. Wi-Fi can associate to the production network of §3.A.6 and reach
+3. Wi-Fi can associate to the production network of §3.A.6 (wireless mesh) and reach
    the internet.
 4. OnlyOffice opens a sample document and renders it correctly.
-5. The hostname matches the inventory record of §3.B.2.
+5. The hostname matches the inventory record of §3.B.2 (intake and inventory).
 
 A failed check sends the machine back to the corresponding step rather than triggering an ad-hoc fix on the
 individual machine. The discipline is what keeps a fleet of nine or
@@ -633,7 +633,7 @@ for this thesis.
 ## 3.C The AUCOOP Handbook as a knowledge artefact
 <!-- \label{sec:handbook} -->
 
-The two preceding parts of this chapter (§3.A and §3.B) describe *what* was
+The two preceding parts of this chapter (§3.A, network methodology, and §3.B, endpoint methodology) describe *what* was
 deployed in the field. This third part describes *how the deployment knowledge
 itself is preserved* so that the next student, the next volunteer, or the next
 partner association does not have to start again from a blank page. It is the
@@ -647,7 +647,7 @@ and published as a static website plus a downloadable PDF. The thesis writes
 
 ### 3.C.1 Why a living handbook in GitHub
 
-§1.2 framed the problem of *knowledge volatility* in a volunteer association.
+§1.2 (motivation) framed the problem of *knowledge volatility* in a volunteer association.
 AUCOOP runs on bachelor and master students who join, contribute for one or two
 academic years, graduate, and leave. Every project produces internal documents (PDFs,
 slide decks, hand-written field notes) that ended up in shared drives that
@@ -671,7 +671,7 @@ A living handbook reverses this dynamic by making three structural commitments:
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{assets/images/diagrams/community_network_webpage.png}
-\caption*{\textit{Figure 3.2 — Landing page of the Community Network Handbook}}
+\caption{Landing page of the Community Network Handbook.}
 \end{figure}
 ```
 
@@ -822,7 +822,7 @@ This governance is light by design. Heavier processes would not survive the next
 
 ### 3.C.7 What this contributes beyond the deployment
 
-The Namibia deployment described in §4 will eventually be one row in the
+The Namibia deployment described in Chapter 4 (results) will eventually be one row in the
 handbook's `4-Real-Use-Cases` chapter. The handbook itself will outlive it.
 The contribution claimed here is therefore not "documenting Namibia" but
 *producing the instrument that makes Namibia documentable in a form the next

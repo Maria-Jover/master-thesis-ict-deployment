@@ -1,16 +1,12 @@
-# 8. Bibliography (working notes)
+# 8. Bibliography
 <!-- \label{ch:bibliography} -->
-
-> The authoritative file is `latex/bibliography.bib`. This Markdown file
-> collects raw references and editorial notes during writing. Entries
-> are migrated to BibTeX as they are cited in the main text.
 
 A subset of the references below is **shared with the companion thesis**
 [Motje, 2026]. The two theses are written to be read together and
 deliberately use a unified set of foundational citations on
-knowledge-management theory, ICT-for-development, community networks,
-and core network protocols. Where a reference is shared, it is marked
-**[shared]** below.
+knowledge-management theory, ICT-for-development (ICT4D), community
+networks, and core network protocols. Where a reference is shared, it
+is marked **[shared]** below.
 
 ---
 
@@ -178,16 +174,3 @@ and core network protocols. Where a reference is shared, it is marked
 - UPC CCD (Centre de Cooperació per al Desenvolupament). Funding
   source, 5 600 €.
 - NexTReT. Equipment donor (3 laptops, 2 mini-PCs).
-
----
-
-## TODO
-
-- Migrate every reference above to BibTeX entries in
-  `latex/bibliography.bib`.
-- Realign with [Motje, 2026] on the final shared subset and the exact
-  edition/version of each shared reference.
-- Decide style: current template default is `unsrt`; consider
-  `IEEEtran` for consistency with UPC MET conventions. Pending
-  alignment with the companion thesis to keep the printed bibliography
-  visually consistent across the two volumes.

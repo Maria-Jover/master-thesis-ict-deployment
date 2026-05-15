@@ -96,7 +96,9 @@ appendix is the editorial source.
 |---|---|
 | ADSL | Asymmetric Digital Subscriber Line |
 | AP | Access Point |
+| APC | Asociación para el Progreso de las Comunicaciones (Association for Progressive Communications) |
 | AUCOOP | Associació Universitària per la Cooperació (UPC student association) |
+| B.A.T.M.A.N. | Better Approach To Mobile Ad-hoc Networking |
 | BIOS | Basic Input/Output System |
 | BOM | Bill of Materials |
 | CCD | Centre de Cooperació per al Desenvolupament (UPC development cooperation centre) |
@@ -107,41 +109,67 @@ appendix is the editorial source.
 | DNS | Domain Name System |
 | DRBL | Diskless Remote Boot in Linux |
 | EFI | Extensible Firmware Interface |
+| EPUB | Electronic Publication |
 | ESP | EFI System Partition |
 | ESSID | Extended Service Set Identifier |
 | ext4 | Fourth Extended Filesystem |
+| FOG | Free Open-source Ghost (network imaging suite) |
+| FOSS | Free and Open-Source Software |
+| GHG | Greenhouse Gas |
 | GPT | GUID Partition Table |
 | GRUB | GRand Unified Bootloader |
+| GSM | Global System for Mobile communications |
+| GWP100 | Global Warming Potential over 100 years |
 | HDD | Hard Disk Drive |
+| HWMP | Hybrid Wireless Mesh Protocol |
 | ICT | Information and Communication Technology |
+| ICT4D | Information and Communication Technologies for Development |
 | IP | Internet Protocol |
 | IPAM | IP Address Management |
 | ISP | Internet Service Provider |
+| ITU | International Telecommunication Union |
 | LAN | Local Area Network |
+| LCA | Life-Cycle Assessment |
 | LEO | Low Earth Orbit |
 | LTS | Long-Term Support |
 | LuCI | OpenWrt web user interface |
 | MAC | Media Access Control |
+| MDT | Microsoft Deployment Toolkit |
 | MET | Master in Telecommunications Engineering |
+| NAD | Namibian Dollar |
 | NFS | Network File System |
 | NGO | Non-Governmental Organisation |
+| NMPS | N Mutschuana Primary School |
 | NUT | Network UPS Tools |
 | NVMe | Non-Volatile Memory Express |
+| OLSR | Optimised Link State Routing |
 | OS | Operating System |
 | PoE | Power over Ethernet |
+| PSK | Pre-Shared Key |
 | PtP | Point-to-Point |
 | PXE | Preboot eXecution Environment |
+| RADIUS | Remote Authentication Dial-In User Service |
 | RFC | Request for Comments |
 | SAE | Simultaneous Authentication of Equals (WPA3) |
+| SDG | Sustainable Development Goal |
+| SLA | Service Level Agreement |
+| SNMP | Simple Network Management Protocol |
 | SSD | Solid-State Drive |
 | TFTP | Trivial File Transfer Protocol |
 | UEFI | Unified Extensible Firmware Interface |
+| UN | United Nations |
 | UPC | Universitat Politècnica de Catalunya |
 | UPS | Uninterruptible Power Supply |
+| VLAN | Virtual Local Area Network |
 | VPN | Virtual Private Network |
 | WAN | Wide Area Network |
+| WDS | Windows Deployment Services |
 | WEEE | Waste Electrical and Electronic Equipment |
+| WIP | Work In Progress |
+| WISP | Wireless Internet Service Provider |
 | WPA2 / WPA3 | Wi-Fi Protected Access (versions 2 and 3) |
+
+Table: Glossary of acronyms and abbreviations
 
 ---
 

@@ -19,15 +19,15 @@ them. A commercial deployment would have paid all three costs in
 full.
 
 This chapter argues that case along three dimensions:
-**environmental** (§6.2 — the carbon avoided when a laptop is
-reused instead of replaced), **social and governance** (§6.3 — the
+**environmental** (§6.2, the carbon avoided when a laptop is
+reused instead of replaced), **social and governance** (§6.3, the
 classroom access delivered and the knowledge made to outlast its
-authors), and **economic** (§6.4 — a budget small enough to be
+authors), and **economic** (§6.4, a budget small enough to be
 raised again, and a donation pipeline that multiplies what the
-budget buys). Section §6.5 picks up the indirect effects of
-publishing the work as an open handbook, §6.6 maps the work to
-seven UN Sustainable Development Goals, and §6.7 is honest about
-what a small deployment can and cannot prove.
+budget buys). §6.5 picks up the indirect effects of publishing
+the work as an open handbook, §6.6 maps the work to seven United
+Nations (UN) Sustainable Development Goals (SDGs), and §6.7 is
+honest about what a small deployment can and cannot prove.
 
 ---
 
@@ -49,10 +49,12 @@ this work [Roura et al., 2026], which proposes three indicators for
 sustainability assessment of refurbished computing in
 digital-inclusion programmes:
 
-- *GHG emissions* (kg CO₂eq) — the environmental indicator;
-- *ICT access hours* — a proxy for the social benefit, i.e. the
-  digital inclusion actually delivered;
-- *technician labour hours* — a proxy for the local economic
+- *Greenhouse gas (GHG) emissions* (kg CO₂eq), the environmental
+  indicator;
+- *Information and Communication Technology (ICT) access hours*, a
+  proxy for the social benefit, i.e. the digital inclusion actually
+  delivered;
+- *technician labour hours*, a proxy for the local economic
   contribution.
 
 The same paper proposes a single yardstick — *one hour of digital
@@ -64,13 +66,13 @@ and *new provision* (both users get new devices). The Namibia
 deployment is exactly the kind of low-income, community-scale case
 that paper says is missing from its own data.
 
-This chapter does not run the formal life-cycle assessment that
-would close that gap; §1.4 places LCA-grade work out of scope, and
-§6.7 returns to what that costs the analysis. What it does is
-borrow the three-dimension lens, the per-hour-of-service intuition,
-and the rule that *not every donated device should be reused* —
-because together they let the chapter say things about the
-deployment that an environment-only chapter could not.
+This chapter does not run the formal Life-Cycle Assessment (LCA)
+that would close that gap; §6.7 returns to what that costs the
+analysis. What it does is borrow the three-dimension lens, the
+per-hour-of-service intuition, and the rule that *not every donated
+device should be reused*, because together they let the chapter say
+things about the deployment that an environment-only chapter could
+not.
 
 One boundary note. Software-side sustainability — the energy used
 by the services running on top of the network, the lifecycle of
@@ -88,16 +90,16 @@ together.
 The environmental case rests on a single arithmetic gap between
 manufacturing-phase and use-phase emissions, which §6.2.1 develops;
 on the per-hour-of-access reframing of §6.2.2; on the operational
-footprint of the deployed system in the Namibian grid (§6.2.3);
-and on the WEEE / end-of-life argument of §6.2.4.
+footprint of the deployed system in the Namibian grid (§6.2.3, grid
+intensity); and on the Waste Electrical and Electronic Equipment
+(WEEE) / end-of-life argument of §6.2.4.
 
 ### 6.2.1 Embedded carbon and the avoided-production argument
 <!-- \label{sec:embedded-carbon-avoided} -->
 
-Section 2.2 stated, without elaboration, that the manufacturing-phase
-emissions of a laptop dominate its life-cycle footprint. That
-observation is the foundation of the entire environmental argument
-and deserves to be developed here.
+The manufacturing-phase emissions of a laptop dominate its
+life-cycle footprint. That observation is the foundation of the
+entire environmental argument and deserves to be developed here.
 
 Published life-cycle assessments of business-grade laptops converge
 on a manufacturing-phase footprint in the range of **200–300 kg
@@ -107,11 +109,11 @@ the battery) accounting for the majority. Manufacturer-published
 product carbon footprints — Dell, HP and Lenovo all publish them
 machine by machine — sit in the same range, and the recent reuse-LCA
 literature (André et al., 2019; Hischier and Böni, 2021) reports
-GWP100 reductions of roughly 10–50 % when device lifetimes are
-extended through reuse. The figures used in this thesis are taken
-from those public datasheets and from the eReuse project's aggregated
-estimates rather than from a single source, so the band is wide on
-purpose.
+Global Warming Potential over 100 years (GWP100) reductions of
+roughly 10–50 % when device lifetimes are extended through reuse.
+The figures used in this thesis are taken from those public
+datasheets and from the eReuse project's aggregated estimates rather
+than from a single source, so the band is wide on purpose.
 
 The use-phase footprint of the same machine, by contrast, is small.
 A laptop drawing 25 W on average for four hours per day consumes
@@ -126,8 +128,9 @@ further **~10 kg per year of use**. Extending the service life of
 an existing machine by five years avoids the larger number entirely;
 manufacturing a replacement does not. This single observation makes
 refurbishment environmentally significant, and it is the reason
-requirement H2 in §1.3 (endpoints must be refurbished, not new) is
-written as a hard constraint rather than a preference.
+requirement H2 in §1.3 (Requirements and specifications: endpoints
+must be refurbished, not new) is written as a hard constraint
+rather than a preference.
 
 Applied to the Namibia deployment, the per-unit figure scales as:
 
@@ -151,11 +154,12 @@ need to be produced because nine refurbished machines were sourced
 from Labdoo and NexTReT. It is **not** a net life-cycle saving for
 the project as a whole: the refurbished machines themselves carry
 an unaccounted share of their own original manufacturing footprint,
-and shipping from Spain to Namibia is not netted here (§6.7). A
-more rigorous accounting along the lines of [Roura et al., 2026]
-would split that share across the second use through a Power-On-
-Hours-based rule (*Allocation at the Point of Substitution*) and
-divide by the hours of digital service actually delivered. The
+and shipping from Spain to Namibia is not netted here (see §6.7,
+limits of this analysis). A more rigorous accounting along the
+lines of [Roura et al., 2026] would split that share across the
+second use through a Power-On-Hours-based rule (*Allocation at the
+Point of Substitution*) and divide by the hours of digital service
+actually delivered. The
 per-useful-hour figure stays well below that of a new machine —
 which is the point — but the headline tonnage shrinks.
 
@@ -195,11 +199,11 @@ deliver roughly **~4 860 hours of supervised digital access per
 academic year** — a figure that scales with rotation patterns and
 cannot be defended to two significant figures, but which sits in
 the right order of magnitude (10³–10⁴ h/yr). Spreading the
-avoided-manufacturing footprint of §6.2.1 over the conservative
-five-year service life used elsewhere in this thesis gives roughly
-**~24 300 service-hours per fleet-life**, and roughly **~90 g
-CO₂eq per service-hour avoided** at the per-laptop ~250 kg /
-fleet-life embedded carbon. The figure is indicative only — it
+avoided-manufacturing footprint of §6.2.1 (embedded carbon) over
+the conservative five-year service life used elsewhere in this
+thesis gives roughly **~24 300 service-hours per fleet-life**, and
+roughly **~90 g CO₂eq per service-hour avoided** at the per-laptop
+~250 kg / fleet-life embedded carbon. The figure is indicative only — it
 ignores allocation across successive users in the eReuse sense,
 and it does not net transport — but the shape is right:
 refurbishment pushes the per-hour-of-access emissions well below
@@ -220,6 +224,7 @@ handbook recipe should treat the donor-side threshold as a
 parameter to be revisited as the local grid decarbonises.
 
 ### 6.2.3 Operational energy in the Namibian grid
+<!-- \label{sec:operational-energy-namibia} -->
 
 The use-phase footprint of the deployed system is small but
 calculable. The estimates below assume the school operates the
@@ -249,8 +254,8 @@ grid-intensity datasets [Our World in Data, 2025] report values
 above 700 g CO₂eq/kWh — so the local figure is closer to **400 kg
 CO₂eq per year**. Either number is dwarfed by the manufacturing
 footprint of a single new laptop, which reinforces the point of
-§6.2.1: at this size of deployment, the lever that matters is
-hardware longevity, not operational efficiency. The regional
+§6.2.1 (embedded carbon): at this size of deployment, the lever
+that matters is hardware longevity, not operational efficiency. The regional
 sensitivity is also exactly the one [Roura et al., 2026] document
 at country scale: reuse benefits are robust everywhere but largest
 where grids are already low-carbon, and grid decarbonisation
@@ -269,6 +274,7 @@ detail that only emerges from running a real deployment and that
 the handbook is the right place to capture.
 
 ### 6.2.4 E-waste, WEEE, and end-of-life
+<!-- \label{sec:ewaste-weee} -->
 
 The European Union's **WEEE Directive 2012/19/EU** sets the
 framework within which refurbishment operates. The directive
@@ -295,8 +301,8 @@ refurbished laptops will eventually fail and will need to be
 processed. The recipe captured in the handbook does not currently
 address that end-of-life moment for community-network sites that
 lack access to formal WEEE infrastructure — Namibia, in
-particular, has no EU-equivalent collection scheme. Section 7.4
-lists this as an open research direction.
+particular, has no EU-equivalent collection scheme. §7.4 (future
+work) lists this as an open research direction.
 
 ---
 
@@ -306,53 +312,59 @@ lists this as an open research direction.
 A sustainable deployment is one that *outlasts the team that built
 it*. The social and governance dimension covers the mechanisms by
 which this work is meant to do so: by delivering measurable digital
-access (§6.3.1), by planning for knowledge continuity through the
-open handbook and the volunteer pipeline (§6.3.2), and by building
-local capacity and a partner network that does not depend on the
-original team being there (§6.3.3). These are the social side of
-the *technician labour hours* indicator [Roura et al., 2026] use to
-trace local economic contribution; they are reported here in plain
-language because, with one school and one season of operation,
+access (§6.3.1, digital inclusion delivered), by planning for
+knowledge continuity through the open handbook and the volunteer
+pipeline (§6.3.2, knowledge continuity), and by building local
+capacity and a partner network that does not depend on the original
+team being there (§6.3.3, local capacity). These are the social
+side of the *technician labour hours* indicator [Roura et al., 2026]
+use to trace local economic contribution; they are reported here in
+plain language because, with one school and one season of operation,
 quantitative claims would be unsafe.
 
 ### 6.3.1 Digital inclusion delivered
+<!-- \label{sec:digital-inclusion-delivered} -->
 
-The *coverage* and *sufficiency* lenses of §4.2 and §4.3 give the
-qualitative answer: every classroom the deployment was meant to
-reach is now reached, every laptop it was meant to provision is
-now in service, and the school's teaching staff adopted the
-network within roughly thirty minutes of it going live (§4.2.3).
-The order-of-magnitude estimate of §6.2.2 (~4 860 hours of
-supervised digital access per academic year) says the same thing
-in a different unit: classroom access at a scale that did not
-exist before the deployment.
+The *coverage* and *sufficiency* lenses of §4.2 (network deployment)
+and §4.3 (endpoint deployment) give the qualitative answer: every
+classroom the deployment was meant to reach is now reached, every
+laptop it was meant to provision is now in service, and the school's
+teaching staff adopted the network within roughly thirty minutes of
+it going live (see §4.2.3, the deployed network). The
+order-of-magnitude estimate of §6.2.2 (reuse efficiency per hour of
+access; ~4 860 hours of supervised digital access per academic year)
+says the same thing in a different unit: classroom access at a
+scale that did not exist before the deployment.
 
 The structural claim is stronger than the per-school number. The
 recipe, the donor pipeline, and the handbook together form a
 *reproducible pathway* from "this school has no usable network and
 no usable endpoints" to "this school has both, and a partner
 organisation that knows how to maintain them". The single-school
-validation does not prove this generalises (§4.6.2, §7.3) but it
-makes a cohort-level claim defensible: applying the same recipe
-to a second school of comparable size in the same partner network
-should produce comparable digital access on broadly the same
-effort budget.
+validation does not prove this generalises (see §4.7.2, limits, and
+§7.3, limitations) but it makes a cohort-level claim defensible:
+applying the same recipe to a second school of comparable size in
+the same partner network should produce comparable digital access
+on broadly the same effort budget.
 
 ### 6.3.2 Knowledge continuity and the volunteer pipeline
+<!-- \label{sec:knowledge-continuity} -->
 
 AUCOOP's structural fragility — students join, contribute for one
 to three academic years, graduate, leave — was the *internal*
-motivation of §1.2.2 and is the social-sustainability problem this
-thesis attacks most directly. The *living artefact* (§3.C) is the
-engineering response: knowledge that lives in a version-controlled,
-public Markdown repository, with a low contribution barrier and a
-written governance contract, is knowledge that does not leave the
-association when its current maintainers do. The hand-over
-protocol of §7.5 is the operational form of this commitment: it
-tells the next cohort exactly where to start, which makes the
-cost of taking over lower than the cost of starting from scratch
-— which is, in turn, the only condition under which a volunteer
-organisation actually achieves intergenerational continuity.
+motivation of §1.2.2 (internal motivation, knowledge continuity at
+AUCOOP) and is the social-sustainability problem this thesis attacks
+most directly. The *living artefact* (§3.C, the AUCOOP Handbook) is
+the engineering response: knowledge that lives in a version-
+controlled, public Markdown repository, with a low contribution
+barrier and a written governance contract, is knowledge that does
+not leave the association when its current maintainers do. The
+hand-over protocol of §7.5 (hand-over for the next cohort) is the
+operational form of this commitment: it tells the next cohort
+exactly where to start, which makes the cost of taking over lower
+than the cost of starting from scratch — which is, in turn, the
+only condition under which a volunteer organisation actually
+achieves intergenerational continuity.
 
 The handbook is therefore a *governance instrument* as well as a
 technical artefact. Its sustainability claim is not "the
@@ -360,31 +372,34 @@ documentation is current" — that is true of every wiki on the day
 it is set up and false of most of them six months later — but
 "the rules of the game make it cheaper to update the
 documentation than to bypass it". That property is what §3.C.6
-calls the contribution contract, and it is what §4.4 validates by
+(governance for continuity) calls the contribution contract, and it
+is what §4.4 (knowledge transfer, teacher seminar) validates by
 showing that the deployment itself was authored against the same
 rules.
 
 ### 6.3.3 Local capacity and the partner network
+<!-- \label{sec:local-capacity-partners} -->
 
 The deployment was carried out together with local counterparts —
 Gerda (school director), Theo Pauline (children's home),
-Mr. Isaak and the school staff (§4.1) — and with a
-multi-organisation partner chain (UPC CCD, AUCOOP, Foundawtion,
+Mr. Isaak and the school staff (see §4.1, site context) — and with
+a multi-organisation partner chain (UPC CCD, AUCOOP, Foundawtion,
 Labdoo, NexTReT, the Namaqua Kalahari Children's Hope project).
 Each link in that chain is itself a sustainability mechanism:
 UPC CCD is the funding pathway that the next cohort can apply to
-on the same call (§5.6); Foundawtion is the logistics pathway
-that the next shipment can ride; Labdoo and NexTReT are the
-device-supply pathways for the next batch of endpoints; AUCOOP
-is the volunteer pathway through which the next student is
-recruited.
+on the same call (see §5.6, funding sources); Foundawtion is the
+logistics pathway that the next shipment can ride; Labdoo and
+NexTReT are the device-supply pathways for the next batch of
+endpoints; AUCOOP is the volunteer pathway through which the next
+student is recruited.
 
 None of these relationships were *created* by this thesis. Each
 of them existed before; the thesis exercises them, documents how
-they were exercised in §4.4 and §5.6, and leaves the partner
-register in a state where the next cohort can read it rather than
-reconstruct it. This is the social-sustainability counterpart of
-the technical-handover argument of §6.3.2: the partner network is
+they were exercised in §4.4 (teacher seminar) and §5.6 (funding
+sources), and leaves the partner register in a state where the
+next cohort can read it rather than reconstruct it. This is the
+social-sustainability counterpart of the technical-handover
+argument of §6.3.2 (knowledge continuity): the partner network is
 the thing the recipe runs on, and an undocumented partner network
 is an unsustainable one.
 
@@ -394,72 +409,78 @@ is an unsustainable one.
 <!-- \label{sec:economic-sustainability} -->
 
 The economic case for the recipe rests on two claims that
-Chapter 5 develops in detail: that the *cash* cost of a deployment
-is small enough to be raised from a single small NGO grant
-(§5.6, §5.7), and that the donation-leveraged structure of the
-endpoint pipeline turns a modest cash spend into a much larger
-asset base on the ground (§5.2). This section reframes those
-claims through the sustainability lens: not "is the deployment
-cheap?" but "is the deployment *replicable* by an organisation
-that looks like AUCOOP, in a way that does not depend on the
-present team being personally involved?".
+Chapter 5 (budget) develops in detail: that the *cash* cost of a
+deployment is small enough to be raised from a single small NGO
+grant (see §5.6, funding sources, and §5.7, total), and that the
+donation-leveraged structure of the endpoint pipeline turns a
+modest cash spend into a much larger asset base on the ground (see
+§5.2, endpoint hardware). This section reframes those claims
+through the sustainability lens: not "is the deployment cheap?"
+but "is the deployment *replicable* by an organisation that looks
+like AUCOOP, in a way that does not depend on the present team
+being personally involved?".
 
 ### 6.4.1 Cash vs full cost and the leverage on donations
+<!-- \label{sec:cash-vs-full-cost} -->
 
-The two totals of §5.7 — **~5.8 k€ cash** and **~48 k€ full
-project at indicative engineering rates** — are not in tension;
-they answer two different questions. The cash figure is what an
-organisation actually has to *raise* to reproduce the recipe at a
-comparable site; the full-project figure is what the same recipe
-would *cost* if every hour of student and advisor time were paid
-at market rates. The ~3.5× cash multiple over the
-commercial-equivalent alternative (§5.9) is computed at the cash
-figure, because that is the figure a partner association can act
-on; the larger multiple at the full-project figure (~2.4×) is the
-same trade-off measured against a fairer wage baseline.
+The two totals of §5.7 (total) — **~6.5 k€ cash** and **~49 k€
+full project at indicative engineering rates** — are not in
+tension; they answer two different questions. The cash figure is
+what an organisation actually has to *raise* to reproduce the
+recipe at a comparable site; the full-project figure is what the
+same recipe would *cost* if every hour of student and advisor time
+were paid at market rates. The ~3.3× cash multiple over the
+commercial-equivalent alternative (see §5.9, comparison) is
+computed at the cash figure, because that is the figure a partner
+association can act on; the larger multiple at the full-project
+figure (~2.3×) is the same trade-off measured against a fairer
+wage baseline.
 
 The donation pipeline is the multiplier that makes either figure
 possible. Nine T460 / X260 ThinkPads at a notional refurbished
 secondary-market price of ~€150 each represent ~€1 350 of asset
-value mobilised at ~€460 of refurbishment cash spend (§5.2): a
-~3:1 leverage. The same ratio scales to the next deployment if
-the donor pipeline holds, which is the real economic-
-sustainability question and which §6.4.2 returns to.
+value mobilised at ~€12 of refurbishment cash spend (see §5.2,
+endpoint hardware): a substantial leverage. The same ratio scales
+to the next deployment if the donor pipeline holds, which is the
+real economic-sustainability question and which §6.4.2 (volunteer
+labour and replicability) returns to.
 
-The €4-per-student-per-year figure of §5.8 is the
-cost-effectiveness number that lands on a funding committee's
-desk. It compares well with the ICT-for-education benchmarks
-surveyed in §2.3, and it does so without pretending volunteer
+The €3.63-per-beneficiary-per-year figure of §5.8 (cost per
+beneficiary) is the cost-effectiveness number that lands on a
+funding committee's desk. It does so without pretending volunteer
 labour is free: the figure is robust across both the cash and the
-full-project denominators because a primary school of ~300 pupils
-is a large enough beneficiary base to absorb the engineering cost
-over a five-year service life.
+full-project denominators because a combined beneficiary base of
+~360 (school plus children's home) is large enough to absorb the
+engineering cost over a five-year service life.
 
 ### 6.4.2 Volunteer labour, replicability, and the reuse-at-scale claim
+<!-- \label{sec:volunteer-replicability} -->
 
 [Roura et al., 2026] use *technician labour hours* as their proxy
 for the local-economic contribution of refurbishment. The
 counterpart in the AUCOOP context is *volunteer engineering hours*
-(§5.4: ~720 student-hours per thesis plus ~80 AUCOOP volunteer
-hours for intake and logistics, two-thesis batch), with two
-qualifications. First, the labour is unpaid in cash but is not
-free: it is paid in academic credit, in the career relevance of
-the experience, and in the network of partner organisations the
-volunteer ends up embedded in. Second, the labour pays itself
-back: the contribution model of §3.C.6 ensures that the marginal
-hour spent by the next cohort lands in the handbook, not in a
-private notebook, and the handbook is what makes the *next*
-cohort's hour cheaper.
+(see §5.4, engineering effort: ~720 student-hours per thesis plus
+~80 AUCOOP volunteer hours for intake and logistics, two-thesis
+batch), with two qualifications. First, the labour is unpaid in
+cash but is not free: it is paid in academic credit, in the career
+relevance of the experience, and in the network of partner
+organisations the volunteer ends up embedded in. Second, the
+labour pays itself back: the contribution model of §3.C.6
+(governance for continuity) ensures that the marginal hour spent
+by the next cohort lands in the handbook, not in a private
+notebook, and the handbook is what makes the *next* cohort's hour
+cheaper.
 
 The replicability question is therefore not "can a second school
-be deployed for under €5 800?" — the cash figure is robust enough
+be deployed for under €6 600?" — the cash figure is robust enough
 to defend that claim within the AUCOOP donor and partner network
 — but "can a second school be deployed without the present
-authors in the room?". The handbook (§3.C, §4.4), the hand-over
-protocol (§7.5), and the partner-network documentation (§6.3.3)
-are the three mechanisms by which the answer is meant to be yes;
-the empirical confirmation is future work (§7.4) and is listed
-there honestly.
+authors in the room?". The handbook (§3.C, the AUCOOP Handbook;
+§4.4, teacher seminar), the hand-over protocol (§7.5,
+hand-over), and the partner-network documentation (§6.3.3, local
+capacity) are the three mechanisms by which the answer is meant
+to be yes; the empirical confirmation is future work (see §7.4,
+future work) and is listed there honestly.
 
 The same paper observes that scaling reuse expands ICT access and
 technician labour demand together, while keeping additional
@@ -473,6 +494,7 @@ commercial alternative, and the recipe is set up to do so again.
 ---
 
 ## 6.5 Indirect effects of the open handbook
+<!-- \label{sec:indirect-effects-handbook} -->
 
 A second category of sustainability effect is harder to quantify
 but worth stating, because it is a direct consequence of choosing
@@ -486,7 +508,8 @@ fly out to brief them; the material is there to read. For an
 AUCOOP-scale operation that is one or two long-haul flights per
 project saved, which at typical intercontinental footprints is
 roughly **1–2 t CO₂eq per avoided trip** — an order of magnitude
-larger than the per-unit manufacturing figure of §6.2.1.
+larger than the per-unit manufacturing figure of §6.2.1 (embedded
+carbon).
 
 **Reduced duplication of lab work.** The decisions documented in
 the handbook — Cudy WR3000E over alternative APs, OpenWrt
@@ -507,37 +530,40 @@ line item not procured is cash not spent and not raised), and
 social (a smaller deployment is one a partner organisation can
 maintain on its own resources). The bias is captured in the
 *Network-Planning* and *Antennas* recipes and is reinforced
-through the methodology of §3.A.
+through the methodology of §3.A (network hardware deployment).
 
 These effects cannot be totalled credibly. They are listed here
 so that the sustainability argument for the handbook is not
 silently omitted; the argument for the handbook stands or falls
-on reproducibility (§3.C, §4.4), and the sustainability dimension
-is a bonus rather than the primary motivation.
+on reproducibility (see §3.C, the AUCOOP Handbook, and §4.4,
+teacher seminar), and the sustainability dimension is a bonus
+rather than the primary motivation.
 
 ---
 
 ## 6.6 Alignment with the UN Sustainable Development Goals
+<!-- \label{sec:sdg-alignment} -->
 
 The deployment intersects seven of the seventeen UN Sustainable
 Development Goals. The mapping below is included for completeness;
 SDG-alignment statements are easy to over-claim and are written
 here narrowly, restricted to mechanisms that are concretely
-instantiated in the work described in §3 and §4.
+instantiated in the work described in Chapter 3 (methodology) and
+Chapter 4 (results).
 
 \begin{table}[htbp]
-\caption{SDG alignment — mechanisms concretely instantiated in this work}
+\caption{SDG alignment --- mechanisms concretely instantiated in this work}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.8cm}X}
 \toprule
 SDG & Mechanism in this work \\
 \midrule
-\textbf{4 --- Quality Education} & Connectivity and endpoints delivered to a primary school in a low-connectivity context (§4.2, §4.3). \\[4pt]
-\textbf{8 --- Decent Work and Economic Growth} & Volunteer engineering hours channelled into a knowledge artefact rather than a single-project report (§6.4.2); donor-pipeline labour quantified (§5.4). \\[4pt]
-\textbf{9 --- Industry, Innovation \& Infrastructure} & A reproducible community-network recipe published as an open handbook (§3.C, §4.4). \\[4pt]
-\textbf{10 --- Reduced Inequalities} & The deployment targets a school with limited prior ICT access; the open handbook lowers the barrier for similar sites to follow (§3.C, §6.3.1). \\[4pt]
-\textbf{12 --- Responsible Consumption \& Production} & Endpoint requirement H2 (refurbishment over new), commodity network hardware, sufficiency bias in design (§6.2, §6.5). \\[4pt]
-\textbf{13 --- Climate Action} & Embedded-carbon avoidance through refurbishment and lifetime extension (§6.2.1, §6.2.2). \\[4pt]
-\textbf{17 --- Partnerships for the Goals} & The deployment is the product of a partnership chain --- UPC CCD, AUCOOP, Foundawtion, Labdoo, NexTReT, the local school authority --- that the handbook documents and makes legible to future partners (§4.4, §6.3.3). \\
+\textbf{4 --- Quality Education} & Connectivity and endpoints delivered to a primary school in a low-connectivity context (\S4.2 network deployment, \S4.3 endpoint deployment). \\[4pt]
+\textbf{8 --- Decent Work and Economic Growth} & Volunteer engineering hours channelled into a knowledge artefact rather than a single-project report (\S6.4.2 volunteer labour); donor-pipeline labour quantified (\S5.4 engineering effort). \\[4pt]
+\textbf{9 --- Industry, Innovation \& Infrastructure} & A reproducible community-network recipe published as an open handbook (\S3.C the AUCOOP Handbook, \S4.4 teacher seminar). \\[4pt]
+\textbf{10 --- Reduced Inequalities} & The deployment targets a school with limited prior ICT access; the open handbook lowers the barrier for similar sites to follow (\S3.C the AUCOOP Handbook, \S6.3.1 digital inclusion delivered). \\[4pt]
+\textbf{12 --- Responsible Consumption \& Production} & Endpoint requirement H2 (refurbishment over new), commodity network hardware, sufficiency bias in design (\S6.2 environmental dimension, \S6.5 indirect effects). \\[4pt]
+\textbf{13 --- Climate Action} & Embedded-carbon avoidance through refurbishment and lifetime extension (\S6.2.1 embedded carbon, \S6.2.2 reuse efficiency per hour of access). \\[4pt]
+\textbf{17 --- Partnerships for the Goals} & The deployment is the product of a partnership chain --- UPC CCD, AUCOOP, Foundawtion, Labdoo, NexTReT, the local school authority --- that the handbook documents and makes legible to future partners (\S4.4 teacher seminar, \S6.3.3 local capacity). \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -577,34 +603,36 @@ chapter does not enumerate. The eReuse project has done some of
 this accounting at programme scale (Roura et al., 2024;
 Roura et al., 2026); this thesis does not reproduce it.
 
-Third, **the figures are one-shot**. Section 6.5 argues that the
-handbook compounds sustainability across all three dimensions by
-enabling reuse; quantifying that compounding requires data on how
-often the recipe is reused, by whom, and at what scale. That
-data does not yet exist, because the handbook is new. Section 7.4
-lists longitudinal measurement of recipe reuse as one of the
-future-work directions, and §4.4 names the metrics — repository
-activity, downstream forks, citations — that would feed such a
-measurement.
+Third, **the figures are one-shot**. §6.5 (indirect effects)
+argues that the handbook compounds sustainability across all three
+dimensions by enabling reuse; quantifying that compounding requires
+data on how often the recipe is reused, by whom, and at what
+scale. That data does not yet exist, because the handbook is new.
+§7.4 (future work) lists longitudinal measurement of recipe reuse
+as one of the future-work directions, and §4.4 (teacher seminar)
+names the metrics — repository activity, downstream forks,
+citations — that would feed such a measurement.
 
 Fourth, **the social and economic indicators are qualitative or
-indicative**. The ICT access hours of §6.3.1 / §6.2.2 and the
-volunteer-hours figures of §6.4.2 are useful for ordering of
-magnitude but are not derived from instrumented measurement; a
-defensible study would log Power-On-Hours per device along the
-lines of [Roura et al., 2026] and would distinguish supervised
-classroom hours from total hours powered. The handbook does not
-yet recommend such logging; adding it is a candidate future
-revision.
+indicative**. The ICT access hours of §6.3.1 (digital inclusion
+delivered) / §6.2.2 (reuse efficiency per hour of access) and the
+volunteer-hours figures of §6.4.2 (volunteer labour and
+replicability) are useful for ordering of magnitude but are not
+derived from instrumented measurement; a defensible study would
+log Power-On-Hours per device along the lines of [Roura et al.,
+2026] and would distinguish supervised classroom hours from total
+hours powered. The handbook does not yet recommend such logging;
+adding it is a candidate future revision.
 
 Fifth, **the framework is borrowed, not extended**. This chapter
 adopts the three-dimension indicator set and the
 per-hour-of-service framing of [Roura et al., 2026] and applies
 them in plain language to the Namibia case. It does not extend
 the calculation criterion the paper develops, nor does it offer
-the NMPS deployment as a low-income empirical contribution to
-that literature in any rigorous form. Section 7.4 names the
-latter contribution as the natural shape of a follow-on study.
+the N Mutschuana Primary School (NMPS) deployment as a low-income
+empirical contribution to that literature in any rigorous form.
+§7.4 (future work) names the latter contribution as the natural
+shape of a follow-on study.
 
 The honest summary is that the sustainability argument of this
 thesis is qualitatively strong across all three dimensions and

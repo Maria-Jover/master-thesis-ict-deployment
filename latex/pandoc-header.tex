@@ -63,3 +63,29 @@
 % Suppress LaTeX's automatic section numbering entirely — all numbers
 % are already written into the heading text in the Markdown sources.
 \setcounter{secnumdepth}{-1}
+
+% ---------------------------------------------------------------------------
+% Page headers: institutional logos on every body page.
+%   Left  : Telecos (ETSETB) logo
+%   Right : UPC logo
+% Cover (\thispagestyle{empty}) is unaffected.
+% ---------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{36pt}
+\addtolength{\topmargin}{-12pt}
+\lhead{\includegraphics[height=1.0cm]{latex/img/logos/logo_telecos.png}}
+\rhead{\includegraphics[height=1.0cm]{latex/img/logos/upclogo.png}}
+\cfoot{\thepage}
+
+% Apply the same headers to chapter-opening pages (which would otherwise
+% revert to \pagestyle{plain} under the report class).
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \lhead{\includegraphics[height=1.0cm]{latex/img/logos/logo_telecos.png}}%
+  \rhead{\includegraphics[height=1.0cm]{latex/img/logos/upclogo.png}}%
+  \cfoot{\thepage}%
+}

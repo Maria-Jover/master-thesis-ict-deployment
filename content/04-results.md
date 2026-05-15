@@ -1,22 +1,22 @@
 # 4. Results
 <!-- \label{ch:results} -->
 
-This chapter validates the methodology of §3 against the field. It is
-deliberately **visual-first**: each section is anchored by figures
+This chapter validates the methodology of Chapter 3 against the field.
+It is deliberately **visual-first**: each section is anchored by figures
 drawn from the deployment record, the handbook, and the field artefacts,
 with prose limited to the connecting commentary each figure needs.
 
-Section §4.1 introduces the site and the validation strategy. Section §4.2
+Section §4.1 introduces the site and the validation strategy. §4.2
 presents the network deployment outcome through before/after maps, annotated
 challenges, and field photographs of the mesh nodes installed in the
-classrooms. Section §4.3 presents the endpoint deployment outcome through
-the pipeline diagram, the field rig, and key metrics. Section §4.4 reports
+classrooms. §4.3 presents the endpoint deployment outcome through
+the pipeline diagram, the field rig, and key metrics. §4.4 reports
 the knowledge-transfer outcome — the teacher seminar at N Mutschuana and the
 post-deployment evidence that the receiving community internalised both the
-operation and the underlying concepts of the new infrastructure. Section
-§4.5 validates the handbook as a knowledge artefact using screenshots of
-the published site. Section §4.6 closes the methodology–results loop with
-the lessons that landed as recipe amendments. Section §4.7 discusses limits.
+operation and the underlying concepts of the new infrastructure. §4.5
+validates the handbook as a knowledge artefact using screenshots of
+the published site. §4.6 closes the methodology–results loop with
+the lessons that landed as recipe amendments. §4.7 discusses limits.
 
 
 ## 4.1 Site context and validation strategy
@@ -32,7 +32,7 @@ its regional context.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.70\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/4.1-mapa-gochas.png}
-\caption*{\textit{Figure 4.1 — Gochas in the Hardap Region of Namibia. The town sits in the Kalahari Desert, roughly 250 km south-east of Mariental. Source: handbook case study, reproduced with permission.}}
+\caption{Gochas in the Hardap Region of Namibia. The town sits in the Kalahari Desert, roughly 250 km south-east of Mariental. Source: handbook case study, reproduced with permission.}
 \end{figure}
 ```
 
@@ -46,11 +46,11 @@ the companion thesis [Motje, 2026]:
   who was *not* its original author, and without undocumented
   field-time amendments?
 
-The school came to the project with three structural deficits (§1.2.1): no
+The school came to the project with three structural deficits (see §1.2.1, external motivation): no
 reliable coverage across its building blocks, no usable endpoints for most
 teachers, and no documentation of what existed. The team of three AUCOOP
-members (Jaume Motje, Sergio Giménez Antón, and María Jover Tarancón) addressed all three over roughly fiveteen working days between March-April 2026
-with a CCD grant of 5,600 € and donated hardware.
+members (Jaume Motje, Sergio Giménez Antón, and María Jover Tarancón) addressed all three over roughly fifteen working days between March and April 2026
+with a Centre de Cooperació per al Desenvolupament (CCD) grant of 5,600 € and donated hardware.
 
 
 ## 4.2 Network deployment — Gochas
@@ -62,12 +62,12 @@ with a CCD grant of 5,600 € and donated hardware.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.92\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/4.1-network-before.png}
-\caption*{\textit{Figure 4.3 — Network state on arrival. Two independent government-supplied ADSL routers with no IP plan and overlapping factory defaults. ADSL Router 1 (principal's office area) broadcast a Wi-Fi signal but was not connected to the ISP — its Ethernet cable was wrapped around an unplugged power outlet. ADSL Router 2 (main classroom block) had a working uplink but classroom-scale dead zones. Most teaching spaces had no usable Wi-Fi.}}
+\caption{Network state on arrival. Two independent government-supplied ADSL routers with no IP plan and overlapping factory defaults. ADSL Router 1 (principal's office area) broadcast a Wi-Fi signal but was not connected to the ISP — its Ethernet cable was wrapped around an unplugged power outlet. ADSL Router 2 (main classroom block) had a working uplink but classroom-scale dead zones. Most teaching spaces had no usable Wi-Fi.}
 \end{figure}
 ```
 
 The initial situation exposed all three failure patterns the methodology
-anticipates (§3.A.3): no internet assessment existed, no site map had been
+anticipates (see §3.A.3, site and internet assessment): no internet assessment existed, no site map had been
 produced, and no IP plan governed the two routers. The first field day was
 spent documenting what was actually present — which revealed the inoperative
 ADSL Router 1, a fact the school staff did not know (Challenge 1 of the case
@@ -83,7 +83,7 @@ Two artefacts from this step are reproduced below.
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/network-planning-wifi-signal-drop.webp}
-\caption*{\textit{Figure 4.4 — Wifi signal power drop captured by LinSSID when moving between classes. Source: Network Planning guide, handbook.}}
+\caption{Wi-Fi signal power drop captured by LinSSID when moving between classes. Source: Network Planning guide, handbook.}
 \end{figure}
 ```
 
@@ -94,7 +94,7 @@ Two artefacts from this step are reproduced below.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.92\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/4.1-network-after.png}
-\caption*{\textit{Figure 4.6 — Network state after the deployment. Seven access points (one gateway + six Cudy WR3000E mesh nodes) form a single 802.11s mesh covering all classroom blocks, the principal's office, the staff room, and the preprimary classrooms. One SSID, seamless client roaming. The ADSL uplink (gateway at 192.168.70.1) feeds the entire mesh; the 4 Mbps ceiling is upstream of the school gate. Source: handbook case study.}}
+\caption{Network state after the deployment. Seven access points (one gateway + six Cudy WR3000E mesh nodes) form a single 802.11s mesh covering all classroom blocks, the principal's office, the staff room, and the preprimary classrooms. One SSID, seamless client roaming. The ADSL uplink (gateway at 192.168.70.1) feeds the entire mesh; the 4 Mbps ceiling is upstream of the school gate. Source: handbook case study.}
 \end{figure}
 ```
 
@@ -118,7 +118,7 @@ make this concrete.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.2-mesh-install-mounting.jpg}
-\caption*{\textit{Figure 4.7 — Mesh node install in an upper-primary classroom. The crew (Jaume Motje and María Jover, with the school's former Director) The class teacher (right) supervises the work in her own room. Source: field photograph, Gochas, March 2026.}}
+\caption{Mesh node install in an upper-primary classroom. The crew (Jaume Motje and María Jover) work alongside the school's former Director; the class teacher (right) supervises the work in her own room. Source: field photograph, Gochas, March 2026.}
 \end{figure}
 ```
 
@@ -127,11 +127,11 @@ make this concrete.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.2-mesh-install-classroom.jpg}
-\caption*{\textit{Figure 4.8 — Final node instalation, in service. The Cudy WR3000E shares wall space with the Nama vocabulary posters. Source: field photograph, Gochas, March 2026.}}
+\caption{Final node installation, in service. The Cudy WR3000E shares wall space with the Nama vocabulary posters. Source: field photograph, Gochas, March 2026.}
 \end{figure}
 ```
 
-This embedding has a downstream consequence picked up in §4.4: the people
+This embedding has a downstream consequence picked up in §4.4 (knowledge transfer): the people
 who will live with the equipment — the teachers — see the access points
 every day, in their own rooms, next to their own teaching materials. The internet is now a real tool to bring their teaching to the next level.
 
@@ -141,7 +141,7 @@ every day, in their own rooms, next to their own teaching materials. The interne
 
 ### 4.3.1 The deployment pipeline
 
-The endpoint work-stream is organised as a four-phase pipeline (Figure 4.9):
+The endpoint work-stream is organised as a four-phase pipeline (\autoref{fig:pipeline}):
 prepare a golden master on a single reference machine, capture it as a
 Clonezilla image, resize the image so it can be restored onto smaller target
 disks, and finally PXE-deploy the resized image to all target machines in
@@ -152,11 +152,12 @@ fleet.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.3-pipeline-diagram.png}
-\caption*{\textit{Figure 4.9 — The four-phase endpoint deployment pipeline. Phases 1–3 happen once per image; Phase 4 fans out across all target machines simultaneously over the local PXE network. Source: handbook, \texttt{3-Guide/Laptop-Deployment/}.}}
+\caption{The four-phase endpoint deployment pipeline. Phases 1–3 happen once per image; Phase 4 fans out across all target machines simultaneously over the local PXE network. Source: handbook, \texttt{3-Guide/Laptop-Deployment/}.}
+\label{fig:pipeline}
 \end{figure}
 ```
 
-The four-phase split is itself a result of the trip — see Lesson 7 in §4.6,
+The four-phase split is itself a result of the trip — see Lesson 7 in §4.6 (lessons consolidated),
 where the partition-resize step was promoted from a parenthetical inside the
 PXE phase to its own phase after the first cross-disk restore failed.
 
@@ -169,7 +170,7 @@ what executing it on the ground actually looked like.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.3-thinkpads-provisioning.jpeg}
-\caption*{\textit{Figure 4.10 — Phase 4 in execution: seven Lenovo ThinkPads (T460 / X260) being PXE-provisioned in parallel from a single power strip in the school's storeroom. The machine in the foreground (left) has already finished and is at the Labdoo first-boot login screen; the others are at various points of the Clonezilla restore. Source: field photograph, Gochas, March 2026.}}
+\caption{Phase 4 in execution: seven Lenovo ThinkPads (T460 / X260) being PXE-provisioned in parallel from a single power strip in the school's storeroom. The machine in the foreground (left) has already finished and is at the Labdoo first-boot login screen; the others are at various points of the Clonezilla restore. Source: field photograph, Gochas, March 2026.}
 \end{figure}
 ```
 
@@ -177,7 +178,7 @@ what executing it on the ground actually looked like.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.55\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.3-pxe-switches.jpeg}
-\caption*{\textit{Figure 4.11 — The PXE rig: two stacked TP-Link TL-SG108 unmanaged gigabit switches dedicated to the deploy network, isolated from the school's production mesh. The PXE server (laptop, right) serves DHCP, TFTP, and the Clonezilla image over this isolated segment; target ThinkPads boot off it. Source: field photograph, Gochas, March 2026.}}
+\caption{The PXE rig: two stacked TP-Link TL-SG108 unmanaged gigabit switches dedicated to the deploy network, isolated from the school's production mesh. The PXE server (laptop, right) serves DHCP, TFTP, and the Clonezilla image over this isolated segment; target ThinkPads boot off it. Source: field photograph, Gochas, March 2026.}
 \end{figure}
 ```
 
@@ -187,7 +188,7 @@ strip. The recipe was deliberately written against equipment that fits in
 hand luggage. Second, the install environment is *not a workshop* — it is
 a corner of a primary-school storeroom, with stone walls, a single mains
 outlet, and the laptops resting wherever there was floor space. The
-$\sim$1 h end-to-end figure in §4.3.3 is measured under these conditions,
+$\sim$1 h end-to-end figure in §4.3.3 (key metrics) is measured under these conditions,
 not under lab conditions.
 
 Twelve machines were processed in total: nine Lenovo ThinkPads (T460 /
@@ -217,7 +218,7 @@ render, hostname match). The coverage lens is met.
 **Sufficiency outcome.** The deployed image carried the school's actual
 first-day workload: document and presentation work in OnlyOffice, Wi-Fi
 via the new mesh, web browsing. The hardware class (i5-6200U, 8 GB RAM) is
-comfortably above the working load. The bottleneck is again the ADSL uplink,
+comfortably above the working load. The bottleneck is again the Asymmetric Digital Subscriber Line (ADSL) uplink,
 not the endpoints.
 
 **Adaptation outcome.** The endpoint recipe was run largely by team members
@@ -235,22 +236,22 @@ produced.
 A network and a stack of laptops handed over without a transfer of
 understanding produces a one-trip dependency: the next time anything
 changes, the school is back to waiting for an external visitor. The
-methodology of §3 treats the seminar with the receiving teaching staff as
+methodology of Chapter 3 treats the seminar with the receiving teaching staff as
 a deployment artefact in its own right, on the same level as the network
 and the endpoints. This section reports its outcome.
 
 ### 4.4.1 The seminar at N Mutschuana
 
-The seminar was held in the school's staff room on 4 days before end of the deployment so there was time for the teachers to do some hand's on work and be able to come back to us if some issues were found.
-It was covered: The computer specification basics, Wi-Fi configuration, OnlyOffice,
-download / antivirus, document creation, network configuration, password
+The seminar was held in the school's staff room four days before the end of the deployment, so there was time for the teachers to do some hands-on work and to come back to us if any issues were found.
+The covered topics were: computer specification basics, Wi-Fi configuration, OnlyOffice,
+download and antivirus, document creation, network configuration, password
 hygiene, and remote support. Every teacher in service that week attended.
 
 ```{=latex}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.65\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.4-seminar-network-map.jpg}
-\caption*{\textit{Figure 4.16 — Plenary segment of the seminar. Jaume Motje walks the teachers through the deployed network map (projected, left) Explaining how the access points should "see" each other to be able to get to the Internet Gateway. Source: field photograph, Gochas, March 2026.}}
+\caption{Plenary segment of the seminar. Jaume Motje walks the teachers through the deployed network map (projected, left), explaining how the access points should "see" each other in order to reach the Internet gateway. Source: field photograph, Gochas, March 2026.}
 \end{figure}
 ```
 
@@ -258,7 +259,7 @@ hygiene, and remote support. Every teacher in service that week attended.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.65\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.4-seminar-hands-on.jpg}
-\caption*{\textit{Figure 4.17 — Hands-on segment. María Jover works through OnlyOffice and the Wi-Fi join procedure with a group of teachers on the freshly-provisioned ThinkPads (§4.3). Source: field photograph, Gochas, March 2026.}}
+\caption{Hands-on segment. María Jover works through OnlyOffice and the Wi-Fi join procedure with a group of teachers on the freshly-provisioned ThinkPads (see §4.3, endpoint deployment). Source: field photograph, Gochas, March 2026.}
 \end{figure}
 ```
 
@@ -276,7 +277,7 @@ read off an IP address when asked over WhatsApp.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.4-seminar-openwrt.jpg}
-\caption*{\textit{Figure 4.18 — Configuration-layer walk-through. Sergio Gimenez shows the Director of the School and the Head of the children's home the set up of their computers. As the mesh was not deployed in the Children's House the team explained and created a guide on how the insntallation should be done once the ISP router was available. Source: field photograph, Gochas, March 2026.}}
+\caption{Configuration-layer walk-through. Sergio Giménez shows the Director of the school and the Head of the children's home the set-up of their computers. As the mesh was not deployed in the children's home, the team explained and created a guide on how the installation should be done once the Internet Service Provider (ISP) router was available. Source: field photograph, Gochas, March 2026.}
 \end{figure}
 ```
 
@@ -292,12 +293,12 @@ forwarded an "Internet is like a Road System" infographic into the AUCOOP
 project group, on his own initiative. The infographic frames bandwidth as
 lanes, latency as travel time, packets as cargo trucks, routers as
 traffic-control towers, congestion as traffic jams, and signal quality as
-road condition. The exchange that followed (Figure 4.19) is the point:
+road condition. The exchange that followed (\autoref{fig:roads-analogy}) is the point:
 Sergio responds by extending the *teacher's own analogy* to the Gochas
 situation — *"the ministry only gave us a small lane. We are all sharing
 it, hence there is often traffic jams."* This is a teacher, not a network
 engineer, reaching for a mental model that *correctly identifies the ADSL
-uplink as the bottleneck* (the same conclusion drawn formally in §4.2.3),
+uplink as the bottleneck* (the same conclusion drawn formally in §4.2.3, the deployed network),
 and an AUCOOP team member confirming the analogy in the teacher's own
 vocabulary. The infrastructure is now describable from inside the school.
 
@@ -305,16 +306,17 @@ vocabulary. The infrastructure is now describable from inside the school.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.4-whatsapp-roads-analogy.jpg}
-\caption*{\textit{Figure 4.19 — WhatsApp exchange in the AUCOOP $\leftrightarrow$ N Mutschuana group "Internet is like a Road System"}}
+\caption{WhatsApp exchange in the AUCOOP $\leftrightarrow$ N Mutschuana group: "Internet is like a Road System".}
+\label{fig:roads-analogy}
 \end{figure}
 ```
 
-**Operational uptake.** When we were getting to the plain, the network monitoring
+**Operational uptake.** When we were back home in Barcelona, the network monitoring
 infrastructure deployed in the companion thesis [Motje, 2026] flagged a
 printer disconnection. The AUCOOP team reached the school via the same
 WhatsApp group; Mr Isak responded; the fault was diagnosed and repaired
-remotely, with a hand-drawn diagram of the printer / router / LAN-port
-wiring serving as the shared reference (Figure 4.20). Two specific
+remotely, with a hand-drawn diagram of the printer / router / Local Area Network (LAN) port
+wiring serving as the shared reference (\autoref{fig:printer-support}). Two specific
 behaviours in this exchange are worth flagging. First, the school side
 *acted on the diagnostic*.
 
@@ -322,7 +324,8 @@ behaviours in this exchange are worth flagging. First, the school side
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.45\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/namibia/field/4.4-whatsapp-printer-support.jpg}
-\caption*{\textit{Figure 4.20 — Remote-support exchange triggered by the monitoring system in [Motje, 2026]. Top: the AUCOOP-side diagnostic ("the cable connecting the printer to the router is not well connected"). Source: project chat.}}
+\caption{Remote-support exchange triggered by the monitoring system in [Motje, 2026]. Top: the AUCOOP-side diagnostic ("the cable connecting the printer to the router is not well connected"). Source: project chat.}
+\label{fig:printer-support}
 \end{figure}
 ```
 
@@ -334,7 +337,7 @@ behaviours in this exchange are worth flagging. First, the school side
 - **Sufficiency.** The agenda covered the eight Index topics on the actual
   deployed equipment, with the deployed network as the live medium. No
   topic on the index went uncovered.
-- **Adaptation — by the recipients.** The §4.3.3 reading of *Adaptation*
+- **Adaptation — by the recipients.** The §4.3.3 (key metrics) reading of *Adaptation*
   was about whether an AUCOOP team member who was not the recipe's author
   could execute it. The reading here is more demanding: whether the
   school's own staff can *operate and reason about* the system without the
@@ -349,7 +352,7 @@ This is, on the evidence available, the strongest single outcome of the
 deployment in the long-run sense: the network and the laptops will
 eventually wear out, but the seminar produced *people* who can talk about,
 operate, and ask the right questions about the system. The handbook
-(§4.5) is what those people — and their successors — will read when
+(see §4.5, handbook validation) is what those people — and their successors — will read when
 something breaks.
 
 ---
@@ -357,7 +360,7 @@ something breaks.
 ## 4.5 Handbook validation — the knowledge artefact
 <!-- \label{sec:results-handbook} -->
 
-The handbook is the most original deliverable of this thesis (§3.C). Its
+The handbook is the most original deliverable of this thesis (see §3.C, handbook as a knowledge artefact). Its
 validation is reported on its own terms: *was it produced, is it public, does
 it cover what it claims to cover, and did the deployment use it?*
 
@@ -367,7 +370,7 @@ it cover what it claims to cover, and did the deployment use it?*
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.96\textwidth]{/home/mj/Documents/Master-Thesis/assets/images/diagrams/community_network_webpage.png}
-\caption*{\textit{Figure 4.21 — Landing page of the Community Network Handbook, published at \url{https://aucoop.github.io/Community-Network-Handbook/}. The site is built from the same Markdown source as the downloadable PDF expedition copy; both outputs are regenerated on every merge to \texttt{main} by the Zensical pipeline.}}
+\caption{Landing page of the Community Network Handbook, published at \url{https://aucoop.github.io/Community-Network-Handbook/}. The site is built from the same Markdown source as the downloadable PDF expedition copy; both outputs are regenerated on every merge to \texttt{main} by the Zensical pipeline.}
 \end{figure}
 ```
 
@@ -376,7 +379,7 @@ it cover what it claims to cover, and did the deployment use it?*
 
 The diagram below shows the information architecture of the handbook and the
 1-to-1 mapping between the narrative (Ch 2) and recipe (Ch 3) streams that
-is the defining structural rule of §3.C.2.
+is the defining structural rule of §3.C.2 (information architecture).
 
 ```{=latex}
 \begin{figure}[H]
@@ -429,38 +432,38 @@ is the defining structural rule of §3.C.2.
 \draw[arrow] (ch1.south) -- (ch2.north);
 
 \end{tikzpicture}
-\caption*{\textit{Figure 4.22 — Handbook information architecture. Every section in Chapter 2 (narrative, second-person voice) has a 1:1 cross-link to the corresponding recipe in Chapter 3 (imperative, step-by-step). The Namibia case study in Chapter 4 flows field evidence back into both streams through recipe amendments (§4.6).}}
+\caption{Handbook information architecture. Every section in Chapter 2 (narrative, second-person voice) has a 1:1 cross-link to the corresponding recipe in Chapter 3 (imperative, step-by-step). The Namibia case study in Chapter 4 flows field evidence back into both streams through recipe amendments (see §4.6, lessons consolidated).}
 \end{figure}
 ```
 
 ### 4.5.3 Coverage / Sufficiency / Adaptation applied to the handbook
 
-- **Coverage.** Every methodology section of §3 has a matching recipe in
+- **Coverage.** Every methodology section of Chapter 3 has a matching recipe in
   the handbook; every recipe has a matching story section (the 1-to-1
   invariant). The one acknowledged gap — `Antennas/` and `Power-and-UPS/`
   stubs — is *visibly* marked rather than silently absent, which is the
-  governance behaviour of §3.C.6 working as intended.
+  governance behaviour of §3.C.6 (governance for continuity) working as intended.
 - **Sufficiency.** The handbook's information depth was enough to drive the
   Gochas deployment: the operator on the endpoint work-stream followed the
-  written recipe on the day (§4.3). Where depth was insufficient, the gap
+  written recipe on the day (see §4.3, endpoint deployment). Where depth was insufficient, the gap
   surfaced as a field-time amendment that was looped back into the recipe
-  (§4.6).
+  (see §4.6, lessons consolidated).
 - **Adaptation.** Full adaptation by a *different* team at a *different*
   site remains the open question. The handbook is structurally ready for it
   (open licence, public repository, PR workflow, AI-assisted authoring
   agents, dual web/PDF output) but the empirical signal requires a second
-  cohort. This is named as an explicit limit in §4.7 and as a future-work
-  direction in §7.
+  cohort. This is named as an explicit limit in §4.7 (discussion) and as a future-work
+  direction in Chapter 7.
 
 ---
 
-### 4.5.4 Lessons consolidated back into the handbook
+## 4.6 Lessons consolidated back into the handbook
 <!-- \label{sec:lessons-consolidated} -->
 
 The pattern that emerged from the Gochas trip is structural: every field
 debugging episode that cost more than a handful of minutes produced either a
 new admonition, a new troubleshooting row, or a new section in the handbook.
-The §3 → field → handbook loop is the *operational form* of the validation
+The Chapter 3 → field → handbook loop is the *operational form* of the validation
 strategy.
 
 ```{=latex}
@@ -485,7 +488,7 @@ strategy.
 \draw[arrow, rounded corners=10pt]
   (E.west) -- ++(-1.5,0) |- node[pos=0.25, left, font=\scriptsize]{next deployment} (A.south);
 \end{tikzpicture}
-\caption*{\textit{Figure 4.23 — The field-to-handbook feedback loop. Every debugging episode that cost time on site produced a handbook artefact; that artefact is what the next operator reads. The loop is the operational mechanism of the validation strategy.}}
+\caption{The field-to-handbook feedback loop. Every debugging episode that cost time on site produced a handbook artefact; that artefact is what the next operator reads. The loop is the operational mechanism of the validation strategy.}
 \end{figure}
 ```
 
@@ -500,7 +503,7 @@ strategy.
 **Low-cost, reproducible stack.** The Cudy WR3000E mesh and the
 Clonezilla/PXE pipeline use consumer or refurbished hardware and
 open-source software exclusively. The Gochas deployment cost a fraction of
-the equivalent commercial-AP-plus-new-laptop alternative (developed in §5).
+the equivalent commercial-AP-plus-new-laptop alternative (developed in Chapter 5, budget).
 
 **Field-validated procedures.** Every recipe in scope was exercised in the
 field; every recipe was amended at least once based on what happened there.
@@ -516,7 +519,7 @@ as a single documentation backbone.
 ### 4.7.2 Limits
 
 **One field site.** Only the Gochas deployment has been documented under
-the methodology of §3. A quantitative claim about portability requires a
+the methodology of Chapter 3. A quantitative claim about portability requires a
 second site.
 
 **Single institution type.** The receiving institution is a primary school.
@@ -528,7 +531,7 @@ Remote-support infrastructure (VPN, monitoring) sits in [Motje, 2026]; the
 multi-month field-life of the equipment is future evidence.
 
 **Field-layer antenna recipe untested.** The point-to-point antenna recipe
-(§3.A.6) was not exercised at Gochas — the school is within mesh range.
+(see §3.A.6, wireless mesh design) was not exercised at Gochas — the school is within mesh range.
 
 **WIP sections in the handbook.** The `Antennas/` and `Power-and-UPS/`
 recipe families are visibly marked Work in Progress. They are open
@@ -544,14 +547,14 @@ possible but still pins tested hardware.
 **Upstream tool changes.** Clonezilla's image format, OpenWrt's package
 set, and GRUB's network-boot binaries can evolve in ways that break a
 pinned recipe. The `Used Versions` tables partially mitigate this; the
-broader mitigation is the active-maintainer rotation of §3.C.6.
+broader mitigation is the active-maintainer rotation of §3.C.6 (governance for continuity).
 
 **The volunteer-handover assumption.** The handbook only delivers on its
 continuity promise if the next maintainer picks it up. The governance
 contract is necessary but not sufficient; the thesis cannot validate this
 beyond the next cohort transition.
 
-The next chapter (§5) develops the cost and budget side of the deployment
-in detail. §6 develops the sustainability case. §7 returns to the
+The next chapter (Chapter 5, budget) develops the cost side of the deployment
+in detail. Chapter 6 develops the sustainability case. Chapter 7 returns to the
 per-objective check and the future-work directions implied by the limits
 above.

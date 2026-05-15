@@ -185,14 +185,18 @@ PANDOC_OPTS=(
 )
 
 echo "==> Generating combined .tex ..."
-pandoc "${PANDOC_OPTS[@]}" --standalone -o "$BUILD/thesis.tex" "$PREP"
+pandoc "${PANDOC_OPTS[@]}" --include-after-body="$LATEX/pandoc-mainmatter.tex" --standalone -o "$BUILD/thesis.tex" "$PREP"
 
-echo "==> Generating PDF ..."
-# Generate .tex, then inject a small file to switch to mainmatter after
-# the TOC/LoF/LoT. Pandoc's location for the TOC is template dependent,
-# but the simplest approach is to generate the PDF directly: include
-# pandoc-mainmatter.tex after the TOC using --include-after-body.
-pandoc "${PANDOC_OPTS[@]}" --include-after-body="$LATEX/pandoc-mainmatter.tex" -o "$BUILD/thesis.pdf" "$PREP"
+echo "==> Generating PDF (two xelatex passes for TOC/LoF/LoT/refs) ..."
+# Run xelatex twice with output dir build/ so .aux/.toc/.lof/.lot settle
+# and cross-references resolve. We invoke from the repo root so the
+# image paths embedded in thesis.tex (latex/img/..., build/assets/...,
+# etc.) resolve correctly.
+(
+  cd "$ROOT"
+  xelatex -interaction=nonstopmode -halt-on-error -output-directory="$BUILD" "$BUILD/thesis.tex" >/dev/null
+  xelatex -interaction=nonstopmode -halt-on-error -output-directory="$BUILD" "$BUILD/thesis.tex" >/dev/null
+)
 
 echo
 echo "Done."

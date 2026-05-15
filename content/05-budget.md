@@ -12,7 +12,7 @@ new-equipment, commercial-deployment alternative.
 The numbers given are
 based on the public list price at the time of purchase (October
 2025 to February 2026) and the figures recorded in the AUCOOP
-project tracker
+project tracker.
 
 ---
 
@@ -36,8 +36,8 @@ These prices cover what was procured for the deployment;
 they do not include the spare AP and the spare PoE injector kept on
 the bench in Barcelona, both of which were existing AUCOOP stock.
 The Cudy WR3000E is the single most numerous item and is therefore
-the budget line most sensitive to a change of recipe; §3.A.4
-documents the rationale for that choice and §6.2.1 the environmental
+the budget line most sensitive to a change of recipe; §3.A.4 (hardware selection)
+documents the rationale for that choice and §6.2.1 (embodied carbon) the environmental
 side of it.
 
 ## 5.2 Endpoint hardware
@@ -51,7 +51,7 @@ side of it.
 Table: Endpoint hardware bill of materials — refurbishment costs only (donated machines at €0)
 
 The nine endpoints were donated through Labdoo and NexTReT and entered the
-project at no cash cost. No repairs or part replacements were required. USB sticks used for imaging and PXE seeding. At a notional secondary-market
+project at no cash cost. No repairs or part replacements were required. The USB sticks were used for imaging and PXE seeding. At a notional secondary-market
 price of ~€150 per refurbished T460, the nine machines represent roughly
 €1 350 of asset value mobilised at negligible cost.
 
@@ -64,8 +64,8 @@ Zensical, MkDocs Material, GitHub Actions on a public repository.
 
 **Subtotal — Software: €0.**
 
-The zero is itself part of the recipe. Section 3.B.5 (AUCOOP
-image), §3.A.4 (OpenWrt) and §3.C (handbook tooling) all rely on
+The zero is itself part of the recipe. Section §3.B.3 (AUCOOP
+image), §3.A.4 (OpenWrt hardware selection) and §3.C (handbook tooling) all rely on
 software whose licensing imposes no per-unit cost and whose source
 is auditable. The economic implication is that the recipe's cash
 cost scales with hardware quantity only; the software cost of
@@ -91,14 +91,14 @@ Table: Engineering effort at indicative hourly rates
 Two observations follow. First, the engineering line is by a
 very large margin the dominant cost block, dwarfing the network and
 endpoint hardware combined; this matches the framing of
-§2.1, which describes community networks as trading capital for human expertise. Second, the engineering effort is split across
+§2.1 (digital divide and community networks), which describes community networks as trading capital for human expertise. Second, the engineering effort is split across
 two theses; the figure double-counts the advisor hours that were
-spent on shared meetings. The Co-advisor, supported also on the deployment of the network in Namibia.
+spent on shared meetings. The co-advisor also supported the deployment of the network in Namibia.
 
 ## 5.5 Travel and logistics (Namibia field deployment)
 
 Three engineers travelled to Namibia for a 15-working-day deployment.
-NAD figures converted at **1 € = 18.68 NAD**.
+Namibian Dollar (NAD) figures converted at **1 € = 18.68 NAD**.
 
 | Item | € |
 |:-------------------------------------------------------------|----------:|
@@ -118,7 +118,7 @@ Table: Travel and logistics — Namibia 2026 field deployment
 
 The flights alone account for more than half of this block and are
 also the single largest contributor to the project's transport
-carbon footprint, which §6.7 flags as a non-netted item in the
+carbon footprint, which §6.7 (limits of the analysis) flags as a non-netted item in the
 environmental analysis.
 
 ## 5.6 Funding sources
@@ -140,56 +140,57 @@ flow through the student authors directly.
   for the services thesis; ~€500 of asset value attributable to the
   hardware-side scope.
 - **AUCOOP**: coordination, intake-and-staging space at the UPC
-  Campus Nord, and the volunteer hours costed in §5.4. No cash flow.
+  Campus Nord, and the volunteer hours costed in §5.4 (engineering effort). No cash flow.
 
 The grant covers approximately 85 % of the cash spend recorded in
 §§5.1, 5.2 and 5.5 (~6 547 € against the 5 600 € grant, with a
 ~947 € overshoot absorbed by the spare budget of another AUCOOP project). The engineering
-effort of §5.4 is explicitly not funded; it is contributed in
+effort of §5.4 (engineering effort) is explicitly not funded; it is contributed in
 exchange for the academic credit of the two theses. The
 sustainability reading of this funding mix — small cash outlay
 leveraged through donations and volunteer effort — is treated as
-the economic dimension of §6.4.
+the economic dimension of §6.4 (economic dimension).
 
 ## 5.7 Total
 
 | Block | € |
 |---|---:|
 | Network hardware (§5.1) | ~958 |
-| Endpoint hardware (§5.2) | ~460 |
+| Endpoint hardware (§5.2) | ~12 |
 | Software (§5.3) | 0 |
 | Engineering effort (§5.4) | ~42 800 |
 | Travel and logistics (§5.5) | 5 577 |
 | **TOTAL — full project** | **~49 347** |
-| **TOTAL — cash only (excludes engineering)** | **~6 535** |
+| **TOTAL — cash only (excludes engineering)** | **~6 547** |
 
 Table: Total project budget — full cost and cash-only breakdown
 
 The full-project figure of
-~48 k€ reflects the true societal cost of the deployment if every
+~49 k€ reflects the true societal cost of the deployment if every
 hour of student and advisor time were paid at indicative rates; this
 is the figure that makes the project comparable to a commercial
-deployment. The cash-only figure of ~5.8 k€ is what an organisation
+deployment. The cash-only figure of ~6.5 k€ is what an organisation
 with access to a similar volunteer pool actually has to raise; this
 is the figure that makes the recipe replicable inside AUCOOP and
-similar associations, and it is the one against which §5.9 compares
+similar associations, and it is the one against which §5.9 (commercial-equivalent comparison) compares
 the commercial alternative.
 
 ## 5.8 Cost per beneficiary
 
-The N Mutschuana Primary School serves approximately **300 students**.
-Distributed evenly and the Children Home 60 kids:
+The N Mutschuana Primary School serves approximately **300 students**,
+and the Children's Home approximately **60 children**, for a combined
+beneficiary count of 360 distributed evenly:
 
-- **Full-project cost per student**: ~49 347 ÷ 360 ≈ **137,07 € / beneficiary**.
-- **Cash cost per beneficiary**: ~6 547 ÷ 360 ≈ **18,19 € / beneficiary**.
+- **Full-project cost per beneficiary**: ~49 347 ÷ 360 ≈ **137.07 € / beneficiary**.
+- **Cash cost per beneficiary**: ~6 547 ÷ 360 ≈ **18.19 € / beneficiary**.
 - **Cash cost per beneficiary per year of service** (assuming a
   conservative 5-year service life): ~**3.63 € / beneficiary / year**.
 
-The €3.63-per-student-per-year figure is the one that lands. It
+The €3.63-per-beneficiary-per-year figure is the one that lands. It
 includes a connected wireless network covering the school and a
 fleet of nine endpoints, and it is well within the range of
 cost-effectiveness benchmarks for ICT-in-education programmes
-reported in the ICT4D literature surveyed in §2.3.
+reported in the community-network literature surveyed in §2.1 (digital divide and community networks).
 
 ## 5.9 Comparison with the commercial-equivalent alternative
 <!-- \label{sec:budget-comparison} -->
@@ -202,28 +203,27 @@ deployment as follows.
 | Block | Refurbished + open recipe | Commercial-equivalent |
 |---|---:|---:|
 | Network hardware | ~960 € | ~3 500 € (Aruba Instant On / equivalent) |
-| Endpoints | ~460 € (parts) | ~7 200 € (9 × ~800 € new business laptops) |
+| Endpoints | ~12 € (USB sticks; laptops donated) | ~7 200 € (9 × ~800 € new business laptops) |
 | Software / licensing | 0 € | ~1 000 € (Windows + productivity, 9 seats) |
 | Installation labour | (volunteer) | ~2 500 € (contractor, 5 days × 2 people) |
-| 3-year support contract | (volunteer - community) | ~1 800 € |
-| **Cash subtotal** | **~1 420 €** | **~16 000 €** |
+| 3-year support contract | (volunteer — community) | ~1 800 € |
+| **Cash subtotal** | **~970 €** | **~16 000 €** |
 | Travel and logistics | 5 577 € | ~5 577 € (unchanged) |
-| **Total cash** | **~6 535 €** | **~21 577 €** |
+| **Total cash** | **~6 547 €** | **~21 577 €** |
 
 Table: Cost comparison — open recipe vs commercial-equivalent deployment
 
-The commercial-equivalent alternative is **3.5× more expensive
+The commercial-equivalent alternative is **3.3× more expensive
 in cash terms** and carries an additional environmental cost in
-manufacturing-phase emissions (quantified in §6.2.1). The
+manufacturing-phase emissions (quantified in §6.2.1, embodied carbon). The
 community-recipe approach trades that cash and that footprint for
 volunteer engineering effort and for the operational dependency on
-the handbook of §3.C — a dependency that the validation chapter
-(§4.4) shows the handbook is now mature enough to carry.
+the handbook of §3.C (living documentation) — a dependency that the validation chapter
+(§4.4, validation) shows the handbook is now mature enough to carry.
 
 The comparison should not be over-read. A commercial deployment
-buys things the community recipe does not: available support as per contract, an SLA, vendor liability, and faster mean-time-to-
-repair on hardware failures. Whether those properties are worth the
-3.5× premium depends on the deploying organisation's risk profile;
+buys things the community recipe does not: available support as per contract, a Service Level Agreement (SLA), vendor liability, and faster mean-time-to-repair on hardware failures. Whether those properties are worth the
+3.3× premium depends on the deploying organisation's risk profile;
 for AUCOOP and its partner sites, the trade-off has historically
 favoured the recipe described in this thesis, and this budget makes
 the magnitude of that trade-off explicit.

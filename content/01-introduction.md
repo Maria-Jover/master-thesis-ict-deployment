@@ -7,7 +7,7 @@ This thesis is one of two coordinated master's theses on the same
 project. The companion thesis [Motje, 2026] covers the **software**
 side (gateway firmware, services, authentication, monitoring, and the
 application stack). The present document covers the **hardware** side
-(the network fabric and the endpoint fleet) and the **Community Network Handbook** developped by the two parts that ties them together.
+(the network fabric and the endpoint fleet) and the **Community Network Handbook** developed by the two parts that ties them together.
 
 The five objectives below were defined jointly with the companion
 thesis. They are common to both documents; what differs is the
@@ -40,7 +40,7 @@ the network and endpoint deployment in Namibia (March 2026).
 
 The motivation for this thesis comes from two distinct but reinforcing
 sources. The first is *external*: the persistent gap in basic
-connectivity and usable ICT equipment in the communities where technological resources are scarce. The second is *internal*: a recurring pain point in the
+connectivity and usable Information and Communication Technology (ICT) equipment in the communities where technological resources are scarce. The second is *internal*: a recurring pain point in the
 association, namely the loss of knowledge between volunteer cohorts.
 This loss forces members to re-solve the same problems with each new
 generation of volunteers.
@@ -51,15 +51,15 @@ generation of volunteers.
 Reliable connectivity is no longer a luxury for the communities AUCOOP *(Associació d'Universitaris per la Cooperació)*
 partners with: it is a transformative tool that creates new
 opportunities for individuals. Schools, health posts, community
-centres, and NGOs increasingly depend on online services for
+centres, and Non-Governmental Organisations (NGOs) increasingly depend on online services for
 curricula, record-keeping, and communication with regional
-authorities. In the contexts AUCOOP brings students together to deploy ready to use projects. Over 20 years there have been +50 projects in +15 countries between Europe, America, Africa and Asia. The obstacle all those communities found was never a single piece, normally it was the combination of three deficits that reinforced each other.
+authorities. In the contexts AUCOOP brings students together to deploy ready-to-use projects. Over twenty years there have been more than fifty projects in over fifteen countries across Europe, America, Africa and Asia. The obstacle all those communities found was never a single piece; normally it was the combination of three deficits that reinforced each other.
 
 1. **No usable network.** Either there is no infrastructure at all,
-   or there is a single ADSL/4G uplink at one location, with no
+   or there is a single Asymmetric Digital Subscriber Line (ADSL) or 4G uplink at one location, with no
    capacity to cover the area that requires connectivity.
 2. **No usable endpoints.** Even when connectivity is solved, the
-   community often has only a handful of computers, slow and aged.  New hardware is unaffordable. Donations of refurbished
+   community often has only a handful of computers, slow and aged. New hardware is unaffordable. Donations of refurbished
    hardware exist, but they require process to deploy at scale.
 3. **No usable documentation.** The reference material that does
    exist assumes a level of bandwidth, budget, and expertise that the
@@ -67,19 +67,20 @@ authorities. In the contexts AUCOOP brings students together to deploy ready to 
    and online activation.
 
 This thesis tackles the first two deficits directly — through the
-network work in \autoref{sec:methodology-network} and the endpoint
-reconditioning pipeline in \autoref{sec:methodology-endpoint}. It
-attacks the third deficit by producing the handbook described in
-\autoref{sec:handbook}: a genuine, opinionated, field-tested
-alternative to the documentation that is currently missing.
+network work described in §3.A (network hardware deployment) and the
+endpoint reconditioning pipeline in §3.B (endpoint reconditioning and
+mass deployment). It attacks the third deficit by producing the
+handbook described in §3.C (the AUCOOP Handbook as a knowledge
+artefact): a genuine, opinionated, field-tested alternative to the
+documentation that is currently missing.
 
 ### 1.2.2 Internal motivation — knowledge continuity at AUCOOP
 <!-- \label{sec:motivation-internal} -->
 
 [AUCOOP](https://aucoop.upc.edu) is a student volunteer association at
-UPC. Its strength is also its structural weakness: it is formed by
-bachelor and master students, who join and  contribute for
-one to three academic years, graduate, and pass the batton. Over more than three
+the Universitat Politècnica de Catalunya (UPC). Its strength is also its structural weakness: it is formed by
+bachelor and master students, who join and contribute for
+one to three academic years, graduate, and pass the baton. Over more than three
 years inside the association, the author has watched the same
 pattern play out again and again:
 
@@ -91,9 +92,9 @@ pattern play out again and again:
 - Those students graduate within twelve months. The institutional
   memory of the project leaves with them.
 - The next cohort, picking up either a follow-up project at the same
-  site or a similar project elsewhere, start from the left documentation in the shared
+  site or a similar project elsewhere, starts from the leftover documentation in the shared
   drive of AUCOOP — but there is no clear way to apply it. They start from a blank page,
-  rediscover the same way of deploying things, the same issues and
+  rediscover the same way of deploying things, the same issues, and
   pay the same debugging cost the previous cohort already paid.
 - Two to three years later, the cycle repeats.
 
@@ -108,7 +109,8 @@ and that solving it is itself a worthwhile engineering contribution.
 The chosen solution — an open Git repository of Markdown sources that
 builds to a public [website](https://aucoop.github.io/Community-Network-Handbook/) *and* a downloadable PDF, governed by
 lightweight contribution rules and assisted by AI-driven authoring
-tooling — is described in \autoref{sec:handbook}. It is already in
+tooling — is described in §3.C (the AUCOOP Handbook as a knowledge
+artefact). It is already in
 use: this thesis was written against it, the Namibia 2026 deployment
 was documented in it, and the next AUCOOP student to pick up a
 project will find a non-empty starting point.
@@ -121,15 +123,15 @@ both deficits described above: arriving at a project with no
 documentation, and leaving a project knowing that the documentation
 she wrote would probably not be read. This thesis is the deliberate
 attempt to break that pattern — to leave behind
-something that the next person can stand on,  so the impact of each project can cascade to the next one.
+something that the next person can stand on, so the impact of each project can cascade to the next one.
 
 ## 1.3 Requirements and specifications
 <!-- \label{sec:requirements} -->
 
 The handbook — the deliverable must satisfy five
-requirements. These follow from the problem statement of
-\autoref{sec:motivation} and the objectives of
-\autoref{sec:objectives}. They are common to this thesis and the
+requirements. These follow from the problem statement of §1.2
+(motivation) and the objectives of §1.1 (statement of purpose). They
+are common to this thesis and the
 companion software thesis [Motje, 2026], and are listed adapted to the
 hardware-side of the project.
 
@@ -138,16 +140,16 @@ hardware-side of the project.
 contribution: short pull requests, lightweight review, and
 contribution rules small enough to read in one sitting. This
 requirement is the direct technical answer to the volunteer-rotation
-problem of \autoref{sec:motivation-internal}: if updating the artefact
-is more expensive than reinventing the knowledge it contains, no
-rational volunteer will update it.
+problem of §1.2.2 (knowledge continuity at AUCOOP): if updating the
+artefact is more expensive than reinventing the knowledge it contains,
+no rational volunteer will update it.
 
 **R2 — Openly accessible.** The handbook must be reachable from the
 field with intermittent connectivity, and consultable when there is
 no connectivity at all. Public web hosting alone is therefore
-insufficient: an exportable form (a downloadable full PDF, EPUB). The dual-output build pipeline
-(\autoref{sec:handbook} and \autoref{appendix:online-handbook})
-implements this requirement.
+insufficient: an exportable form (a downloadable full PDF or EPUB) is required. The dual-output build pipeline
+(§3.C, the handbook as knowledge artefact, and Appendix A, the online
+Handbook) implements this requirement.
 
 **R3 — Pedagogically progressive.** The handbook must serve readers
 ranging from those without prior exposure to community networks
@@ -155,12 +157,12 @@ through to volunteers needing a recipe for a specific task. A single linear docu
 audiences. The handbook addresses this
 through two complementary tracks: a narrative *Imaginary Use Case*
 (Chapter 2 of the handbook) that introduces the domain through a
-story, and a topical *Guide* (Chapter 3) organised as recipes. 
+story, and a topical *Guide* (Chapter 3) organised as recipes.
 
 **R4 — Free and open-source software (FOSS) where the recipe
 controls the stack.** The deployments of the handbook must be
 reproducible without commercial licences and maintainable by future
-cohorts using only freely available tooling. 
+cohorts using only freely available tooling.
 
 **R5 — Field-validated.** The recommendations the handbook contains
 must be traceable to a real deployment, not invented from
@@ -176,9 +178,9 @@ artefact:
 | # | Hardware-recipe requirement | Why |
 |--|---------|---------|
 | H1 | Network equipment must be supported by OpenWrt or an equivalent FOSS firmware | Auditability, longevity beyond vendor support window |
-| H2 | Endpoints must be sourced from refurbishment, not new manufacture | \autoref{sec:embedded-carbon-avoided} (carbon) and \autoref{sec:budget-comparison} (cost) |
-| H3 | Mass-deployment time per endpoint must be field-viable  | The deployment window is one-two work days |
-| H4 | The total per-site cash BOM must be raisable from a single small NGO grant | Replicability inside AUCOOP and similar associations (cf. \autoref{sec:budget-funding}) |
+| H2 | Endpoints must be sourced from refurbishment, not new manufacture | §6.2.1 (embedded carbon) and §5.9 (cost comparison) |
+| H3 | Mass-deployment time per endpoint must be field-viable  | The deployment window is one to two work days |
+| H4 | The total per-site cash BOM must be raisable from a single small NGO grant | Replicability inside AUCOOP and similar associations (cf. §5.6, funding sources) |
 
 Table: Hardware-recipe requirements (H1–H4)
 
@@ -188,11 +190,11 @@ Table: Hardware-recipe requirements (H1–H4)
 
 
 **Prior work — the [Hahatay](https://hahatay.network/es/) deployment in Senegal and other AUCOOP Projects.** The work
-presented here is, takes as its origin, the documetation created by an AUCOOP team — including the author — carried out in Hahatay
+presented here takes as its origin the documentation created by an AUCOOP team — including the author — carried out in Hahatay
 (Senegal) over more than three years of sustained engagement. Hahatay
 is one of the flagship projects of the association: a multi-site
 community network built incrementally, without a structured guide, in
-a rural Senegalese context. Experience from other projects has been captured through interviews and consolidation of stand alone documentation. All put toghether has been the principal source of the operational knowledge
+a rural Senegalese context. Experience from other projects has been captured through interviews and consolidation of stand-alone documentation. All of it put together has been the principal source of the operational knowledge
 captured in the Community Network Handbook.
 
 
@@ -200,7 +202,7 @@ captured in the Community Network Handbook.
 ## 1.5 Work plan and Gantt
 <!-- \label{sec:workplan} -->
 
-See [`gantt`](#16-gantt-diagram) below.
+See \autoref{fig:gantt} below.
 
 ### Phases
 
@@ -209,7 +211,7 @@ See [`gantt`](#16-gantt-diagram) below.
 | P1 | Bootstrap handbook repository, conventions, CI | Sep 2025 – Oct 2025 |
 | P2 | Network chapters (planning, IP, mesh, antennas, power) | Oct 2025 – Jan 2026 |
 | P3 | Laptop chapters (refurbishment, AUCOOP image, PXE/Clonezilla) | Jan 2026 – Mar 2026 |
-| P4 | Field deployment — Namibia (Gochas) | 20 Mar - 14 Apr 2026 |
+| P4 | Field deployment — Namibia (Gochas) | 20 Mar – 14 Apr 2026 |
 | P5 | Real-use case write-up + handbook consolidation | Mar 2026 – Apr 2026 |
 | P6 | Thesis write-up | Apr 2026 – May 2026 |
 | P7 | Defence preparation | May 2026 |
@@ -243,12 +245,12 @@ which had established OpenWrt community support at the time of
 planning. Between procurement and deployment Cudy released a V2
 board revision under the same product name and code with different
 internal hardware; the new board was not supported by OpenWrt, and
-there was no way to distinguish V1 from V2 units before reveiving the
+there was no way to distinguish V1 from V2 units before receiving the
 box. With less than three weeks to the departure date, the entire
 access-point selection had to be reconsidered. The Cudy WR3000E
 AX3000 was identified as a supported alternative with comparable
-spec. The episode is the reason the *Wireless-Mesh*
-recipe (\autoref{sec:methodology-network}) leads with the warning to
+specifications. The episode is the reason the *Wireless-Mesh*
+recipe (§3.A, network hardware deployment) leads with the warning to
 cross-check board revision against the OpenWrt Table of Hardware
 before purchasing.
 
@@ -258,14 +260,14 @@ would be deployed with the Labdoo image already installed — a
 standard Ubuntu-based system that Labdoo ships on all its devices.
 During pre-deployment user consultation it became clear that the
 Labdoo image was too unfamiliar for the teaching staff and students
-at the school: the desktop environment, application set did not match what they had previously used.
+at the school: the desktop environment and application set did not match what they had previously used.
 Rather than deploy a system the users would not be comfortable with,
 the project developed the AUCOOP image together with the PXE
 network-boot pipeline that allows laptops to be imaged in
-parallel from a single server connected through ethernet. Neither the image
+parallel from a single server connected through Ethernet. Neither the image
 nor the PXE infrastructure was in the original scope; both are now
-first-class outputs of the thesis, described in
-\autoref{sec:methodology-endpoint} and documented in the
+first-class outputs of the thesis, described in §3.B (endpoint
+reconditioning and mass deployment) and documented in the
 *Laptop-Deployment* recipe.
 
 **D3 — Children's Home deployment deferred: mesh left plug-and-play.**
